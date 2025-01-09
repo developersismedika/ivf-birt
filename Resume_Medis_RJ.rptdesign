@@ -1,0 +1,3248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.26" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="questionnaire_resp_id" id="4784">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">130000023</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4780">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
+            <property name="odaUser">root</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="patient" id="4781">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">questionnaire_resp_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">questionnaire_resp_id</text-property>
+                    <text-property name="heading">questionnaire_resp_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">statement_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">statement_no</text-property>
+                    <text-property name="heading">statement_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_mrn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_mrn</text-property>
+                    <text-property name="heading">patient_mrn</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_person_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_person_name</text-property>
+                    <text-property name="heading">patient_person_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_salutation</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_salutation</text-property>
+                    <text-property name="heading">patient_salutation</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_prefix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_prefix</text-property>
+                    <text-property name="heading">patient_prefix</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_suffix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_suffix</text-property>
+                    <text-property name="heading">patient_suffix</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_gender</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_gender</text-property>
+                    <text-property name="heading">patient_gender</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_birth_place</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_birth_place</text-property>
+                    <text-property name="heading">patient_birth_place</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_birth_dttm</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_birth_dttm</text-property>
+                    <text-property name="heading">patient_birth_dttm</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">age</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">age</text-property>
+                    <text-property name="heading">age</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_religion_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_religion_code</text-property>
+                    <text-property name="heading">patient_religion_code</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">practitioner_person_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">practitioner_person_name</text-property>
+                    <text-property name="heading">practitioner_person_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">practitioner_salutation</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">practitioner_salutation</text-property>
+                    <text-property name="heading">practitioner_salutation</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">practitioner_prefix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">practitioner_prefix</text-property>
+                    <text-property name="heading">practitioner_prefix</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">practitioner_suffix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">practitioner_suffix</text-property>
+                    <text-property name="heading">practitioner_suffix</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">education</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">education</text-property>
+                    <text-property name="heading">education</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">action_plan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">action_plan</text-property>
+                    <text-property name="heading">action_plan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">control_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">control_date</text-property>
+                    <text-property name="heading">control_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">control_plan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">control_plan</text-property>
+                    <text-property name="heading">control_plan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name_plan</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">name_plan</text-property>
+                    <text-property name="heading">name_plan</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">control_reason</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">control_reason</text-property>
+                    <text-property name="heading">control_reason</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">diagnosis_text</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">diagnosis_text</text-property>
+                    <text-property name="heading">diagnosis_text</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">main_complaint</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">main_complaint</text-property>
+                    <text-property name="heading">main_complaint</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">treatment_history</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">treatment_history</text-property>
+                    <text-property name="heading">treatment_history</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">current_medical_history</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">current_medical_history</text-property>
+                    <text-property name="heading">current_medical_history</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">previous_medical_history</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">previous_medical_history</text-property>
+                    <text-property name="heading">previous_medical_history</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">localist_template</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">localist_template</text-property>
+                    <text-property name="heading">localist_template</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">physical_examination_meaningfull</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">physical_examination_meaningfull</text-property>
+                    <text-property name="heading">physical_examination_meaningfull</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">diagnosis_text_1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">diagnosis_text</text-property>
+                    <text-property name="heading">diagnosis_text</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">questionnaire_resp_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">questionnaire_resp_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">statement_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">patient_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">patient_person_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">patient_salutation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">patient_prefix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">patient_suffix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">patient_gender</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">patient_birth_place</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">patient_birth_dttm</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">age</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">patient_religion_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">practitioner_person_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">practitioner_salutation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">practitioner_prefix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">practitioner_suffix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">education</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">action_plan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">control_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">control_plan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">name_plan</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">control_reason</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">diagnosis_text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">main_complaint</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">treatment_history</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">current_medical_history</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">previous_medical_history</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">localist_template</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">physical_examination_meaningfull</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">diagnosis_text_1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">questionnaire_resp_id</property>
+                    <property name="nativeName">questionnaire_resp_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">statement_no</property>
+                    <property name="nativeName">statement_no</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">patient_mrn</property>
+                    <property name="nativeName">patient_mrn</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">patient_person_name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">patient_salutation</property>
+                    <property name="nativeName">salutation</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">patient_prefix</property>
+                    <property name="nativeName">prefix</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">patient_suffix</property>
+                    <property name="nativeName">suffix</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">patient_gender</property>
+                    <property name="nativeName">patient_gender</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">patient_birth_place</property>
+                    <property name="nativeName">birth_place</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">patient_birth_dttm</property>
+                    <property name="nativeName">patient_birth_dttm</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">age</property>
+                    <property name="nativeName">age</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">patient_religion_code</property>
+                    <property name="nativeName">religion_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">practitioner_person_name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">practitioner_salutation</property>
+                    <property name="nativeName">salutation</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">practitioner_prefix</property>
+                    <property name="nativeName">prefix</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">practitioner_suffix</property>
+                    <property name="nativeName">suffix</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">education</property>
+                    <property name="nativeName">education</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">action_plan</property>
+                    <property name="nativeName">action_plan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">control_date</property>
+                    <property name="nativeName">control_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">control_plan</property>
+                    <property name="nativeName">control_plan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">name_plan</property>
+                    <property name="nativeName">name_plan</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">control_reason</property>
+                    <property name="nativeName">control_reason</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">diagnosis_text</property>
+                    <property name="nativeName">diagnosis_text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">main_complaint</property>
+                    <property name="nativeName">main_complaint</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">treatment_history</property>
+                    <property name="nativeName">treatment_history</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">current_medical_history</property>
+                    <property name="nativeName">current_medical_history</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">previous_medical_history</property>
+                    <property name="nativeName">previous_medical_history</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">localist_template</property>
+                    <property name="nativeName">localist_template</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">physical_examination_meaningfull</property>
+                    <property name="nativeName">physical_examination_meaningfull</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">diagnosis_text_1</property>
+                    <property name="nativeName">diagnosis_text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+emr.questionnaire_resp_id,
+st.statement_no,
+p.patient_mrn,
+ptn.person_name as patient_person_name,
+ptn.salutation as patient_salutation,
+ptn.prefix as patient_prefix,
+ptn.suffix as patient_suffix,
+IF(ptn.gender = 'female' , 'Perempuan' , 'Laki-Laki' ) as patient_gender,
+ptn.birth_place as patient_birth_place,
+DATE(ptn.birth_dttm) as patient_birth_dttm,
+CONCAT(
+      TIMESTAMPDIFF(YEAR, ptn.birth_dttm, CURDATE()), ' Tahun ', 
+      TIMESTAMPDIFF(MONTH, ptn.birth_dttm, CURDATE()) % 12, ' Bulan'
+) AS age,
+ptn.religion_code as patient_religion_code,
+
+prct.person_name as practitioner_person_name,
+prct.salutation as practitioner_salutation,
+prct.prefix as practitioner_prefix,
+prct.suffix as practitioner_suffix,
+
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.education')) AS education,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.actionPlan')) AS action_plan,
+DATE(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlDate'))) AS control_date,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) AS control_plan,
+CASE
+    JSON_UNQUOTE(
+    JSON_EXTRACT( questionnaire_resp_json, '$.plan.managementPlan.controlPlan' )) 
+    WHEN 'follow_up' THEN
+    '• Kontrol Ulang' 
+    WHEN 'completed' THEN
+    '• Selesai' 
+    WHEN 'refer_back' THEN
+    '• Rujuk Balik' ELSE '-' 
+ END AS name_plan,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlReason')) AS control_reason,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS diagnosis_text,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.mainComplaint')) AS main_complaint,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.treatmentHistory')) AS treatment_history,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.currentMedicalHistory')) AS current_medical_history,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.previousMedicalHistory')) AS previous_medical_history,
+
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.localistTemplate.obgynAndrologyLocalist.description')) AS localist_template,
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.physicalExaminationMeaningfullSupport')) AS physical_examination_meaningfull,
+
+JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assesment.diagnosis')) AS diagnosis_text
+
+FROM `emr` 
+LEFT JOIN patient p on p.patient_id = emr.patient_id
+LEFT JOIN person ptn on ptn.person_id = emr.patient_id
+LEFT JOIN person prct on prct.person_id = emr.practitioner_id
+LEFT JOIN questionnaire_response qr on qr.questionnaire_resp_id = emr.questionnaire_resp_id
+LEFT JOIN statement st on qr.questionnaire_resp_id = st.questionnaire_resp_id
+
+WHERE emr.questionnaire_resp_id = ?;
+]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>user_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>user_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>user_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>employee_id</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>employee_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>employee_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>organization_id</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>organization_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>organization_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>default_organization_id</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>default_organization_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>default_organization_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>user_nik</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>user_nik</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>user_nik</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>user_nm</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>user_nm</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>user_nm</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>user_email</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>250</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>user_email</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>user_email</design:label>
+            <design:formattingHints>
+              <design:displaySize>250</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>user_phone</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>user_phone</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>user_phone</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>pass_hash</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>61</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>pass_hash</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>pass_hash</design:label>
+            <design:formattingHints>
+              <design:displaySize>61</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>pass_plain</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>pass_plain</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>pass_plain</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>start_page</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>start_page</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>start_page</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>created_dttm</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>created_dttm</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>created_dttm</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>status_cd</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>9</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>status_cd</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>status_cd</design:label>
+            <design:formattingHints>
+              <design:displaySize>9</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>status_dttm</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>status_dttm</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>status_dttm</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>last_login_dttm</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>last_login_dttm</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>last_login_dttm</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>last_pgroup_id</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>last_pgroup_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>last_pgroup_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>last_org_id</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>last_org_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>last_org_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>last_page_id</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>last_page_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>last_page_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>token</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>132</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>token</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>token</design:label>
+            <design:formattingHints>
+              <design:displaySize>132</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="vitalsigns" id="4808">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">questionnaire_resp_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">questionnaire_resp_id</text-property>
+                    <text-property name="heading">questionnaire_resp_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vital_datetime</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">vital_datetime</text-property>
+                    <text-property name="heading">vital_datetime</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">temperature</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">temperature</text-property>
+                    <text-property name="heading">temperature</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vital_pulse</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">vital_pulse</text-property>
+                    <text-property name="heading">vital_pulse</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">respiration_rate</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">respiration_rate</text-property>
+                    <text-property name="heading">respiration_rate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">oxygen_saturation</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">oxygen_saturation</text-property>
+                    <text-property name="heading">oxygen_saturation</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">blood_pressure</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">blood_pressure</text-property>
+                    <text-property name="heading">blood_pressure</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">questionnaire_resp_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">questionnaire_resp_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">vital_datetime</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">temperature</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">vital_pulse</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">respiration_rate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">oxygen_saturation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">blood_pressure</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">questionnaire_resp_id</property>
+                    <property name="nativeName">questionnaire_resp_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">vital_datetime</property>
+                    <property name="nativeName">vital_datetime</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">temperature</property>
+                    <property name="nativeName">temperature</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">vital_pulse</property>
+                    <property name="nativeName">vital_pulse</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">respiration_rate</property>
+                    <property name="nativeName">respiration_rate</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">oxygen_saturation</property>
+                    <property name="nativeName">oxygen_saturation</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">blood_pressure</property>
+                    <property name="nativeName">blood_pressure</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+    qr.questionnaire_resp_id,
+    DATE(jt.vital_datetime) as vital_datetime,
+    CONCAT(jt.temperature, '° C') as temperature,
+    CONCAT(jt.vital_pulse,' x/menit') as vital_pulse,
+    CONCAT(jt.respiration_rate,' x/menit') as respiration_rate,
+    CONCAT(jt.oxygen_saturation, ' mmHg') as oxygen_saturation,
+    CONCAT(jt.systolic_pressure,'/', jt.diastolic_pressure, ' mmHg') as blood_pressure
+FROM 
+    questionnaire_response qr,
+    JSON_TABLE(
+        qr.questionnaire_resp_json,
+        '$.objective.vitalSigns[*]' 
+        COLUMNS (
+            vital_pulse VARCHAR(10) PATH '$.pulse',
+            vital_datetime DATETIME PATH '$.datetime',
+            temperature VARCHAR(10) PATH '$.temperature',
+            respiration_rate VARCHAR(10) PATH '$.respirationRate',
+            oxygen_saturation VARCHAR(10) PATH '$.oxygenSaturation',
+            systolic_pressure VARCHAR(10) PATH '$.systolicPressure',
+            diastolic_pressure VARCHAR(10) PATH '$.diastolicPressure'
+        )
+    ) jt
+WHERE 
+    qr.questionnaire_resp_id = ?;]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="header" id="4917">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ivf_site_logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ivf_site_logo</text-property>
+                    <text-property name="heading">ivf_site_logo</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ivf_site_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ivf_site_name</text-property>
+                    <text-property name="heading">ivf_site_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address_text</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">address_text</text-property>
+                    <text-property name="heading">address_text</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">questionnaire_resp_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ivf_site_logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ivf_site_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">address_text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ivf_site_logo</property>
+                    <property name="nativeName">ivf_site_logo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ivf_site_name</property>
+                    <property name="nativeName">ivf_site_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">address_text</property>
+                    <property name="nativeName">address_text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  ivs.ivf_site_logo,
+  ivs.ivf_site_name,
+  lc.address_text 
+FROM
+  emr
+  LEFT JOIN encounter e ON e.encounter_id = emr.encounter_id
+  LEFT JOIN order_header oh ON oh.order_header_id = e.order_header_id
+  LEFT JOIN ivf_site ivs ON ivs.organization_id = oh.organization_id
+  LEFT JOIN location lc ON lc.organization_id = oh.organization_id 
+WHERE
+  emr.questionnaire_resp_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>location_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>location_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>location_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>address_text</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>address_text</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>address_text</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Diagnosis" id="4924">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">questionnaire_resp_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">questionnaire_resp_id</text-property>
+                    <text-property name="heading">questionnaire_resp_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">icd_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">icd_name</text-property>
+                    <text-property name="heading">icd_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">location</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">location</text-property>
+                    <text-property name="heading">location</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">questionnaire_resp_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">questionnaire_resp_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">icd_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">questionnaire_resp_id</property>
+                    <property name="nativeName">questionnaire_resp_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">icd_name</property>
+                    <property name="nativeName">icd_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">location</property>
+                    <property name="nativeName">location</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    qr.questionnaire_resp_id,
+    CONCAT('•', jt.icd_code, ' ', jt.icd_name) as icd_name,
+    REPLACE(REPLACE(REPLACE(jt.location, '[', ''), ']', ''), '"', '') as location
+FROM
+    questionnaire_response qr,
+    JSON_TABLE(
+        qr.questionnaire_resp_json,
+        '$.assessment.diagnosisList[*]'
+        COLUMNS (
+            icd_code VARCHAR(10) PATH '$.icd.code',
+            icd_name VARCHAR(255) PATH '$.icd.name',
+            location JSON PATH '$.location'
+        )
+    ) jt
+WHERE
+    qr.questionnaire_resp_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>questionnaire_resp_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>questionnaire_resp_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>questionnaire_resp_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>icd_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>266</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>icd_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>icd_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>266</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>location</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>4194304</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>location</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>location</design:label>
+            <design:formattingHints>
+              <design:displaySize>4194304</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="cpoe" id="4927">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">questionnaire_resp_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">questionnaire_resp_id</text-property>
+                    <text-property name="heading">questionnaire_resp_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">notes</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">notes</text-property>
+                    <text-property name="heading">notes</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">healthcare_service</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">healthcare_service</text-property>
+                    <text-property name="heading">healthcare_service</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">department</text-property>
+                    <text-property name="heading">department</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">examination</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">examination</text-property>
+                    <text-property name="heading">examination</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">statement_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">statement_id</text-property>
+                    <text-property name="heading">statement_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">reason_referal</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">reason_referal</text-property>
+                    <text-property name="heading">reason_referal</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">working_diagnosis</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">working_diagnosis</text-property>
+                    <text-property name="heading">working_diagnosis</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_colleagues</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_colleagues</text-property>
+                    <text-property name="heading">patient_colleagues</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">purpose_consultation_request</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">purpose_consultation_request</text-property>
+                    <text-property name="heading">purpose_consultation_request</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">questionnaire_resp_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">questionnaire_resp_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">notes</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">healthcare_service</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">examination</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">statement_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">reason_referal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">working_diagnosis</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">patient_colleagues</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">purpose_consultation_request</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">questionnaire_resp_id</property>
+                    <property name="nativeName">questionnaire_resp_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">notes</property>
+                    <property name="nativeName">notes</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">healthcare_service</property>
+                    <property name="nativeName">healthcare_service</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">department</property>
+                    <property name="nativeName">department</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">examination</property>
+                    <property name="nativeName">examination</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">statement_id</property>
+                    <property name="nativeName">statement_id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">reason_referal</property>
+                    <property name="nativeName">reason_referal</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">working_diagnosis</property>
+                    <property name="nativeName">working_diagnosis</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">patient_colleagues</property>
+                    <property name="nativeName">patient_colleagues</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">purpose_consultation_request</property>
+                    <property name="nativeName">purpose_consultation_request</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    qr.questionnaire_resp_id,
+    jt.notes,
+    jt.healthcare_service,
+    jt.department,
+    jt.examination,
+    jt.statement_id,
+    jt.reason_referal,
+    jt.working_diagnosis,
+    jt.patient_colleagues,
+    jt.purpose_consultation_request
+FROM
+    questionnaire_response qr,
+    JSON_TABLE(
+        qr.questionnaire_resp_json,
+        '$.plan.externalReference[*]'
+        COLUMNS (
+            notes VARCHAR(255) PATH '$.notes',
+            department VARCHAR(255) PATH '$.department',
+            examination VARCHAR(255) PATH '$.examination',
+            statement_id VARCHAR(255) PATH '$.statementID',
+            reason_referal VARCHAR(255) PATH '$.reasonReferal',
+            working_diagnosis VARCHAR(255) PATH '$.workingDiagnosis',
+            healthcare_service VARCHAR(255) PATH '$.healthcareService',
+            patient_colleagues VARCHAR(255) PATH '$.patientColleagues',
+            purpose_consultation_request VARCHAR(255) PATH '$.purposeConsultationRequest'
+        )
+    ) jt
+WHERE
+    qr.questionnaire_resp_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>questionnaire_resp_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>questionnaire_resp_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>questionnaire_resp_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>notes</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>notes</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>notes</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>department</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>department</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>department</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>examination</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>examination</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>examination</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>statement_id</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>statement_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>statement_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>reason_referal</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>reason_referal</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>reason_referal</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>working_diagnosis</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>working_diagnosis</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>working_diagnosis</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>healthcare_service</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>healthcare_service</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>healthcare_service</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patient_colleagues</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>patient_colleagues</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>patient_colleagues</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>purpose_consultation_request</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>purpose_consultation_request</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>purpose_consultation_request</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <property name="width">7.729166666666667in</property>
+            <column id="5">
+                <property name="width">1.6458333333333333in</property>
+            </column>
+            <column id="6">
+                <property name="width">6.083333333333333in</property>
+            </column>
+            <row id="7">
+                <cell id="8">
+                    <image id="4361">
+                        <property name="height">84px</property>
+                        <property name="width">146px</property>
+                        <property name="source">file</property>
+                        <expression name="uri" type="constant">Smart IVF.jpg</expression>
+                    </image>
+                </cell>
+                <cell id="9">
+                    <property name="verticalAlign">middle</property>
+                    <grid id="4366">
+                        <property name="height">0.65625in</property>
+                        <column id="4367"/>
+                        <row id="4368">
+                            <cell id="4369">
+                                <property name="fontSize">12px</property>
+                                <property name="textAlign">right</property>
+                                <property name="lineHeight">normal</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="4920">
+                                    <property name="fontSize">14px</property>
+                                    <property name="fontWeight">600</property>
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">ivf_site_name</property>
+                                            <text-property name="displayName">ivf_site_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">ivf_site_name</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="4370">
+                            <property name="height">0.34375in</property>
+                            <cell id="4371">
+                                <property name="textAlign">right</property>
+                                <property name="lineHeight">1px</property>
+                                <property name="verticalAlign">middle</property>
+                                <property name="height">100%</property>
+                                <data id="4918">
+                                    <property name="fontSize">12px</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">address_text</property>
+                                            <text-property name="displayName">address_text</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["address_text"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">address_text</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4385">
+            <property name="height">30px</property>
+            <column id="4386"/>
+            <row id="4387">
+                <property name="height">30px</property>
+                <cell id="4388"/>
+            </row>
+        </grid>
+        <grid id="4393">
+            <column id="4394"/>
+            <column id="4395"/>
+            <row id="4396">
+                <cell id="4397">
+                    <label id="4401">
+                        <property name="fontSize">18px</property>
+                        <property name="fontWeight">600</property>
+                        <property name="textAlign">left</property>
+                        <text-property name="text">Resume Medis Rawat Jalan</text-property>
+                    </label>
+                </cell>
+                <cell id="4398">
+                    <property name="verticalAlign">middle</property>
+                    <data id="4921">
+                        <property name="fontSize">12px</property>
+                        <property name="textAlign">right</property>
+                        <property name="verticalAlign">middle</property>
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">statement_no</property>
+                                <text-property name="displayName">statement_no</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["statement_no"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">statement_no</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4404">
+            <property name="height">30px</property>
+            <column id="4405"/>
+            <row id="4406">
+                <property name="height">30px</property>
+                <cell id="4407"/>
+            </row>
+        </grid>
+        <grid id="4408">
+            <column id="4409"/>
+            <row id="4410">
+                <cell id="4411">
+                    <property name="borderBottomColor">gray</property>
+                    <property name="borderBottomStyle">inset</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">gray</property>
+                    <property name="borderLeftStyle">inset</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">gray</property>
+                    <property name="borderRightStyle">inset</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">gray</property>
+                    <property name="borderTopStyle">inset</property>
+                    <property name="borderTopWidth">thin</property>
+                    <grid id="4412">
+                        <property name="width">7.875in</property>
+                        <column id="4413">
+                            <property name="width">1.09375in</property>
+                        </column>
+                        <column id="4414">
+                            <property name="width">0.22916666666666666in</property>
+                        </column>
+                        <column id="4415">
+                            <property name="width">1.8333333333333333in</property>
+                        </column>
+                        <column id="4416">
+                            <property name="width">1.1979166666666667in</property>
+                        </column>
+                        <column id="4417">
+                            <property name="width">0.19791666666666666in</property>
+                        </column>
+                        <column id="4418">
+                            <property name="width">3.3229166666666665in</property>
+                        </column>
+                        <row id="4419">
+                            <cell id="4420">
+                                <property name="fontSize">12px</property>
+                                <label id="4433">
+                                    <text-property name="text">Nama</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4421">
+                                <property name="fontSize">12px</property>
+                                <label id="4434">
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4422">
+                                <property name="fontSize">12px</property>
+                                <data id="4785">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">patient_person_name</property>
+                                            <text-property name="displayName">patient_person_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["patient_person_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">patient_person_name</property>
+                                </data>
+                            </cell>
+                            <cell id="4423">
+                                <property name="fontSize">12px</property>
+                                <label id="4436">
+                                    <text-property name="text">Tgl. Lahir</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4424">
+                                <property name="fontSize">12px</property>
+                                <label id="4437">
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4425">
+                                <property name="fontSize">12px</property>
+                                <grid id="4788">
+                                    <column id="4789"/>
+                                    <column id="4790"/>
+                                    <row id="4791">
+                                        <cell id="4792">
+                                            <data id="4795">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">patient_birth_dttm</property>
+                                                        <text-property name="displayName">patient_birth_dttm</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["patient_birth_dttm"]</expression>
+                                                        <property name="dataType">date</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">patient_birth_dttm</property>
+                                            </data>
+                                        </cell>
+                                        <cell id="4793">
+                                            <data id="4797">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">age</property>
+                                                        <text-property name="displayName">age</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["age"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">age</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="4426">
+                            <cell id="4427">
+                                <property name="fontSize">12px</property>
+                                <label id="4439">
+                                    <text-property name="text">No. MedRec</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4428">
+                                <property name="fontSize">12px</property>
+                                <label id="4440">
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4429">
+                                <property name="fontSize">12px</property>
+                                <data id="4801">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">patient_mrn</property>
+                                            <text-property name="displayName">patient_mrn</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["patient_mrn"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">patient_mrn</property>
+                                </data>
+                            </cell>
+                            <cell id="4430">
+                                <property name="fontSize">12px</property>
+                                <label id="4442">
+                                    <text-property name="text">Jenis Kelamin</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4431">
+                                <property name="fontSize">12px</property>
+                                <label id="4443">
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="4432">
+                                <property name="fontSize">12px</property>
+                                <data id="4787">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">patient_gender</property>
+                                            <text-property name="displayName">patient_gender</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["patient_gender"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">patient_gender</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4445">
+            <property name="height">30px</property>
+            <column id="4446"/>
+            <row id="4447">
+                <property name="height">30px</property>
+                <cell id="4448"/>
+            </row>
+        </grid>
+        <grid id="4449">
+            <property name="width">7.75in</property>
+            <column id="4450">
+                <property name="width">2.0729166666666665in</property>
+            </column>
+            <column id="4451">
+                <property name="width">0.22916666666666666in</property>
+            </column>
+            <column id="4452">
+                <property name="width">5.447916666666667in</property>
+            </column>
+            <row id="4453">
+                <cell id="4454">
+                    <property name="fontSize">12px</property>
+                    <label id="4457">
+                        <text-property name="text">Tgl. Visit</text-property>
+                    </label>
+                </cell>
+                <cell id="4455">
+                    <property name="fontSize">12px</property>
+                    <label id="4458">
+                        <property name="textAlign">center</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4456">
+                    <property name="fontSize">12px</property>
+                    <data id="4798">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">control_date</property>
+                                <text-property name="displayName">control_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">control_date</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4460">
+            <property name="height">30px</property>
+            <column id="4461"/>
+            <row id="4462">
+                <property name="height">30px</property>
+                <cell id="4463"/>
+            </row>
+        </grid>
+        <grid id="4464">
+            <property name="width">7.739583333333333in</property>
+            <column id="4465">
+                <property name="width">2.0729166666666665in</property>
+            </column>
+            <column id="4466">
+                <property name="textAlign">center</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">0.22916666666666666in</property>
+            </column>
+            <column id="4467">
+                <property name="width">5.4375in</property>
+            </column>
+            <row id="4468">
+                <cell id="4469">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                    <label id="4489">
+                        <property name="fontSize">14px</property>
+                        <property name="fontWeight">600</property>
+                        <text-property name="text">Anamnesis</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="4534">
+                <cell id="4535">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                </cell>
+            </row>
+            <row id="4472">
+                <cell id="4473">
+                    <property name="fontSize">12px</property>
+                    <label id="4490">
+                        <text-property name="text">Keluhan Utama</text-property>
+                    </label>
+                </cell>
+                <cell id="4474">
+                    <property name="fontSize">12px</property>
+                    <label id="4491">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4475">
+                    <property name="fontSize">12px</property>
+                    <data id="4800">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">main_complaint</property>
+                                <text-property name="displayName">main_complaint</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["main_complaint"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">main_complaint</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="4476">
+                <cell id="4477">
+                    <property name="fontSize">12px</property>
+                    <label id="4499">
+                        <text-property name="text">Riwayat Penyakit (Sekarang)</text-property>
+                    </label>
+                </cell>
+                <cell id="4478">
+                    <property name="fontSize">12px</property>
+                    <label id="4492">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4479">
+                    <property name="fontSize">12px</property>
+                    <data id="4802">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">current_medical_history</property>
+                                <text-property name="displayName">current_medical_history</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["current_medical_history"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">current_medical_history</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="4480">
+                <cell id="4481">
+                    <property name="fontSize">12px</property>
+                    <label id="4500">
+                        <text-property name="text">Riwayat Penyakit (Dahulu)</text-property>
+                    </label>
+                </cell>
+                <cell id="4482">
+                    <property name="fontSize">12px</property>
+                    <label id="4493">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4483">
+                    <property name="fontSize">12px</property>
+                    <data id="4803">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">previous_medical_history</property>
+                                <text-property name="displayName">previous_medical_history</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["previous_medical_history"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">previous_medical_history</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="4484">
+                <cell id="4485">
+                    <property name="fontSize">12px</property>
+                    <label id="4501">
+                        <text-property name="text">Riwayat Pengobatan</text-property>
+                    </label>
+                </cell>
+                <cell id="4486">
+                    <property name="fontSize">12px</property>
+                    <label id="4494">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4487">
+                    <property name="fontSize">12px</property>
+                    <data id="4804">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">treatment_history</property>
+                                <text-property name="displayName">treatment_history</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["treatment_history"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">treatment_history</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4502">
+            <property name="height">30px</property>
+            <column id="4503"/>
+            <row id="4504">
+                <property name="height">30px</property>
+                <cell id="4505"/>
+            </row>
+        </grid>
+        <grid id="4506">
+            <property name="width">7.739583333333333in</property>
+            <column id="4507">
+                <property name="width">1.5208333333333333in</property>
+            </column>
+            <column id="4508">
+                <property name="textAlign">center</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">0.22916666666666666in</property>
+            </column>
+            <column id="4509">
+                <property name="textAlign">left</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">5.989583333333333in</property>
+            </column>
+            <row id="4510">
+                <cell id="4511">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                    <label id="4527">
+                        <property name="fontSize">14px</property>
+                        <property name="fontWeight">600</property>
+                        <text-property name="text">Pemeriksaan Fisik</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="4538">
+                <cell id="4539">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                </cell>
+            </row>
+            <row id="4514">
+                <cell id="4515">
+                    <property name="fontSize">12px</property>
+                    <label id="4531">
+                        <text-property name="text">Pemeriksaan Fisik/ &#13;
+Penunjang Bermakna</text-property>
+                    </label>
+                </cell>
+                <cell id="4516">
+                    <property name="fontSize">12px</property>
+                    <label id="4528">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4517">
+                    <property name="fontSize">12px</property>
+                    <data id="4805">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">physical_examination_meaningfull</property>
+                                <text-property name="displayName">physical_examination_meaningfull</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["physical_examination_meaningfull"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">physical_examination_meaningfull</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="4518">
+                <cell id="4519">
+                    <property name="fontSize">12px</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="4532">
+                        <text-property name="text">Tanda Vital</text-property>
+                    </label>
+                </cell>
+                <cell id="4520">
+                    <property name="fontSize">12px</property>
+                    <label id="4529">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4521">
+                    <property name="fontSize">12px</property>
+                    <table id="4877">
+                        <property name="width">5.927083333333333in</property>
+                        <property name="dataSet">vitalsigns</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">vital_datetime</property>
+                                <text-property name="displayName">vital_datetime</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["vital_datetime"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                            <structure>
+                                <property name="name">temperature</property>
+                                <text-property name="displayName">temperature</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["temperature"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">vital_pulse</property>
+                                <text-property name="displayName">vital_pulse</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["vital_pulse"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">respiration_rate</property>
+                                <text-property name="displayName">respiration_rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["respiration_rate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">oxygen_saturation</property>
+                                <text-property name="displayName">oxygen_saturation</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["oxygen_saturation"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">blood_pressure</property>
+                                <text-property name="displayName">blood_pressure</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["blood_pressure"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="4911">
+                            <property name="width">0.9895833333333334in</property>
+                        </column>
+                        <column id="4912">
+                            <property name="width">0.6354166666666666in</property>
+                        </column>
+                        <column id="4913">
+                            <property name="width">1.0416666666666667in</property>
+                        </column>
+                        <column id="4914">
+                            <property name="width">1.0833333333333333in</property>
+                        </column>
+                        <column id="4915">
+                            <property name="width">0.9375in</property>
+                        </column>
+                        <column id="4916">
+                            <property name="width">1.2395833333333333in</property>
+                        </column>
+                        <header>
+                            <row id="4878">
+                                <property name="textAlign">center</property>
+                                <cell id="4879">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4880">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Waktu</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="4881">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4882">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Suhu</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="4883">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4884">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">left</property>
+                                        <text-property name="text">Nadi</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="4885">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4886">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Pernafasan</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="4887">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4888">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">O2Saturasi</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="4889">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="4890">
+                                        <property name="fontWeight">600</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Tekanan Darah</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="4891">
+                                <cell id="4892">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4893">
+                                        <property name="resultSetColumn">vital_datetime</property>
+                                    </data>
+                                </cell>
+                                <cell id="4894">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4895">
+                                        <property name="resultSetColumn">temperature</property>
+                                    </data>
+                                </cell>
+                                <cell id="4896">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4897">
+                                        <property name="resultSetColumn">vital_pulse</property>
+                                    </data>
+                                </cell>
+                                <cell id="4898">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4899">
+                                        <property name="resultSetColumn">respiration_rate</property>
+                                    </data>
+                                </cell>
+                                <cell id="4900">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4901">
+                                        <property name="resultSetColumn">oxygen_saturation</property>
+                                    </data>
+                                </cell>
+                                <cell id="4902">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="4903">
+                                        <property name="resultSetColumn">blood_pressure</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="4904">
+                                <cell id="4905">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="4906">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="4907">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="4908">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="4909">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="4910">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="4522">
+                <cell id="4523">
+                    <property name="fontSize">12px</property>
+                    <label id="4533">
+                        <text-property name="text">Status Lokalis</text-property>
+                    </label>
+                </cell>
+                <cell id="4524">
+                    <property name="fontSize">12px</property>
+                    <label id="4530">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4525">
+                    <property name="fontSize">12px</property>
+                    <grid id="4637">
+                        <column id="4638"/>
+                        <column id="4639"/>
+                        <row id="4640">
+                            <cell id="4641">
+                                <image id="4646">
+                                    <property name="height">1.6805555555555556in</property>
+                                    <property name="width">2.625in</property>
+                                    <property name="source">file</property>
+                                    <expression name="uri" type="constant">g1460.png</expression>
+                                </image>
+                            </cell>
+                            <cell id="4642">
+                                <image id="4647">
+                                    <property name="height">1.6666666666666667in</property>
+                                    <property name="width">1.8194444444444444in</property>
+                                    <property name="source">file</property>
+                                    <expression name="uri" type="constant">depositphotos_226050370-stock-illustration-education-chart-of-biology-for-removebg-preview 1 (1).png</expression>
+                                </image>
+                            </cell>
+                        </row>
+                        <row id="4643">
+                            <cell id="4644">
+                                <property name="colSpan">2</property>
+                                <property name="rowSpan">1</property>
+                                <data id="4806">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">localist_template</property>
+                                            <text-property name="displayName">localist_template</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["localist_template"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">localist_template</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4649">
+            <property name="height">30px</property>
+            <column id="4650"/>
+            <row id="4651">
+                <property name="height">30px</property>
+                <cell id="4652"/>
+            </row>
+        </grid>
+        <grid id="4653">
+            <property name="width">7.739583333333333in</property>
+            <column id="4654">
+                <property name="width">2.5833333333333335in</property>
+            </column>
+            <column id="4655">
+                <property name="width">0.22916666666666666in</property>
+            </column>
+            <column id="4656">
+                <property name="width">4.927083333333333in</property>
+            </column>
+            <row id="4657">
+                <cell id="4658">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                    <label id="4665">
+                        <property name="fontSize">14px</property>
+                        <property name="fontWeight">600</property>
+                        <text-property name="text">Diagnosis</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="4661">
+                <cell id="4662">
+                    <property name="fontSize">12px</property>
+                    <label id="4666">
+                        <text-property name="text">Diagnosis</text-property>
+                    </label>
+                </cell>
+                <cell id="4663">
+                    <property name="fontSize">12px</property>
+                    <label id="4667">
+                        <property name="textAlign">center</property>
+                        <property name="verticalAlign">middle</property>
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4664">
+                    <property name="fontSize">12px</property>
+                    <list id="4925">
+                        <property name="dataSet">Diagnosis</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">icd_name</property>
+                                <text-property name="displayName">icd_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["icd_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <detail>
+                            <data id="4926">
+                                <property name="resultSetColumn">icd_name</property>
+                            </data>
+                        </detail>
+                    </list>
+                </cell>
+            </row>
+        </grid>
+        <grid id="4692">
+            <property name="height">30px</property>
+            <column id="4693"/>
+            <row id="4694">
+                <property name="height">30px</property>
+                <cell id="4695"/>
+            </row>
+        </grid>
+        <grid id="4696">
+            <property name="fontSize">12px</property>
+            <property name="width">7.739583333333333in</property>
+            <column id="4697">
+                <property name="width">2.5833333333333335in</property>
+            </column>
+            <column id="4698">
+                <property name="textAlign">center</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">0.22916666666666666in</property>
+            </column>
+            <column id="4699">
+                <property name="width">4.927083333333333in</property>
+            </column>
+            <row id="4700">
+                <cell id="4701">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <label id="4716">
+                        <property name="fontSize">14px</property>
+                        <property name="fontWeight">600</property>
+                        <text-property name="text">CPOE</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="4704">
+                <cell id="4705">
+                    <label id="4717">
+                        <text-property name="text">Edukasi</text-property>
+                    </label>
+                </cell>
+                <cell id="4706">
+                    <label id="4718">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4707">
+                    <data id="4807">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">education</property>
+                                <text-property name="displayName">education</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["education"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">education</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="4708">
+                <cell id="4709">
+                    <label id="4720">
+                        <text-property name="text">Rencana Penatalaksana</text-property>
+                    </label>
+                </cell>
+                <cell id="4710">
+                    <label id="4721">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4711">
+                    <grid id="4722">
+                        <column id="4723"/>
+                        <row id="4724">
+                            <cell id="4725">
+                                <data id="4928">
+                                    <property name="fontWeight">600</property>
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">name_plan</property>
+                                            <text-property name="displayName">name_plan</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">name_plan</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="4726">
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["control_plan"] == "follow_up"</expression>
+                                </structure>
+                            </list-property>
+                            <cell id="4727">
+                                <grid id="4729">
+                                    <property name="width">4.791666666666667in</property>
+                                    <column id="4730">
+                                        <property name="width">1.6041666666666667in</property>
+                                    </column>
+                                    <column id="4731">
+                                        <property name="textAlign">center</property>
+                                        <property name="verticalAlign">middle</property>
+                                        <property name="width">0.22916666666666666in</property>
+                                    </column>
+                                    <column id="4732">
+                                        <property name="width">2.9583333333333335in</property>
+                                    </column>
+                                    <row id="4733">
+                                        <cell id="4734">
+                                            <label id="4745">
+                                                <text-property name="text">Tanggal</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4735">
+                                            <label id="4748">
+                                                <text-property name="text">:</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4736">
+                                            <data id="5009">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">control_date</property>
+                                                        <text-property name="displayName">control_date</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
+                                                        <property name="dataType">date</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">control_date</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="4737">
+                                        <cell id="4738">
+                                            <label id="4746">
+                                                <text-property name="text">Alasan</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4739">
+                                            <label id="4749">
+                                                <text-property name="text">:</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4740">
+                                            <data id="5010">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">control_reason</property>
+                                                        <text-property name="displayName">control_reason</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["control_reason"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">control_reason</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="4741">
+                                        <cell id="4742">
+                                            <label id="4747">
+                                                <text-property name="text">Rencana Tindak Lanjut</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4743">
+                                            <label id="4750">
+                                                <text-property name="text">:</text-property>
+                                            </label>
+                                        </cell>
+                                        <cell id="4744">
+                                            <data id="5014">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">action_plan</property>
+                                                        <text-property name="displayName">action_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["action_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">action_plan</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="4712">
+                <cell id="4713">
+                    <label id="4755">
+                        <text-property name="text">Rujukan</text-property>
+                    </label>
+                </cell>
+                <cell id="4714">
+                    <label id="4756">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="4715">
+                    <grid id="4757">
+                        <property name="width">4.864583333333333in</property>
+                        <column id="4758">
+                            <property name="width">1.625in</property>
+                        </column>
+                        <column id="4759">
+                            <property name="textAlign">center</property>
+                            <property name="verticalAlign">middle</property>
+                            <property name="width">0.22916666666666666in</property>
+                        </column>
+                        <column id="4760">
+                            <property name="width">3.0104166666666665in</property>
+                        </column>
+                        <row id="4761">
+                            <cell id="4762">
+                                <property name="colSpan">3</property>
+                                <property name="rowSpan">1</property>
+                                <label id="4773">
+                                    <property name="fontWeight">600</property>
+                                    <text-property name="text">• Rujukan Eksternal</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="4765">
+                            <cell id="4766">
+                                <property name="colSpan">3</property>
+                                <property name="rowSpan">1</property>
+                                <table id="4993">
+                                    <property name="dataSet">cpoe</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">healthcare_service</property>
+                                            <text-property name="displayName">healthcare_service</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["healthcare_service"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">department</property>
+                                            <text-property name="displayName">department</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["department"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="5007"/>
+                                    <column id="5008"/>
+                                    <header>
+                                        <row id="4994">
+                                            <cell id="4995">
+                                                <label id="4996">
+                                                    <property name="fontWeight">600</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Rumah Sakit</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="4997">
+                                                <label id="4998">
+                                                    <property name="fontWeight">600</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Departemen/Spesialis</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="4999">
+                                            <cell id="5000">
+                                                <data id="5001">
+                                                    <property name="resultSetColumn">healthcare_service</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="5002">
+                                                <data id="5003">
+                                                    <property name="resultSetColumn">department</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                    <footer>
+                                        <row id="5004">
+                                            <cell id="5005"/>
+                                            <cell id="5006"/>
+                                        </row>
+                                    </footer>
+                                </table>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="Blok 1">
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>
