@@ -41,9 +41,11 @@
                     <value>ILYNN</value>
                 </ex-property>
             </list-property>
-            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
-            <property name="odaUser">root</property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://devone.aplikasi.web.id:3306/ivfdb</property>
+            <property name="odaUser">rptadi</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cnB0ITEwMjkzOA==</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
