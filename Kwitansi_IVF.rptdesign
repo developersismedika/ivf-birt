@@ -2519,7 +2519,21 @@ ipi.order_packet_item_id as idd,
 ipi.qty as qty,
 ipi.qty_all as  qtyall,
 ipi.qty_used as qtyused,
-concat(ipi.qty_used,"/",ipi.qty_used) as pemakaian,
+concat(CASE 
+							WHEN ((SELECT COALESCE(SUM(qty), 0) 
+										FROM order_packet_item opi_sub 
+										WHERE patient_packet_item_id = opi.patient_packet_item_id 
+										AND status_cd = 'normal' 
+										AND isBill = 'Y' 
+										AND opi_sub.order_packet_item_id < opi.order_packet_item_id) + ipi.qty) > ipi.qty_all 
+							THEN ipi.qty_all
+							ELSE ((SELECT COALESCE(SUM(qty), 0) 
+										FROM order_packet_item opi_sub 
+										WHERE patient_packet_item_id = opi.patient_packet_item_id 
+										AND status_cd = 'normal' 
+										AND isBill = 'Y' 
+										AND opi_sub.order_packet_item_id < opi.order_packet_item_id) + ipi.qty)
+					END,"/",ipi.qty_all) as pemakaian, 
 ipi.price as price 	,
 ipi.total as total  ,
 ii.inventory_code as kode	,
@@ -3245,6 +3259,12 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                     </list-property>
                     <property name="allowExport">true</property>
                 </structure>
+                <structure>
+                    <property name="name">qty</property>
+                    <text-property name="displayName">qty</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["qty"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
             </list-property>
             <column id="5949">
                 <property name="width">1cm</property>
@@ -3345,14 +3365,9 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         </data>
                     </cell>
                     <cell id="5933">
-                        <data id="5930">
-                            <structure name="numberFormat">
-                                <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
-                                <property name="locale">id</property>
-                            </structure>
+                        <data id="6561">
                             <property name="textAlign">right</property>
-                            <property name="resultSetColumn">qtyall</property>
+                            <property name="resultSetColumn">qty</property>
                         </data>
                     </cell>
                     <cell id="5935">
