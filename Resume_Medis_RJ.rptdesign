@@ -24,7 +24,7 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4780">
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivfdb" id="4780">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -397,7 +397,7 @@
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
+            <property name="dataSource">ivfdb</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1173,7 +1173,7 @@ WHERE emr.questionnaire_resp_id = ?;
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
+            <property name="dataSource">ivfdb</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1303,7 +1303,7 @@ WHERE
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
+            <property name="dataSource">ivfdb</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1445,7 +1445,7 @@ WHERE
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
+            <property name="dataSource">ivfdb</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1690,7 +1690,7 @@ WHERE
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
+            <property name="dataSource">ivfdb</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
