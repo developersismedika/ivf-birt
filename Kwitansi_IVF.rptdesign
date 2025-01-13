@@ -444,75 +444,112 @@
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[select
-
-invoice_header_id	,
-invoice_name	,
-invoice_header_number	,
-invoice_header_date	,
-total - sum(ifnull(benefit,0)) as total 	,
-order_header_number	,
-order_header_date	,
-pasien	,
-person_telecom_value	,
-payment_header_date	,
-payment_header_number	,
-payment_header_id	,
-payment_name	,
-noRm	,
-address_text ,
-location_name,
-now() as tanggalSekarang,  
-case
-when print_count = 1 then 'Original' 
-when print_count = 2 then 'Print Copy 1' 
-else concat('Print Copy ',print_count - 1) end as print
-
-from
-(
-
-select i.invoice_header_id ,i.invoice_name,i.invoice_header_number,i.invoice_header_date,ph.total,oh.order_header_number,	oh.order_header_date,
-concat(p.salutation , " " , p.person_name, " " ,p.suffix) as pasien, pt.person_telecom_value,
-ph.payment_header_date,ph.payment_header_number,ph.payment_header_id,
-ph.payment_name,pa.patient_mrn as noRm	  , pb.total  as benefit,lc.address_text as address_text,
-lc.location_name as location_name,
-now() as tanggalSekarang,print_count
-
-
-from invoice_header i 
-join order_header oh on i.order_header_id = oh.order_header_id
-join person p on p.person_id = oh.patient_id
-join person_telecom pt on  p.person_id = pt.person_id and pt.person_telecom_system = 'phone'
-join payment_header ph on i.invoice_header_id = ph.invoice_header_id
-join patient pa on oh.patient_id = pa.patient_id
-        left join payment_benefit pb on pb.payment_header_id = ph.payment_header_id
-left join location lc on 	oh.organization_id = lc.organization_id 
- 
-union
-
-select i.invoice_header_id ,i.invoice_name,i.invoice_header_number,i.invoice_header_date,ph.total,oh.order_header_number,	oh.order_header_date,
-concat(pp.salutation , " " , pp.person_name, " " ,pp.suffix ," &amp; "  ,ppp.salutation , " " , ppp.person_name, " " ,ppp.suffix ) as pasien,
-concat(ptt.person_telecom_value, " / " ,pttt.person_telecom_value ) as person_telecom_value,
-ph.payment_header_date,ph.payment_header_number,ph.payment_header_id,	  
-ph.payment_name,oh.patient_couple_number as noRm, pb.total  as benefit,
-lc.address_text as address_text,
-lc.location_name as location_name,
-now() as tanggalSekarang,print_count
-
-
-from invoice_header i 
-join order_header oh on i.order_header_id = oh.order_header_id
-join patient_couple pc on pc.patient_cn = oh.patient_couple_number
-join person pp on pp.person_id = pc.patient_couple_male_id
-join person ppp on ppp.person_id = pc.patient_couple_female_id
-join person_telecom ptt on  pp.person_id  = ptt.person_id  and ptt.person_telecom_system = 'phone' 
-    join person_telecom pttt on  ppp.person_id  = pttt.person_id  and pttt.person_telecom_system = 'phone' 
-
-join payment_header ph on i.invoice_header_id = ph.invoice_header_id
-    left join payment_benefit pb on pb.payment_header_id = ph.payment_header_id
-left join location lc on 	oh.organization_id = lc.organization_id 
- 
-) as xxx where  invoice_header_id	  = ?;]]></xml-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  invoice_header_id,
+  invoice_name,
+  invoice_header_number,
+  invoice_header_date,
+  total - sum(
+  ifnull( benefit, 0 )) AS total,
+  order_header_number,
+  order_header_date,
+  pasien,
+  person_telecom_value,
+  payment_header_date,
+  payment_header_number,
+  payment_header_id,
+  payment_name,
+  noRm,
+  address_text,
+  location_name,
+  now() AS tanggalSekarang,
+CASE
+    
+    WHEN print_count = 1 THEN
+    'Original' 
+    WHEN print_count = 2 THEN
+    'Print Copy 1' ELSE concat( 'Print Copy ', print_count - 1 ) 
+  END AS print 
+FROM
+  (
+  SELECT
+    i.invoice_header_id,
+    i.invoice_name,
+    i.invoice_header_number,
+    i.invoice_header_date,
+    ph.total,
+    oh.order_header_number,
+    oh.order_header_date,
+    concat( p.salutation, " ", p.person_name, " ", p.suffix ) AS pasien,
+    pt.person_telecom_value,
+    ph.payment_header_date,
+    ph.payment_header_number,
+    ph.payment_header_id,
+    ph.payment_name,
+    pa.patient_mrn AS noRm,
+    pb.total AS benefit,
+    lc.address_text AS address_text,
+    lc.location_name AS location_name,
+    now() AS tanggalSekarang,
+    print_count 
+  FROM
+    invoice_header i
+    JOIN order_header oh ON i.order_header_id = oh.order_header_id
+    JOIN person p ON p.person_id = oh.patient_id
+    JOIN person_telecom pt ON p.person_id = pt.person_id 
+    AND pt.person_telecom_system = 'phone'
+    JOIN payment_header ph ON i.invoice_header_id = ph.invoice_header_id
+    JOIN patient pa ON oh.patient_id = pa.patient_id
+    LEFT JOIN payment_benefit pb ON pb.payment_header_id = ph.payment_header_id
+    LEFT JOIN location lc ON oh.organization_id = lc.organization_id UNION
+  SELECT
+    i.invoice_header_id,
+    i.invoice_name,
+    i.invoice_header_number,
+    i.invoice_header_date,
+    ph.total,
+    oh.order_header_number,
+    oh.order_header_date,
+    concat(
+      ppp.salutation,
+      " ",
+      ppp.person_name,
+      " ",
+      ppp.suffix,
+      " &amp; ",
+      pp.salutation,
+      " ",
+      pp.person_name,
+      " ",
+      pp.suffix 
+    ) AS pasien,
+    concat( pttt.person_telecom_value, " / ", ptt.person_telecom_value ) AS person_telecom_value,
+    ph.payment_header_date,
+    ph.payment_header_number,
+    ph.payment_header_id,
+    ph.payment_name,
+    oh.patient_couple_number AS noRm,
+    pb.total AS benefit,
+    lc.address_text AS address_text,
+    lc.location_name AS location_name,
+    now() AS tanggalSekarang,
+    print_count 
+  FROM
+    invoice_header i
+    JOIN order_header oh ON i.order_header_id = oh.order_header_id
+    JOIN patient_couple pc ON pc.patient_cn = oh.patient_couple_number
+    JOIN person pp ON pp.person_id = pc.patient_couple_male_id
+    JOIN person ppp ON ppp.person_id = pc.patient_couple_female_id
+    JOIN person_telecom ptt ON pp.person_id = ptt.person_id 
+    AND ptt.person_telecom_system = 'phone'
+    JOIN person_telecom pttt ON ppp.person_id = pttt.person_id 
+    AND pttt.person_telecom_system = 'phone'
+    JOIN payment_header ph ON i.invoice_header_id = ph.invoice_header_id
+    LEFT JOIN payment_benefit pb ON pb.payment_header_id = ph.payment_header_id
+    LEFT JOIN location lc ON oh.organization_id = lc.organization_id 
+  ) AS xxx 
+WHERE
+  invoice_header_id = ?;]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
