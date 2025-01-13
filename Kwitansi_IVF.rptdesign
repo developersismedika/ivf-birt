@@ -2583,7 +2583,7 @@ join inventory  ii on  opi.inventory_id = ii.inventory_id
 join payment_header ph on i.invoice_header_id = ph.invoice_header_id
 
 
-  ) as xx where idx = ?]]></xml-property>
+  ) as xx where idx = ? ORDER BY nama ASC]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
