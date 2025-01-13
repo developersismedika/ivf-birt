@@ -2481,7 +2481,8 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
  qty ,
  qtyall,
  qtyused ,
-  pemakaian,
+ pemakaian,
+ qty_unlimited,
  price ,	
  total ,
  nama,
@@ -2493,13 +2494,17 @@ select
 ips.invoice_packet_service_id as ids,
 ips.invoice_header_id as idx,
 ips.order_packet_service_id as idd,	
-ips.qty as qty ,
+CASE
+    WHEN ips.qty_used = ips.qty_used THEN 0
+    ELSE ips.qty
+END as qty,
 ips.qty_all as  qtyall,
 ips.qty_used as qtyused ,
 CASE 
     WHEN ips.qty_used = ips.qty_used THEN '-' 
     ELSE CONCAT(ips.qty_used, "/", ips.qty_used) 
 END AS pemakaian,
+0 as qty_unlimited,
 ips.price as price ,	
 ips.total as total ,
 s.service_name as nama,
@@ -2519,7 +2524,33 @@ select
 ipi.invoice_packet_item_id as ids	,	
 ipi.invoice_header_id as idx	,	
 ipi.order_packet_item_id as idd,	
-ipi.qty as qty,
+CASE 
+    WHEN (
+        CASE 
+            WHEN (
+                (SELECT COALESCE(SUM(qty), 0) 
+                 FROM order_packet_item opi_sub 
+                 WHERE patient_packet_item_id = opi.patient_packet_item_id 
+                   AND status_cd = 'normal' 
+                   AND isBill = 'Y' 
+                   AND opi_sub.order_packet_item_id < opi.order_packet_item_id) 
+                + ipi.qty
+            ) > ipi.qty_all 
+            THEN ipi.qty_all
+            ELSE (
+                (SELECT COALESCE(SUM(qty), 0) 
+                 FROM order_packet_item opi_sub 
+                 WHERE patient_packet_item_id = opi.patient_packet_item_id 
+                   AND status_cd = 'normal' 
+                   AND isBill = 'Y' 
+                   AND opi_sub.order_packet_item_id < opi.order_packet_item_id) 
+                + ipi.qty
+            )
+        END
+    ) = ipi.qty_all
+    THEN opi.qty_unlimited
+    ELSE ipi.qty
+END as qty,
 ipi.qty_all as  qtyall,
 ipi.qty_used as qtyused,
 CASE 
@@ -2571,6 +2602,7 @@ CASE
         END, "/", ipi.qty_all
     )
 END AS pemakaian, 
+opi.qty_unlimited,
 ipi.price as price 	,
 ipi.total as total  ,
 ii.inventory_code as kode	,
