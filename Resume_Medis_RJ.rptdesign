@@ -1144,7 +1144,7 @@ WHERE emr.questionnaire_resp_id = ?;
                     <structure>
                         <property name="position">2</property>
                         <property name="name">vital_datetime</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
@@ -1186,8 +1186,8 @@ WHERE emr.questionnaire_resp_id = ?;
                     <property name="position">2</property>
                     <property name="name">vital_datetime</property>
                     <property name="nativeName">vital_datetime</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
@@ -1227,12 +1227,12 @@ WHERE emr.questionnaire_resp_id = ?;
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT 
     qr.questionnaire_resp_id,
-    DATE(jt.vital_datetime) as vital_datetime,
-    CONCAT(jt.temperature, '° C') as temperature,
-    CONCAT(jt.vital_pulse,' x/menit') as vital_pulse,
-    CONCAT(jt.respiration_rate,' x/menit') as respiration_rate,
-    CONCAT(jt.oxygen_saturation, ' mmHg') as oxygen_saturation,
-    CONCAT(jt.systolic_pressure,'/', jt.diastolic_pressure, ' mmHg') as blood_pressure
+    ifnull(DATE(jt.vital_datetime), '-') as vital_datetime,
+    ifnull(CONCAT(jt.temperature, '° C'), '-') as temperature,
+    ifnull(CONCAT(jt.vital_pulse,' x/menit'), '-') as vital_pulse,
+    ifnull(CONCAT(jt.respiration_rate,' x/menit'), '-') as respiration_rate,
+    ifnull(CONCAT(jt.oxygen_saturation, ' mmHg'), '-') as oxygen_saturation,
+    ifnull(CONCAT(jt.systolic_pressure,'/', jt.diastolic_pressure, ' mmHg'), '-') as blood_pressure
 FROM 
     questionnaire_response qr,
     JSON_TABLE(
@@ -1766,8 +1766,8 @@ WHERE
             <xml-property name="queryText"><![CDATA[SELECT
     qr.questionnaire_resp_id,
     jt.notes,
-    jt.healthcare_service,
-    jt.department,
+    ifnull(jt.healthcare_service, '-') as healthcare_service,
+    ifnull(jt.department, '-') as department,
     jt.examination,
     jt.statement_id,
     jt.reason_referal,
