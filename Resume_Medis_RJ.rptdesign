@@ -2064,7 +2064,7 @@ WHERE
                                 <property name="verticalAlign">middle</property>
                                 <data id="4920">
                                     <property name="fontSize">14px</property>
-                                    <property name="fontWeight">600</property>
+                                    <property name="fontWeight">bold</property>
                                     <property name="dataSet">header</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -2121,7 +2121,7 @@ WHERE
                 <cell id="4397">
                     <label id="4401">
                         <property name="fontSize">18px</property>
-                        <property name="fontWeight">600</property>
+                        <property name="fontWeight">bold</property>
                         <property name="textAlign">left</property>
                         <text-property name="text">Resume Medis Rawat Jalan</text-property>
                     </label>
@@ -2411,7 +2411,7 @@ WHERE
                     <property name="fontSize">12px</property>
                     <label id="4489">
                         <property name="fontSize">14px</property>
-                        <property name="fontWeight">600</property>
+                        <property name="fontWeight">bold</property>
                         <text-property name="text">Anamnesis</text-property>
                     </label>
                 </cell>
@@ -2570,7 +2570,7 @@ WHERE
                     <property name="fontSize">12px</property>
                     <label id="4527">
                         <property name="fontSize">14px</property>
-                        <property name="fontWeight">600</property>
+                        <property name="fontWeight">bold</property>
                         <text-property name="text">Pemeriksaan Fisik</text-property>
                     </label>
                 </cell>
@@ -2694,7 +2694,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4880">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">left</property>
                                         <text-property name="text">Waktu</text-property>
                                     </label>
@@ -2703,7 +2703,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4882">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">left</property>
                                         <text-property name="text">Suhu</text-property>
                                     </label>
@@ -2712,7 +2712,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4884">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">left</property>
                                         <text-property name="text">Nadi</text-property>
                                     </label>
@@ -2721,7 +2721,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4886">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">center</property>
                                         <text-property name="text">Pernafasan</text-property>
                                     </label>
@@ -2730,7 +2730,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4888">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">center</property>
                                         <text-property name="text">O2Saturasi</text-property>
                                     </label>
@@ -2739,7 +2739,7 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <label id="4890">
-                                        <property name="fontWeight">600</property>
+                                        <property name="fontWeight">bold</property>
                                         <property name="textAlign">center</property>
                                         <text-property name="text">Tekanan Darah</text-property>
                                     </label>
@@ -2907,7 +2907,7 @@ Penunjang Bermakna</text-property>
                     <property name="fontSize">12px</property>
                     <label id="4665">
                         <property name="fontSize">14px</property>
-                        <property name="fontWeight">600</property>
+                        <property name="fontWeight">bold</property>
                         <text-property name="text">Diagnosis</text-property>
                     </label>
                 </cell>
@@ -2976,7 +2976,7 @@ Penunjang Bermakna</text-property>
                     <property name="rowSpan">1</property>
                     <label id="4716">
                         <property name="fontSize">14px</property>
-                        <property name="fontWeight">600</property>
+                        <property name="fontWeight">bold</property>
                         <text-property name="text">CPOE</text-property>
                     </label>
                 </cell>
@@ -3024,7 +3024,7 @@ Penunjang Bermakna</text-property>
                         <row id="4724">
                             <cell id="4725">
                                 <data id="4928">
-                                    <property name="fontWeight">600</property>
+                                    <property name="fontWeight">bold</property>
                                     <property name="dataSet">patient</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -3173,7 +3173,7 @@ Penunjang Bermakna</text-property>
                                 <property name="colSpan">3</property>
                                 <property name="rowSpan">1</property>
                                 <label id="4773">
-                                    <property name="fontWeight">600</property>
+                                    <property name="fontWeight">bold</property>
                                     <text-property name="text">• Rujukan Eksternal</text-property>
                                 </label>
                             </cell>
@@ -3204,14 +3204,14 @@ Penunjang Bermakna</text-property>
                                         <row id="4994">
                                             <cell id="4995">
                                                 <label id="4996">
-                                                    <property name="fontWeight">600</property>
+                                                    <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
                                                     <text-property name="text">Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
                                             <cell id="4997">
                                                 <label id="4998">
-                                                    <property name="fontWeight">600</property>
+                                                    <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
                                                     <text-property name="text">Departemen/Spesialis</text-property>
                                                 </label>
