@@ -2023,30 +2023,9 @@ WHERE
             <row id="7">
                 <property name="height">0.6666666666666666in</property>
                 <cell id="8">
-                    <image id="4361">
-                        <property name="textAlign">center</property>
-                        <property name="verticalAlign">middle</property>
-                        <property name="height">0.5625in</property>
-                        <property name="width">0.9166666666666666in</property>
-                        <property name="dataSet">header</property>
-                        <list-property name="boundDataColumns">
-                            <structure>
-                                <property name="name">ivf_site_logo</property>
-                                <expression name="expression" type="javascript">"data:image/png;base64," + dataSetRow["ivf_site_logo"]</expression>
-                                <property name="dataType">string</property>
-                                <property name="allowExport">true</property>
-                            </structure>
-                            <structure>
-                                <property name="name">ivf_site_name</property>
-                                <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">address_text</property>
-                                <expression name="expression" type="javascript">dataSetRow["address_text"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                        </list-property>
+                    <image id="5032">
+                        <property name="height">0.5520833333333334in</property>
+                        <property name="width">0.8854166666666666in</property>
                         <property name="source">embed</property>
                         <property name="imageName">Smart IVF.jpg</property>
                     </image>
