@@ -2046,8 +2046,8 @@ WHERE
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
-                        <property name="source">expr</property>
-                        <expression name="valueExpr">row["ivf_site_logo"]</expression>
+                        <property name="source">url</property>
+                        <expression name="uri" type="constant">"data:image/png;base64," + row["ivf_site_logo"]</expression>
                     </image>
                 </cell>
                 <cell id="9">
