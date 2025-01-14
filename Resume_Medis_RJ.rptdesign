@@ -3164,6 +3164,19 @@ Penunjang Bermakna</text-property>
                                                 <label id="4996">
                                                     <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">if(!dataSetRow["healthcare_service"])&#13;
+{&#13;
+return true;&#13;
+}&#13;
+else&#13;
+{&#13;
+return false;&#13;
+}</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <text-property name="text">Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
@@ -3171,6 +3184,19 @@ Penunjang Bermakna</text-property>
                                                 <label id="4998">
                                                     <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">if(!dataSetRow["department"])&#13;
+{&#13;
+return true;&#13;
+}&#13;
+else&#13;
+{&#13;
+return false;&#13;
+}</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <text-property name="text">Departemen/Spesialis</text-property>
                                                 </label>
                                             </cell>
