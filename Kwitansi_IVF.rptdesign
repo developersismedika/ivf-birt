@@ -4571,7 +4571,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                                 <property name="name">total</property>
                                 <text-property name="displayName">total</text-property>
                                 <expression name="expression" type="javascript">dataSetRow["total"]</expression>
-                                <property name="dataType">string</property>
+                                <property name="dataType">float</property>
                                 <property name="allowExport">true</property>
                             </structure>
                         </list-property>
