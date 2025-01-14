@@ -3167,14 +3167,7 @@ Penunjang Bermakna</text-property>
                                                     <list-property name="visibility">
                                                         <structure>
                                                             <property name="format">all</property>
-                                                            <expression name="valueExpr" type="javascript">if(!dataSetRow["healthcare_service"])&#13;
-{&#13;
-return true;&#13;
-}&#13;
-else&#13;
-{&#13;
-return false;&#13;
-}</expression>
+                                                            <expression name="valueExpr" type="javascript">BirtComp.equalTo(!dataSetRow["healthcare_service"], false)</expression>
                                                         </structure>
                                                     </list-property>
                                                     <text-property name="text">Rumah Sakit</text-property>
@@ -3187,14 +3180,7 @@ return false;&#13;
                                                     <list-property name="visibility">
                                                         <structure>
                                                             <property name="format">all</property>
-                                                            <expression name="valueExpr" type="javascript">if(!dataSetRow["department"])&#13;
-{&#13;
-return true;&#13;
-}&#13;
-else&#13;
-{&#13;
-return false;&#13;
-}</expression>
+                                                            <expression name="valueExpr" type="javascript">BirtComp.equalTo(!dataSetRow["department"], false)</expression>
                                                         </structure>
                                                     </list-property>
                                                     <text-property name="text">Departemen/Spesialis</text-property>
