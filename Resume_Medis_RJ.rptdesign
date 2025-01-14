@@ -602,7 +602,7 @@ ptn.prefix as patient_prefix,
 ptn.suffix as patient_suffix,
 IF(ptn.gender = 'female' , 'Perempuan' , 'Laki-Laki' ) as patient_gender,
 ptn.birth_place as patient_birth_place,
-CONCAT(DATE(ptn.birth_dttm), ' (', CONCAT(
+CONCAT(DATE_FORMAT(ptn.birth_dttm, '%d %b %Y'), ' (', CONCAT(
       TIMESTAMPDIFF(YEAR, ptn.birth_dttm, CURDATE()), ' Tahun ', 
       TIMESTAMPDIFF(MONTH, ptn.birth_dttm, CURDATE()) % 12, ' Bulan'
 ), ')') AS patient_birth_dttm,
