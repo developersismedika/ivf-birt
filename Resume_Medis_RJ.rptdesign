@@ -2028,8 +2028,26 @@ WHERE
                         <property name="verticalAlign">middle</property>
                         <property name="height">0.533in</property>
                         <property name="width">0.833in</property>
-                        <property name="source">embed</property>
-                        <property name="imageName">Smart IVF.jpg</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ivf_site_logo</property>
+                                <expression name="expression" type="javascript">dataSetRow["ivf_site_logo"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ivf_site_name</property>
+                                <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">address_text</property>
+                                <expression name="expression" type="javascript">dataSetRow["address_text"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">expr</property>
+                        <expression name="valueExpr">row["ivf_site_logo"]</expression>
                     </image>
                 </cell>
                 <cell id="9">
