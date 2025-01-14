@@ -4570,12 +4570,8 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <structure>
                                 <property name="name">total</property>
                                 <text-property name="displayName">total</text-property>
-                                <expression name="expression" type="javascript">if (dataSetRow["total"] == 0) {&#13;
-    return "0";&#13;
-} else {&#13;
-    return dataSetRow["total"];&#13;
-}</expression>
-                                <property name="dataType">string</property>
+                                <expression name="expression" type="javascript">dataSetRow["total"]</expression>
+                                <property name="dataType">float</property>
                                 <property name="allowExport">true</property>
                             </structure>
                         </list-property>
