@@ -2053,18 +2053,15 @@ WHERE
                 </cell>
                 <cell id="9">
                     <property name="verticalAlign">middle</property>
-                    <grid id="4366">
-                        <property name="height">0.65625in</property>
-                        <column id="4367"/>
-                        <row id="4368">
-                            <cell id="4369">
+                    <grid id="5019">
+                        <column id="5020"/>
+                        <row id="5021">
+                            <cell id="5022">
                                 <property name="fontSize">12px</property>
-                                <property name="textAlign">right</property>
-                                <property name="lineHeight">normal</property>
+                                <property name="textAlign">center</property>
                                 <property name="verticalAlign">middle</property>
-                                <data id="4920">
-                                    <property name="fontSize">14px</property>
-                                    <property name="fontWeight">bold</property>
+                                <data id="5025">
+                                    <property name="textAlign">right</property>
                                     <property name="dataSet">header</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
@@ -2078,17 +2075,13 @@ WHERE
                                 </data>
                             </cell>
                         </row>
-                        <row id="4370">
-                            <property name="height">0.34375in</property>
-                            <cell id="4371">
-                                <property name="textAlign">right</property>
-                                <property name="lineHeight">1px</property>
+                        <row id="5023">
+                            <cell id="5024">
+                                <property name="fontSize">12px</property>
+                                <property name="textAlign">center</property>
                                 <property name="verticalAlign">middle</property>
-                                <property name="height">100%</property>
-                                <data id="4918">
-                                    <property name="fontSize">12px</property>
+                                <data id="5026">
                                     <property name="textAlign">right</property>
-                                    <property name="verticalAlign">middle</property>
                                     <property name="dataSet">header</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
