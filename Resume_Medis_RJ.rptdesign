@@ -2026,8 +2026,8 @@ WHERE
                     <image id="4361">
                         <property name="textAlign">center</property>
                         <property name="verticalAlign">middle</property>
-                        <property name="height">0.533in</property>
-                        <property name="width">0.833in</property>
+                        <property name="height">0.5625in</property>
+                        <property name="width">0.9166666666666666in</property>
                         <property name="dataSet">header</property>
                         <list-property name="boundDataColumns">
                             <structure>
@@ -2047,8 +2047,8 @@ WHERE
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
-                        <property name="source">expr</property>
-                        <expression name="valueExpr">row["ivf_site_logo"]</expression>
+                        <property name="source">embed</property>
+                        <property name="imageName">Smart IVF.jpg</property>
                     </image>
                 </cell>
                 <cell id="9">
