@@ -111,12 +111,6 @@
                     <text-property name="heading">patient_birth_dttm</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">age</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">age</text-property>
-                    <text-property name="heading">age</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">patient_religion_code</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">patient_religion_code</text-property>
@@ -293,105 +287,100 @@
                     <structure>
                         <property name="position">10</property>
                         <property name="name">patient_birth_dttm</property>
-                        <property name="dataType">date</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">age</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">12</property>
+                        <property name="position">11</property>
                         <property name="name">patient_religion_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">13</property>
+                        <property name="position">12</property>
                         <property name="name">practitioner_person_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">13</property>
                         <property name="name">practitioner_salutation</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">14</property>
                         <property name="name">practitioner_prefix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">16</property>
+                        <property name="position">15</property>
                         <property name="name">practitioner_suffix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">17</property>
+                        <property name="position">16</property>
                         <property name="name">education</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">18</property>
+                        <property name="position">17</property>
                         <property name="name">action_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">19</property>
+                        <property name="position">18</property>
                         <property name="name">control_date</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">20</property>
+                        <property name="position">19</property>
                         <property name="name">control_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">21</property>
+                        <property name="position">20</property>
                         <property name="name">name_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">22</property>
+                        <property name="position">21</property>
                         <property name="name">control_reason</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">23</property>
+                        <property name="position">22</property>
                         <property name="name">diagnosis_text</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">24</property>
+                        <property name="position">23</property>
                         <property name="name">main_complaint</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">25</property>
+                        <property name="position">24</property>
                         <property name="name">treatment_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">26</property>
+                        <property name="position">25</property>
                         <property name="name">current_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">27</property>
+                        <property name="position">26</property>
                         <property name="name">previous_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">27</property>
                         <property name="name">localist_template</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">28</property>
                         <property name="name">physical_examination_meaningfull</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">30</property>
+                        <property name="position">29</property>
                         <property name="name">diagnosis_text_1</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -466,144 +455,137 @@
                     <property name="position">10</property>
                     <property name="name">patient_birth_dttm</property>
                     <property name="nativeName">patient_birth_dttm</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">age</property>
-                    <property name="nativeName">age</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">12</property>
+                    <property name="position">11</property>
                     <property name="name">patient_religion_code</property>
                     <property name="nativeName">religion_code</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">13</property>
+                    <property name="position">12</property>
                     <property name="name">practitioner_person_name</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">14</property>
+                    <property name="position">13</property>
                     <property name="name">practitioner_salutation</property>
                     <property name="nativeName">salutation</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">15</property>
+                    <property name="position">14</property>
                     <property name="name">practitioner_prefix</property>
                     <property name="nativeName">prefix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">16</property>
+                    <property name="position">15</property>
                     <property name="name">practitioner_suffix</property>
                     <property name="nativeName">suffix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">17</property>
+                    <property name="position">16</property>
                     <property name="name">education</property>
                     <property name="nativeName">education</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">18</property>
+                    <property name="position">17</property>
                     <property name="name">action_plan</property>
                     <property name="nativeName">action_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">19</property>
+                    <property name="position">18</property>
                     <property name="name">control_date</property>
                     <property name="nativeName">control_date</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">20</property>
+                    <property name="position">19</property>
                     <property name="name">control_plan</property>
                     <property name="nativeName">control_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">21</property>
+                    <property name="position">20</property>
                     <property name="name">name_plan</property>
                     <property name="nativeName">name_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">22</property>
+                    <property name="position">21</property>
                     <property name="name">control_reason</property>
                     <property name="nativeName">control_reason</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">23</property>
+                    <property name="position">22</property>
                     <property name="name">diagnosis_text</property>
                     <property name="nativeName">diagnosis_text</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">24</property>
+                    <property name="position">23</property>
                     <property name="name">main_complaint</property>
                     <property name="nativeName">main_complaint</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">25</property>
+                    <property name="position">24</property>
                     <property name="name">treatment_history</property>
                     <property name="nativeName">treatment_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">26</property>
+                    <property name="position">25</property>
                     <property name="name">current_medical_history</property>
                     <property name="nativeName">current_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">27</property>
+                    <property name="position">26</property>
                     <property name="name">previous_medical_history</property>
                     <property name="nativeName">previous_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">27</property>
                     <property name="name">localist_template</property>
                     <property name="nativeName">localist_template</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">28</property>
                     <property name="name">physical_examination_meaningfull</property>
                     <property name="nativeName">physical_examination_meaningfull</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">30</property>
+                    <property name="position">29</property>
                     <property name="name">diagnosis_text_1</property>
                     <property name="nativeName">diagnosis_text</property>
                     <property name="dataType">string</property>
@@ -620,11 +602,10 @@ ptn.prefix as patient_prefix,
 ptn.suffix as patient_suffix,
 IF(ptn.gender = 'female' , 'Perempuan' , 'Laki-Laki' ) as patient_gender,
 ptn.birth_place as patient_birth_place,
-DATE(ptn.birth_dttm) as patient_birth_dttm,
-CONCAT(
+CONCAT(DATE(ptn.birth_dttm), ' (', CONCAT(
       TIMESTAMPDIFF(YEAR, ptn.birth_dttm, CURDATE()), ' Tahun ', 
       TIMESTAMPDIFF(MONTH, ptn.birth_dttm, CURDATE()) % 12, ' Bulan'
-) AS age,
+), ')') AS patient_birth_dttm,
 ptn.religion_code as patient_religion_code,
 
 prct.person_name as practitioner_person_name,
@@ -2061,6 +2042,8 @@ WHERE
                                 <property name="textAlign">center</property>
                                 <property name="verticalAlign">middle</property>
                                 <data id="5025">
+                                    <property name="fontSize">14px</property>
+                                    <property name="fontWeight">bold</property>
                                     <property name="textAlign">right</property>
                                     <property name="dataSet">header</property>
                                     <list-property name="boundDataColumns">
@@ -2227,37 +2210,21 @@ WHERE
                             </cell>
                             <cell id="4425">
                                 <property name="fontSize">12px</property>
-                                <grid id="4788">
-                                    <column id="4789"/>
-                                    <column id="4790"/>
-                                    <row id="4791">
-                                        <cell id="4792">
-                                            <data id="4795">
+                                <grid id="5027">
+                                    <column id="5028"/>
+                                    <row id="5029">
+                                        <cell id="5030">
+                                            <data id="5031">
                                                 <property name="dataSet">patient</property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">patient_birth_dttm</property>
                                                         <text-property name="displayName">patient_birth_dttm</text-property>
                                                         <expression name="expression" type="javascript">dataSetRow["patient_birth_dttm"]</expression>
-                                                        <property name="dataType">date</property>
-                                                        <property name="allowExport">true</property>
-                                                    </structure>
-                                                </list-property>
-                                                <property name="resultSetColumn">patient_birth_dttm</property>
-                                            </data>
-                                        </cell>
-                                        <cell id="4793">
-                                            <data id="4797">
-                                                <property name="dataSet">patient</property>
-                                                <list-property name="boundDataColumns">
-                                                    <structure>
-                                                        <property name="name">age</property>
-                                                        <text-property name="displayName">age</text-property>
-                                                        <expression name="expression" type="javascript">dataSetRow["age"]</expression>
                                                         <property name="dataType">string</property>
                                                     </structure>
                                                 </list-property>
-                                                <property name="resultSetColumn">age</property>
+                                                <property name="resultSetColumn">patient_birth_dttm</property>
                                             </data>
                                         </cell>
                                     </row>
