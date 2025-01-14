@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.26" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
@@ -338,7 +338,7 @@
                     <structure>
                         <property name="position">19</property>
                         <property name="name">control_date</property>
-                        <property name="dataType">date</property>
+                        <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">20</property>
@@ -529,8 +529,8 @@
                     <property name="position">19</property>
                     <property name="name">control_date</property>
                     <property name="nativeName">control_date</property>
-                    <property name="dataType">date</property>
-                    <property name="nativeDataType">91</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
@@ -632,10 +632,10 @@ prct.salutation as practitioner_salutation,
 prct.prefix as practitioner_prefix,
 prct.suffix as practitioner_suffix,
 
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.education')) AS education,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.actionPlan')) AS action_plan,
-DATE(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlDate'))) AS control_date,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) AS control_plan,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.education')) AS CHAR) AS education,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.actionPlan')) AS CHAR) AS action_plan,
+CAST(DATE(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlDate'))) AS CHAR) AS control_date,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) AS CHAR) AS control_plan,
 CASE
     WHEN JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) = 'follow_up' THEN
         '• Kontrol Ulang'
@@ -645,17 +645,17 @@ CASE
         '• Rujuk Balik'
     ELSE '-'
 END AS name_plan,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlReason')) AS control_reason,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS diagnosis_text,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.mainComplaint')) AS main_complaint,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.treatmentHistory')) AS treatment_history,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.currentMedicalHistory')) AS current_medical_history,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.previousMedicalHistory')) AS previous_medical_history,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlReason')) AS CHAR) AS control_reason,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS CHAR) AS diagnosis_text,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.mainComplaint')) AS CHAR) AS main_complaint,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.treatmentHistory')) AS CHAR) AS treatment_history,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.currentMedicalHistory')) AS CHAR) AS current_medical_history,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.previousMedicalHistory')) AS CHAR) AS previous_medical_history,
 
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.localistTemplate.obgynAndrologyLocalist.description')) AS localist_template,
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.physicalExaminationMeaningfullSupport')) AS physical_examination_meaningfull,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.localistTemplate.obgynAndrologyLocalist.description')) AS CHAR) AS localist_template,
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.physicalExaminationMeaningfullSupport')) AS CHAR) AS physical_examination_meaningfull,
 
-JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assesment.diagnosis')) AS diagnosis_text
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assesment.diagnosis')) AS CHAR) AS diagnosis_text
 
 FROM `emr` 
 LEFT JOIN patient p on p.patient_id = emr.patient_id
@@ -2019,6 +2019,8 @@ WHERE
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <property name="type">a4</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
             <page-footer>
                 <text id="3">
                     <property name="contentType">html</property>
