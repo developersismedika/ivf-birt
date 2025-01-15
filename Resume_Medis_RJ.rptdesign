@@ -3146,8 +3146,9 @@ Penunjang Bermakna</text-property>
                                         <structure>
                                             <property name="name">healthcare_service</property>
                                             <text-property name="displayName">healthcare_service</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["healthcare_service"]</expression>
+                                            <expression name="expression" type="javascript">valueOf(dataSetRow["healthcare_service"])</expression>
                                             <property name="dataType">string</property>
+                                            <property name="allowExport">true</property>
                                         </structure>
                                         <structure>
                                             <property name="name">department</property>
