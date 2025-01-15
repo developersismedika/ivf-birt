@@ -3171,12 +3171,6 @@ Penunjang Bermakna</text-property>
                                                             <expression name="testExpr" type="javascript">row["healthcare_service"]</expression>
                                                         </structure>
                                                     </list-property>
-                                                    <method name="onRender"><![CDATA[const element5001 = document.getElementById("5001");
-const element4996 = document.getElementById("4996");
-if (!element5001 || !element5001.value) {
-    // Sembunyikan elemen 4996
-    element4996.style.display = "none";
-}]]></method>
                                                     <text-property name="text">Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
@@ -3199,6 +3193,11 @@ if (!element5001 || !element5001.value) {
                                         <row id="4999">
                                             <cell id="5000">
                                                 <data id="5001">
+                                                    <method name="onRender"><![CDATA[const element4996 = document.getElementById("4996");
+if (!this.getValue()) {
+    // Sembunyikan elemen 4996
+    element4996.style.display = "none";
+}]]></method>
                                                     <property name="resultSetColumn">healthcare_service</property>
                                                 </data>
                                             </cell>
