@@ -2024,8 +2024,8 @@ WHERE
                 <property name="height">0.7395833333333334in</property>
                 <cell id="8">
                     <image id="5032">
-                        <property name="height">0.6354166666666666in</property>
-                        <property name="width">1.0520833333333333in</property>
+                        <property name="height">62px</property>
+                        <property name="width">102px</property>
                         <property name="source">embed</property>
                         <property name="imageName">Smart IVF.jpg</property>
                     </image>
