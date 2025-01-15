@@ -3083,6 +3083,12 @@ Penunjang Bermakna</text-property>
                                         <cell id="4744">
                                             <data id="5014">
                                                 <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">true</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">action_plan</property>
@@ -3171,6 +3177,12 @@ Penunjang Bermakna</text-property>
                                                             <expression name="testExpr" type="javascript">row["healthcare_service"]</expression>
                                                         </structure>
                                                     </list-property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">row["healthcare_service"] == ''</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <text-property name="text">Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
@@ -3193,6 +3205,12 @@ Penunjang Bermakna</text-property>
                                         <row id="4999">
                                             <cell id="5000">
                                                 <data id="5001">
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">true</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <method name="onRender"><![CDATA[const element4996 = document.getElementById("4996");
 if (!this.getValue()) {
     // Sembunyikan elemen 4996
