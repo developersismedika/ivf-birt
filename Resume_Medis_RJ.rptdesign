@@ -3146,7 +3146,7 @@ Penunjang Bermakna</text-property>
                                         <structure>
                                             <property name="name">healthcare_service</property>
                                             <text-property name="displayName">healthcare_service</text-property>
-                                            <expression name="expression" type="javascript">valueOf(dataSetRow["healthcare_service"])</expression>
+                                            <expression name="expression" type="javascript">dataSetRow["healthcare_service"]</expression>
                                             <property name="dataType">string</property>
                                             <property name="allowExport">true</property>
                                         </structure>
@@ -3165,10 +3165,16 @@ Penunjang Bermakna</text-property>
                                                 <label id="4996">
                                                     <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
+                                                    <list-property name="highlightRules">
+                                                        <structure>
+                                                            <property name="operator">is-not-null</property>
+                                                            <expression name="testExpr" type="javascript">row["healthcare_service"]</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <list-property name="visibility">
                                                         <structure>
                                                             <property name="format">all</property>
-                                                            <expression name="valueExpr" type="javascript">BirtComp.anyOf(!dataSetRow["healthcare_service"], false)</expression>
+                                                            <expression name="valueExpr" type="javascript">dataSetRow["healthcare_service"]==Null</expression>
                                                         </structure>
                                                     </list-property>
                                                     <text-property name="text">Rumah Sakit</text-property>
@@ -3178,10 +3184,16 @@ Penunjang Bermakna</text-property>
                                                 <label id="4998">
                                                     <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
+                                                    <list-property name="highlightRules">
+                                                        <structure>
+                                                            <property name="operator">is-not-null</property>
+                                                            <expression name="testExpr" type="javascript">row["department"]</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <list-property name="visibility">
                                                         <structure>
                                                             <property name="format">all</property>
-                                                            <expression name="valueExpr" type="javascript">BirtComp.anyOf(!dataSetRow["department"], false)</expression>
+                                                            <expression name="valueExpr" type="javascript">dataSetRow["department"]==Null</expression>
                                                         </structure>
                                                     </list-property>
                                                     <text-property name="text">Departemen/Spesialis</text-property>
