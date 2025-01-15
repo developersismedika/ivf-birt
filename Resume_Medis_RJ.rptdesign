@@ -3138,6 +3138,12 @@ Penunjang Bermakna</text-property>
                                 <property name="rowSpan">1</property>
                                 <label id="4773">
                                     <property name="fontWeight">bold</property>
+                                    <list-property name="visibility">
+                                        <structure>
+                                            <property name="format">all</property>
+                                            <expression name="valueExpr" type="javascript">row["healthcare_service"] == null</expression>
+                                        </structure>
+                                    </list-property>
                                     <text-property name="text">• Rujukan Eksternal</text-property>
                                 </label>
                             </cell>
@@ -3196,6 +3202,12 @@ Penunjang Bermakna</text-property>
                                                             <expression name="testExpr" type="javascript">row["department"]</expression>
                                                         </structure>
                                                     </list-property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">row["department"] == null</expression>
+                                                        </structure>
+                                                    </list-property>
                                                     <text-property name="text">Departemen/Spesialis</text-property>
                                                 </label>
                                             </cell>
@@ -3211,11 +3223,6 @@ Penunjang Bermakna</text-property>
                                                             <expression name="valueExpr" type="javascript">true</expression>
                                                         </structure>
                                                     </list-property>
-                                                    <method name="onRender"><![CDATA[const element4996 = document.getElementById("4996");
-if (!this.getValue()) {
-    // Sembunyikan elemen 4996
-    element4996.style.display = "none";
-}]]></method>
                                                     <property name="resultSetColumn">healthcare_service</property>
                                                 </data>
                                             </cell>
