@@ -2080,14 +2080,9 @@ WHERE
                 </cell>
             </row>
         </grid>
-        <grid id="4385">
-            <property name="height">30px</property>
-            <column id="4386"/>
-            <row id="4387">
-                <property name="height">30px</property>
-                <cell id="4388"/>
-            </row>
-        </grid>
+        <label id="5034">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4393">
             <column id="4394"/>
             <column id="4395"/>
@@ -2120,14 +2115,9 @@ WHERE
                 </cell>
             </row>
         </grid>
-        <grid id="4404">
-            <property name="height">30px</property>
-            <column id="4405"/>
-            <row id="4406">
-                <property name="height">30px</property>
-                <cell id="4407"/>
-            </row>
-        </grid>
+        <label id="5038">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4408">
             <column id="4409"/>
             <row id="4410">
@@ -2291,14 +2281,9 @@ WHERE
                 </cell>
             </row>
         </grid>
-        <grid id="4445">
-            <property name="height">30px</property>
-            <column id="4446"/>
-            <row id="4447">
-                <property name="height">30px</property>
-                <cell id="4448"/>
-            </row>
-        </grid>
+        <label id="5039">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4449">
             <property name="width">7.75in</property>
             <column id="4450">
@@ -2341,14 +2326,9 @@ WHERE
                 </cell>
             </row>
         </grid>
-        <grid id="4460">
-            <property name="height">30px</property>
-            <column id="4461"/>
-            <row id="4462">
-                <property name="height">30px</property>
-                <cell id="4463"/>
-            </row>
-        </grid>
+        <label id="5040">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4464">
             <property name="width">7.739583333333333in</property>
             <column id="4465">
@@ -2498,14 +2478,9 @@ WHERE
                 </cell>
             </row>
         </grid>
-        <grid id="4502">
-            <property name="height">30px</property>
-            <column id="4503"/>
-            <row id="4504">
-                <property name="height">30px</property>
-                <cell id="4505"/>
-            </row>
-        </grid>
+        <label id="5041">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4506">
             <property name="width">7.739583333333333in</property>
             <column id="4507">
@@ -2839,14 +2814,9 @@ Penunjang Bermakna</text-property>
                 </cell>
             </row>
         </grid>
-        <grid id="4649">
-            <property name="height">30px</property>
-            <column id="4650"/>
-            <row id="4651">
-                <property name="height">30px</property>
-                <cell id="4652"/>
-            </row>
-        </grid>
+        <label id="5042">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4653">
             <property name="width">7.739583333333333in</property>
             <column id="4654">
@@ -2906,14 +2876,9 @@ Penunjang Bermakna</text-property>
                 </cell>
             </row>
         </grid>
-        <grid id="4692">
-            <property name="height">30px</property>
-            <column id="4693"/>
-            <row id="4694">
-                <property name="height">30px</property>
-                <cell id="4695"/>
-            </row>
-        </grid>
+        <label id="5043">
+            <property name="fontSize">12px</property>
+        </label>
         <grid id="4696">
             <property name="fontSize">12px</property>
             <property name="width">7.739583333333333in</property>
