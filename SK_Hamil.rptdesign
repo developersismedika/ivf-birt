@@ -245,7 +245,7 @@
   st.statement_no,
   ( SELECT person.person_name FROM person WHERE person.person_id = st.practitioner_id LIMIT 1 ) AS docter_name,
   CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.gravidaDiagnosis' )) AS CHAR ) AS gravidaDiagnosis,
-  CONCAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.gestationalAge' )), ' Minggu') AS CHAR ) AS gestationalAge 
+  CONCAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.gestationalAge' )) AS CHAR ), ' Minggu') AS gestationalAge 
 FROM
   statement st
   LEFT JOIN emr ON emr.emr_id = st.emr_id
