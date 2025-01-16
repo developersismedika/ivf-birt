@@ -1490,12 +1490,6 @@ this.setDisplayValue(formatCurrency(Number(this.getValue())));]]></method>
                                 <property name="paddingLeft">12px</property>
                                 <property name="paddingBottom">8px</property>
                                 <property name="paddingRight">12px</property>
-                                <image id="141">
-                                    <property name="height">5px</property>
-                                    <property name="width">722px</property>
-                                    <property name="source">file</property>
-                                    <expression name="uri" type="constant">resources/images/divider-frame.svg</expression>
-                                </image>
                             </cell>
                         </row>
                         <row id="142">
