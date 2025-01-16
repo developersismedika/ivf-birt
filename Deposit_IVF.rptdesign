@@ -57,6 +57,7 @@
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
             <property name="odaUser">root</property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
