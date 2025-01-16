@@ -150,7 +150,7 @@
                 <structure>
                     <property name="position">4</property>
                     <property name="name">email</property>
-                    <property name="nativeName">email</property>
+                    <property name="nativeName">person_telecom_value</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
@@ -159,16 +159,27 @@
 	person.person_name,
 	DATE_FORMAT(person.birth_dttm, '%e - %b - %Y') AS birth_dttm,
 	CASE 
-		WHEN person_citizenship.citizenship_code = 'ID' THEN CONCAT('+62', person_contact.phone)
-		ELSE person_contact.phone
-    END AS phone,
-	person_contact.email
+    	WHEN person_citizenship.citizenship_code = 'ID' THEN 
+        	CONCAT(
+            	'+62', 
+            	CASE 
+                	WHEN LEFT(person_telecom_phone.person_telecom_value, 1) = '0' THEN 
+                    	SUBSTRING(person_telecom_phone.person_telecom_value, 2)
+                	ELSE 
+                    	person_telecom_phone.person_telecom_value
+            	END
+        	)
+    	ELSE
+        	person_telecom_phone.person_telecom_value
+	END AS phone,
+	person_telecom_email.person_telecom_value AS email
 FROM deposit_log
 LEFT JOIN deposit_pocket ON deposit_log.deposit_pocket_id = deposit_pocket.deposit_pocket_id
 LEFT JOIN deposit_person ON deposit_pocket.deposit_id = deposit_person.deposit_id
 LEFT JOIN person ON deposit_person.person_id = person.person_id
-LEFT JOIN person_contact ON person.person_id = person_contact.person_id
 LEFT JOIN person_citizenship ON person.person_id = person_citizenship.person_id
+LEFT JOIN person_telecom AS person_telecom_email ON person_telecom_email.person_id = person.person_id AND person_telecom_email.person_telecom_system = 'email'
+LEFT JOIN person_telecom AS person_telecom_phone ON person_telecom_phone.person_id = person.person_id AND person_telecom_phone.person_telecom_system = 'phone'
 WHERE
 	deposit_log.deposit_log_id = ?
 ORDER BY person.gender DESC]]></xml-property>
