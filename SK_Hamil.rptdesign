@@ -635,6 +635,8 @@ WHERE
                                 <property name="textAlign">right</property>
                                 <property name="verticalAlign">middle</property>
                                 <data id="5229">
+                                    <property name="fontSize">14px</property>
+                                    <property name="fontWeight">bold</property>
                                     <property name="dataSet">header</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
