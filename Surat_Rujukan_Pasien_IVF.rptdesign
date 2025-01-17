@@ -1,0 +1,2280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">472</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">472</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">472</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="ID" id="267">
+            <text-property name="promptText">ID</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivf" id="265">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cm9vdA==</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Header Location" id="472">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">branch_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">branch_name</text-property>
+                    <text-property name="heading">branch_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">branch_location</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">branch_location</text-property>
+                    <text-property name="heading">branch_location</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ttd</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ttd</text-property>
+                    <text-property name="heading">ttd</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">ID</property>
+                    <property name="paramName">ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">branch_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">branch_location</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ttd</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">branch_name</property>
+                    <property name="nativeName">ivf_site_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">branch_location</property>
+                    <property name="nativeName">address_text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ttd</property>
+                    <property name="nativeName">ttd</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+	ivf_site.ivf_site_name AS branch_name,
+	location.address_text AS branch_location,
+	CONCAT(ivf_site.ivf_site_name, ", ", DATE_FORMAT(CURDATE(), '%d %M %Y')) AS ttd
+FROM statement
+LEFT JOIN emr ON statement.emr_id = emr.emr_id
+LEFT JOIN encounter ON emr.encounter_id = encounter.encounter_id
+LEFT JOIN order_header ON encounter.order_header_id = order_header.order_header_id
+LEFT JOIN ivf_site ON order_header.organization_id = ivf_site.organization_id
+LEFT JOIN location ON order_header.organization_id = location.organization_id
+WHERE
+	statement.statement_id = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ivf_site_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>branch_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>branch_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>address_text</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>branch_location</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>branch_location</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Statement" id="502">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">notes</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">notes</text-property>
+                    <text-property name="heading">notes</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">department</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">department</text-property>
+                    <text-property name="heading">department</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">examination</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">examination</text-property>
+                    <text-property name="heading">examination</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">reffering_doctor</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">reffering_doctor</text-property>
+                    <text-property name="heading">reffering_doctor</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">working_diagnosis</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">working_diagnosis</text-property>
+                    <text-property name="heading">working_diagnosis</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">healthcare_service</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">healthcare_service</text-property>
+                    <text-property name="heading">healthcare_service</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_colleagues</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_colleagues</text-property>
+                    <text-property name="heading">patient_colleagues</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">reason_referral</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">reason_referral</text-property>
+                    <text-property name="heading">reason_referral</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">statement_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">statement_no</text-property>
+                    <text-property name="heading">statement_no</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">ID</property>
+                    <property name="paramName">ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">notes</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">department</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">examination</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">reffering_doctor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">working_diagnosis</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">healthcare_service</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">patient_colleagues</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">reason_referral</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">statement_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">notes</property>
+                    <property name="nativeName">notes</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">department</property>
+                    <property name="nativeName">department</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">examination</property>
+                    <property name="nativeName">examination</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">reffering_doctor</property>
+                    <property name="nativeName">reffering_doctor</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">working_diagnosis</property>
+                    <property name="nativeName">working_diagnosis</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">healthcare_service</property>
+                    <property name="nativeName">healthcare_service</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">patient_colleagues</property>
+                    <property name="nativeName">patient_colleagues</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">reason_referral</property>
+                    <property name="nativeName">reason_referral</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">statement_no</property>
+                    <property name="nativeName">statement_no</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.notes', '-') AS notes,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.department', '-') AS department,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.examination', '-') AS examination,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.refferingDoctor', '-') AS reffering_doctor,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.workingDiagnosis', '-') AS working_diagnosis,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.healthcareService', '-') AS healthcare_service,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.patientColleagues.label', '-') AS patient_colleagues,
+	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.reasonReferral', '-') AS reason_referral,
+	statement.statement_no
+FROM statement
+LEFT JOIN questionnaire_response ON questionnaire_response.questionnaire_resp_id = statement.questionnaire_resp_id
+WHERE
+	statement.statement_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>statement_no</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>statement_no</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>statement_no</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Patient Information" id="506">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">medrec</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">medrec</text-property>
+                    <text-property name="heading">medrec</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">name</text-property>
+                    <text-property name="heading">name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">gender</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">gender</text-property>
+                    <text-property name="heading">gender</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">age</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">age</text-property>
+                    <text-property name="heading">age</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">age_details</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">age_details</text-property>
+                    <text-property name="heading">age_details</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">ID</property>
+                    <property name="paramName">ID</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">medrec</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">gender</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">age</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">age_details</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">medrec</property>
+                    <property name="nativeName">patient_mrn</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">gender</property>
+                    <property name="nativeName">gender</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">age</property>
+                    <property name="nativeName">age</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">age_details</property>
+                    <property name="nativeName">age_details</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+	patient.patient_mrn AS medrec,
+	person.person_name AS name,
+	CASE
+		WHEN person.gender = 'female' THEN 'Perempuan'
+		WHEN person.gender = 'male' THEN 'Laki - Laki'
+		ELSE person.gender
+	END AS gender,
+	DATE_FORMAT(birth_dttm, '%d-%b-%Y') AS age,
+    CONCAT(
+    	'(',
+        TIMESTAMPDIFF(YEAR, person.birth_dttm, NOW()), ' Tahun, ',
+        TIMESTAMPDIFF(MONTH, DATE_ADD(person.birth_dttm, INTERVAL TIMESTAMPDIFF(YEAR, person.birth_dttm, NOW()) YEAR), NOW()), ' Bulan',
+        ')'
+    ) AS age_details
+FROM statement
+LEFT JOIN patient ON patient.patient_id = statement.patient_id
+LEFT JOIN person ON person.person_id = statement.patient_id
+WHERE
+	statement.statement_id = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patient_mrn</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>medrec</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>medrec</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>gender</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>7</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>gender</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>gender</design:label>
+            <design:formattingHints>
+              <design:displaySize>7</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>age</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>age</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>age</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>age_details</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>56</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>age_details</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>age_details</design:label>
+            <design:formattingHints>
+              <design:displaySize>56</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="orientation">portrait</property>
+            <property name="topMargin">0in</property>
+            <property name="leftMargin">0in</property>
+            <property name="bottomMargin">0in</property>
+            <property name="rightMargin">0in</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="22">
+            <property name="height">4.260416666666667in</property>
+            <column id="23"/>
+            <column id="37"/>
+            <row id="24">
+                <property name="height">1.3541666666666667in</property>
+                <cell id="25">
+                    <property name="paddingTop">16px</property>
+                    <property name="paddingLeft">32px</property>
+                    <property name="paddingBottom">16px</property>
+                    <property name="paddingRight">32px</property>
+                    <property name="verticalAlign">middle</property>
+                    <image id="192">
+                        <property name="height">84px</property>
+                        <property name="width">146px</property>
+                        <property name="source">embed</property>
+                        <property name="imageName">ivf.png</property>
+                    </image>
+                </cell>
+                <cell id="34">
+                    <property name="paddingTop">16px</property>
+                    <property name="paddingLeft">32px</property>
+                    <property name="paddingBottom">16px</property>
+                    <property name="paddingRight">32px</property>
+                    <property name="verticalAlign">middle</property>
+                    <grid id="463">
+                        <column id="464"/>
+                        <row id="465">
+                            <cell id="466">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <property name="textAlign">right</property>
+                                <data id="477">
+                                    <property name="fontSize">16px</property>
+                                    <property name="fontWeight">700</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="dataSet">Header Location</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">branch_name</property>
+                                            <text-property name="displayName">branch_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["branch_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">branch_name</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="467">
+                            <cell id="468">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <data id="478">
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="textAlign">right</property>
+                                    <property name="dataSet">Header Location</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">branch_location</property>
+                                            <text-property name="displayName">branch_location</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["branch_location"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">branch_location</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="479">
+                <property name="height">2.90625in</property>
+                <cell id="480">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="paddingTop">24px</property>
+                    <property name="paddingLeft">40px</property>
+                    <property name="paddingBottom">24px</property>
+                    <property name="paddingRight">40px</property>
+                    <grid id="482">
+                        <property name="height">5.895833333333333in</property>
+                        <column id="483"/>
+                        <row id="484">
+                            <cell id="485">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                                <grid id="494">
+                                    <column id="495"/>
+                                    <column id="496"/>
+                                    <row id="497">
+                                        <cell id="498">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="500">
+                                                <property name="fontSize">24px</property>
+                                                <property name="fontWeight">700</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Surat Rujukan Pasien]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="499">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <property name="textAlign">right</property>
+                                            <property name="verticalAlign">middle</property>
+                                            <text id="504">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[No:]]></text-property>
+                                            </text>
+                                            <data id="505">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="marginLeft">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">statement_no</property>
+                                                        <text-property name="displayName">statement_no</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["statement_no"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">statement_no</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="490">
+                            <property name="height">0.23958333333333334in</property>
+                            <cell id="491">
+                                <property name="paddingTop">0pt</property>
+                                <property name="paddingLeft">0pt</property>
+                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingRight">0pt</property>
+                            </cell>
+                        </row>
+                        <row id="492">
+                            <cell id="493">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomColor">#C4CDD5</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#C4CDD5</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#C4CDD5</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#C4CDD5</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="paddingTop">12px</property>
+                                <property name="paddingLeft">12px</property>
+                                <property name="paddingBottom">12px</property>
+                                <property name="paddingRight">12px</property>
+                                <grid id="507">
+                                    <column id="508"/>
+                                    <column id="509"/>
+                                    <row id="510">
+                                        <cell id="511">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="528">
+                                                <column id="529"/>
+                                                <column id="530"/>
+                                                <column id="531"/>
+                                                <column id="532"/>
+                                                <column id="533"/>
+                                                <row id="534">
+                                                    <cell id="535">
+                                                        <property name="colSpan">2</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="540">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[Nama]]></text-property>
+                                                        </text>
+                                                    </cell>
+                                                    <cell id="537">
+                                                        <property name="colSpan">3</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="541">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="marginRight">4px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[:]]></text-property>
+                                                        </text>
+                                                        <data id="542">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="dataSet">Patient Information</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">name</property>
+                                                                    <text-property name="displayName">name</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <property name="resultSetColumn">name</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                        <cell id="512">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="555">
+                                                <column id="556"/>
+                                                <column id="557"/>
+                                                <column id="558"/>
+                                                <column id="559"/>
+                                                <column id="560"/>
+                                                <row id="561">
+                                                    <cell id="562">
+                                                        <property name="colSpan">2</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="583">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[Tgl. Lahir]]></text-property>
+                                                        </text>
+                                                    </cell>
+                                                    <cell id="564">
+                                                        <property name="colSpan">3</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="581">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="marginRight">4px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[:]]></text-property>
+                                                        </text>
+                                                        <data id="588">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="marginRight">4px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="dataSet">Patient Information</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">age</property>
+                                                                    <text-property name="displayName">age</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["age"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                    <property name="allowExport">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <property name="resultSetColumn">age</property>
+                                                        </data>
+                                                        <data id="590">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="dataSet">Patient Information</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">age_details</property>
+                                                                    <text-property name="displayName">age_details</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["age_details"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                    <property name="allowExport">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <property name="resultSetColumn">age_details</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                    <row id="513">
+                                        <cell id="514">
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="543">
+                                                <column id="544"/>
+                                                <column id="545"/>
+                                                <column id="546"/>
+                                                <column id="547"/>
+                                                <column id="548"/>
+                                                <row id="549">
+                                                    <cell id="550">
+                                                        <property name="colSpan">2</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="579">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[No. MedRec]]></text-property>
+                                                        </text>
+                                                    </cell>
+                                                    <cell id="552">
+                                                        <property name="colSpan">3</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="580">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="marginRight">4px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[:]]></text-property>
+                                                        </text>
+                                                        <data id="586">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="dataSet">Patient Information</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">medrec</property>
+                                                                    <text-property name="displayName">medrec</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["medrec"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                    <property name="allowExport">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <property name="resultSetColumn">medrec</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                        <cell id="515">
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <grid id="567">
+                                                <column id="568"/>
+                                                <column id="569"/>
+                                                <column id="570"/>
+                                                <column id="571"/>
+                                                <column id="572"/>
+                                                <row id="573">
+                                                    <cell id="574">
+                                                        <property name="colSpan">2</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="584">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[Jenis Kelamin]]></text-property>
+                                                        </text>
+                                                    </cell>
+                                                    <cell id="576">
+                                                        <property name="colSpan">3</property>
+                                                        <property name="rowSpan">1</property>
+                                                        <property name="paddingTop">0pt</property>
+                                                        <property name="paddingLeft">0pt</property>
+                                                        <property name="paddingBottom">0pt</property>
+                                                        <property name="paddingRight">0pt</property>
+                                                        <text id="582">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="marginRight">4px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="contentType">plain</property>
+                                                            <text-property name="content"><![CDATA[:]]></text-property>
+                                                        </text>
+                                                        <data id="589">
+                                                            <property name="fontSize">12px</property>
+                                                            <property name="paddingTop">0pt</property>
+                                                            <property name="paddingLeft">0pt</property>
+                                                            <property name="paddingBottom">0pt</property>
+                                                            <property name="paddingRight">0pt</property>
+                                                            <property name="display">inline</property>
+                                                            <property name="dataSet">Patient Information</property>
+                                                            <list-property name="boundDataColumns">
+                                                                <structure>
+                                                                    <property name="name">gender</property>
+                                                                    <text-property name="displayName">gender</text-property>
+                                                                    <expression name="expression" type="javascript">dataSetRow["gender"]</expression>
+                                                                    <property name="dataType">string</property>
+                                                                    <property name="allowExport">true</property>
+                                                                </structure>
+                                                            </list-property>
+                                                            <property name="resultSetColumn">gender</property>
+                                                        </data>
+                                                    </cell>
+                                                </row>
+                                            </grid>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="591">
+                            <property name="height">0.2604166666666667in</property>
+                            <cell id="592">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="593">
+                            <cell id="594">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                                <grid id="595">
+                                    <column id="596"/>
+                                    <column id="597"/>
+                                    <column id="598"/>
+                                    <column id="599"/>
+                                    <column id="600"/>
+                                    <column id="601"/>
+                                    <column id="602"/>
+                                    <row id="603">
+                                        <cell id="604">
+                                            <property name="colSpan">7</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">8px</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="627">
+                                                <property name="fontSize">14px</property>
+                                                <property name="fontWeight">700</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Kepada Yth,]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                    <row id="611">
+                                        <cell id="612">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">4px</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="628">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Rumah Sakit]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="614">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">4px</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="630">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="633">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">healthcare_service</property>
+                                                        <text-property name="displayName">healthcare_service</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["healthcare_service"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">healthcare_service</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="619">
+                                        <cell id="620">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="629">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Spesialis]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="622">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="631">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="632">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">department</property>
+                                                        <text-property name="displayName">department</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["department"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">department</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="634">
+                            <property name="height">0.23958333333333334in</property>
+                            <cell id="635">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="636">
+                            <cell id="637">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                                <grid id="661">
+                                    <column id="662"/>
+                                    <column id="663"/>
+                                    <column id="664"/>
+                                    <column id="665"/>
+                                    <column id="666"/>
+                                    <column id="667"/>
+                                    <column id="668"/>
+                                    <row id="669">
+                                        <cell id="670">
+                                            <property name="colSpan">7</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="717">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Dengan hormat, Memohon bantuan sejawat atas]]></text-property>
+                                            </text>
+                                        </cell>
+                                    </row>
+                                    <row id="677">
+                                        <cell id="678">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="718">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Pasien ini untuk dilakukan]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="680">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="723">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="728">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">patient_colleagues</property>
+                                                        <text-property name="displayName">patient_colleagues</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["patient_colleagues"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">patient_colleagues</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="685">
+                                        <cell id="686">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="719">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Alasan Rujuk]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="688">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="724">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="729">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">reason_referral</property>
+                                                        <text-property name="displayName">reason_referral</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["reason_referral"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">reason_referral</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="693">
+                                        <cell id="694">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="720">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Diagnosa kerja]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="696">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="725">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="730">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">working_diagnosis</property>
+                                                        <text-property name="displayName">working_diagnosis</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["working_diagnosis"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">working_diagnosis</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="701">
+                                        <cell id="702">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="721">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Pemeriksaan]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="704">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="726">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="731">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">examination</property>
+                                                        <text-property name="displayName">examination</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["examination"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">examination</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="709">
+                                        <cell id="710">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="722">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Catatan]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="712">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">4px</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="727">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="732">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">notes</property>
+                                                        <text-property name="displayName">notes</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["notes"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">notes</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="733">
+                            <property name="height">0.23958333333333334in</property>
+                            <cell id="734">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="735">
+                            <cell id="736">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                                <text id="737">
+                                    <property name="fontSize">12px</property>
+                                    <property name="paddingTop">0pt</property>
+                                    <property name="paddingLeft">0pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <property name="paddingRight">0pt</property>
+                                    <property name="contentType">plain</property>
+                                    <text-property name="content"><![CDATA[Demikian surat rujukan ini kami buat agar pasien mendapatkan penanganan lebih lanjut sesuai dengan kondisi medisnya. Atas perhatian dan kerja sama yang diberikan, kami ucapkan terima kasih.]]></text-property>
+                                </text>
+                            </cell>
+                        </row>
+                        <row id="738">
+                            <property name="height">0.25in</property>
+                            <cell id="739">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomColor">#919EAB</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="740">
+                            <property name="height">0.23958333333333334in</property>
+                            <cell id="741">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="742">
+                            <property name="height">0.3125in</property>
+                            <cell id="743">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                                <grid id="744">
+                                    <column id="745"/>
+                                    <column id="746"/>
+                                    <column id="747"/>
+                                    <column id="748"/>
+                                    <column id="749"/>
+                                    <column id="750"/>
+                                    <column id="751"/>
+                                    <row id="752">
+                                        <cell id="753">
+                                            <property name="colSpan">2</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="760">
+                                                <property name="fontSize">12px</property>
+                                                <property name="color">black</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[Dokter Perujuk]]></text-property>
+                                            </text>
+                                        </cell>
+                                        <cell id="755">
+                                            <property name="colSpan">5</property>
+                                            <property name="rowSpan">1</property>
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <text id="761">
+                                                <property name="fontSize">12px</property>
+                                                <property name="marginRight">4px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="contentType">plain</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
+                                            <data id="762">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">reffering_doctor</property>
+                                                        <text-property name="displayName">reffering_doctor</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["reffering_doctor"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">reffering_doctor</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                        <row id="763">
+                            <property name="height">0.23958333333333334in</property>
+                            <cell id="764">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                            </cell>
+                        </row>
+                        <row id="765">
+                            <cell id="766">
+                                <property name="diagonalStyle">none</property>
+                                <property name="antidiagonalStyle">none</property>
+                                <property name="borderBottomStyle">none</property>
+                                <property name="borderLeftStyle">none</property>
+                                <property name="borderRightStyle">none</property>
+                                <property name="borderTopStyle">none</property>
+                                <property name="paddingTop">0px</property>
+                                <property name="paddingLeft">0px</property>
+                                <property name="paddingBottom">0px</property>
+                                <property name="paddingRight">0px</property>
+                                <grid id="767">
+                                    <column id="768"/>
+                                    <row id="769">
+                                        <cell id="770">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <property name="textAlign">right</property>
+                                            <data id="778">
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Header Location</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">ttd</property>
+                                                        <text-property name="displayName">ttd</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["ttd"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">ttd</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                    <row id="771">
+                                        <property name="height">0.5208333333333334in</property>
+                                        <cell id="772">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                        </cell>
+                                    </row>
+                                    <row id="773">
+                                        <cell id="774">
+                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingLeft">0pt</property>
+                                            <property name="paddingBottom">0pt</property>
+                                            <property name="paddingRight">0pt</property>
+                                            <property name="textAlign">right</property>
+                                            <data id="779">
+                                                <property name="fontSize">12px</property>
+                                                <property name="paddingTop">0pt</property>
+                                                <property name="paddingLeft">0pt</property>
+                                                <property name="paddingBottom">0pt</property>
+                                                <property name="paddingRight">0pt</property>
+                                                <property name="display">inline</property>
+                                                <property name="dataSet">Statement</property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">reffering_doctor</property>
+                                                        <text-property name="displayName">reffering_doctor</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["reffering_doctor"]</expression>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="resultSetColumn">reffering_doctor</property>
+                                            </data>
+                                        </cell>
+                                    </row>
+                                </grid>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">ivf.png</property>
+            <property name="type">image/png</property>
+            <property name="data">
+                iVBORw0KGgoAAAANSUhEUgAAANYAAAB3CAYAAAB/o75lAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNS
+                R0IArs4c6QAAAARnQU1BAACxjwv8YQUAAEcqSURBVHgB7b0HnJ1llT/+fcvt02tmkslkJr03AglBCASp
+                giKIhVURwbruyurq7t+1f1ZX19+uZXVF/a0uq2tBRBBQigQSQklCEkgI6W3SJ9PLbW/5n3Oe571zE5Jd
+                MHOTGX/3wM29c+9bn/c57XvKAxSpSEUadjJ8IhSpSEUaVjJRpCIVadipyFhFKlIBqMhYRSpSAajIWEUq
+                UgGoyFhFKlIBqMhYRSpSAajIWEUqUgGoyFhFKlIBqMhYRSpSAajIWEUqUgGoyFhFKlIBqMhYRSpSAajI
+                WEUqUgGoyFhFKlIBqMhYRSpSAajIWEUqUgGoyFhFKlIBqMhYRSpSAajIWEUqUgGoyFhFKlIBqMhYRSpS
+                AajIWEUqUgGoyFhFKlIBqMhYRSpSAajIWH8GNHI6rvoYSVdzLsnGqCJPvxv0+IzcIzR8/oYeqS8/yWfP
+                d2EY8i19MSQ/DF/9zQ2AZXPaxoCrdvRN9SZHV+cZcUQX7WYceCETDv05kHGxef8htPf2ozRso7m+EvVV
+                VUjQfYVNj27VpLtzYfn0qD26P0sPkhDdt8+f8+Srob+HJefy9Hganhpk31DjbvpD2+c+elk1tvyiY5qa
+                z3zDhWN4CLmWjHGaLiXEY+zT9dEJ+D4sx0c2RM+CnptJD9QzQ+AnY/v0q2FhRD6L/4FGVYvpfHlo5N6J
+                2Xx+oPTJZ4ahl8kP1qXPRo55eIbwGz9sep7ClqYhuyHHjYarz2Do1whU6PS4PMdFt23hGz9/GD99+Bl0
+                OiZSYZaRDsJOGhOqq/GXb7kMNy2Zi9pImOYl35ephZEjk17dmxpRU9+nFi/yyZRpzczr6i0MGTtDPwDX
+                9GWLU16iPrqhhZdjGPrsansSC8S2vvxrEiNlaLvfrNuCe57YgLdcOBvvumgOQjwtiblcQ1h8lLHVaOvd
+                7gesFUx4Tx5XlkY9TbNi74EO7D3UgfaOHnpl0dWVRm9XP9JJmhyuKYwUjwNV5XGS6jHU15RhYksdJk+q
+                RzQK0Vw8BUSyAyPWUB7IOvj03ffiB49voEkah03aC9m0CBQnVCLXH8v24I7L5+FfbnsrTcys1tr08jNK
+                S5EWcGQoTTJbXFbxEF1taEEUaHAWWiazga2Ziv+h71jPGGF9TEOkFWsqEWUiuQylvZiB6NgWsxJpLY/2
+                szxTdvHomB7SONrZhaWf+y7a+krQEk9j5dfvxNh4iA4dhmOZo82sEhpl1+yKCZdlqU0PuzeZxYtb27Bh
+                dzte2X4AvX1ZelBhZB1lAvo8WeghGmyCsBVJ70avhT0H0/RwB2F6R+j1CsoTwLw5TbjowomYPq0G4Ui/
+                MCFQgpFGfBu7SXD8+ql1cCJlKPMy+Oi1F+L8yU04RN8/tH4LnqYxGXQGMWDznHdkoidpHNppvEKOh9qE
+                DR6i4xkPu/bvR21FBVpqy0nbOXBsG/0spA63I5NOo3VMPUrCJsLEkKGwKczh+sxWEdI0Jo7TmGdSKYSJ
+                ASorYogSn0UQ6ENDPy8DOzv7UVMWFXO1J+uhO+VgbAlpLGLAPo+eGb18GvRB0lL76feEFRFz1nbp+q3R
+                x1qjSmOxUZKimfXy3sNY9dJurNt2ED30gDzyHyyfmIdMIp+eOn/2PdrQZRueHjI7Cp6vhKxrK7OQbAzT
+                5e0hZqNJTEfTDZNbY3jb2+Zgzrw6ErgWRhoxYz2+aQfe+pUfYiBUjiXja/Dwl25HKfkiBk30LE3GNdvb
+                0HbwKN64dCFqWKnQnf1x1358+F//ExlSNt/71Puxau0G/OfvV2GAvB04KSybNRFf++i7sHbHfvzzzx7A
+                3vZOMQgrYyV439VL8bdvvQzlBgs2C4eSGXzjt4/h0Wc3oe14r7bPfVQS41y/ZD7uvOmNaC5L0HPwiGGA
+                r/769/jGgysxu6YK3/jUB/BX/+dubD9wDF9692VYNG0q7vjmL7G9vQ+e7ZBp6CNEfmAVmbpffu9b8G4y
+                De0QXeMoMwatLxDhHJKnvSZDJr/+0tBWn5B4S8jQd8/sbce//W41frd6M3a292PQYyMmJP44Wx+8E9vx
+                zFQWM4/PDrQpJo3BmstjP8ET2z+w8lhiKiebTuCG0NmexepV+3D8mEvMVU/MxSAImzhZZRoF/tg5Ir7N
+                PV29+OXK55C1S9Hb3YvkQB/Gjx+PWCJMBpeHxpoKzG5uQilpEd9SvuJ/PL4G92/Zh17SWI9s2IrVm3ei
+                hwSHa0SRCkWw5/hxPLh2F366Yg2Ok7ByrBAyNKH7nQhe3L4DdWUxzJs4Qcb3N89sxD/8/FF0pHwx/1wy
+                KzNWAt00vi/tOIxnNm3Hm9+wgDSOR9rPwWd/9kfs7U/i2EAaf1i/n5ioCynSTHW2j9rKMvx45Vp4VhQ2
+                PU/PtJGlcw/SfUwoK8WVc6bTMzBGG1+de8ZS1ryvwAdCsVyDGYlt9CwxgIEMaZYXD3fgu48+jd8+swld
+                A+zskklnKPPOYmbizWlbZh7lFxjCPIIAyrs+izjfpkKqfMV44g4I0wXbM8gRwp7dh7F/Txtmz29FJMLf
+                +QqdOscPmE8fj0Sxav0rONKbIg1uYS1pox/94Sk8+PRGbN9zGKFYAtXVZST5XXF1LLrPJzbvwqqdB+Ue
+                rUwGN54/GzdcsgAgxjxEfqhBk7qnP43m8hhue+MSLJnahLYDR9CXoqfhuYiRNn/z0gVkmrkoI2boH0xi
+                zqRGvOPKJbjughmY1lCGXW0HMEBWwbGBHkyrq8Dc8Y1I0753r9iIw33EKsSEyYFBNJUaeNO8SQKwLJo8
+                AeUV5Vj/yg4MkPkQjzj4xFVLcePC6bj1qotQEjU0cju6OOvcG6960ntsZjD+5Bs56HxXXx/u37wFKzbs
+                gZuN0QDH4RLqZRi2YhIMP7F0ZNTN8MN44bkB3FO5Hu//6EK6IGYqB+qs585EZP6uI6Tlnz92Cz7z/V9g
+                3Z52DNoxZLwYNrY72HBsO+56ZguumDYGXyJTalZjnexnaqHB137+hDp8+yNvF8Z779LzsfAjX0avH6Vx
+                dfCxty7HHcsXkswyUV9Sjr//rwfE7zrWk9aCyUFrWQjfv/VN6CKh1zOQRJgOG10wDR4x/HfueYLgdAPb
+                j3WIWWr5/KJny8+MjtpSGsKP/r/3YUFTA5noSVj03G+YOw3f+/Uj6KDjx0M+7rh0ESZUlcn2WcMT4GO0
+                0TlnLE+4w9cPnv4m7TFI7yv2HcE9T63GoVRGAAkbGWXmmYbWLooBDX+YQ5K+jm3RREAmgScfa8Olb5yI
+                lonVYhaa5jkeMrph03Iwr7kOP//ix7D+5d1YsWkvnnplC/YfPY7OfgvpcBkeeqUdR+/6BR79/MdQYgwF
+                EFhjzZk8FiVkHVjGAOrJ3KqoiqOzyxWmmTGJTEqkaJxDmDWxibahyU3j75C28cjEZki+jayGb97/OB7f
+                uAtHu/vAkajy8gqUhBQD8KMczChkUCGM6uSmm8U7r74ci8bVERjiyjk4LhYx08iwP0tmp+2mydcifNYi
+                zJA0bUgE2mgD20cIKqggWno8ZGrtHOzHr55/Ac/uPQAnywwUJ3/JF43Gwc6Ai4y8mEpBiE1IOwMnE8GT
+                j+5D64crZJJwnOzcPmfmEob7XFSHbPJBJuEyMqtSzuXYsrcNv1zzMu76/XNIERS+fV8HDpA/NqmmksZP
+                IkpK32pG81WYVgKyls9wPb0LRM5ggSXj68oUsUl/kQ6jZ5C0wvjYd3+OR15pk2fWWBLDrNZxhCA62Lxn
+                l2zLzGuTNmM2I3BffDAO/EZp/5kkEGz6XWB0h7QYOciOyX+7Yo56EoQ25R6VrPVHXQyL6ewylo695mEU
+                EiDkOEeWBv/ZvYdw19MrcYBiMmF6MA7HT1hC05Zhhso9BvcUN/mBCB4uMk78wGCpaaTAkPv6Ne24+d0u
+                SsuNcy48eezW7jqAf7nnMSyYMRkfuuZCAgkomkXcckHrWExqbcZTa1/CpuMpMg8JRXUUPK7G2hJzz+aB
+                FPiGgXGCtOk7MddoO5v28X1bBIjKn2DN4kognjXItmPdeHITM5CFqY1xPPDlv0ZTmBnCwg+f34K/+e6v
+                JM4e9oasCX6GnJXBwrGUA9bMaLm78cA2SYh8Nza1LckGISbmeJuc1ZLnP9ronGgsbf0JMYjQQybGves3
+                4HebtqKfni4bfowxWC4/EE/MPo7Am3mzOggVG8MOGKkcHckV0Jkc3R396O5MEWMlcK6JQ7Pfuf8R3L/p
+                MO7dcoiAgSfwzksuxKTGBtIIFh6jONa2zgECgsKoJl+ssbwMYdNVio78Rs804AdIrJ62DKFnzSh9yuqz
+                eIKEmvDzQvEQ5ukZHCDLwpFvwsQwcUMBQMezKTz/4svExJ4ceYAQvzSf01MpTayFMnQOleiihCVxqgKZ
+                SDtFfQWpJ5MG7n1uC+aNr6LYXCvK2PS3MepQwbPKWJ5OKTL04DNXHM0SarTqWazYswd9dggmPduor9Jr
+                zm2AbSiByqML7+tN0gQqU2lr55D4gb1x4Ww8smkfOig8sKPdxRd/+wxNaNIqHEwlLeSbCZRl+whVW4Sq
+                GJl7HOMSOMIhAcXsEtyEth18lVkRxDhM4gYFVDByGhLmsDwFuE4ZPwbN1RHs6PWx+bCDt335v9BYm8C2
+                owfwClkcsEolpOGayh/z2M/ydeKUF2gf/s0StJJDINUlCVQlIthLgeYuM0JQ/hNIeH34+5uX4+PXLSfz
+                dPRprLOWtDM0TZU/xbKxLZnCNx7/Ix7bs48CiRYiWRp8klApcl79ETSWhk7aHQmXxCxw80UL8cBnP4Kb
+                57ZgTBlJ+wyZzoRk2jSDw+4gJid8/MO7rsCdN19Ozr8CY+ZNHIs6cxBlTj/mT20VAEjS8ej9PAIpKjM9
+                mF6RQGO1yjbhrJUGgtXHVEYQd3owr3WM+EZ1loV/es/bMYtAD4JqsXr/Pjy4bgMcAjQ+fP0VKCe4POH1
+                YlFdNbE4jRiZiYsnj0O5N4CWmImWMdV50LlKeyoj0OPDb70cY6w0Is4ggRwUciGGjpeUCJOeaxH7p9BZ
+                y7zIZfmxNqLXvnQK//y7P2Brby8xkUW2vXitIuHUdq5saHiWSDX+UzIo6DuT41XyWZkahhKNkk0heX40
+                KUxXxbeg41SQY5CsdnUWBgeL6dhyXP0d78/nU+dlSUsOvUMP1+zH176zHE2tiaE8unNFLJeyjiBnFJ9F
+                R18Ku460ExrYT5o1SwHXKkyorUY9xaNYQ0WMiMDWNF2x/eAxDKazBCCMQTkH3sXctnCYYk3btu1FfU0V
+                Tfxy1nmirbLEqC+396G9owsLmhvJtIyI6cbD2jGYxgYCS44PcqpSAjMaxqGqJI61Bw7BIc15Xn09ymJh
+                whdd9KY9vLBnP1rr6jGpMsoqkbRQSGfOk3ak6ybRQBB9J9roXjhppooAlyn1VajmtCYCaUabKVgQxgry
+                w18FVkj+kIWjJGG//tAj2NDbB49g2RChfWmd1BB1TEGUsqYnGRRnj7HUcXhb31VlEmwwuQQB1zUAX/vW
+                MiRKA6c/YK7cneaRiZNThYeTJOWRri3EYAObVOSAmILqWGKm+h7D5pac37PyY0COgET8gykp/pz+ZBLI
+                wCCRK+lHHudUWsoDYwCWTXZfSj108Dxkyfl9bZpZjiHABAf2GZAwCXRi306eteEoU5IFJe2UsV0FQJGt
+                4hBT2ZwEbKjEZwEqvJAk5ZqCXrpyXCleoX1Me/SVDRbEx8qVdmhUSHwrKKSth9Cfb/3+j1jf1SMmlqU1
+                VFhzn0eTJMNX5eGskR/UbSHIAoFg0pLMS1pr8YVjQbFP0bQeTRZTYH9f+FOSxj0Vh1OpN4rZCiVgJUdd
+                MoRtqH/1t5p/DB1nU4lM+Q6hDSt/frKVxu8W/6I0gnXy/NXIfj6d4GLa0MUl+ttQJO/30NBhJDHX0jtb
+                uUlnB0c0Ysj9jKF7M4c2GnVUkMsOKn24ZscUmFZJ+C6SpN9b9STWd7TTicNweaaaJyQGniPKanjRyrt6
+                5q0M6modvPmts9BPX2892oPjnT1IptOyDUtjZrLSeJRMqHqMi8cRldInvi9dLDgqozBFOlMqjDzQCBLn
+                /KkqUTIFSJLet24ToX/70GfZKOEyH8MSfOicTz2xGXXWgNKxsLIeIqRGF79zPv5794t4ZusWdPZaSIZ8
+                0aoqWKwY0CZGinoOZtQ04MrZM3BBy3jEfB19MZSmNkYhslWkP50KA1540BF0VyE8xEDPtbfjnx54HIOm
+                IYm2kmGunRHjNMcQQOEs+FiG56q6LcfmfAPyRZLEZxm0LmnB/tIOHLA7SftaCGXYB3BycaCAuNrVIQHS
+                H6VANh3rMmKwjy9fhqpIKHdzRcb6f4sK5hWqSL8hNVL99NfdK1ehg/yWMPkt8SynsXgi+c3/FUr1T//t
+                UBraCZsZJ6RlnDShT5EH5Uv6jjLbfDL/7KiHxgubsLFsN454HTCIocJp9gcHxflWMSFP3g1JFPUFzaxI
+                RVGSiuOFQ8fx1w8+hHZCPr28QENh6H87/us99/9+vX/KHQXbe6f51X/VlsNH58LRKJjGYpTPkliJgR+s
+                fwG/Wb+JUKpQbprnI4enkuWCznFgUzQSWayOJQyjkEJTayg+lyelDJKa4SotxNrHz2kjX9Vk8bYOMYTr
+                KWc76yrEjBNLLQfjQuWoq7cxcW45rImV+I8X1iFjZE9xZUN5C8K/vs5kMFRmvmhVsSZ9zKyqxievfQPG
+                RSk+Z0WF+c5UkgkSSPEj0yUflQvRTFXgyKhcLhslFzEUbJ6eQxRZulVOfGUBEnQe0EkmgJjjwRNxVUI0
+                17pZlrpeRgcx1BuDU5AsjdyYrkp5cthrNjiDA5IGxXX/XVkDm8kn5YyPC8bEJNPdsbP0XAw8f7gHZeEI
+                ZlaXwraSZIhEkKKdNxzrgU2hhLl15SiR7hgkwixH8ggFIOIsDp4PjLRI3w1XBKOaxZ6EbtjqMHQOgkwL
+                LQjF7wn6ohjQVeKFocKggqZK7+QJvbW3G09seYVuLHSC5Pif78mQCSCxJE9Bw4Lc+TS4nq4K5iRPl8vv
+                bWIA7o/giTKyJCBKD970dE2WixDDygTZxuIhlFhxJBIhlJVGUFMdQWNDDcY1JdDUUElxFwoFkEb6zD0P
+                yAM55b0hD/PTtV1GUJkpJqbSmDx5dh44jnXb96Fh/jRVUDkMQLwgrXS/z/X24+ENO9FPgeEMl65zJrir
+                t9GxNos2vn5uEy6uDiEkrTzE0NXtZHzJy1PZFbaEQZiYmSR9zIRsF5LfHVWP5oehUnczch1cF7c57YkP
+                OS2h0mVsSYcaJD86gm+v2opvrdxO11WKL1/Zig8sbiHIysd9Owdw+y+fJB/Wx/dueANumFInx/33R17C
+                P79wBEY0ib9b3Iw7L5lJkDwJkWwIbRR/6+rvw8zKhLTaYEBMKsCZuc2MtCDwiDmDvEKeg1J75hnCaJxZ
+                4mlDxpM8K2a2wkGOBTkyyxnbU5nNv3vpZRwnqRYxovLLayOfJF9W8thsV09UYRiKzEd8xEhahWiA4qQB
+                Y2YEiUgcpRS8jEfC9DmMsngY0YiFGPk46u8QSmNRQu9iiJMfxPPQ1OpSFTeaKhZDTPXcli3YnewlPi05
+                9fzPNVoxlKkb+ImiJdn/g/IJObGYJuJDq1/CeZObMa40piT5GdcWmUjSeH7u/pVYdYCPFxVJngp5ME4y
+                jVnjv9S2Dw/ddhVCgihZkskgWXk6U9/TcTnpYAUVp1P3QHEnmrBcLmLShBW5YWVVVbYXk+2fPtaFv/jx
+                SmlV9vWrZ+CmOeMRoXGwsqVSuXxk0EUfPfawk8FuJ40k3XqCxmzt3qMUsK5GL4WFNx/owA2TGug3CkY7
+                /egmpqFbweEUB43pmWb5s4O33P0odndl8ZfnTcTnL59DBoxuiyaM44sVYpKQNUzFVAyKmeLLW2LeeyL+
+                bHlOdvDcCgjlFwhu56u2sKOrC8/t2SvmWZbLAl6H0WnTAIRJUoVTNvykj/RgBgtay3HL9ecTk8SIWaIS
+                WLbVCXMmi5WzL9WMH/K2lJSSGeGbOW0jW3MxHgUikyTJnt16kA4WVybGKa7Xz2Mq8eVcdSoGTgRgUfFN
+                zWgm2lNptB3rxtjSqFZ3Z2YM8inJikVHxkAmXE5xJgdVqQESMlAmb0Bi6riY2zJW7llYhpnNU9qfjb8M
+                JApM0zfLkXCy/kJy38q8NZEi/WJ6HFrIKtOJYnqsdz0KblmkLVbvO4AOjlTQNXDGxc2zG4nJuNzGQII0
+                6SeWTMKsaguRdBTXLZqIBANEnNFhDhKTJuUKpJSFLi5Onz5z+Xk4v3GPjOc1c1tIeCaJQcN4ua8T2/oG
+                yS9vwB/3HMPfkaUSJ/PTJTPYI4YMZSIiNLIhh8zRkOwvDfB8U/p2cLa+LRaUqqjmqglXAj6FC4YUhLG4
+                mQu7+I9v3Y4e8ms4m6KXAjxhxxxirpPuSNXdqMnK5Q3hHvIh2h04nSRhkzZJulKMaynFlJpqUv2OKmcI
+                SumDcmIjPzht5vlzxtAp/SE32tdMmDW5LMXHMWLeg71ZhDMmCQJ+8KFX35ynr9Y3dOoTAkM+17fD0M1r
+                TJpcLj3U/Ye6sLi1IWduncnT5NNlDF9pctICltGJ/3j7pZjZWK7MtTxiNqsmjW0TE2RsLsVwhBEe23MU
+                K3cckk5J4yoSeMuMcZjfUEo+DaOijoxLD1kFP9+wA7vbM/jAeS1iSn7nhcNoKrHw/oVN2D+Ywpq9SWTt
+                KMmKDNbQs/rG6j2YXpPAldNqkaAJHyMfqjcTRoTGJxGDbn0WltCLtFOjEEWGZnoy5IpGLadrHSTTMh4O
+                SfqURb8fIhPwD1s7YKVj8EMp7Mum8e01OzC+LIbrpjeglB7R3TuPYnNbO25e0Iz5dZViLfHz51YAhwaT
+                +OFTW9DSWI0bSKNWM2CmzJ+ChnkKowzJVDlCEnDDwSPia3DsJ6pbkkEzj8rI0PawbpQZzdIkOB6Ce4hu
+                vpeHPiRMykFYkZi2JZkAho7LG/kMcxIZeboqOPMQBZ6SerfF7SGpns2iw+mj6wqLWeFZinHVtuqIlvaj
+                TA3xK0bylS+ozVbRXmwO6q5RXR0pSdFRnXZ9nAlnsdnD5RquERL/gjvcVtCkbY5HVVNMX4UzxMjzXJVl
+                7nPqUhor2gbxifs2Yge3LCPt5HL6E47jP5/fjqvnjsc/LZ+DceT3eKEwth7uxace2kBavATrj7XDJST3
+                uQNkEobaMaU+ge+s2IRHDnfQFdXBpnFbe3AAa48cQKXfg2c/cCUmVkTxk6178NUV2xl3QmVdGd4/s1os
+                4ZDkRXni89m+bgZK//1wzW58ZWWbDE/MD+GWC8bje09txHfXH0U6nCCBl0LnQBhfWLUT3IP0u04Sl0+Z
+                gE/evwHdNP5rj3Xg3lsuQ7Wv+6fQM/jKHzbhFy8eAiJ7Mbm+HJc0lIl/7tusLQvX/akwjEXXuv3wYbT3
+                9smQuYYnSbZBehMEalfSl53LEI283W8j20Z6rsMkBmMpqLIyuMKUy7Rl4lsBHueJwy2ayDgRDDBOf0l5
+                n07cSrWVVPlXgn8Z0E1ndPdWX5c+sMmoSpFyJqCqjYBONdFolNZe3CSUE+K81+pavhbiScNNdmz25zI0
+                SU1s6x1AKNyNiJYeDDpESAg1kVSvMFWu0JbjGXzqt89gU4pQM/JVl1Qn0EC/P3+8A/v647j3pXZMTWzD
+                nctmynEG0hkkzYSgsc+09RFzksmV7UdLJE1aK44LxlXjpePdOJKGoJMV5MeMIeOxuaEEVeTTcnpX3yCb
+                jhEaliza+5NAfnDFUIGIwGzjce7oSepSEw8dyQFwiuD8lkY07mrH7v6soJkhN4OKkgzGkrk+tbYCkZCF
+                mjCJh4yFFw/24blD7bh2bJ2gpwdp3B+mfVPkg1fbadREQ3Jez7IKnkxdGPCCHuZ6LgXRTnGgMcS25xsz
+                PQEPmKFKBmNwyQl3j/ooTZVKcibrcoGSLTXJPc1kha3FB3ASbmloPyow7Ywg612bfwL7i7IdCkarhF6F
+                CqrehYYCA4bxIUrJvOno0vdyfOqBdeTHk8ZylBZneJl7VSyb2IC7b1wo9/WjNfuwaaCMnscAPr6kGX9z
+                8XxUkiXxyoCLv/jB77HFS+Cu1Xtx1ZwWzK8tUagoO/50njSZCRPoZJ++cSYuba1DC6Gqn1w+D0k7gX8l
+                DZMlLXfd7GZ89pJpiMTCxMzM2q6EHnJ5NbqnyatdAI1i+kGggP4jO9e1GWTI4JrJjYiH4rjpZ08SwBHF
+                jJpSMn0XYQxp3Kq4Icz29kXN+PLq3egjX+u/n9+Nq26ok34aP92wBceyqmr6yom1mFROc438RJcsoIhn
+                F7RoqiCMlaJB2nr4mJTbW7qOKf9fi8CMWCaKSA/FNXaTfd0TIfs+IjB5JpKiQSWIlStKuS8eIzxBPxEL
+                p3w4w0XK/dIn0GihME4u6yNo/gnNWEG2h6+1l6/ja6b6XbbXPldwDvhnzGQ8/VjusKcJMpF6yCSSIkLx
+                /xgud6V2atuBLqno5b4uG9p6KIxHIQYSWnPGjsf2jh7JkOeZObOpBS/v6sBx+n1T2yEsrJkq0SHDUwIu
+                7g3g/9xwCd40pZqOm5ZYkk371oYl/1/wmFJ6TUzYus00VPtqTyUBiFiRdPn/+b6kKNKATnA25Fgx2r+E
+                UAaXnUq2brwsxsUjqLVUT0M2KW+YMwE/XrsbBwjQ2XgkSVo0iwrSmr/ffEjOHcn24UPLLiFNzJzElg4x
+                PiG2o87H6iYkjOt1XCuigreqHFXyBqV/hUOO6WEarD0umX0xYR7HolgEmXy+QOEhYSYVlPLVwhemf1aK
+                H0WzckBUFwKKlnKha7V8xTTa7DM1EijoIAsQx9CpVkqrmQ6GGI4pQCzPhBgVlNbLpuRyGWjH2yZXor68
+                RLGs1FERYETw6MWTm+S9I+0SOknhCzNNTJjC39y7TuJDUhdF15wyIrrSgMCibEYQT1mMgEtT3Dgm1vm4
+                uLVaYlS8UAEzY5bOnZZn4oq56Gm/hq128f90zqWY8a+RJHDNMUhXweRcEiPLOLBFbRrSrZjT2UTB0XE9
+                3xL/eEp5lJh+Au7auA87COz69c49WNrYjFeO8jFTWNhcg3lVMVVlQeCJbaYL3rvkjBlrCIVT0pgvfl93
+                H8VaPEGYPDNYq0KtdVGWIjNjPz2MIyQJnbgwkkNSVBiHt2UpxGafrbBr39SmoJEHqgWYApS/dcaxISmw
+                VJLVIojfd5RU4yyNXIaHABLmUNBaM5VuBiHawnSUSehqiWtlbREYGXpxmwiWumfaGEWNsS9hWsOPEnDQ
+                idsvmoRlY+tVxgHU+ZUfqgQDgwSRkCOXatPYLp1ICKCtls/hBxiG8oHHE+J60+xpkjXjkakUdh15NjWh
+                GO1vkhYKQqqeLA3Epj5rR+lQxgdyw5J5wUvvuLpDLsezWCjZnoo5MZNwDRifjy0aT9XdSH8Mfga8j7QG
+                kJxMQ+YQa86wG6X7CiNtZXSMLiTbOzTOMXoutyxsxi827UE3He/HL27Hod0ZpFwSAnYf3rd4Fmk+LuzU
+                YBPswqZdYDg1lrageM4d6e2Rh8kzzzN1WTsNZDxZgvQ+io60UwCXBsqjh+bZOvNbV1j4kqbj63dDFyCp
+                8E+uNkgZ5tr59YfFNAxyIji0oiL60GZeoK2UNjI0IwlAoc1Ewwu2VdpK2lt7Kv0qFffIxErqJXI8yR45
+                k+tljRTl49O05oAtD1NcT9TAZ7C03awu00M9vc+rL8OLPd00pFFc3DQWt13YSsibJ+bXEbrnDfuOYt74
+                avK7ZJqjlHZOktPPwAND4WHOYmBW5AlNz0UgdMGUWIh4EgNMq9tHiU7t4uJJK+sQo3nEcI5C6qDMMU5t
+                krIbZmpXBTZKCF20GekxHWFOQQuJIUPSp4MYjVObCG4308qUsyxX/KUMXc8kQvsumzge920/gpcIxDhg
+                HoITS2JBaRw3TKuXMRfxK2NU+MYlw2sKav3aNdCPYJ4JSEHqlzQyMttpEAci5E1FxcxzCXdlBmIzRNL2
+                TF/XMmkGs4aQQWE6s3Dghfg+vvKH2IRjoCWAzfMZxwiy7nVuIte3m57SVJ6resTzRLEdznbvh1UfxxEM
+                oJ8mTImnQfszYCxm+AxrBclJdKVdGWc0ButInUw86aP0480LpuCBrU+iyyjHF5/agY2EwM2rjaMvmcEv
+                txzE1q4k7pzbgK9eMZ+OM0DXyGlCHByOStsyvkGDl/SRvDyVTlRjmyqMQMDHfS8fRn9yNRbUJvCXi2eT
+                Ccpn5xvlNa4oXiUJAr5kzAxavuQ68jn4u6wlBfpI0btj2ZJqlQvtkyCKckMcmwLEbgm29Xh4z8PPopXM
+                v7+9cC6a4mHaz0EpXeO75o/F73a1UbSnBJ1kLSCcxM1zKTCNs0/Dh4vkorE+ksm0mpicIUixqfhADJmd
+                aUT7Yoj6UWn545Bp4hNjeVzfJO+u/O3z32HvhN98m9+hEi8NXzPwMDKZoQ4p/hDFa8wsXTk5wuwz8WeL
+                kCXL4VQd+i4z9DK5+Q1nHvB8o5f6nUvnHULMSLKOI8lc4aPXT5JZwqbtcPTx8sX9lrxAQss4LBC31UJ7
+                JxPLoTCpeY/g6Dc01+Jb1y5GrXscfWRO/Wzjfnz6oW346uN7sOt4lrSPg/EVMTHbeYkeM8SpUmHJSOH6
+                34xnygIUqsNWFilCAueQJighCD5MPlYP+cr37LLwrZU7cax/kFBKCrSHGYAKyUIHldz6LEMMQkhKzEyS
+                kAwrn9vkTrustzwKERjK0eKmOGFLIYQUMGwh/3F2BQFcWfLrvDL8fgdw14Y2PLh1l4x7lJ5ZzE1i+YQy
+                XDImhjCFCiyK0dVYcbx73vRz0guyIOCFp1f0sMhOjwyEkNo9iMq+CmEQziT3TUdrJwV5iiYKAAqJWUHF
+                rOR7Q/0uJmFh4XaB1h3OmDD0GndmXi8MDVQEIIY3lMYkkTT6PZI2ZIL0Rsk5bozAqSaGIg7wHEf5ZXIS
+                nBHx7lU0Jn935Vx8+9l1WDK2FXNrK2GcStBo+cNeboJu6OZZYzGx6Vr81wvb8cL+bnST0IuRRTCrOoy3
+                XzAVV4yL0T1lxD+aVRPH++fW4siRo7jtkvlkfjIMHpIDWo5LCJuN2YQC/ujtl+C/123B/swAqujeL2ya
+                jIaKEjpOGjfOGIv9+w/T/fu4dgpB4JYK/r1v4XRsP7AGiXgp3n7eNCTYD6Rr/ODiaeg62olkqATXz26R
+                tbHY5yqj833rzZfgR09uxsbeLoTMEsyracBVM1pJADvoJS3nOgmYERtLZ7Xgj8c2kXRL47bzpqBO+g0M
+                R47m66MzLhvJod954MX3n3kWv9myF1EKPGbbSFN12wRUJEjKkXlhOzLAotEMFbz0NVMxAhAwmaeZCjqt
+                j03Ca2c34EPXLlWNVHSZhLTHMs5c8bIw2Nveh7/+94fJcQ+L0y935voaOleNKW1hLIUaGkG8yjPFNGKT
+                MMUlEM30oBstCrD2STByPEnib934FoKAY9KO7IxMQahmMszwrm3IOVlfsd8TOt2BZScFUXLTTUm+NSQD
+                UIACNcxqX9a6WbISBBHkbD5pD81paWxBhHTamY8Ben5RijNxOUfGVOnFYe52S8IyLMiSoxaok/QlBkhc
+                XS1uSp5h2pKkNGIq1TI3S8zBY87zoo8eZxl9Zj+LlxNypVMvHYXMu3TYEOQxLOueZTBIvP4jgtofWbsL
+                JWU1eP5wB/bTzY3JpvC7j1yO2VURpQGl6+/ZozPWWEbeBzH+aADKEnFSx2QGHSaTpY/MCWKSVCyt15E2
+                VUxD2kv4WjMhx0C+NfQZeZ9Fm9m+LpTjH4KOScNgzXI1s6fwRZvMlSSZHyFHN7DUVcmBphI0UMdoFORu
+                SWCW7Y3+MPkmxFAgeDpDTEXWEplQNOFD5GOaVhD+xJlUZfEQ2hrUUQnIyhex/tedcm1nhHh7xYgn7Rni
+                /xnmU9/HZH9Tvs9dNd2r+C1cv2GxFxYcNDR0PtWiJm+CWUMdo+xgH0Z/reC00BnUpPmCzyF9DA34hJFL
+                ulZzyZL1jX9HGvjJLvLM+jrAWGeEXMNbL5qCaWTahhiptcLD6fS8JiqIKTg+XofQoVeQ7WFEx5ZCNU/M
+                AI1cBTGqAKjQ3wXmn69hdgViGBrgwLCgf6eknH8IWQVSsiXEHDSGgsGuygzPGCqjIJTR/oes+u4iGR2A
+                PZ6QuFqf4Oq06k+oY3clkSiivCphsJTOObD5/9xIWUkOMaiFT1y3FONJa+3r6EQ4auLSya24fcEk0oZZ
+                wpbsIUTwLNKwMxZDqLWRMlidHMcKic/E8RuG3U3LyvlK/L1hDqUrMfMo808xW/CZl+0Rc1EkVDAnh9fX
+                Us1eTJ1AqxahY9BCFmDQmRO5zHWOghBoEcooRslwyk8ig1BzlHwqNk0G5Fi2SwJFIGOgOk5IqKliPaKt
+                i3TGpNYnZ7PTwxsbK7D8LQvkS461mVxK4mclX5Dryc5FB7WCtT+zicGyvESLrcw9VYDm5aB0Pw9W93PZ
+                FZ6OXwVAhvaxApMwEDtn6KecTIFRKcdl8IJjUVnNvsESqzovkNEmi6OgpNmSEQpCVmYRmRDFQDxFMTlX
+                GWWShaDqjDi1qKm+VuSFV+SpYSOVNsrZGcxhKjeRU5yiXkgzFD8JEmiOMWwew+uhwpTmG7Kcr5QsMIxu
+                aN9KyqWDm9Q+FnSMSjFW8L1GAnNMpxnM0P0m8plqGBhMZbBrjZLFUJKtr+JY0hpAMjA4bYnsetJoyXAa
+                1jjyRsYS1EzxKhYKHMzkeiO2Gzk7gtu78QoeLTXVGE4tq+tjofEeSLNauDkfJpcNA18LDR1/gyrRMfKC
+                yeIuGkMZ5uoh8Lh72hs0T3H+XDj9BH/R0/+aQZ4ltLl/CkPsZNk4dM2vkSQ6rwpOuKcGn9OX5XZd6a0R
+                MqTxgOQ6mmfo1/4pVDDG8ikSyIxlacZhLIAL8XzNNEprIcdcvmnkfCpo7RYs6uzr2JUHf5iNQEWmp/0e
+                QsIkNsXzgmuVdGMaCCLoSf8MbtOcKSMTr5VYpiJDQFVW8tV4JUrVRVfFk1R1McHcZANOKa9QDx1KjpyZ
+                MBD4VTAVuWTOnvDUUqQMqEiVrDAU+XuWgktY2wbdojhq5JLUI5gFvPwB5/9l2HTi/D9Tlcfw4gpc3cvZ
+                DTBwGtZSuSTQiUfyra+KGaWPla5mDpGfY1uvZqxcs279QIdS1F4rqWOawU65wkVLA2l6cp+jXvsFYSzV
+                VFblkDEMLLVVtma4PHMw38xD4ENp6N00h3oNBRol2Ex9m/fhDMeNVxMU800kQEgleuriRc4XZAAiTdBy
+                JkbTaRx9V2dhIDJAvqPqpCDbn+IiXDrulLo6VMcSAov71jAAF7qQMiIa3JHx5WTUbgq87ursxZFBBxyX
+                bYiGMKGqFBVcSU1SPGUPEkQdQjtB1l/8wzp0pAbwiWULsKi2TBrGHOhI4it/XEcM5xOiNhOXjqlSlTr5
+                g65pqOzzxB8Ngr89im/90+ot2NTWhxnNpfj0kpmnnGQnH/bPzUouDGOJFnIlF9C3RVnLZwVaQGwtYTAJ
+                /iqrwTTzUpZMVTaveEYNOceNwhwD8RXYMJxCSCWsmuQI2whxKoyG1TlLO+MPwIkPwhhD8Zha+juRpdhM
+                UveQsMT8k1pk4+TMB19SMi6YMB5RkZqubO8ZZzqJlNZhzcnZCzv70vjOUy/gj/uIqQZcDKqeb6SNTLRU
+                xXHT1Ab8BQV/GyxbqqKf2nYYP950TK5nUuk2LLh6kSTj3rtmB+7ekZKk4ay3AUvfcTkhblnpCCX3l9fN
+                VwXPh9oMGPpZsaba353Ev63eik4CzZ88dAg3ThqHuQ0VONWYB2U6QWaEWob27GuXQlBBGKskYSEcM0j6
+                mWL/B33JPA1OyMr0YgZ6qjyEE2pNXYarbQM/WLDM11qB/i5PlOoMMl9pF2BYNJay003JEEj7aaTMrCp3
+                iMVg19mw6krQTxoqY2dUOy2fO97qPoeSoS04/UnHBGrDYVzQ3KxWAzGgt8cZkWR0U/jCdKJ4aMdRfOz+
+                p3Eoyys2RCheSIzucsm5jX4zhI0dwMsrd+HZXUfwi3cvJ7/DwKCEDMKCXPaQ2evoa58ytRHjiOlSSQcL
+                miYof1gzlPBRfptsaUajqq1tDDVBME1e0wpY0FiKF3e3Y15LFarK4qe8D99X9Q5esG8hbPxzSAVhrAS3
+                GiuNonOQNZOl1JHln4j4icaCMBl/9nzAzHOKhZ1kMqoHzBnbLePH5izr17Los/8afuN3YhdkXRcHB3qR
+                KaejVlKcPu7CjacJ+XORDfniRyXSYfIVnZwvxYiUtOGCTorNOzj/dV7zeNREYlJaIbHQYVC0rPVsYqr1
+                A1n81X2rccBPELNHUGENYtm0OswZU4OevkGs3nsEm4/1EeOU4aW+AXRlKCQQJ3ja4wafBLZYMQVFy9K0
+                WVzWUoNVf32llLeUc/6qL10F5ZxcAsTXHdWlaIP0sI4PphGj4G4ZmZwc7JUEWxJMdRHgp7degf4UUBEx
+                SHNm80Za3T2PWJoef28yLW0ESmIRxDlzZBgs5ZFChdFYIRPzZjZi30v7wc21xHUJD2rD2hDUL4jnyMLP
+                uQkX6CNZSpps/4zEvzwyy8bH45hWVw3oZVa5PZqv91dSVTns6ayP7p4UOnsGMJDMSN+F/mQSqayDZJbg
+                8YyD3kEXvZks+miy9dN3g/x9Nqu0QYsp4QEOFbimOlfIVXG1rO3k3PVA81g6Y93QLcMEgfKyiIdNvHvB
+                PL2QtkpIHorDnQm56Hc8fO7edTjgxEWTT6/K4sdvW4bZdQlJ0GVtMuDPxKpte/EQaaErZ89BHU1eZqKM
+                zYa5KkTkbleW6tKDzZ39+NDPV6Cz28W/vH0JmXC1ks616uhxvPeB51HeC/zr+y/FSjrmD57Zge5UhPbv
+                xBunTcS/vHE+xpWl6e8IIaZh/NWDG7Fqww4snTkOP7npfMFzbCMjuOW2zkF8e8123L/5KPrTScmeKCOX
+                YPnEatx52XzMKS9RnaK4RRkXYuqOgKON5QrCWCyZr1s0H2tfbsMB8jNSdBYui3Y1YwX+0+nGSrUzziCW
+                MTEYJmPDTuGamePpbzLRQha66OHvP9COA4e6iImSONqdRWfnANq7utE/mFRNKK24dCfyxK+zxOTh5F8j
+                lFXIJJcqWIYGFOjhWaoU3DM9nNBbI/+jgVe13TD0977WuGkCCmIk7S9umYrqRCJ3i8PV84KTUjf29OG5
+                A0dpoOMoyw7is8svwoyaEhJEHoLKmxK6x+VTJuCKKc0iy8IeF1yGMWBZIoCC+xIhQfu93NaBLf1c3xTG
+                ild245op9QjRMf5Iz3BvHzGgG8Mdv3wOx471YpAC3k6YA/fVxLhdpLE24jtvPg8VpMG60xms2n4IR60y
+                PNfWi46+DOpKTcm/XHmsGx/45UM4OBhH0iBAh1OiHHYZovjprkFsP/gI/vtD16MxzNqRl3/SMZjRx1eF
+                Ckq7GEu29Q1L5+Df175A/kkItpTyaFMvzz1iOnnMJCGUHO1kOCXw7aK6KajLNuLuuzbixa3H0NEzKMCC
+                x8uAcgKozoiHGSPGiKiYGGkNhDKyqqFA+7ZK1jW4DbH4dMpLkFULc87zn2boS29w1sCSROqgNhbCuy88
+                X3wa4wyOezrafKwHvVZUpHlTdZyYoJYAEjawLA07KyPOVnUwyDIUT/cbJhOuMs0QODfN1NdkKObiqmOX
+                U2Vp/NI6SZcdoAEvKj1KONDf1pvC1dPHY2pdiECQg3iOTH3HLMcDO/fjo93TsLi6TLQl5zzw6iwpOgZX
+                dHE/w24njE/c+zR2u9XS6Wppg4erF8wk5rXw22e3Y8vxpDT6dLIu7DCn3rgKIh6FTMVUoDiWgsovnj8V
+                XWRH/eK5tSQtIzn0KNBWQXfWV42coPOEwJH50OiWo3/VIP511wuSYmQKk0TFbPO5elLMhaG12A1DtQCQ
+                VeAdS5uIqoWSxMoMZc7xgwv6ezvSLdVQ/t6fECljeSFrgdk2qmjS3nLRYlTaQzpqOJEuPlKyLyOCB2YG
+                tXX1NARZERbI04+qHwYE1FDJIFHplZFipDZYMQABoqfNWc/QwkeaMct9SR9DhwVXGkvHJvB/b16IMnou
+                hy6cifn/dh+S6ShFKFwcSaZIuJRItbAttTTabJZ8a4NMv73Y0kdM4yRwfoWHe269FDWW9KnFrbOasObg
+                MbRWVaCF/HObARjTUnFOnHnznXNBhYHbucKUxqKczI63TZuJmlAEP1qzhnyDYAOFBqnxMnLNaeVPiX+S
+                6UHO+GxMQO8Lfeg8kpJEao8rTk3VTZfbKUs9FDOO5Z0A+6qlT7MK3n9VEEYtwiMtLXNFk6ph6GuhfBAy
+                +KyUIYdUXSxsaMJlEyfRt4P0e2zYJwWfM0qAgc/BamKC/r6s5MepmEW+ia2RSulJH1JxOWk/p5OLgVN0
+                k1P9Bth8lhHhGLeVlc617Oue11KPSrpX7qtfQ1p5RmUNnktyvJKsBocxQkuqjT1uJsOLWnBNnq+CxY+1
+                tcFxWAQO4qp5LcRUBMIwAER7VdIsvGbcGAjWSOdT0Q4lLIVJjdG3MmZB4nJBAJGlaCJs4coZU/H1G67H
+                W6ZPxXjymeKEMoUUAi/+WAjKP2ETpYYk1UVja/GJRYsR3UI+y4GwgtwJBrdlBRIWv2p1DT8o5oJamsXz
+                FcMIs8pqkWIQyYMJvvc0/KCyOXy83l6Fntpd/mFwg1mXey7wMjlzS+O4Y/lSgmt4tZNQQaYCn3ocgRQR
+                e4DGIkEm1GG8fLhHLkwW73ZJoHBdFKc6UUCY25C5Ur+migyjPPae8lu8oDsv96DgMTP12ME4ATXl0hiu
+                OeM1zTjjw2aTW/cu5O5JFkP9ztDd+ic2k5RnlJGMEBvZsEcQfEj29ykYbzkR6QrFprkUwJLwzBpqDum4
+                /aikgnXCzY2HqRJRJ5eXo2npIly/YA72dnSga2AQ6XQqh7JZ5PgmonG01NWggZz+h3+2HvteaadfyyVz
+                gE0fWQPKD+JdnmaOk0/u5/0bkHfyz3rqeK8BtD+RWBiEJZvH0FoP0sq5hv5632XLUBcNY6hz1PDPCtaO
+                F1SUkbaI4KVjLoEAUXx2xXr88K3LMC5iSz9G9pe409LW4z24Z8N2zGtsxNumU6iCTMYBMlEznGLkS48l
+                FeKQFUi47ZgnzGYJE3iS1SF8IS2rXUHrVHcEZipiNu5LIL321TMxdJ6g6o2hyNWm+byaajxgHICdjmDl
+                K8dwy+zJ4gMyQ6Xp94EMXQOBK6WArIppMBNzRQRGn7ZiOisZ9Ya20aIUK2qKhNHYWKdLs3Qk3wgWcePs
+                BBtH9vXhiYcO0ucSJcnEww69bu1SCPJ173XRnKbSeDU02T649ELMqK6U9btgFM4z4PGoSZj43FVLcNPP
+                ViCSqcTTu11ceddjuH3pZCwaOwZ9qSQe2bYPv3mpDR3ZGMbY7Zg1rhKzK1gwqNVCDKkMVhOfSXrCaM2u
+                cmVUgD5LJpljBWZZECIJ1rM0VcK0oTolsdZztSbkALSvK7uzhFZcP6MVd63aiSMkKH+zuwtTVm7CTfOn
+                IEyS6qGtB/DD1bvQWlmCu96+GOOkNYNDgCHFE4M8ziIqeBoSiyAoOtM2vqcmZpC2JEuiEYc998xu9PVY
+                2v9R6zqNhIEVr0WyVE1VQUzXVkHS+sYLFuLCia00CbygoLegl8sdg68aX4PPXDkbX390PV1GBXZSxPUz
+                j26hyb9dNJYjAfkIwrTtlPpSVEbCcs1h0iam6auVUnwOahjyziajJObLB0PWkGLrMezpBdol1KBWTszo
+                zAs2I01fNWQ1JI9fdcC1YGnDW61vxiM1uSKBv7xkGr646kWkSGB+5enj+NazR8hKT6GfzFffL0Vm8Aj2
+                9fViTG2pLsvzMVoLQ89qDZiRc6qV1GeHWCz6XGBLBYv37ulCrmGfZO+GBM3L1T6cI+LLt/RKKWyhVNCU
+                uW3xBbhi2hS11pJGOoMwdyFmhGCgnmpk+beLpmBGVRn+74qNeKbdwyBpojR3OiKTLkIDWUkM9O5FY/DB
+                N8xAQ0h1qB2XCKPa6CcgIYXpNSQMfIWaTq4tQ6PfTwCThUk1DarZKmmcmXWlqDV2IkXgxKyGKimd4cAy
+                521Oq0/g5YOHURGh/aviwoQV4RCaS+k6+nvQWltFv9mSg8ma/PYlU2ET0PTLNXuxcbAbA1nyr9yo+NsT
+                CSn8uysuxMzKCjFNmYk5OdixMCqNwcKsQXw6krmmfaRcBZCSkKLRONMia+Or/7ASmzf3qhouNk/YqbZd
+                VQgpsxuqHXWuWBK5qmOpTNbVHkHDT1/21dsYCmSS2JYVQPDQ5StQCKNk16t6smzIknxGaSzJTWR4dUNi
+                8hI7g3cvXYw3tU5BTDqpBGZSkJolw4vhJt3WkMSNK4EE7gvXQVpj69F+bNx7CBQOkjZik2rKMGdcFZrL
+                o8QEaTHLXBJQDt3D6iN96O7tw7JJjai11JgSNIQVuw+Lr3PxFP4+K1nzvTRwT+85Jlrw4pY6VPl63Oi/
+                A3TulZv2oWlMBc6vK6PAuCtpUi/2Z7F190HMaG3EnLKYarctzVsh3W8Pp12s2H4Y+9t7JP43taEMS8fX
+                olG0qq9AQI1aOGaRsf5E8hCsG8WXwomw//j3z2PLph6VuBs0m5HMCC9XDFloxgqOZ5EW4OwMl1cQ5E6s
+                NDm5X8xfXbUMs+vrck1RrBGQle2x2WaoxFlzhLcAyJ92fy4Z7fl0LtoBnEQB5O0KjM5oUFllcFnaxzLy
+                A11n6yGoVkC88J06oyfMOrsmgVuXLMG8qhoKubBGM07bhfZsUzBBh8o7/D/LSTsaaAQwVt6DZzODIvZj
+                x8fp6yOArDaBvGyIszdJ1DoMBvoiBP2SxivLOriidSLet/R88SNUUoAp/oGqVMU5p5OZaCQz1Z87w48A
+                e8HMCzrRVLazWHB+E2xuM81ZZ75GBRnA8M/e5TJkzBXAEfL7minI/dHlF+EjlyxBtW3rDHLVnFQQwHMf
+                BSjSCKMRoLGYxMnRLdkNjG8uwcy59di4/qj6zeBgJncyVY06VVyLgY2g88vrYTgNMujjCJpr6LwMTzUT
+                zfByMoR8RcmvWjquCe9ddiHGxsLSrJ+RMgaTbQ3/+UYAWJw9yufj1yr3A5+G/TDLGupRESymWEgFcjqT
+                9OTvAx+RX8Fnfudmp0Emx2hRdCODsWSwgnqlOELEQze9cyoBGG3IUAAUPtdyZRE0DFHLAmh48HWexzd1
+                XqFKSsxb18sUIEMASCeL5ooSvPWCWbhkyiSUeA7hIIx4WbmgdsBJZzt2yZPxwYd+T3A5BV2vv056g+Td
+                3mkpmKTq5WPr1q0YHExiIsXfKisr5bi2PfyeotTK6VfANMH3fX19aG9vR3V1Nfr7+5FOpzFu3DiEuJW1
+                BmH4977+AdTX16OjoxPZbCZ37AiZ5A0NDQiHwxhpNEI01klEk7h1Ugx3fPQC3PXdjcg6xFxWP2mGlHow
+                ZlohfpILyK/sazywL1rO0Ame3ASGMxEyNqSw0QinkKBj3bhkAd60YBbKmI244lbSp1Rvi5GAtW3evBnH
+                jx/Hm998/WveJ5jYAwMD+OpXv4b9+/cLcsivd77znbj66itRCOrp6cHKlSsxf/58YZr869m+fTu++c1v
+                4rbbbiOGyeKnP/0p7rjjDlx00UW57b797W/j6LHj9P4tfP/730dbW5sWEi4qK8rxla98JceII4lGJmNx
+                hhgN1tJLxyFOwcYffH8dPSAOfJaq7HYvBdUA0H1dR+WyiDAXohuQlQdZO0nbdZP8qHgUi5rH4q3LzkN1
+                IqIXG1BIoAtl/llD0d9zRvnSn6X84OAgysvLEIlE5LPruigpKclNNJ7Y0Wg0N/nWrl1Lk3M/br/9dtJW
+                E7F69WosXXoh7efR8fpE+jPz8basyViL8HnKy8tJo9nCiIG2YWbgc/E2fA6mVCqFWCwm+8TjcWGEn//8
+                53J9paWlKCsry2muICTA74sXL8b999+Pp556iq5nqfy+e/du7Nu3D1ddfY0ck7djzXXLLe9CmO7Hskw5
+                5kikEcpYhpQdmDST559fj881LcPDv92O1c8eQjqrstq5SSMjiLJKHE7Ro+s0xxUWof1sL4kIgRPNddWY
+                O3kCrlg4C43RiNQfceTfNX1dxWWcePwRIBh5gjET/eM/fgUHDx7ElClT8IEP3IHnn3sWjz/+OO68805M
+                mDABO3fuFI3wrne9SyYrE09w9qk2bXqJNMhY3HjjDcRMEXR3d+FrX/ua/H7o0CGZ2Ndccw1tt0kmd1NT
+                Ez75yU8Ks7AG+vWvfy3MM2nSJBw9ehQ33XSTbMPnmzp1Kl566SVccsklwih8vffeey8ee+wxOUe+dgl8
+                v0QigXnz5gmjb9u2Te7p4Ycfln3f8IY3qLb3XIxJgqOsrFyYqq62Rn4fiQjjCGUslWXBWQUmAQgNDQZu
+                /+BCvPHaqVi3oQ1Pr96Po8fTyHpBT9bACdaZ7bpcQfUjVGt1MZmGg3jMRX1dGWZPnoi5LWMwo2kMIpKp
+                7kqCKxuVklPtq/L1oCGk7r/5mlm40MST+uqrr0JFRQV+8Ytf4t++8x18/M6P47777pPJOX78ePzuwQdl
+                W56wgZabO3culi9fjieffBLr129Ac3MzmWLvE43U1dUlGujWW2/Fo48+invuuQdXXXUVLrjgAtx99914
+                4oknsGDBAvzkJz9Ba2sr3vOe9+D555/HK6+8IpqK/T4+BjP09ddfL8zN1/ezn/1MGHv27Nk5Rjg5L4G/
+                u/rqq/HMM8/Ii69nw4YNcu3MsNBedQeZwF/4wudh0XE++MEP5ATGSKMRyliWTG41qy0axFLxqVqaS9E8
+                fjquvWYG9uw/hoOHe0liJ9F2uA8d9EBTGV/MPM6WNylwGw6TOVMWR31tGRrqS9FI76115aitKYNlBdVZ
+                uqQdVi5ellvONI+D/gSopCDE/iEDEDxpr7rqagEv9u3bL9qgpKQU51+whATPs5g2fQZefHET3vLm68SM
+                kqwW2o9Np/e9771Ytuxi8dWYEX/ykx+LljNNG3PmzKXJehEds43G9jAx4eV03AR+85vfiFnJTMQm4C23
+                3CLMy5Oej6OuTQ3YFVdcIUzCFJybGZH9LNY4p9Iy/B0DEbzNCy+8IGZnJpOR4wT4DBd3VlVV4Oabb5bf
+                J0+ejJFKI5SxmIxTfFaoYDTsYNqkSkydXC2Z2RxQknXJPJVLp5bYVEnoDKVbhmoPbXIZgxvOrbRqGAG7
+                GHlHH+mkNA+DF4ODAzIh2RdhU4o/M6DBE/MnP/lP8auWLVuW84t4vz179uBB0mTveMc7RHM9/fTT4i8F
+                GsTW62gxQsj7WZbygwKIvqamJgc8MFOxmcg+Wb7vx1ovoACNZKZMJpPii53OdOPzMXDBWpBNWj7+yczD
+                x160aFEOCRyp2SUjmLFOQ4ZiAJUVr5JBpfOuYUhBJXJwro2ggtXQVbKq/tDTcZtAJY2SwIimwIJiH+tT
+                n/60CAtmDDbfmCkaGxswY8Z0Yq71uOzSSwWAyIe4mSHYxNq4caMwCwMPjArmM8bp8vj486xZs0irzRHT
+                8JFHHhETMAAigv3y96mqqkJLSwt+9atfYcWKFfj617+e2yYfwAiIj89+265du3Ddddflxdz8HJPmn2Ok
+                ZnCMgCTc10N5l5pXs+2fMvVhqMQk93PODxvSgKORsTa++KJoiWg0hh07dpDvMgvTp0/PbfPDH/4Qa9as
+                w5e+9AWMG9uo91ODwKYYI3Xr1q2TSTpt2jTMnDlTzK61a9dhzJgGAg4mixbk7c477zzRXqxFxowZI5Oe
+                mZr/7u7uln0Z7GDNwmbm+vXr5TveNiDWrnw+ZiLWoIFW7OzsJHP1RQE7GhuHrpPviUEZ1kx8zODa16xZ
+                I9fM3/MxRnTK1uhiLEU6hyDPJxqCFHJD7fvASQX6Q0m8+b/x++gpTJB0ZVfh/qbUWwaSXL13dXXic5//
+                PGbOmIEPf+hDOVNO9vX93PupkDmFxqpPQeBZbXvivup385SB34DyteSJ5zjxt/xrUVkWZi47JMi+yN8n
+                //pHMmONPlMQAWsEK14EXStOZiLjf6g+NV69/SghvnLbMnN6l7tD6ebCMhEPHz6EhfPn4VIyA/OzMmTf
+                05hPp5q0+b8FZSgnT+hTmY2nk9P5+5/umoLPzFSBmXgq5hnJDBXQqNRYRTo1eVKIeaKfM9Lrsv5caVRq
+                rCK9mk6laYp07qiosYpUpAJQ0U4oUpEKQEXGKlKRCkBFxipSkQpARcYqUpEKQEXGKlKRCkBFxipSkQpA
+                RcYqUpEKQEXGKlKRCkBFxipSkQpARcYqUpEKQEXGKlKRCkBFxipSkQpARcYqUpEKQEXGKlKRCkBFxipS
+                kQpA/z8oGI3ZXGyE0QAAAABJRU5ErkJggg==
+</property>
+        </structure>
+    </list-property>
+</report>
