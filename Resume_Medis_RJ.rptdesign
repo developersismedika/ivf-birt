@@ -1067,6 +1067,12 @@ WHERE emr.questionnaire_resp_id = ?;
                     <text-property name="heading">questionnaire_resp_id</text-property>
                 </structure>
                 <structure>
+                    <property name="columnName">anamnesis</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">anamnesis</text-property>
+                    <text-property name="heading">anamnesis</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">vital_datetime</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">vital_datetime</text-property>
@@ -1124,31 +1130,36 @@ WHERE emr.questionnaire_resp_id = ?;
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">vital_datetime</property>
+                        <property name="name">anamnesis</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">temperature</property>
+                        <property name="name">vital_datetime</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">vital_pulse</property>
+                        <property name="name">temperature</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
-                        <property name="name">respiration_rate</property>
+                        <property name="name">vital_pulse</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">oxygen_saturation</property>
+                        <property name="name">respiration_rate</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
+                        <property name="name">oxygen_saturation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
                         <property name="name">blood_pressure</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -1165,41 +1176,48 @@ WHERE emr.questionnaire_resp_id = ?;
                 </structure>
                 <structure>
                     <property name="position">2</property>
+                    <property name="name">anamnesis</property>
+                    <property name="nativeName">anamnesis</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
                     <property name="name">vital_datetime</property>
                     <property name="nativeName">vital_datetime</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">3</property>
+                    <property name="position">4</property>
                     <property name="name">temperature</property>
                     <property name="nativeName">temperature</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">4</property>
+                    <property name="position">5</property>
                     <property name="name">vital_pulse</property>
                     <property name="nativeName">vital_pulse</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">6</property>
                     <property name="name">respiration_rate</property>
                     <property name="nativeName">respiration_rate</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">6</property>
+                    <property name="position">7</property>
                     <property name="name">oxygen_saturation</property>
                     <property name="nativeName">oxygen_saturation</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">7</property>
+                    <property name="position">8</property>
                     <property name="name">blood_pressure</property>
                     <property name="nativeName">blood_pressure</property>
                     <property name="dataType">string</property>
@@ -1208,16 +1226,29 @@ WHERE emr.questionnaire_resp_id = ?;
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT 
     qr.questionnaire_resp_id,
-    IFNULL(DATE_FORMAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].datetime')) AS CHAR), '%d %b %Y'), '-') AS vital_datetime,
-    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].temperature')) AS CHAR), '° C'), '-') AS temperature,
-    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].pulse')) AS CHAR), ' x/menit'), '-') AS vital_pulse,
-    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].respirationRate')) AS CHAR), ' x/menit'), '-') AS respiration_rate,
-    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].oxygenSaturation')) AS CHAR), ' mmHg'), '-') AS oxygen_saturation,
-    IFNULL(CONCAT(
-        CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].systolicPressure')) AS CHAR), '/', 
-        CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].diastolicPressure')) AS CHAR), ' mmHg'), '-') AS blood_pressure
+    IFNULL(CAST(jt.anamnesis AS CHAR), '-') AS anamnesis,
+    IFNULL(DATE_FORMAT(jt.vital_datetime, '%d %b %Y'), '-') AS vital_datetime,
+    IFNULL(CONCAT(CAST(jt.temperature AS CHAR), '° C'), '-') AS temperature,
+    IFNULL(CONCAT(CAST(jt.vital_pulse AS CHAR), ' x/menit'), '-') AS vital_pulse,
+    IFNULL(CONCAT(CAST(jt.respiration_rate AS CHAR), ' x/menit'), '-') AS respiration_rate,
+    IFNULL(CONCAT(CAST(jt.oxygen_saturation AS CHAR), ' mmHg'), '-') AS oxygen_saturation,
+    IFNULL(CONCAT(CAST(jt.systolic_pressure AS CHAR), '/', CAST(jt.diastolic_pressure AS CHAR), ' mmHg'), '-') AS blood_pressure
 FROM 
-    questionnaire_response qr
+    questionnaire_response qr,
+    JSON_TABLE(
+        qr.questionnaire_resp_json,
+        '$.objective.vitalSigns[*]' 
+        COLUMNS (
+        	anamnesis CHAR(10) PATH '$.anamnesis.complaint',
+            vital_pulse CHAR(10) PATH '$.pulse',
+            vital_datetime CHAR(19) PATH '$.datetime',
+            temperature CHAR(10) PATH '$.temperature',
+            respiration_rate CHAR(10) PATH '$.respirationRate',
+            oxygen_saturation CHAR(10) PATH '$.oxygenSaturation',
+            systolic_pressure CHAR(10) PATH '$.systolicPressure',
+            diastolic_pressure CHAR(10) PATH '$.diastolicPressure'
+        )
+    ) jt
 WHERE 
     qr.questionnaire_resp_id = ?;
 ]]></xml-property>
@@ -2552,7 +2583,7 @@ Penunjang Bermakna</text-property>
                 <cell id="4521">
                     <property name="fontSize">12px</property>
                     <table id="4877">
-                        <property name="width">5.927083333333333in</property>
+                        <property name="width">5.9375in</property>
                         <property name="dataSet">vitalsigns</property>
                         <list-property name="boundDataColumns">
                             <structure>
@@ -2592,24 +2623,33 @@ Penunjang Bermakna</text-property>
                                 <expression name="expression" type="javascript">dataSetRow["blood_pressure"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
+                            <structure>
+                                <property name="name">anamnesis</property>
+                                <text-property name="displayName">anamnesis</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["anamnesis"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
                         </list-property>
                         <column id="4911">
-                            <property name="width">0.9895833333333334in</property>
+                            <property name="width">0.8229166666666666in</property>
                         </column>
                         <column id="4912">
-                            <property name="width">0.6354166666666666in</property>
+                            <property name="width">0.59375in</property>
                         </column>
                         <column id="4913">
-                            <property name="width">1.0416666666666667in</property>
+                            <property name="width">0.7083333333333334in</property>
                         </column>
                         <column id="4914">
-                            <property name="width">1.0833333333333333in</property>
+                            <property name="width">1.03125in</property>
                         </column>
                         <column id="4915">
-                            <property name="width">0.9375in</property>
+                            <property name="width">0.875in</property>
                         </column>
                         <column id="4916">
-                            <property name="width">1.2395833333333333in</property>
+                            <property name="width">1.2291666666666667in</property>
+                        </column>
+                        <column id="5102">
+                            <property name="width">0.6770833333333334in</property>
                         </column>
                         <header>
                             <row id="4878">
@@ -2668,6 +2708,14 @@ Penunjang Bermakna</text-property>
                                         <text-property name="text">Tekanan Darah</text-property>
                                     </label>
                                 </cell>
+                                <cell id="5099">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <label id="5103">
+                                        <property name="fontWeight">bold</property>
+                                        <text-property name="text">Keluhan</text-property>
+                                    </label>
+                                </cell>
                             </row>
                         </header>
                         <detail>
@@ -2714,6 +2762,13 @@ Penunjang Bermakna</text-property>
                                         <property name="resultSetColumn">blood_pressure</property>
                                     </data>
                                 </cell>
+                                <cell id="5100">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <data id="5104">
+                                        <property name="resultSetColumn">anamnesis</property>
+                                    </data>
+                                </cell>
                             </row>
                         </detail>
                         <footer>
@@ -2739,6 +2794,10 @@ Penunjang Bermakna</text-property>
                                     <property name="verticalAlign">middle</property>
                                 </cell>
                                 <cell id="4910">
+                                    <property name="textAlign">left</property>
+                                    <property name="verticalAlign">middle</property>
+                                </cell>
+                                <cell id="5101">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                 </cell>
@@ -3043,14 +3102,8 @@ Penunjang Bermakna</text-property>
                                             </label>
                                         </cell>
                                         <cell id="4744">
-                                            <data id="5014">
+                                            <data id="5098">
                                                 <property name="dataSet">patient</property>
-                                                <list-property name="visibility">
-                                                    <structure>
-                                                        <property name="format">all</property>
-                                                        <expression name="valueExpr" type="javascript">true</expression>
-                                                    </structure>
-                                                </list-property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">action_plan</property>
