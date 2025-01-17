@@ -57,6 +57,7 @@
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
             <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
             <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cm9vdA==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
@@ -218,12 +219,6 @@ WHERE
                     <text-property name="heading">department</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">examination</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">examination</text-property>
-                    <text-property name="heading">examination</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">reffering_doctor</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">reffering_doctor</text-property>
@@ -240,6 +235,12 @@ WHERE
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">healthcare_service</text-property>
                     <text-property name="heading">healthcare_service</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">examination</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">examination</text-property>
+                    <text-property name="heading">examination</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">patient_colleagues</property>
@@ -286,22 +287,22 @@ WHERE
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">examination</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
                         <property name="name">reffering_doctor</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">5</property>
+                        <property name="position">4</property>
                         <property name="name">working_diagnosis</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">5</property>
                         <property name="name">healthcare_service</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">examination</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -339,29 +340,29 @@ WHERE
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">examination</property>
-                    <property name="nativeName">examination</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
                     <property name="name">reffering_doctor</property>
                     <property name="nativeName">reffering_doctor</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">4</property>
                     <property name="name">working_diagnosis</property>
                     <property name="nativeName">working_diagnosis</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">6</property>
+                    <property name="position">5</property>
                     <property name="name">healthcare_service</property>
                     <property name="nativeName">healthcare_service</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">examination</property>
+                    <property name="nativeName">examination</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
@@ -387,20 +388,20 @@ WHERE
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT 
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.notes', '-') AS notes,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.department', '-') AS department,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.examination', '-') AS examination,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.refferingDoctor', '-') AS reffering_doctor,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.workingDiagnosis', '-') AS working_diagnosis,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.healthcareService', '-') AS healthcare_service,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.patientColleagues.label', '-') AS patient_colleagues,
-	COALESCE(questionnaire_response.questionnaire_resp_json->>'$.reasonReferral', '-') AS reason_referral,
+            <xml-property name="queryText"><![CDATA[SELECT
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.notes')) AS CHAR) notes,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.department')) AS CHAR) department,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.refferingDoctor')) AS CHAR) reffering_doctor,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.workingDiagnosis')) AS CHAR) working_diagnosis,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.healthcareService')) AS CHAR) healthcare_service,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.examination')) AS CHAR) examination,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.patientColleagues.label')) AS CHAR) patient_colleagues,
+	CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_response.questionnaire_resp_json, '$.reasonReferral')) AS CHAR) reason_referral,
 	statement.statement_no
 FROM statement
 LEFT JOIN questionnaire_response ON questionnaire_response.questionnaire_resp_id = statement.questionnaire_resp_id
 WHERE
-	statement.statement_id = ?;]]></xml-property>
+    statement.statement_id = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
@@ -698,11 +699,11 @@ WHERE
     </page-setup>
     <body>
         <grid id="22">
-            <property name="height">4.260416666666667in</property>
+            <property name="height">7.104166666666667in</property>
             <column id="23"/>
             <column id="37"/>
             <row id="24">
-                <property name="height">1.3541666666666667in</property>
+                <property name="height">1.2708333333333333in</property>
                 <cell id="25">
                     <property name="paddingTop">16px</property>
                     <property name="paddingLeft">32px</property>
@@ -789,13 +790,14 @@ WHERE
                     <property name="paddingBottom">24px</property>
                     <property name="paddingRight">40px</property>
                     <grid id="482">
-                        <property name="height">5.895833333333333in</property>
+                        <property name="height">5.322916666666667in</property>
                         <column id="483"/>
                         <row id="484">
+                            <property name="height">0.4375in</property>
                             <cell id="485">
                                 <property name="paddingTop">0pt</property>
                                 <property name="paddingLeft">0pt</property>
-                                <property name="paddingBottom">0pt</property>
+                                <property name="paddingBottom">20px</property>
                                 <property name="paddingRight">0pt</property>
                                 <grid id="494">
                                     <column id="495"/>
@@ -860,16 +862,8 @@ WHERE
                                 </grid>
                             </cell>
                         </row>
-                        <row id="490">
-                            <property name="height">0.23958333333333334in</property>
-                            <cell id="491">
-                                <property name="paddingTop">0pt</property>
-                                <property name="paddingLeft">0pt</property>
-                                <property name="paddingBottom">0pt</property>
-                                <property name="paddingRight">0pt</property>
-                            </cell>
-                        </row>
                         <row id="492">
+                            <property name="height">0.90625in</property>
                             <cell id="493">
                                 <property name="diagonalStyle">none</property>
                                 <property name="antidiagonalStyle">none</property>
@@ -1198,22 +1192,8 @@ WHERE
                                 </grid>
                             </cell>
                         </row>
-                        <row id="591">
-                            <property name="height">0.2604166666666667in</property>
-                            <cell id="592">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
                         <row id="593">
+                            <property name="height">0.8958333333333334in</property>
                             <cell id="594">
                                 <property name="diagonalStyle">none</property>
                                 <property name="antidiagonalStyle">none</property>
@@ -1221,11 +1201,12 @@ WHERE
                                 <property name="borderLeftStyle">none</property>
                                 <property name="borderRightStyle">none</property>
                                 <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
+                                <property name="paddingTop">20px</property>
                                 <property name="paddingLeft">0px</property>
                                 <property name="paddingBottom">0px</property>
                                 <property name="paddingRight">0px</property>
                                 <grid id="595">
+                                    <property name="height">0.8333333333333334in</property>
                                     <column id="596"/>
                                     <column id="597"/>
                                     <column id="598"/>
@@ -1367,22 +1348,8 @@ WHERE
                                 </grid>
                             </cell>
                         </row>
-                        <row id="634">
-                            <property name="height">0.23958333333333334in</property>
-                            <cell id="635">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
                         <row id="636">
+                            <property name="height">1.5625in</property>
                             <cell id="637">
                                 <property name="diagonalStyle">none</property>
                                 <property name="antidiagonalStyle">none</property>
@@ -1390,7 +1357,7 @@ WHERE
                                 <property name="borderLeftStyle">none</property>
                                 <property name="borderRightStyle">none</property>
                                 <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
+                                <property name="paddingTop">20px</property>
                                 <property name="paddingLeft">0px</property>
                                 <property name="paddingBottom">0px</property>
                                 <property name="paddingRight">0px</property>
@@ -1403,6 +1370,7 @@ WHERE
                                     <column id="667"/>
                                     <column id="668"/>
                                     <row id="669">
+                                        <property name="height">0.25in</property>
                                         <cell id="670">
                                             <property name="colSpan">7</property>
                                             <property name="rowSpan">1</property>
@@ -1714,32 +1682,20 @@ WHERE
                                 </grid>
                             </cell>
                         </row>
-                        <row id="733">
-                            <property name="height">0.23958333333333334in</property>
-                            <cell id="734">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
                         <row id="735">
+                            <property name="height">0.3958333333333333in</property>
                             <cell id="736">
                                 <property name="diagonalStyle">none</property>
                                 <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
+                                <property name="borderBottomColor">#C4CDD5</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
                                 <property name="borderLeftStyle">none</property>
                                 <property name="borderRightStyle">none</property>
                                 <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
+                                <property name="paddingTop">20px</property>
                                 <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
+                                <property name="paddingBottom">20px</property>
                                 <property name="paddingRight">0px</property>
                                 <text id="737">
                                     <property name="fontSize">12px</property>
@@ -1752,38 +1708,6 @@ WHERE
                                 </text>
                             </cell>
                         </row>
-                        <row id="738">
-                            <property name="height">0.25in</property>
-                            <cell id="739">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomColor">#919EAB</property>
-                                <property name="borderBottomStyle">solid</property>
-                                <property name="borderBottomWidth">thin</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
-                        <row id="740">
-                            <property name="height">0.23958333333333334in</property>
-                            <cell id="741">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
                         <row id="742">
                             <property name="height">0.3125in</property>
                             <cell id="743">
@@ -1793,11 +1717,12 @@ WHERE
                                 <property name="borderLeftStyle">none</property>
                                 <property name="borderRightStyle">none</property>
                                 <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
+                                <property name="paddingTop">20px</property>
                                 <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
+                                <property name="paddingBottom">20px</property>
                                 <property name="paddingRight">0px</property>
                                 <grid id="744">
+                                    <property name="height">0.25in</property>
                                     <column id="745"/>
                                     <column id="746"/>
                                     <column id="747"/>
@@ -1866,22 +1791,8 @@ WHERE
                                 </grid>
                             </cell>
                         </row>
-                        <row id="763">
-                            <property name="height">0.23958333333333334in</property>
-                            <cell id="764">
-                                <property name="diagonalStyle">none</property>
-                                <property name="antidiagonalStyle">none</property>
-                                <property name="borderBottomStyle">none</property>
-                                <property name="borderLeftStyle">none</property>
-                                <property name="borderRightStyle">none</property>
-                                <property name="borderTopStyle">none</property>
-                                <property name="paddingTop">0px</property>
-                                <property name="paddingLeft">0px</property>
-                                <property name="paddingBottom">0px</property>
-                                <property name="paddingRight">0px</property>
-                            </cell>
-                        </row>
                         <row id="765">
+                            <property name="height">0.5729166666666666in</property>
                             <cell id="766">
                                 <property name="diagonalStyle">none</property>
                                 <property name="antidiagonalStyle">none</property>
@@ -1917,18 +1828,9 @@ WHERE
                                             </data>
                                         </cell>
                                     </row>
-                                    <row id="771">
-                                        <property name="height">0.5208333333333334in</property>
-                                        <cell id="772">
-                                            <property name="paddingTop">0pt</property>
-                                            <property name="paddingLeft">0pt</property>
-                                            <property name="paddingBottom">0pt</property>
-                                            <property name="paddingRight">0pt</property>
-                                        </cell>
-                                    </row>
                                     <row id="773">
                                         <cell id="774">
-                                            <property name="paddingTop">0pt</property>
+                                            <property name="paddingTop">60px</property>
                                             <property name="paddingLeft">0pt</property>
                                             <property name="paddingBottom">0pt</property>
                                             <property name="paddingRight">0pt</property>
