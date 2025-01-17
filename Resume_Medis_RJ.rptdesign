@@ -2339,7 +2339,8 @@ WHERE
                                 <property name="name">control_date</property>
                                 <text-property name="displayName">control_date</text-property>
                                 <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
-                                <property name="dataType">date</property>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
                             </structure>
                         </list-property>
                         <property name="resultSetColumn">control_date</property>
@@ -3057,7 +3058,8 @@ Penunjang Bermakna</text-property>
                                                         <property name="name">control_date</property>
                                                         <text-property name="displayName">control_date</text-property>
                                                         <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
-                                                        <property name="dataType">date</property>
+                                                        <property name="dataType">string</property>
+                                                        <property name="allowExport">true</property>
                                                     </structure>
                                                 </list-property>
                                                 <property name="resultSetColumn">control_date</property>
