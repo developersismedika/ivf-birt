@@ -1220,18 +1220,17 @@ FROM
         qr.questionnaire_resp_json,
         '$.objective.vitalSigns[*]' 
         COLUMNS (
-            vital_pulse VARCHAR(10) PATH '$.pulse',
-            vital_datetime DATETIME PATH '$.datetime',
-            temperature VARCHAR(10) PATH '$.temperature',
-            respiration_rate VARCHAR(10) PATH '$.respirationRate',
-            oxygen_saturation VARCHAR(10) PATH '$.oxygenSaturation',
-            systolic_pressure VARCHAR(10) PATH '$.systolicPressure',
-            diastolic_pressure VARCHAR(10) PATH '$.diastolicPressure'
+            vital_pulse CHAR(10) PATH '$.pulse',
+            vital_datetime CHAR(19) PATH '$.datetime',
+            temperature CHAR(10) PATH '$.temperature',
+            respiration_rate CHAR(10) PATH '$.respirationRate',
+            oxygen_saturation CHAR(10) PATH '$.oxygenSaturation',
+            systolic_pressure CHAR(10) PATH '$.systolicPressure',
+            diastolic_pressure CHAR(10) PATH '$.diastolicPressure'
         )
     ) jt
 WHERE 
-    qr.questionnaire_resp_id = ?;
-]]></xml-property>
+    qr.questionnaire_resp_id = ?;]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="header" id="4917">
             <list-property name="columnHints">
