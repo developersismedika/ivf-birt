@@ -1067,58 +1067,40 @@ WHERE emr.questionnaire_resp_id = ?;
                     <text-property name="heading">questionnaire_resp_id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">notes</property>
+                    <property name="columnName">vital_datetime</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">notes</text-property>
-                    <text-property name="heading">notes</text-property>
+                    <text-property name="displayName">vital_datetime</text-property>
+                    <text-property name="heading">vital_datetime</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">healthcare_service</property>
+                    <property name="columnName">temperature</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">healthcare_service</text-property>
-                    <text-property name="heading">healthcare_service</text-property>
+                    <text-property name="displayName">temperature</text-property>
+                    <text-property name="heading">temperature</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">department</property>
+                    <property name="columnName">vital_pulse</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">department</text-property>
-                    <text-property name="heading">department</text-property>
+                    <text-property name="displayName">vital_pulse</text-property>
+                    <text-property name="heading">vital_pulse</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">examination</property>
+                    <property name="columnName">respiration_rate</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">examination</text-property>
-                    <text-property name="heading">examination</text-property>
+                    <text-property name="displayName">respiration_rate</text-property>
+                    <text-property name="heading">respiration_rate</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">statement_id</property>
+                    <property name="columnName">oxygen_saturation</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">statement_id</text-property>
-                    <text-property name="heading">statement_id</text-property>
+                    <text-property name="displayName">oxygen_saturation</text-property>
+                    <text-property name="heading">oxygen_saturation</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">reason_referal</property>
+                    <property name="columnName">blood_pressure</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">reason_referal</text-property>
-                    <text-property name="heading">reason_referal</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">working_diagnosis</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">working_diagnosis</text-property>
-                    <text-property name="heading">working_diagnosis</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">patient_colleagues</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">patient_colleagues</text-property>
-                    <text-property name="heading">patient_colleagues</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">purpose_consultation_request</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">purpose_consultation_request</text-property>
-                    <text-property name="heading">purpose_consultation_request</text-property>
+                    <text-property name="displayName">blood_pressure</text-property>
+                    <text-property name="heading">blood_pressure</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters">
@@ -1142,47 +1124,32 @@ WHERE emr.questionnaire_resp_id = ?;
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">notes</property>
+                        <property name="name">vital_datetime</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">healthcare_service</property>
+                        <property name="name">temperature</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
-                        <property name="name">department</property>
+                        <property name="name">vital_pulse</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">5</property>
-                        <property name="name">examination</property>
+                        <property name="name">respiration_rate</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">statement_id</property>
+                        <property name="name">oxygen_saturation</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">reason_referal</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">working_diagnosis</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">patient_colleagues</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">purpose_consultation_request</property>
+                        <property name="name">blood_pressure</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -1198,97 +1165,60 @@ WHERE emr.questionnaire_resp_id = ?;
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">notes</property>
-                    <property name="nativeName">notes</property>
+                    <property name="name">vital_datetime</property>
+                    <property name="nativeName">vital_datetime</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">healthcare_service</property>
-                    <property name="nativeName">healthcare_service</property>
+                    <property name="name">temperature</property>
+                    <property name="nativeName">temperature</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
-                    <property name="name">department</property>
-                    <property name="nativeName">department</property>
+                    <property name="name">vital_pulse</property>
+                    <property name="nativeName">vital_pulse</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
-                    <property name="name">examination</property>
-                    <property name="nativeName">examination</property>
+                    <property name="name">respiration_rate</property>
+                    <property name="nativeName">respiration_rate</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
-                    <property name="name">statement_id</property>
-                    <property name="nativeName">statement_id</property>
+                    <property name="name">oxygen_saturation</property>
+                    <property name="nativeName">oxygen_saturation</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">reason_referal</property>
-                    <property name="nativeName">reason_referal</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">working_diagnosis</property>
-                    <property name="nativeName">working_diagnosis</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">patient_colleagues</property>
-                    <property name="nativeName">patient_colleagues</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">purpose_consultation_request</property>
-                    <property name="nativeName">purpose_consultation_request</property>
+                    <property name="name">blood_pressure</property>
+                    <property name="nativeName">blood_pressure</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT
+            <xml-property name="queryText"><![CDATA[SELECT 
     qr.questionnaire_resp_id,
-    CAST(jt.notes AS CHAR) AS notes,
-    CAST(IFNULL(jt.healthcare_service, '-') AS CHAR) AS healthcare_service,
-    CAST(IFNULL(jt.department, '-') AS CHAR) AS department,
-    CAST(jt.examination AS CHAR) AS examination,
-    CAST(jt.statement_id AS CHAR) AS statement_id,
-    CAST(jt.reason_referal AS CHAR) AS reason_referal,
-    CAST(jt.working_diagnosis AS CHAR) AS working_diagnosis,
-    CAST(jt.patient_colleagues AS CHAR) AS patient_colleagues,
-    CAST(jt.purpose_consultation_request AS CHAR) AS purpose_consultation_request
-FROM
-    questionnaire_response qr,
-    JSON_TABLE(
-        qr.questionnaire_resp_json,
-        '$.plan.externalReference[*]'
-        COLUMNS (
-            notes VARCHAR(255) PATH '$.notes',
-            department VARCHAR(255) PATH '$.department',
-            examination VARCHAR(255) PATH '$.examination',
-            statement_id VARCHAR(255) PATH '$.statementID',
-            reason_referal VARCHAR(255) PATH '$.reasonReferal',
-            working_diagnosis VARCHAR(255) PATH '$.workingDiagnosis',
-            healthcare_service VARCHAR(255) PATH '$.healthcareService',
-            patient_colleagues VARCHAR(255) PATH '$.patientColleagues',
-            purpose_consultation_request VARCHAR(255) PATH '$.purposeConsultationRequest'
-        )
-    ) jt
-WHERE
+    IFNULL(DATE_FORMAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].datetime')) AS CHAR), '%d %b %Y'), '-') AS vital_datetime,
+    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].temperature')) AS CHAR), '° C'), '-') AS temperature,
+    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].pulse')) AS CHAR), ' x/menit'), '-') AS vital_pulse,
+    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].respirationRate')) AS CHAR), ' x/menit'), '-') AS respiration_rate,
+    IFNULL(CONCAT(CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].oxygenSaturation')) AS CHAR), ' mmHg'), '-') AS oxygen_saturation,
+    IFNULL(CONCAT(
+        CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].systolicPressure')) AS CHAR), '/', 
+        CAST(JSON_UNQUOTE(JSON_EXTRACT(qr.questionnaire_resp_json, '$.objective.vitalSigns[0].diastolicPressure')) AS CHAR), ' mmHg'), '-') AS blood_pressure
+FROM 
+    questionnaire_response qr
+WHERE 
     qr.questionnaire_resp_id = ?;
 ]]></xml-property>
         </oda-data-set>
@@ -2745,42 +2675,42 @@ Penunjang Bermakna</text-property>
                                 <cell id="4892">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4893">
+                                    <data id="5076">
                                         <property name="resultSetColumn">vital_datetime</property>
                                     </data>
                                 </cell>
                                 <cell id="4894">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4895">
+                                    <data id="5077">
                                         <property name="resultSetColumn">temperature</property>
                                     </data>
                                 </cell>
                                 <cell id="4896">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4897">
+                                    <data id="5078">
                                         <property name="resultSetColumn">vital_pulse</property>
                                     </data>
                                 </cell>
                                 <cell id="4898">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4899">
+                                    <data id="5079">
                                         <property name="resultSetColumn">respiration_rate</property>
                                     </data>
                                 </cell>
                                 <cell id="4900">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4901">
+                                    <data id="5080">
                                         <property name="resultSetColumn">oxygen_saturation</property>
                                     </data>
                                 </cell>
                                 <cell id="4902">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="4903">
+                                    <data id="5081">
                                         <property name="resultSetColumn">blood_pressure</property>
                                     </data>
                                 </cell>
@@ -3180,60 +3110,72 @@ Penunjang Bermakna</text-property>
                             <cell id="4766">
                                 <property name="colSpan">3</property>
                                 <property name="rowSpan">1</property>
-                                <table id="5060">
-                                    <property name="dataSet">vitalsigns</property>
+                                <table id="5082">
+                                    <property name="dataSet">cpoe</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
                                             <property name="name">healthcare_service</property>
                                             <text-property name="displayName">healthcare_service</text-property>
                                             <expression name="expression" type="javascript">dataSetRow["healthcare_service"]</expression>
                                             <property name="dataType">string</property>
-                                            <property name="allowExport">true</property>
                                         </structure>
                                         <structure>
                                             <property name="name">department</property>
                                             <text-property name="displayName">department</text-property>
                                             <expression name="expression" type="javascript">dataSetRow["department"]</expression>
                                             <property name="dataType">string</property>
-                                            <property name="allowExport">true</property>
                                         </structure>
                                     </list-property>
-                                    <column id="5070"/>
-                                    <column id="5071"/>
+                                    <column id="5092"/>
+                                    <column id="5093"/>
                                     <header>
-                                        <row id="5061">
-                                            <cell id="5062">
-                                                <label id="5072">
+                                        <row id="5083">
+                                            <cell id="5084">
+                                                <label id="5095">
+                                                    <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
-                                                    <text-property name="text">Rumah Sakit</text-property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">row["healthcare_service"] == null &amp;&amp; dataSetRow["department"] == null</expression>
+                                                        </structure>
+                                                    </list-property>
+                                                    <text-property name="text">• Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
-                                            <cell id="5063">
-                                                <label id="5073">
+                                            <cell id="5085">
+                                                <label id="5094">
+                                                    <property name="fontWeight">bold</property>
                                                     <property name="textAlign">left</property>
-                                                    <text-property name="text">Departemen/Spesialis</text-property>
+                                                    <list-property name="visibility">
+                                                        <structure>
+                                                            <property name="format">all</property>
+                                                            <expression name="valueExpr" type="javascript">row["healthcare_service"] == null &amp;&amp; dataSetRow["department"] == null</expression>
+                                                        </structure>
+                                                    </list-property>
+                                                    <text-property name="text">• Departemen/Spesialis</text-property>
                                                 </label>
                                             </cell>
                                         </row>
                                     </header>
                                     <detail>
-                                        <row id="5064">
-                                            <cell id="5065">
-                                                <data id="5074">
+                                        <row id="5086">
+                                            <cell id="5087">
+                                                <data id="5096">
                                                     <property name="resultSetColumn">healthcare_service</property>
                                                 </data>
                                             </cell>
-                                            <cell id="5066">
-                                                <data id="5075">
+                                            <cell id="5088">
+                                                <data id="5097">
                                                     <property name="resultSetColumn">department</property>
                                                 </data>
                                             </cell>
                                         </row>
                                     </detail>
                                     <footer>
-                                        <row id="5067">
-                                            <cell id="5068"/>
-                                            <cell id="5069"/>
+                                        <row id="5089">
+                                            <cell id="5090"/>
+                                            <cell id="5091"/>
                                         </row>
                                     </footer>
                                 </table>
