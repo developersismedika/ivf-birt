@@ -1208,12 +1208,12 @@ WHERE emr.questionnaire_resp_id = ?;
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT 
     qr.questionnaire_resp_id,
-    ifnull(DATE(jt.vital_datetime), '-') as vital_datetime,
-    ifnull(CONCAT(jt.temperature, '° C'), '-') as temperature,
-    ifnull(CONCAT(jt.vital_pulse,' x/menit'), '-') as vital_pulse,
-    ifnull(CONCAT(jt.respiration_rate,' x/menit'), '-') as respiration_rate,
-    ifnull(CONCAT(jt.oxygen_saturation, ' mmHg'), '-') as oxygen_saturation,
-    ifnull(CONCAT(jt.systolic_pressure,'/', jt.diastolic_pressure, ' mmHg'), '-') as blood_pressure
+    IFNULL(DATE(jt.vital_datetime), '-') AS vital_datetime,
+    IFNULL(CONCAT(CAST(jt.temperature AS CHAR), '° C'), '-') AS temperature,
+    IFNULL(CONCAT(CAST(jt.vital_pulse AS CHAR), ' x/menit'), '-') AS vital_pulse,
+    IFNULL(CONCAT(CAST(jt.respiration_rate AS CHAR), ' x/menit'), '-') AS respiration_rate,
+    IFNULL(CONCAT(CAST(jt.oxygen_saturation AS CHAR), ' mmHg'), '-') AS oxygen_saturation,
+    IFNULL(CONCAT(CAST(jt.systolic_pressure AS CHAR), '/', CAST(jt.diastolic_pressure AS CHAR), ' mmHg'), '-') AS blood_pressure
 FROM 
     questionnaire_response qr,
     JSON_TABLE(
@@ -1230,7 +1230,8 @@ FROM
         )
     ) jt
 WHERE 
-    qr.questionnaire_resp_id = ?;]]></xml-property>
+    qr.questionnaire_resp_id = ?;
+]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="header" id="4917">
             <list-property name="columnHints">
