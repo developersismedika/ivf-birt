@@ -615,7 +615,7 @@ prct.suffix as practitioner_suffix,
 
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.education')) AS CHAR) AS education,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.actionPlan')) AS CHAR) AS action_plan,
-CAST(DATE(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlDate'))) AS CHAR) AS control_date,
+CAST(DATE_FORMAT(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlDate'))), '%d %b %Y' AS CHAR) AS control_date,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) AS CHAR) AS control_plan,
 CASE
     WHEN JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlPlan')) = 'follow_up' THEN
