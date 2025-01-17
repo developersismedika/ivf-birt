@@ -2532,13 +2532,13 @@ ips.invoice_packet_service_id as ids,
 ips.invoice_header_id as idx,
 ips.order_packet_service_id as idd,	
 CASE
-    WHEN ips.qty_used = ips.qty_used &amp;&amp; 0 > 0 THEN 0
+    WHEN ips.qty_used = ips.qty_used AND 0 > 0 THEN 0
     ELSE ips.qty
 END as qty,
 ips.qty_all as  qtyall,
 ips.qty_used as qtyused ,
 CASE 
-    WHEN ips.qty_used = ips.qty_used &amp;&amp; 0 > 0 THEN '-' 
+    WHEN ips.qty_used = ips.qty_used AND 0 > 0 THEN '-' 
     ELSE CONCAT(ips.qty_used, "/", ips.qty_used) 
 END AS pemakaian,
 0 as qty_unlimited,
@@ -2584,7 +2584,7 @@ CASE
                 + ipi.qty
             )
         END
-    ) = ipi.qty_all &amp;&amp; opi.qty_unlimited > 0
+    ) = ipi.qty_all AND opi.qty_unlimited > 0
     THEN opi.qty_unlimited
     ELSE ipi.qty
 END as qty,
@@ -2613,7 +2613,7 @@ CASE
                 + ipi.qty
             )
         END
-    ) = ipi.qty_all &amp;&amp; opi.qty_unlimited > 0
+    ) = ipi.qty_all AND opi.qty_unlimited > 0
     THEN '-'
     ELSE CONCAT(
         CASE 
