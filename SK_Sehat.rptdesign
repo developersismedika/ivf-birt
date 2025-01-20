@@ -1,0 +1,1588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="statement_id" id="5227">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">130000040</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="by_person_id" id="5248">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivfdb" id="5226">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb1</property>
+            <property name="odaUser">root</property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="doctor" id="5235">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">doctor</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">doctor</text-property>
+                    <text-property name="heading">doctor</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">doctorSpecialist</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">doctorSpecialist</text-property>
+                    <text-property name="heading">doctorSpecialist</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">statement_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">doctor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">doctorSpecialist</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivfdb</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">doctor</property>
+                    <property name="nativeName">doctor</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">doctorSpecialist</property>
+                    <property name="nativeName">doctorSpecialist</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.doctor' )) AS CHAR ) AS doctor,
+  CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.doctorSpecialist' )) AS CHAR ) AS doctorSpecialist 
+FROM
+  statement st
+  LEFT JOIN questionnaire_response qr ON qr.questionnaire_resp_id = st.questionnaire_resp_id 
+WHERE
+  st.statement_type_code = '@healthCertf' 
+  AND st.statement_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>doctor</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>536870911</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>doctor</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>doctor</design:label>
+            <design:formattingHints>
+              <design:displaySize>536870911</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>doctorSpecialist</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>536870911</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>doctorSpecialist</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>doctorSpecialist</design:label>
+            <design:formattingHints>
+              <design:displaySize>536870911</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="header" id="5228">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">emr_id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">emr_id</text-property>
+                    <text-property name="heading">emr_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ivf_site_logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ivf_site_logo</text-property>
+                    <text-property name="heading">ivf_site_logo</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ivf_site_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ivf_site_name</text-property>
+                    <text-property name="heading">ivf_site_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address_text</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">address_text</text-property>
+                    <text-property name="heading">address_text</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address_city</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">address_city</text-property>
+                    <text-property name="heading">address_city</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">statement_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">statement_no</text-property>
+                    <text-property name="heading">statement_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">docter_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">docter_name</text-property>
+                    <text-property name="heading">docter_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">gravidaDiagnosis</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">gravidaDiagnosis</text-property>
+                    <text-property name="heading">gravidaDiagnosis</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">gestationalAge</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">gestationalAge</text-property>
+                    <text-property name="heading">gestationalAge</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">estimatedBirthDate</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">estimatedBirthDate</text-property>
+                    <text-property name="heading">estimatedBirthDate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">purpose</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">purpose</text-property>
+                    <text-property name="heading">purpose</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">date_purpose</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">date_purpose</text-property>
+                    <text-property name="heading">date_purpose</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">statement_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">emr_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ivf_site_logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ivf_site_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">address_text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">address_city</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">statement_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">docter_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">gravidaDiagnosis</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">gestationalAge</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">estimatedBirthDate</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">purpose</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">date_purpose</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivfdb</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">emr_id</property>
+                    <property name="nativeName">emr_id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ivf_site_logo</property>
+                    <property name="nativeName">ivf_site_logo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ivf_site_name</property>
+                    <property name="nativeName">ivf_site_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">address_text</property>
+                    <property name="nativeName">address_text</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">address_city</property>
+                    <property name="nativeName">address_city</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">statement_no</property>
+                    <property name="nativeName">statement_no</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">docter_name</property>
+                    <property name="nativeName">docter_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">gravidaDiagnosis</property>
+                    <property name="nativeName">gravidaDiagnosis</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">gestationalAge</property>
+                    <property name="nativeName">gestationalAge</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">estimatedBirthDate</property>
+                    <property name="nativeName">estimatedBirthDate</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">purpose</property>
+                    <property name="nativeName">purpose</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">date_purpose</property>
+                    <property name="nativeName">date_purpose</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  st.emr_id,
+  ivs.ivf_site_logo,
+  ivs.ivf_site_name,
+  lc.address_text,
+  CONCAT(
+    lc.address_city,
+    ', ',
+  DATE_FORMAT( CURDATE(), '%d %b %Y' )) AS address_city,
+  st.statement_no,
+  ( SELECT person.person_name FROM person WHERE person.person_id = st.practitioner_id LIMIT 1 ) AS docter_name,
+  CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.gravidaDiagnosis' )) AS CHAR ) AS gravidaDiagnosis,
+  CONCAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.gestationalAge' )) AS CHAR ), ' Minggu') AS gestationalAge,
+  DATE_FORMAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.estimatedBirthDate' )) AS CHAR ), '%d %b %Y' ) AS estimatedBirthDate,
+  CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.purpose' )) AS CHAR ) AS purpose,
+  CONCAT(DATE_FORMAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.startDate' )) AS CHAR ), '%d %b %Y'), ' s/d ', DATE_FORMAT(CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.endDate' )) AS CHAR ), '%d %b %Y')) AS date_purpose 
+FROM
+  statement st
+  LEFT JOIN emr ON emr.emr_id = st.emr_id
+  LEFT JOIN encounter e ON e.encounter_id = emr.encounter_id
+  LEFT JOIN order_header oh ON oh.order_header_id = e.order_header_id
+  LEFT JOIN ivf_site ivs ON ivs.organization_id = oh.organization_id
+  LEFT JOIN location lc ON lc.organization_id = oh.organization_id
+  LEFT JOIN questionnaire_response qr ON qr.questionnaire_resp_id = st.questionnaire_resp_id 
+WHERE
+  st.statement_type_code = '@healthCertf' 
+  AND st.statement_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ivf_site_logo</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ivf_site_logo</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ivf_site_logo</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ivf_site_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ivf_site_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ivf_site_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>address_text</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>address_text</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>address_text</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="patient" id="5238">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">person_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_name</text-property>
+                    <text-property name="heading">person_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">patient_mrn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">patient_mrn</text-property>
+                    <text-property name="heading">patient_mrn</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">statement_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">person_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">patient_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivfdb</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">person_name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">patient_mrn</property>
+                    <property name="nativeName">patient_mrn</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  (SELECT person.person_name FROM person WHERE person.person_id = CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.patientID' )) AS CHAR ) LIMIT 1) AS person_name,
+  (SELECT patient.patient_mrn FROM patient WHERE patient.patient_id = CAST( JSON_UNQUOTE( JSON_EXTRACT( questionnaire_resp_json, '$.patientID' )) AS CHAR ) LIMIT 1) AS patient_mrn
+FROM
+  statement st
+  LEFT JOIN questionnaire_response qr ON qr.questionnaire_resp_id = st.questionnaire_resp_id 
+WHERE
+  st.statement_type_code = '@healthCertf' 
+  AND st.statement_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>person_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>person_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patient_mrn</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>patient_mrn</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>patient_mrn</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="by person" id="5255">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">person_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_name</text-property>
+                    <text-property name="heading">person_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">by_person_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">person_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivfdb</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">person_name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select person_name
+from person where person_id = ?;]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">50px</property>
+            <page-footer>
+                <text id="3">
+                    <property name="backgroundColor">#F9FAFB</property>
+                    <property name="fontSize">12px</property>
+                    <property name="color">black</property>
+                    <property name="paddingTop">10px</property>
+                    <property name="paddingLeft">1px</property>
+                    <property name="paddingBottom">10px</property>
+                    <property name="paddingRight">1px</property>
+                    <property name="verticalAlign">middle</property>
+                    <property name="dataSet">by person</property>
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">person_name</property>
+                            <text-property name="displayName">person_name</text-property>
+                            <expression name="expression" type="javascript">dataSetRow["person_name"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                    </list-property>
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>, by <VALUE-OF>row["person_name"]</VALUE-OF>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <property name="height">0.7395833333333334in</property>
+            <property name="width">7.729166666666667in</property>
+            <column id="5">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <column id="6">
+                <property name="width">6.552083333333333in</property>
+            </column>
+            <row id="7">
+                <property name="height">0.7395833333333334in</property>
+                <cell id="8">
+                    <image id="5032">
+                        <property name="height">0.625in</property>
+                        <property name="width">1.0625in</property>
+                        <property name="source">embed</property>
+                        <property name="imageName">Smart IVF.jpg</property>
+                    </image>
+                </cell>
+                <cell id="9">
+                    <property name="verticalAlign">middle</property>
+                    <grid id="5019">
+                        <column id="5020"/>
+                        <row id="5021">
+                            <cell id="5022">
+                                <property name="fontSize">12px</property>
+                                <property name="textAlign">right</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="5229">
+                                    <property name="fontSize">14px</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">ivf_site_name</property>
+                                            <text-property name="displayName">ivf_site_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">ivf_site_name</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="5023">
+                            <cell id="5024">
+                                <property name="fontSize">12px</property>
+                                <property name="textAlign">center</property>
+                                <property name="verticalAlign">middle</property>
+                                <data id="5230">
+                                    <property name="textAlign">right</property>
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">address_text</property>
+                                            <text-property name="displayName">address_text</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["address_text"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">address_text</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+        <label id="5218">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5219">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="4393">
+            <column id="4394"/>
+            <column id="4395"/>
+            <row id="4396">
+                <cell id="4397">
+                    <label id="4401">
+                        <property name="fontSize">18px</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">left</property>
+                        <text-property name="text">Surat Keterangan Sehat</text-property>
+                    </label>
+                </cell>
+                <cell id="4398">
+                    <property name="verticalAlign">middle</property>
+                    <data id="5231">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">statement_no</property>
+                                <text-property name="displayName">statement_no</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["statement_no"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">statement_no</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="5211">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="5068">
+            <property name="width">7.739583333333333in</property>
+            <column id="5069">
+                <property name="width">0.23958333333333334in</property>
+            </column>
+            <column id="5070">
+                <property name="width">1.5625in</property>
+            </column>
+            <column id="5071">
+                <property name="textAlign">center</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">0.19791666666666666in</property>
+            </column>
+            <column id="5072">
+                <property name="width">5.739583333333333in</property>
+            </column>
+            <row id="5073">
+                <cell id="5074">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                    <label id="5089">
+                        <text-property name="text">Yang bertanda tangan di bawah ini:</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="5078">
+                <cell id="5079">
+                    <property name="fontSize">12px</property>
+                </cell>
+                <cell id="5080">
+                    <property name="fontSize">12px</property>
+                    <label id="5090">
+                        <text-property name="text">Nama</text-property>
+                    </label>
+                </cell>
+                <cell id="5081">
+                    <property name="fontSize">12px</property>
+                    <label id="5092">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="5082">
+                    <property name="fontSize">12px</property>
+                    <data id="5236">
+                        <property name="dataSet">doctor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">doctor</property>
+                                <text-property name="displayName">doctor</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["doctor"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">doctor</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="5083">
+                <cell id="5084">
+                    <property name="fontSize">12px</property>
+                </cell>
+                <cell id="5085">
+                    <property name="fontSize">12px</property>
+                    <label id="5091">
+                        <text-property name="text">Spesialis</text-property>
+                    </label>
+                </cell>
+                <cell id="5086">
+                    <property name="fontSize">12px</property>
+                    <label id="5093">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="5087">
+                    <property name="fontSize">12px</property>
+                    <data id="5237">
+                        <property name="dataSet">doctor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">doctorSpecialist</property>
+                                <text-property name="displayName">doctorSpecialist</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["doctorSpecialist"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">doctorSpecialist</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="5213">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="5100">
+            <property name="width">7.739583333333333in</property>
+            <column id="5101">
+                <property name="width">0.23958333333333334in</property>
+            </column>
+            <column id="5102">
+                <property name="width">1.5625in</property>
+            </column>
+            <column id="5103">
+                <property name="textAlign">center</property>
+                <property name="verticalAlign">middle</property>
+                <property name="width">0.19791666666666666in</property>
+            </column>
+            <column id="5104">
+                <property name="width">5.739583333333333in</property>
+            </column>
+            <row id="5105">
+                <cell id="5106">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <property name="fontSize">12px</property>
+                    <label id="5107">
+                        <text-property name="text">Dengan ini menerangkan bahwa:</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="5108">
+                <cell id="5109">
+                    <property name="fontSize">12px</property>
+                </cell>
+                <cell id="5110">
+                    <property name="fontSize">12px</property>
+                    <label id="5111">
+                        <text-property name="text">Nama Pasien</text-property>
+                    </label>
+                </cell>
+                <cell id="5112">
+                    <property name="fontSize">12px</property>
+                    <label id="5113">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="5114">
+                    <property name="fontSize">12px</property>
+                    <data id="5239">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">person_name</property>
+                                <text-property name="displayName">person_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["person_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">person_name</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="5116">
+                <cell id="5117">
+                    <property name="fontSize">12px</property>
+                </cell>
+                <cell id="5118">
+                    <property name="fontSize">12px</property>
+                    <label id="5119">
+                        <text-property name="text">No. RM</text-property>
+                    </label>
+                </cell>
+                <cell id="5120">
+                    <property name="fontSize">12px</property>
+                    <label id="5121">
+                        <text-property name="text">:</text-property>
+                    </label>
+                </cell>
+                <cell id="5122">
+                    <property name="fontSize">12px</property>
+                    <data id="5240">
+                        <property name="dataSet">patient</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">patient_mrn</property>
+                                <text-property name="displayName">patient_mrn</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["patient_mrn"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">patient_mrn</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="5214">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="5152">
+            <column id="5153"/>
+            <row id="5154">
+                <cell id="5155">
+                    <property name="fontSize">12px</property>
+                    <text id="5247">
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ivf_site_name</property>
+                                <text-property name="displayName">ivf_site_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">gestationalAge</property>
+                                <text-property name="displayName">gestationalAge</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["gestationalAge"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">estimatedBirthDate</property>
+                                <text-property name="displayName">estimatedBirthDate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["estimatedBirthDate"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">purpose</property>
+                                <text-property name="displayName">purpose</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["purpose"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">date_purpose</property>
+                                <text-property name="displayName">date_purpose</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["date_purpose"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[Adalah benar pasien saya yang melakukan pemeriksaan berkala di <VALUE-OF>row["ivf_site_name"]</VALUE-OF>. Pasien saat ini hamil dengan usia kandungan <VALUE-OF>row["gestationalAge"]</VALUE-OF> dengan perkiraan hari lahir <VALUE-OF>row["estimatedBirthDate"]</VALUE-OF>. Saya menyatakan bahwa pasien <B>
+FIT
+</B> untuk melakukan perjalanan menggunakan <B>
+<VALUE-OF>row["purpose"]</VALUE-OF>
+</B> dari tanggal <VALUE-OF>row["date_purpose"]</VALUE-OF>.]]></text-property>
+                    </text>
+                </cell>
+            </row>
+        </grid>
+        <label id="5215">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="5161">
+            <column id="5162"/>
+            <row id="5163">
+                <cell id="5164">
+                    <property name="fontSize">12px</property>
+                    <label id="5165">
+                        <text-property name="text">Demikian keterangan yang dapat kami sampaikan untuk dapat digunakan sebagaimana mestinya.</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <label id="5216">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5261">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5260">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5224">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5223">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5222">
+            <property name="fontSize">12px</property>
+        </label>
+        <grid id="5245">
+            <column id="5246"/>
+            <row id="5258">
+                <cell id="5259">
+                    <property name="borderBottomColor">gray</property>
+                    <property name="borderBottomStyle">inset</property>
+                    <property name="borderBottomWidth">thin</property>
+                </cell>
+            </row>
+        </grid>
+        <grid id="5182">
+            <column id="5183"/>
+            <row id="5184">
+                <cell id="5185">
+                    <property name="fontSize">12px</property>
+                    <data id="5233">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">address_city</property>
+                                <text-property name="displayName">address_city</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["address_city"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">address_city</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="5217">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5221">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5220">
+            <property name="fontSize">12px</property>
+        </label>
+        <label id="5225"/>
+        <label id="5234"/>
+        <grid id="5195">
+            <column id="5196"/>
+            <row id="5197">
+                <cell id="5198">
+                    <property name="fontSize">12px</property>
+                    <data id="5232">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">docter_name</property>
+                                <text-property name="displayName">docter_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["docter_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">docter_name</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">Smart IVF.jpg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsN
+                DhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQU
+                FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAFqAmIDASIAAhEBAxEB/8QA
+                HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIh
+                MUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVW
+                V1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+                x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQF
+                BgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAV
+                YnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+                hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq
+                8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+                AKKKKACiiigAooooAKKSloAKKKSgBaKKKACiiigAooooAKKKKACiiigAopKKAFooooAKKKKACiiigAoo
+                ooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKSgBaKKKAEz
+                RXK+NPiR4c+H9kbrXNWgsFIykbtukf8A3UX5m/CvnDx1+3GVaS38J6Irn7q3uptx/wB+1/8Aiq6qGFrY
+                j+HE4a2MoYf45H1v068Vkat4u0Pw+udV1ex00f8AT5cpF/6Ea/OTxZ8f/H3jBn+3eJbyKFv+WNo32eP/
+                AL5j27v+BV5zcXElxI0jyMzN95mb71e7RyOcvjmeXLOIy/hxP0wv/wBor4b6bxJ4x05v+uDtN/6CGrP/
+                AOGrPhZux/wlsP8A4C3H/wAbr805KryV6cOH6H2pSCOZVJfZP1D0/wDaO+GmqFVh8Z6Um7/n5m8n/wBG
+                ba7bR/EuleIIPO03U7PUY/71pOsq/wDjpr8fJKdZ6leaXdLcWd1PZ3Ef3ZIJGjZf+BLVS4ajL+HUO2nj
+                JS+KJ+ytG4CvzK8A/tj/ABH8CyRx3Gqf8JFp6/et9W/eNt/2ZP8AWf8AjzV9h/BX9rLwf8XpItPaRtB8
+                RP8A8w6+fKyt/wBMZPut/u/K3+zXz2MyXF4OPO480fI9CnUjU2PdKKSlrxDUKKKKACiiigAooooAKKKK
+                ACiiigApKWkoA8w+OXxy8P8AwD8Gya5rksk8sreTZ2MJ/e3Mn91f7qj+Jv4f++RX5+eOP+ChnxV8TXsp
+                0e4sfC1gW/dwWdss0ir/ALUkitub/dVau/8ABRvxJd618erfSZZGNnpWmQrFH/DukLSM3/Avl/74Wr/7
+                Cf7OXgn40R+IdV8Wq+qHTZ44IdKWd4lCsu7zJNu1m/ur/utX1mFw+Hw+F+s148x+fY3G4vGY6WDw8uU4
+                fRP28vjPpFwryeJ4tUi/igvdPt2U/wDfKq3/AI9X1B8Af+Cg2nePtcsPDvjTS00LVryRbe3v7Vt1rJIx
+                wqsrfNHuPuw91rrvHH/BPr4U+JrGQaRY3fhW+A+S40+6kkXd/tJIzAj2XbXiPgX/AIJu+KdJ+JWn3es+
+                ItLl8M2N0k5mtTJ9ouArbtvlsu1d3+823/aqJVctxFOXu8si6dDOcHVjaXPH1v8AmfoYOcGgjbzTC4jj
+                Jboor4e1f/gplp9h46ksbXwnJfeGIbjyX1D7Zi4dc/6xY9u3/gO7/vmvnqOFq4jm9ktj6/E46hg+X28r
+                cx9y0cV8q/HT9vXwn8LWgsNAtf8AhLdZmhS4McU3l29urruXzJNrfNtP3V/4FtryHwz/AMFPtTXVEHiD
+                wXbNprnltPuWWaNf91twb81rphl2JqR54xOOpnOCpT5JTP0IpfrXgfjT9sj4b+Dfhzpfi5NSfVI9WjZ9
+                P0+2XN1Mynaysv8ABtb5WZunvXzRff8ABUDxFJfFrDwPp0dju4juLySSQr/vKqj/AMdqaWAxNbWMSq+b
+                4LDy5ZzP0R5PajNfOn7OP7Y/h34+XjaLJaSeHfE0aGUWEkvmRzquNzQyYXdjuNvHvX0UzbV5NctWlUoS
+                5Ki1PQw+Jo4mHtKUrod+FL+NfG/xJ/4KSeEPCuqXWneG9DvPE0tu7RNdNMttbuy/3W2szD/gIrzn/h6L
+                rPmf8iDZeX/d/tJ93/fXl13U8txdSPMoHl1M6wNOXK5n6GAbaX2r5f8Agn+3t4K+K2rW2iapaT+E9bum
+                CQRXkiyW8z/3Emwvzf7yrX0+pGBjpXFVo1MPLlqRsenh8VRxUeejK4beR2FN2gZxxXyT+0Z+3hbfBfx9
+                L4T0fw6NevrJY3v5prowxxllDeWuFbc21l5rS8U/t5eFND+DeieMLXT5bzV9YaSG30NptrJJGcSeZJt/
+                1a/L8235ty/7W3pjgcRJRlGPxHFLNMJGU4Sn8O59St7814H+1F+1NY/s56fpQXTDrmtakXMFr53kxpGp
+                XdI7bWx97he9Yn7NH7ZVj8dv7etNT0ceHdR0e0N9IFm8+GS3U4Z/uqylfl+X/ar4i/a3/aLsf2hfGWm3
+                mlaTNpmnaTFJbQyXMu6S4Vm3bmXb8v8Au7mrsweX1J4n2dWPux3PNzHN6dPBe1w8/elt+p99fsu/tS2P
+                7Rmm6oraUdE1nS9huLPzjNGyNu2yI21f7vSvelYY4r8ff2Yf2kH/AGc9c1vUV8PjXjqcEcHli8+z+Xtb
+                du/1bbq/RX9mf9pvTf2jtD1Oe20qXRtT0uSNbqxkm81Qsm7ayybV3L8rfw/w0swwEsPUlOnH3CsozaGL
+                pxpVZfvT3GiiivFPpwooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiii
+                gAooooAb2pOewxQa8x+Lnx20P4V27QysL/WWTdDp8TfN/vOf4VqoQlUfLE569enh4e0qysjvtb17T/Dm
+                my3+p3cdlZwrukmmbaqivlX4sftiXNx52m+C4vs8f3W1a5j/AHjf9c4/4f8Aeb/vkV4p8Rvipr/xO1P7
+                TrF4zQq37m0jO2GH/dX/ANm+9XFSV9FhMvjH3qup8JjM9qV5ezw+kfxJNa1i+12+mvNQvJ768kbdJNNI
+                0jN/wKsuSrEn8VV5K+mp6bHkQbluVZKryVYkqvJXfTPQpleSq8lWJKryV10z0qZVk+6KhkqaT7oqGSu6
+                menTKslQ+a1vIsiMyyK25WX+GppKryV3I9Kmfev7Hf7UVx43aHwT4suPN1yJP9A1CRhuu1XrG3/TRV/i
+                /iH+19766r8WNB1688L65p+safM0F9Y3C3EMi/wsrblr9hvAfimDxt4N0XX7XiDUrSO6Vf7u5Q23/gPS
+                vy3iLLY4KpGtR+GX5nox2Ojooor5EoKKKKACiiigAooooAKKKKACkpaKAPgv/goh8AdZ1/UbD4ieHrKW
+                /SC1FnqkFsu6RFVmZZtv8S/Ntb02rXw54T8aa74H1hNU8P6veaLqEfyrNZzNGxX+6237y/7Nft/qfiDS
+                dLvLazvdSs7S5uOIYbi4WOSX/dVjlvwry/4kfsj/AAu+KEs1zqnhi3tNQkO5r7TD9mkLf3m2/Kzf7ytX
+                0eDzNUafsa8bxPjMwyR4itKvhpcsj4e8B/8ABRT4m+GzGmtxad4rtl4b7RD5Ex+kke1R/wACVq+xfgN+
+                2T4J+OVymlIZfD3iVhkaXfMp83/rlIPlb/d+Vv8AZr58+LP/AATSm07T7m/8A+IJr54lZ10vVgvmPx91
+                Zh8u76qP96vh/T7+80XUre8s5prS/tZlmhnjba0cit8rL/tV6H1XBY+nKWH92R5H17MspqRhifej/XU/
+                dnVP+QZef9cX/wDQa/B1j8wr9ufAfih/Gfwn0HXZ12z6no0N46r/AHpIVZh+bV+IrferLI1y+0i/L9Tf
+                iaSqKhJdb/ofZHwJ/wCCfcvxL+H9h4q8R+Ip9G/tOHz7OytbdXZYm+5JIzN/F97aP4f4q+fvj98E9S+A
+                fxAuPDWo3K38bQrdWd4kW1Z4W3bW2/wtuVlZf9mv1y+Cq7fg74GUf9AOx/8ARCV8H/8ABTtf+LqeFm/6
+                g/8A7WkqMDmFarjHTn8I8zyvD4bAKtCPvaHhf7OfwE1T9obxu2iWl2NNsLSH7Ve30kfmeVHu27VX+JmZ
+                v/Qq9m/aM/YNk+DvgK68WaBr82tW2n7WvbS7gVJBGzbfMVlb5vmb7tdX/wAEuV/4nXxCb/p3sf8A0Kev
+                rX9qT/k3b4hf9ga4/wDQKrF42tTxsaUfh0IwGWYbEZbKvUj72v4H5KfB3xLc+EPir4S1m1kaOW01O3c7
+                f4l8xdy/8CXcv/Aq/biRFng8uRdySLgivwu8H/8AI1aL/wBf0P8A6MWv2Y+NHxOtPgz8MdZ8W3kZnFjG
+                BDblsGWVmCon4sw/CozqnKVWmo/EzfhuqoUKzqfDE+T7n/gmDYz+JbuePxvJbaA0haG2Fhm4Vf7pfzNp
+                /wB7b/wGr+t/8Ew/Dkumzf2P4z1O31DZmN76GOSHd/tKu0/rXyT4z+O/xQ+PHiiO1uNa1O7nvpvJtdE0
+                uRooNzfdjWFfvf8AAtzf7VekaT+xX+0BptqupWCNp95jesUWtLHOv/Albbu/4FXS44qko+1xCizgjPBV
+                pS+r4RyXqz568XeFdS8A+LtT0DUx5OqaZcyW8vlN8u5W+8rf3a/X39mDx5c/Er4D+ENdv5Gm1Ca0+z3M
+                jfekkiZo2c/72zd/wKvyM+IVj4m03xxqlv4x+1HxLHLtvTeSeZM0m1fvN8275dvzV+of7BP/ACa/4V/6
+                7Xn/AKVSVGcR5sNCcjXhyUo4ypTj8Nv1Pz//AGywf+GmvHn/AF9x/wDomOuX+D3wc8U/HbxRD4e8Ow+Z
+                5MfmTXNw7C3s4933mb/e/hX5mrqf2zD/AMZNePf+vyP/ANEx19jf8E0/Ddtp/wAGtY1dEX7XqGrury/x
+                eXHGgVfwZpP++q7a2JeFwUZx+KyPPoYOONzWpSl8N2dZ+zP+x7pvwDXWby91T/hItW1W1+xzP5HlwpAT
+                uaNV3MW3YHzf7PSvib9sf9nvRfgD4y0u10G7uriy1aGS6W3utrNb7X27Vb+Ja/WvI4A71+dn/BUJseO/
+                BZ/6h03/AKMrw8txNarjLzl8R9NnWBw+Hy73I/Dt82eO/sn/ALONj+0Vr2vaff61c6Mum20c6vbQrJv3
+                Nt/ir9F/2ef2cfD/AOzromo2elXNxqV7qDrLd391tDSbd21Qq/dVdzcf7VfJX/BLvP8Awm3jj/rwt8/9
+                /Gr9E+mM1ObYir7aVHm90rh/B0Pq0cTy+/rqPpaKK8A+wCiiigAooooAKKKKACiiigAooooAKKKKACii
+                igAooooAKKKKACiiigAooooAKKKKAG8AUme9De9fMn7Rn7RD6Q1x4X8M3X+mf6u9v42/1H/TONv7395v
+                4f8A0HelSlWlyxODGYylgqXtapp/Hr9pSHwqZ9A8MSJcawDsuLz70dt/sj+9J7fw18g6hf3GqXk11eTS
+                XN1M3mSSSNuZmqFm3Nuakr6ahh40Y2iflGOzCtj5809v5SKSq8lWJKryV30zlpleT+Kq8lWJP4qryV3w
+                PTplWSq8lWJKryV3Uz0qZXkqvJViSq8lddM9OmVZPuioZKmk+6Khkrupnp0yrJVeSrElV5K74HpUyvJX
+                6c/sO61Jqn7POhxytk2c9xbL/uiRmX/0KvzGkr9P/wBiXQZdF/Z60F512SXs1xebf9lpGVf/AB1Vr5Ti
+                nl+oQv8Azf5noRPeqKKK/KSwooooAKKKKACiiigAooooAKQ9KWigD8gP2yfD3irRf2gfE934ljuhFeXT
+                TabeSbvLktf+Waxt/srtX/Zat/4S/t4/En4a2UOm3k1t4s0yEYjj1YsZkX+6sy/N/wB9bq/Tvxh4F8P/
+                ABA0WTSvEekWusWMhyYbuMMA395f7rc/eWvmPxj/AME1/h7rczzaFqureHd3/LAOtzCv+6H+b/x6vp6O
+                YYarRjRxMfhPhcRlGNo15V8HU3/r5njXjH/gph4p1rQLmw0TwnZaDezo0f297prgx5H3lXauG+u6vlTw
+                T4O1f4jeLtN8P6NbPfapqEywxj/0Jm/2V+8zV916d/wS70OO4DX/AI61G5ts58u3sI4X/wC+mZv/AEGv
+                pH4O/s5+BvgZaOvhjSMX8y7ZtSu2865cf3d5+6v+yu1fatf7QwmFpy+qx94wWVZhjqkZY6Xur+uh1nh3
+                w1D4N+H2naBbndDpmmR2UbeqxxhB/wCg1+HLY3H1r97GXcpHrXyVrP8AwTl+H+q+OpNbGo6na6VLP9ok
+                0WF1Ee7duKrJ95Y/9n73+1XDluOp4Z1Pa/aPUzrLKuMjTVD7J9BfBf8A5I/4H/7Adj/6ISvg/wD4Kef8
+                lS8Kf9gf/wBrSV+jFjZwaZZwWltGsNvBGsUaKPlVVGFWvI/2hv2YfDf7RNjpy6tPcabqVhuFtqFrtZlV
+                vvIytwy+1cWCxEKOJ9rP4T0cywdTE4L2EPi0Pl//AIJc/wDIZ+Ig/wCnex/9Cmr62/ai/wCTd/iF/wBg
+                a4/9Aqr+z9+zr4c/Z60G80/RJbi9u711ku7+6x5kxXO1cD7qruOF/wBo16VruiWXiTRb7SdRgW6sL6F7
+                eeBxlXjZdrLVYrE06uL9tH4dBYDB1MPgPq0/i1/E/Dnwgf8AiqdFH/T9D/6MWv1K/by8L33iX9m/WDYI
+                0rWE8F/NGnVolba//fKtu/4BXOeA/wDgnt4F8E+PrbxFJqmp6nb2VwtzaaZdeX5ayK2V8whf3gX8P9rN
+                fVU9vHcwvDLGskTrtZGXKkeld2Ox9OrWp1KX2Ty8ryirRw1alW05z8VfgT8R4vhD8WPD3i24sm1C306V
+                mmt1+80bRtG23/aVW3LX6A65/wAFGvhdYaM11pser6pfMmUsfs3kkN/dZ2O0f8B3VV+I/wDwTj8CeLNV
+                n1Dw/qd94SaZtxtYI1ntg3qqthl/3d232qt4B/4Jr+CfD2qRXviLWL/xSsLbktdi2sL/AO/tZmb/AL6F
+                dGIxOAxVqlTm5jjwmCzXA81Gjy8r6n57/Ejx5ffEzx1rninUVSK71S5ado4+Vj/uqv8AurtWv1C/YJY/
+                8Mw+Fh/01u//AEqlrC+LP7Angf4n+LF1y1vbzw07hI7m105IxDIqqqrtXHyNtVR/d/2a+gPh74F0n4Z+
+                DdM8M6HCYdM0+LyoVLbmPO5mZu7MzM341z47HUcRQjTpnXlOV4nCYqpWrf8ADn5O/tm8/tOeO/8Ar7j/
+                APRMdfcP/BOP/k3k46f2vc/+gpWp8dv2JfCnxw8XJ4ll1G+0PVZAsd49oFdLkKu1WKt0YL8u79K9i+F3
+                w10T4R+C7DwxoELx6fZhgGkbdJIzHczs3dmY1GKx1KthI0Y/FoVgMrr0MxqYmfw6/idh2zX56/8ABUHR
+                5017wNquw/ZHt7i1MmflV1ZW2/ju/wDHa/Qrj8K4r4r/AAn8O/GXwnN4f8S2ZubORhIjxttkhkX7skbf
+                wsK87B144WvGoz28ywssZhpUo7n5Tfs1/tFX/wCzl4o1HVLXSoNdt9QtvIntZJ2gb5W3Kyttb/0H+Kv0
+                f/Zj/aYsf2jtB1O5h0qTRNS0yWNLqzabzgqvuMbK21c52t/D/DXh1x/wS98Ptd7rbxvqMVpn5YprKOST
+                Hpv3L/6DX0V8Cf2e/Df7Pvh+603w8bm5ku3WW7vLxlaaZl+7kqFUKuW+UD+I162Y4jBYiPPT+M8DKMLm
+                WEqKnV/h/I9Zooor5w+0CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoopKAE
+                OKOKb2Ga4z4pfEO1+Gvg281mbbJKp8q2hZsebK33V/r9FNVGMpS5UY1akaNOVSeyPOf2lPjiPA+l/wBh
+                aLMP7dvE+eZD/wAekZ43f7zfw/n6V8WyM0rMzNuZvvNV3XNau/EmrXep38puLu5kaR5G7tVGvqsPQjh4
+                2Px/MswqY+tzy+HoFFFFdJ5mpFJVeSrElV5K3pnTAryfxVXkqxJ/FVeSu+B6dMqyVXkqxJVeSu6menTK
+                8lV5KsSVXkrrpnpUyrJ90VDJU0n3RUMld1M9KBVkqvJViSpNN0a81y+js7C3kubhv4V/h/2m/wBmutSU
+                I80j0Yaas1fhr8PdR+KHjjSvDmmRs093NtaTbuWGP+KRv9lVr9TpvGngr4S6FYaJcazZadDYW8dtDaeZ
+                ukVFXav7tfm/SvgHwTqk3w10W5s9El+z6pejZfapD8szR/8APGNvvLH/ALvzN/47VCSVpZGZ2Zmb5mZq
+                +BziTzGrFc37uJ87jOIqdGXs8NHm8z7tk/as+HcbbRqtxJ/tLZy//E0QftVfDqRtjavcJ/tPZy/+yrXw
+                jRXhf2fSPI/1kxn8sf6+Z+k3hf4leGvGWF0fW7S+kxnyVk2yf98N81dRnd2r8tLe4mtZlmgkkikjbcrK
+                21lavov4K/tT32l3MGj+MZ2vrBvkj1RuZov+un95f/Hv96uOtl8oR5oHt4HiKFaXs8RHl8+h9hUVBb3E
+                V1Ck0UiyROu5XVsqV9anryT7K99UFFFFAwooooAKKKKAEpaSigBaSlooAKKSloAKSiloAKKKKAEpaSlo
+                ASlpKKAClopKAClopKAFoopKAFooooAKKKSgBaKKKACiiigAopKKAFooooAKKKKACiiigAooooAKKKKA
+                CiiigAooooAKSlpKAIyB1r4U/ac+JR8deO5LC1lzpWkM1vFtb5ZJP+Wkn/sv/Aa+q/jl44/4V/8ADfVN
+                Rhk23si/ZbX/AK6P/F/wFdzf8Br89WZmZmb71ezgKV37SR8LxJjOWMcNH1YlFFFe4fnwUUUUy9SKSq8l
+                U9Q8R2Nh8rSebJ/dj+asG48WzSttghWJf9r5q9Sjg6s1zKJ7eGy+vWjzKJ0Un8VV5K/QL4c/s/8AgF/B
+                uhX03hu3ubq5sbeeZ7hnkDM0as3ys2K7e3+EPgizH7nwhoif9uER/wDZa8KWbwhLlUT6WlkVb7Ukfl9I
+                rf3WqOOzuLr5YIZJf91d1fq5a+C/D9l/x76Jp9v/ANc7WNf5LWpDawwLiOJIx/sril/bqj8NP8T0aeTy
+                j8Uz8obf4d+KNS/48/Der3P/AFwsZG/9BWtuz/Z7+JOqbfJ8Gasm7/nvbtD/AOhba/UjaB2pal8RVvsw
+                R208sjHeR+bOmfsZ/FPU8+ZocOnq38V1ewn/ANBZq7LR/wDgn14uvNv9qeIdJ09f+mCyTsv/AI6v/oVf
+                euKSsJcQYyW1kd8cLTifKnhj/gnz4Q06RJNb1zUtZdfvRwqttG3/AKE3/j1cf+0Anhn4Z+X4F8F6Va6R
+                EY1k1SaBMzS/xRxtI3zMP4tv+0tfa7SeXGT14zX5peOddfxP4y1rVZG3G8upJl/2VZvlWpw+KxWMqc1a
+                pdRPnOIMR9Xw0aVP7X5GHRRRXqH5kFFJuqOSWrjEqMeYczbajklqGSWq8ktbxpHXToH1/wDse/FZ9WtZ
+                /BupzFprVPPsGY/8s/4o/wDgP3l/4F/dr6lFfmN8GfE8nhX4q+GL9G2Kt9HHJ/1zkby2/wDHWav03U9P
+                pXy2Z0PY1rrqfqGTVpVMPyS+yPoooryT3gooooAKKKSgDy341/HjQfgdpdncass13dXjMLaytQvmSbcb
+                j83RV3Dn3rxX/h4ZoOePCWoZ/wCvmP8Awrk/+Chrf8VP4QLLgfZJuP8AtoteIfBf4Iaj8ctX1Cw0q+td
+                OlsbdZ2a63bWXdt/hWvu8BleAlgVisUfkubZ9msc0lgMF8tF2v1Ppz/h4doX/Qpah/4EJ/hTv+Hh2g/9
+                CjqP/gTHXAf8O+fF/wD0Mej/APkX/wCJpf8Ah3x4v/6GPR//ACL/APE1fscg/m/Mj61xZ/J+CPsH4W/E
+                7R/i14Rt/EOitJ9lkdo3imXbJFIvVWHr/jXZ7cc9681+Avwhg+CvgNNAS7bUJ5Jmurm424DyMFXIXsNq
+                r+Vd1rWuaf4f0+W/1S+h0+zhXdJcXMixxr9Wavia0Ye2lGh8PQ/TsHUq/VYTxfuzt7xocijd7GvCdW/b
+                S+F2l3Rt49Wur8qdrPa2khUf8CIFdh4A+P3gX4mSG30HxBBPe4/49Jg0Mx/3VbG7/gNaTwOKpx9pOm7e
+                hjSzTA1qnsqdaLl6nowOecUH5RxS5zyK5H4hfEzw58LNHGp+I9RSwt2by0yGd3b+6qqCzGuWEJVJcsFq
+                d9WrTowdSpKyOsZvmHalJriPBHxg8I/ELw5da3o2s28un2n/AB8vMTEbf+L94G+7x3rF8E/tIfD7x/4l
+                OhaJrouNSO4RxyQyRrNt+9sZl+atvqtf3v3b93fyOb6/hfc/eR9/bXf0O/1vXLDwxpN1qep3UVjp9snm
+                S3EzbVRR61xHw7+P3gT4oapNpnh3Whd38S+Z5EkUkLOv95d6ruFeR/txfETQo/h3ceE01eMa/NcQStp6
+                As3lqQ3zfwr/AAt81fJHwB8V2Hgf4v8AhvWdVvPsWn2s7tcTbWbarRsv3V+b+KvosDkyxOCniJc3N0Pi
+                804mlgszp4WHLyac39dLH6t7vbbXhH7U/wAetQ+Ceg6X/Y1pDcarqcjpFJcBmjiVNu5to+8fmWu48B/H
+                LwN8TL2aw8N67DqN3Eu9rcxyRSbf7wWRVLD6Vl/H7wz4D13wNLJ8QJ1s9JtG8yO8SQrLFJ/sY6sf7u05
+                9K8XDQVHFRjiab/wn02PrSxWAqTwNWKf819PvPEP2a/2s/E3xD8fQeFvE8NrOb6ORre7tYjGyMqs2GXo
+                V2q1fSfxV8dR/DP4e634meD7UbGDekO7HmOWCqv4sy14z+y74P8Ag9Dq1/qfgPUrrWdXt08uRtTbE8Eb
+                f3V2r8retdt+1tn/AIZ78X+nlQ/+j469HFxw9bMKcKdPljeN1seRl88Xh8oqVa9VTlFNqS16d+p89fCD
+                9tXxdrnxI0rS/EVvY3GlatdR2iraw+W0DO21SrbvmXcf4q+0vEGrQ6Dod/qk4Yw2dvJcuq9SEUsf5V+U
+                XwiI/wCFreCh3/tqz/8ARy1+s8kMd1CyShXjcYZWGQRXVn+FoYWvD2UbI8/hHH4nHYWt7afNJPS5+f8A
+                N+3l4/bXWuorTSo9N8z5bFoGb93/AHfM3bt3+1/47X3V4K8Tx+NPB+j69DE0Meo2cV2scn3k3qGx+tfI
+                +ofDv9myP4ltpcviC8hu/tPlvp6SuLBZN3+rM3l/L/38/GvsSP8As7w3oox5NhpdjB/uRwxIv/jqqorD
+                NnhpKmqFFwfpa52cPrGxqVpYuvGcfJ3t/kcl8SPjh4P+E4tB4l1ZbOW6+aKCONpZGHdtqjO33rovCPjL
+                RvHmiW2s6Hfw6lp84yk0RP5Feqt7Gvzi/au8caT8QPjDd6nomoLqWnLbRW8c6qyr8o+ZV3f7W6vVv2PP
+                jl4N+GPgrXNN8Ta5/Z002ofaIYmt5pDt8tV3fKrf3a3r5G6eBjiIc3P/ACnHheKfaZpUwlTljS1tK/bz
+                21PuQtzjpStn6Vh+G/FWkeLtDg1rR9Qhv9MlXclxE2UOOv0rgtF/ac+HPiDxYnhyy8RxzajLJ5UP7qRY
+                ZZP7qybdrH8ea+Zjh6tTm5Yv3dz7eeMw1Pl9pUS5ttd/Q9b420h6UbhweorD8WeLdL8FaFdaxrV7FYad
+                arukmlOAv+J9qzUZSlZHVKUYR5pbG4AO1Ixx3xXn3w3+OXg74tPcxeG9VF1NbjM0EkTxSKv97ay8ivQW
+                9BjNXOnOlLkqRszKjXpYiHPRlzLyJKKSlrM6AooooAKKKKACiiigAooooAKKKKACiiigApKWkPQ0AfIX
+                7Z3ik3GuaP4ejb5LWFruZf8Abf5V/wC+QD/31XzbXffHjXf+Ei+LXiW5LbhHctbp/ux/u/8A2WuBr6zD
+                Q9nRij8ZzOv7fF1J+YUUVy2veLfK3W9g25vutP8A3f8Adr0aGHqYiXLA5sPhK2LqckDW1bXrXRl/etum
+                /hjX71cbqniC+1b5WbyIf+ecdZ+1pZGZ2Zmb7zNViOKvqaGDo4b3vikfc4XLaGD95+9IhjgqxDF8y1NH
+                FViGH5lrplV0O2VY/Wn4b/8AJPfDH/YLtf8A0UtdF61zvw5/5J/4a/7Blr/6JWui9a/Ep/Gz6aHwodSU
+                tFSWFFFFABRRRQBU1D/kH3X/AFzb/wBBr8u2+9X6iaj/AMg+6/65P/6DX5cyPtr28s+0fB8Ub0fn+gtM
+                aXbUMktV5Ja+ijTPiadLmJpJaryS1DJLVeSWuunSPSp0CaSWq8ktQyS1Vklrsp0T0adA2vDMv/FTaT/1
+                9R/+hV+sqfdWvyM8Ly/8VRpP/X1H/wChLX66L2r5bP48sqfzPscpp+zjIfRRRXyh7wUUUUAFJS0lAHwv
+                /wAFDj/xVHhE/wDTpN/6Glec/sp/GTQfg34k1q+1/wC1GK7tFhjFrFvYtvU+or0X/godj/hJ/COO1pMP
+                /H0r5/8Ahf8ACLxF8YNSurHw7FbyXFnF5svnzLHxu21+o4KFGrk8YYiXLH/gn4JmlXEUeIZzwsead9Pu
+                Ptj/AIbw+G/dNYz/ANei/wDxdX9A/bZ+Guvapb2DXN/YPcNsWW8ttsat6MysdtfMH/DD/wAUTz9i0/8A
+                8DVq7oP7DPxCvdWtYtS/s/TrFpP31x9oEjqv8W1V6tXkyy/JeV/vvxPoqeb8Sc0U8P8A+Ss/Qq5uYrW1
+                eeSRUhRdxdjwB61+Yf7RHxy1D4zeLrmRZ5YvDdnI0en2W7Clf+ejL/z0b/x37tfevx8uH8O/AXxUtoWz
+                FpT26nPzYZdn8jX5caddCx1C0uXhjuVgmWRoJPuybW+63+zS4awlOXtMS946RHxpj6sfZYNS5VLWR7x4
+                A/Ys8c+OvDkOsvNY6HFcx+ZBBfM/nSBhlSyhW2j/AMery/x98PfEfwb8WDTdXRrDUods9vdWsnyyL/DJ
+                G3/Aa9zT/goB40QAL4f0VVHqkv8A8cry741ftAar8cF0o6xpOn2cunGQxzWaybirbflbczf3a97CzzKe
+                Itiox9mfJ46nkscKvqU5e1j+J9pfsm/Gqb4teBHg1V9/iDR2W3uJM/6+Ns+XL9W2sG/2lPrXjX/BRCR/
+                7c8GR7j5a21y23/a3R1nf8E+7e/bx94kuUik/sv+zgk0mPl83zF8tf8Ae2+ZV3/gog2fEfg3/r2uP/Qk
+                rwaGHp4bPPZ0/h/4B9ZisXWxnC/tKvxaL7mfLel+KNT0jQdZ0uzuDBZ6qsa3ca/8tFjbcq/99V7x+zP+
+                zr421Dx94c8R32mTaJotjcJetcXR8t5lXlVWP73zf987azP2Lfh7ZeOfi8txqMK3Npo9q18sci7lM25V
+                j3f99bv+A1+kCKFGRgfSurO82lhZTwtGOsviPP4XyBY+nHG4mXuxfur0/wCCfnz+2F8Ctb8N+LtZ8crP
+                Fd6DqNzGzN5h86GQrjaw/u/L8u2vAPCHhTUvG3iKy0XSI1n1G8k8uGNpFjVm/wB5q/QD9uZ/+LHTr3+3
+                QH9TXx3+y22Pj14M/wCvzP8A5Dau3KsXUllcqr+KN/wR5mfZfQpZ1ChD4ajV/m9T339mX9ljxh4D+Jll
+                4m8R/Z9Pt9PSQRwQziSSdnjZTnb8u35q3v8AgoVIyfD/AMNIrHY2pkso/i/dtX1f+tfJn/BQjnwL4X/7
+                CL/+i6+UweMq47M6VWsffZnltDKsjr0KHw7/AIo8V/YdmMPx2tgGKrJYTo3+0MBv/Za+v/2uP+TefF//
+                AFyh/wDR8dfH/wCw7/yXiy/68p/5V9gftcf8m8+L/wDrlD/6Pjr0c3/5G9L/ALd/M8jh7/kncR/2/wDk
+                fnZ8If8Akq3gv/sNWf8A6OWv1l1RjHpN4ynaywOQ3p8pr8m/hD/yVbwX/wBhqz/9HLX6x6v/AMge9/69
+                3/8AQafEv+8USeCP9zxHr+h+OCs0khZm3Mx+Zq/UzUvCM3xI/Z9t9DF21rdalocMYuH+bbJ5SkFvbd1/
+                GvyzXhlr9ePhr/yTzwx7aZbf+ilrr4mnKEaM49GcPBcFWniqc9pJfqflb8Rvh5q3wt8TXGga3HEuoQqs
+                p8mTerK3zK26t34afAPxh8WtLub7w5Yw3NtbTeQ7SXMaFW27v4m967f9tz/kvWp5/wCfO1x/3xXuf/BP
+                Yf8AFvfEnf8A4mY/9FJXqYjMK9LLI4uPxe6eDgsow+Izqpl8r8icvXQ7v4J/A/VPAPwL1bwhqd+o1TVR
+                dO7wksls0sewKh7hdufxr859S0++8K69dWlwr2epafcNHIv8Uckbf/FLX7GcZ9xX58ft1fDQ+GPiJb+J
+                raErY64n73avyrcJw3/fS7T+DV89kOPdTFVKdb/l5qfX8V5SqOBo1MPtS0+X/Dn2n8HfHUfxK+Gnh/xC
+                rK0l3bL56r/DMvyyL/30rV8v/t//ABA3NoHg63k4G7UrtQ3b5ljX/wBGf+O1Y/YD+IyrY+IPB93Kq+R/
+                xMrXcf4T8s36+W3/AANq+ZfjZ46b4kfFDxDriszwT3TR23PSFfljP/fKrW2X5Z7LNKl17tP9djnzbPPb
+                5FR5Je9U91/Lf+vM9s/YF8IXeo/EbVPEA3R2Gm2TQM39+SVsqv8A3yrN/wB8199cMx9a8i/Zd+Gw+Gfw
+                h0i0mh8rU75ft958vzeZJyFb/dXav/Aa9c4YnFfNZvivreMlUW2x9tw7gXgMupwl8UtX8ySlpKWvIPpQ
+                ooooAKKKKACiiigAooooAKKKKACiiigBGqKZtkbE9AualbpVLWM/2XeY6+S//oJprcip8LPzI1i8bUtW
+                vLpvvXEzSN/wJqps21dzfKtOb71cb4i15r9mtbdv9HX7zf8APT/7GvvcLhpYh2ifjGGwtTGVWkN8QeI2
+                v91rasyW/wB1pP8Anp/9jWHHFU0cVTRxV9bTjTw8eSB93RjTwtPkgRxxVYjiqaOKrEcVZ1KxhOuQxxVY
+                ht/3i1NHFVqGL5l/3q4J1dDzZV9T9TPh7/yIfhv/ALB1t/6KWui9a53wB/yIvh3/ALB1v/6LWuhPevym
+                p8Uj9Fp/BEdRRRUlhRRRQAUlLRQBS1H/AJB9z/1yf/0Gvytkl+av1T1L/kH3P/XJv5V+T0ktfS5PHm5z
+                4/P6ftJU/n+hNJLVeSWoZJaryXFfW06R83ToE0ktVZJahklqvJLXdTpHp06BNJLVeSWoZJataPpcmrXG
+                1dywr/rJK6eWNOPNI7ZRjRp+0qbGp4Ts5JdShvPux28isv8AtMtfrTpd4uoaZZ3a/duIll/76XNfl5ax
+                LbxxxxLtjX5VWv0w8Abm8C+HGb7x063z/wB+1r87zqr7ecZDyLGSxVat/LodHRSUtfNH2YUUUUAFJS0U
+                AfCv/BQ7H/CUeEf+vSbP/faVW/4J7Y/4TrxPn/oHr/6MWvZP2tP2fNW+Mlvo2oeHpYP7W00SI1rcPsSa
+                N9p4bsy7T/31UP7Jv7Our/B06xq3iOWH+1L+NYI7W3k3pDGp3fM394t6ccV9r9eof2L9X5ve7fM/LXle
+                L/1l+tez9ze/TY+lKKWkr4o/UjmPH3hmPxr4K1rQpW2JqFnLbb/7pZSoP51+TmoadfeDvEU9lfQeTqem
+                3WySGZdwDxt/Ev8AEtfsRg4GTXg/x7/ZZ0X4yyf2raTHRPEirt+2Im5J1XO1ZF/9m/nX0+S5nDAzlCr8
+                Mj4TifI6uZ0418N/Eh+Jznw1+L3wO8a6Fbzajp3hjQNT8tftNlqFlDDtfHzYZlwy1j/Er9oH4KeC8RaH
+                4U0TxZqBODHZ2MMcKD1aUpj/AL53V4XrH7E/xS026aO30q11WPdxPZ30aqf+/jK3/jtbfgr9hPx3rV4n
+                9vSWnh6y3fvGaVZ5v+ArH8v5sK9n6rlUX7aWI93+W/8ATPlljs8qU/q8cJyz/m5P89D6/wDgH448P/EL
+                4f2+r+HdJj0O1MzxS2EUKxiKZcbh8nyt1HNfNX/BQtEXxF4Mzwv2a4J/76WvrL4a/DfR/hT4RtPD2iRu
+                lrFucyStuklkblnY/wB415P+1p+z9q3xpsdGvdAlh/tTTBIn2e4fYkqPt6N/Cy7f/Hq8DLsTQo5kqvNa
+                nrufX5xg8XXyT2CjzVbLb11seMf8E9R/xXvijP8A0D1x/wB/Fr7vWvmv9k39njV/g6dX1XxHJCuqXyLB
+                Ha28m9YYwxPzN3Zjt+7/AHRX0mAdvqa584rU6+NnUpSvE7OGcLWwmW06VeNpa/mfPX7ccBm+BN3KF4iv
+                rck+gLFc/rXw98FvGFl4B+KHh7X9RD/YbG6V5vLXcyqRtZv/AB6v09+IPgix+JHg3VfDWpApa38Plsyn
+                5kb7ysv+0rBW/Cvg/wAQ/sO/EjSL6SLTrax1y1Lfu7iG6WElf9pX27f/AB6voMjxmFjhJ4XEy5b/AKnx
+                /FOW42WPp4/CU+blttrqmfa3w/8Ajx4H+KGoS2PhvXUv72GPzGt3hkhk2/3gsiruH0rxD/goVkeB/DBH
+                X+0X/wDRZql+zL+yn4n+H/xAtfFviWW2s/ssUiw2VtL5jszqy/My/Lja395q9Z/ag+DN58avA9vZaVcx
+                2+qafcfaYBMcRy/KymNj2zn/AMdry6f1TBZnTdKpzQXU9+t/aGaZJVjiKXLVfT7j5G/YfY/8L4tCef8A
+                QZ//AEGvr/8Aa2/5N78Yc9Yof/R8deWfsqfsv+Ivhl4wn8T+KTb28yQNb21nby+Yy7jyzEfL0/8AQq9/
+                +K3gEfEn4e634aa4+ym/h2Rzbc+W4IZW+m5VrfM8ZRqZlCtCV4x5fzObI8uxVDJK2HqRtOXNZeqsfmH8
+                ISP+FreCh3/tqz/9HLX6w6xj+x7zOP8Aj3fH/fNfEnwf/Yv8X6H8StK1PxE9ja6XpF1Hdhrafe1wyNuV
+                VHZdy/xYr7jmt47q3aJhlHUqf5UZ9iqOIr03SlzKJPCeX4nB4Wsq8OVyfU/Gtc4r9d/hr/yTvwz6/wBm
+                W3/opa+INQ/YT8aw+L3srW8sW8PtLmPU5JSWWHd0Mf3t+3t93/ar7z0HS4dC0Wx0yAkxWcEdupbrtVdo
+                /lWuf4yhioUlSlc5+EctxWArV3iYct7H54/twQGP48XrMMLJY27r/tfLt/8AZa6r9jv49+EfhX4d1/Sv
+                E9/Lpkk90t1DN9nlmWT5drL8qt83y17X+1B+zRL8aBZaxo9zBZ+ILKPyNtwSI7mLduVWZfulWZiv+8a+
+                YI/2K/io195B0i0iTOftDX0Wz8927/x2vTw+KwWNy6OFxFTlcf0PDxmCzTLM4njcLS5+Zu2l1r6H6G+F
+                fFmleNNDtdY0S/i1HT7hd0c8Jyrf4H2rhP2k/hqfih8KNW02GHzNQth9tsvXzoxnaP8AeXcv/AqP2d/h
+                LcfBn4dR6FfXyXl9JcSXc7w7vLVmCjam7nbhRXRXHxe8E2erXGlXPirSINRtjtltZr6NXQ/3WBbrXxUe
+                ahiebC+9ys/TpcuKwSp473JTjqj8rfDHijUvBuoTXem3BtrmS3mtHZf7jo0bf+hV3f7NXw5/4Wb8WtE0
+                +WPzdOtn+3X3Hy+VHzt/4E21f+BVkfHOHQY/ix4mPhm6W70Z7syRSQ48ve3zMq4/hVmZVr7B/YU+HH/C
+                N+ALzxTdQ7LrWpMQ7h8y28fyr/3027/vla/ScyxkaGBdePuyn/X4H4pk2WyxeZxwjlzU4SbfbT/PQ+pF
+                UKoA7DFLSUtfk5/QwUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFRTRiSJ0P3WXFS0h6GgT1R+TPj
+                y6k0vVL7R0+WSGZoZm/u7W+7XIxxV2HxQi/4ud4u/wCwxef+jmrnY7ev1zD8tKjFRPhYwp4RckCGOKrU
+                cVTRxVYjipzqnNUrkMcVWI4qmjiqxHFXDUqnm1K5DHFVqGL94tSRxVahi+Za451dDzZV9Ufpj4B/5Enw
+                /wD9g+3/APRa10HrWB4E/wCRK0H/AK8Lf/0Wtb/rX59L4mfsVH+HEdRRRUmwUUUUAFFFJQBT1L/kH3f/
+                AFyb+VfkjJLX63al/wAg28/65N/6DX5BzS/NX2HD8eb2nyPns0p+0lAmklqrJLUMktQyS19zTpHmQoEk
+                ktV5JahknrY0PwzNqjLNPugtf/HpP92tZezox56h01JU8LT9pVkQ6PpM2s3Hy/LCv+skrurO1jsLdYYF
+                2xrTre3jtYVhiVYo1+6q1LXyuKxUsRL+6fCY7MJYuX90WP8A1i1+nHhuz/s3w3pVoesFtFF+SqP6V+cn
+                gHRT4g8baJpuNwubuGJ/91mXdX6XR9q+UzGWsYn1XC9P+LP0H0tFFeMfeBRRRQAUUUUAJS0lFAC0UUUA
+                FJS0lABS0lFABS0lLQAlLRRQAlFFLQAUUUUAJS0UUAJS0UUAJS0UUAJRS0UAQTKXjdQMHFfmZ8QP2Wvi
+                R4b8QXoXQLzXrV5maK/sB55mXd95lX5lb/er9OOophz7V6mX5lVy6UpU1e589nGS0c4jGNWTjy9j83Ph
+                R+x/428a69a/25pc3hzQkkVrma9/dzOv92NPvbv975a/RLRdItdB0u002xhS2sbSJYIYl+6iKu1V/IVp
+                bcDjrSHO3Hf3p47Mq+YSXtdkLKMkw2TxkqWsn1ZJS0lLXlH0QUUUUAFFFFABRRRQAUUUUAFFFFABRRRQ
+                AUUUUAFI33TS0jdDQB+U/wATIv8Ai5niz/sMXn/o5qwY4q9D+PGgNoPxi8V2zrt338lyv+7J+8X/ANCr
+                io4q/S6VXmpRkfmeKq8tSUSGOKrEcVTRxVYjirKpVPHqVyGOKrEcVSKu2n1xyqHDKrzCKu2nR/eFJU9j
+                ayX95b28C7pppFjjX+8zVkzGPvNH6U+Ax/xReg/9eFv/AOi1re9ao6PYjTNKsbRT8tvDHEP+AqBV31r4
+                yXxM/c6a5YRQ+ikpak1CikozQAtFJuHrRuHqKBXKWpf8gu8x/wA8m/8AQa/HaSX5q/XzxFrVhpmk3b3d
+                9b2aeU3zTTLH/D/tV+Q8Oh6heN8sO1f70ny19xw3yxjVlU8v1PIx1SlHlc5FOSWm29vcX83l28bSt/s1
+                02n+Cofla8maX/pnH8q101vaw2UflwRrFH/dVa+nr5jTp+7S1PlsTnFKj7tKPNI5/R/B8drtmvds838M
+                f8K//FV0tFFfO1a9TES5pyPkMRiq2Klz1ZBRRRXOch7Z+yP4WbWvicNRePdb6VA027H/AC0b92v/AKEz
+                f8Br7hX5ua8S/ZR8D/8ACLfDkalNHtvNYk+0N/1yX5Yx+WW/4HXti47dDXy+Lqe0qtn65kmG+r4OPNvL
+                UkoooriPfCiiigAoopKAGKA2DiqOqanZaLZyXd/dQ2NrGN0k1xIEjX/eY9K5X4tfFDSvhH4LuvEGqOXW
+                P5ILdT808zH5Y19/6Zr81fir8ZPE3xe1mS/1y+f7OrbrfT42229uv+yv/s33q97LMprZi7r3YnyOecRU
+                Mn/d25qj6f5n6Bav+1l8LNFnMMviyGaRf+fW3lmX/vpVK/rVvw/+1B8MPEdwsFr4vs45TwBeo9qPzkVR
+                X55eE/gb498cWIvNF8MX11asMx3DII45B6q0m1W/4DWZ4y+F/ir4fMP+Ei0G90tXfYJJof3Z/wB2T7rV
+                9J/YGAk/Zxre96r8j4r/AFszeK9rLDrk9H+Z+t0Fyk8YkiZZImGVZTkGsvxX4o07wV4bv9b1ab7Np9jC
+                000mM4X/ABr4H/Y5+K3iTRfifo/hWK5mvNA1NpEewkbcsB2s3mR/3fu/NX1X+2F/yb34rPUbbfP/AIER
+                18xiMrlhcbDDVJaSsfb4TPFj8sq42lHllBPTzSuYPwx/bI8K/EjxjB4djsr7Sp7pvLtJbsKVlb+6drHa
+                x9K98vru30uznvLmRYba3jaWWRvuqqjczV+UfwP/AOSxeBj/ANRm0/8ARy1+qPiHRLfxJ4f1HSbrP2a+
+                tpLWUKedsilW/Rq6c6wFDA4iEKfwyOLhnNsTmmFqVK2sos+dm/b68Drr/wBjGmas2neZ5f2/yl/768vd
+                u2/+Pf7NfSem6lBrFja31pKs9rcxrNDIv3XRl3K1fC//AAwL4jPiL7KvibSP7I37vOYP9p8v/rlt27v+
+                BV9veF9At/CvhvTNFtc/ZdPto7WLd12xqFX9BWGaUcDSUPqcrnXkeIzStOp/aELR6GzRUElzFG4jeSNW
+                f7qs3WpSwHJIrw7M+t5l3Dj1pazbfXdOvLgwQX1rLKv/ACzjmVm/KtHcCPahxcdyYzjP4Wcd8Tvibo3w
+                p8K3Gv63I6WsbLGkcS7pJXb7qqvc15T8L/2yvCPxK8V2ugCyvtHvLxvLtnuwpjlbsu5W4Y+ldt+0B8H4
+                /jT4DOhi8+wXMNwt1bXDLuVZFVlwy9xtZq8A+Cv7FmseFvHmm69r+t6Zc2+k3K3EVtpkjSM8i/Mu5mVd
+                vzV72EpZfLCVJV5fvOh8fmGIzenmNOnhYfutL/qfaVFIKCwHU4rwD7MMUY4rNvPEGmWMnl3Oo2tvJ/dk
+                nVW/nVyG4iuIw8ciyI3RlbINVyy3aM/aQb5Uyeikpak0CiiigApKWigAooooAKKKKACiiigAooooAKKK
+                KACiiigAooooAKKKKACiiigAooooA+Tf2zvhe80lj40soiyqotL/AGfw/wDPOT/2X/vmvlaOKv1L1XSr
+                bWtPnsb2GO4s542jlhkXcrqeor4h+NX7O+p/Dm8l1LSYpNQ8Osd6yIN0lr/sv7f7VfRYHGWh7GR8DnuA
+                qKX1mjHT7R40sVPoor0+Y+ElIKKKKCQr2T9mPwCniHxsuvX+INH0X/SnmmbbG03/ACzG7/x7/gNeTTWD
+                WOgza5fq1tpMLeX57L/rpP8AnnH/AHm/9B/irzvxJ8RtY8UWcdg91Ja6Lbtuh02CTbCrf3mX+KT/AGm/
+                9B+Wu6jl9THRlyy5Y9z6jJ8ulVqRr1I+5H8T9LPEv7VHww8J5S68V2t3MOPL05Wuf/Howy/+PV5nrX/B
+                QTwbasy6XoOsag3ZpxHbqf8Ax5m/8dr8/wCOrEddVPhvCU/jcpH6BPET+yfYmpf8FDNSmZv7N8HWsH91
+                ri8ab/0FVrl779u74hXh/wBHs9Fsl/6Z2sjN/wCPSNXzXHViOt/7JwNPamebUxNb+Y9wuv2v/ihffd1+
+                O3X/AKY2UI/9lrIuP2jPiTf/AOt8X6iv/XNlj/8AQdteXR1ajpSwmHj8NNfceXVxFb+Y7O4+Lfje+/13
+                i3XJP+4hN/8AFVSm8W65ef8AHxrF9P8A9dLhmrBjqxHWTpQj8MTyqtScvikXPtEkrbnkZm/vM1SR1Xjq
+                xHXJPTY8qo2WI6nqCOp65JHl1AoooqDMK7L4Q/D+b4k+O9P0hFb7Lu866kX/AJZwr97/AOJ/3mrjo1Zm
+                VVXczfdr7p/Zx+E4+HPhIXd9Ht1zUgstwGHzQp/DH9f73+19K48XX9jTue5k+BljcRZ/DHc9dtbOKytY
+                reGNYookVEReAqrwoqxRS18sfry00CiiigYUUUUAFJS0hoA/Pf8Abu8dy618TrXw2jkWWi2ys0WfvTSr
+                uZv++fL/APHqzf2OfgrafE7xheavrFutzomiCNvs8i/LPcN91T7LtZj9VrmP2uLeWH9obxaZAcSPDIv+
+                79njr6L/AOCe99bnwR4otlI+1JqSyyL3CtEoX/0Bq/TK8pYPJIuj2X4n4bhYRzDiWUcTr7z/AA2PrGON
+                YowqKqqowAo6VR1rQrHxDplxYalaQ31lcLsmt54xIjr6FTWn2pOlfmnM0+Y/bpU4yjytaHnvgX4GeCPh
+                vqE2o+HdAgsL2ZNjT7ndgv8AdUszbR7LXM/th5/4Z48V/wB3bb5/8CI69m7jPNeM/th5/wCGePFnptt/
+                /SiOvRwVSdXG0pVJX95fmeLmNClh8trwpR5Vyvb0PgD4Hf8AJYvA/wD2GbP/ANHLX6qa5eNp+hahcxhS
+                8FvJKN3qFzX5U/A3/ksfgf8A7DNn/wCjlr9UfFn/ACKusf8AXnL/AOgNX0XEn+90kfFcE+7gMR6/ofko
+                /jTXZPFQ8SHVLka35/n/AG7zG8zfu9a/WvwzqD6x4b0q+mAEtxaRTPt/vMitX49c7v8AgVfr54DP/FD+
+                H/8AsHQf+i1rp4lpwhGjyruc/BFapOpiFKXb9T8xPjh4v1fxN8XvEt7eX0sk1rqVxb237xv3MccjKqr/
+                AHfu1r+O/wBoXxx8TvD+k+HGvLtbSztlhuFtmbzL2Rf+WkrL97+H5f8AgVcX8UAf+Fn+Lf8AsMXn/o5q
+                ++f2N/BOl+H/AIL6PqkFvG2o6v5lxdXBUb2/eMqru9FUfd+tetjq2Hy/C0qsqfM1t9x87lmHxWa4+vho
+                VuWLu395+dETT2VyGieW1uIW+Vl+Vlavuz9i347an49s9Q8KeIrpr7VNPiW4tbuVt0k0G7awZv4mVivz
+                f7X+zXJ/8FAPBunWkfhrxJbQxwajPLJZ3Mka7TMu0Mu73XDY/wB6vOv2F5GT46QjtJptwrf+O/8AxNYY
+                yVLM8qliZQs/8jowEMRkWexwiqc0W0vVM+qv2xPFGo+Ffgjqc+lXMllcXNxDbNcRttZEZvm2n1bG3/gV
+                fHX7I/irU9B+OGgW1rdSpa6hM0F3b7vlmDK33l/2W+avrL9uj/khc/8A1/wf1r42/Zez/wAL78Gj/p7/
+                APabVx5TThLKazlHv+R6vENapDiDDqMv5PzP1Dur2HT7WW5uJFggiQvJI5wqqvU1+fXx+/a48Q+OtUud
+                L8LXk+ieGo2aNZbZvLuLv/aZvvKv+yv/AAKvpf8AbO8WTeGPgbqUNu7RzapPHYF17K2Wcf8AAlRl/wCB
+                V8I/BXwRF8TPil4d8OXDMtndT5nCnYxSNWkkH/fKtXHkeCo+ylja/wBn9Dv4qzLEyxNPK8LLl5t/nsjA
+                sPDWv+IkmvLHS9S1ONW/eT29vJMq/wC8y1q+Bvih4q+F+qC50LVrvT5I2/eW27MMn+y8bfK1fq9o+g2H
+                h/S7fTtOtIbOygQRxQRIFVF9BXEeNv2ffAHj/WE1bWvDsF1qC9Zo3eEv/v7GXd/wLNbriOjUcqdaj7py
+                PgzFUFGph8R7/wB34mx8KvGUvxA+H+g6/Na/ZJb61SZ4VztVj97b7Z6e2K7KqVnp9vplnDa2sSW9tCip
+                HFGu1UVegAq4uK+GnKMpuUdj9WoxlCnGNSV2PoooqTYKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
+                CiiigAooooAKKKKACiiigApjqrLgjINPooA8j8Yfs0+B/GEktwdPk0q6k+9Ppr+WW/4Dgr/47Xn1x+xP
+                prtm38TXMaf3ZbVWP/oS19NigrntXRHE1Yq0ZHlVcrwdaXNOmfMS/sSWQPz+J5nHotmq/wDs9dd4Z/ZR
+                8EeG2W4vUuNYkT5v9OmxGv8AwFduf+Bbq9v/AEry39pnxNJ4R+BXjDUYX8uf7C0EbgfdaVlhDf8AkStq
+                davXqRo83xCp5RgqcuaNM/PP9pD4uf8AC1PH0y6eqW3hbSWaz0q0gXy41jVv9ZtX+997/vn+7Xl0dV46
+                sR1+40MPTw9CNGntE7J6bFiOrEdV46sR1lUPNqFiOrEdV46sR1w1DzKhYjq1HVWOrUdcVQ82oWI6sR1X
+                jqxHXFUPMqFiOrEdV46sR1w1Dz6hYjqeoI6nrjkeZUCiivafgD8BZ/iFfJrGsI0Hh23k7/K12y/wr/s/
+                3m/yvPUqRpR5pHRhsNPGVI0qUdTpv2W/gm2rX0PjDWrfNjbsGsIZF/1sg/5af7q/w/7X+7X1+KrWdnDY
+                20dvbRrDBEqokaLhVUdhVqvlq9WVaXNI/XcvwNPAUfZQFooorA9IKKKKACiiigApD0paSgD4d/b4+GE8
+                GpaX43s4c20iCzvmTokgOY3P+8Dt/wCArXiX7PXxqn+CnjhdReOS50i7TyNQtl+80f8ACy/7S/8AxS/x
+                V+nPiDw/p/irRbvSdUtY7zT7uMxTQSDKspr4G+Mn7F3ijwXfTX/hOKTxJobNlYI+bqBf7rL/AMtP95f+
+                +a+7ynMsPXwv1DGH5Jn+TYvCY3+08vXnp0f+TPtvwf8AFrwj4+0+K80TXrK8jZdxj85VkT/eQ/Mv41h/
+                Ef8AaE8FfDHTZptT1q3ubxR8mn2MgluHb+7tH3fq2BX5d6hot9o9w1vf2V1YzL96K6haNl/4C1X/AA74
+                J8QeLLkQaNot/qspbbtt7dpMf/E1t/q5h4y9pKr7v9dTnlxnjqkPZQw/7z5/kfbfwj/bah+IXj618O6j
+                4e/shL+Qw2lzHdediT+FZF2r97+8tegftg/8m7+K/Tbb/wDpRHXlP7NP7Id94Q1yx8W+MjGt/bnzLTSr
+                dt3kuf8AlpI3TcPRf/sa9t/aQ8J6h42+CnifR9JiNxqE0UbxQrwzlJFk2r/tELXh4h4KnmNL6p8Kav8A
+                efUYT+0sRk9f698ck7d9j86fgb/yWPwP/wBhqz/9HLX6o+LP+RV1cf8ATnN/6A1fmr+zr8NfEutfGjw5
+                s0e8t4tL1CG7vJJ4WjWBUbcwbd91vl27a/S/WrA6lpN/aIwVriB4Qx7blIrt4iqQnjIOMjzODaNSGArK
+                Ud3+h+Oe47vbdX6++A/+RH0H/sHQf+i1r8sZPhP4xj8YDw0fD97/AGv5vleV5TYxu+9u/u/7X3a/Vnw7
+                pz6P4d0uwkcO9raxwMy9yqhf6V08S1qdSNHkl3OTgrD1adTEupG236n5OfFLP/CzvF3/AGGLz/0c1fo5
+                +yln/hQPhDHeCT/0a9fB3xu+F/ifQfi3r9s+kXk/9oalNcWbQW7SLPHJIzLt2/e+9X6DfAPwvf8Agz4P
+                +F9F1KMQ39vaZmj/ALjMzNt+ozj8KvPq1OpgqKhL+rGXCeHrU81xEqkdk/zPEf8AgoX/AMiT4Y9ft7/+
+                izXi37DfHx4tM/8APhP/ACr6G/bk8Eax4t+HemXOj2ct+dOu/Omt4V3OIypUsF77a8c/Ya+H+uD4mTeI
+                rmwntdItbOSEXEyMqySHaAq/3v4qMHWpxySpBy7izDD1pcTU5xjpeJ7v+3N/yQuf/r/g/rXxt+y/n/hf
+                ng0/9Pf/ALTavuH9rbwbqXjb4L6laaPbve3sE0NyttEm55ArfNtHdsEn/gNfIv7Jvw58Q6p8a9Ev/wCz
+                LmCw0uVp7u4niZFj+Rvl/wB5m/hoymtThlVaMpd/yDiDD1qmf4ecY/yfmfWP7ZHhOfxV8DNVe2RpJ9Nl
+                jv8AYv8AdX5ZD/wFWZv+A18FfBvx4Php8TNA8RSI0lvZz/vwoyxjZWWT/gW1mr9Ybi1iuoHhmRZYpF2v
+                Gy5BHpXwN8fP2O9d8J6tdav4MspdY0CZmk+xQ/NcWn+yF+9Iv93b8397+9XLkmOoxpTwWI2kd3FWV4n6
+                xTzLCxvKO/y2Z90eG/FWleLdJt9T0q+g1CxnXdHNC+5T0/I+1cH8Qv2lvAXw11RNN1fWs3zcPDZxNO0P
+                +/tzt+n3vavzKMur+HZ5rXN9pkjfLJB80bf8CWuv+HPwJ8a/FTUY4dI0S5W2kb95qV2rR28a/wB5pG+9
+                /uruaun/AFew1F+0r1vc+45P9cMdiYxo4XD/ALz7/wAD9SdE16x8SaRZ6pp06XdjdIssM0Z+V1boa0xj
+                muQ+FfgOP4a+BNJ8ORXDXa2MOxpmGC7FizN+LE113HNfCzjGM3GGx+qUJVJUoyqq0upJRSUtQdAUUUUA
+                FFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAlLRRQAnfNeJ/tj2Emofs5
+                eLViGWRIJj/urcRsf0Fe15rA8ceF4PGfg/WtCuPlh1KzmtWPpvUrmujC1VQxFOq/syQz8ZY6tR1JrGk3
+                Xh/WL7S72NoLyzmkt5o2/hkVtrLUcdfvnNzq8TlqFiOrEdV46sR1yVDzKhYjqxHVeOrEdcVQ8yoWI6tR
+                1Vjq1HXFUPNqFiOrEdV46sR1xVDzKhYjqxHVeOrEdcNQ8+oWI6nqXRdJvNe1CGx0+1lu7yZtscMK7mZq
+                +t/gx+yvb6G1vrHi8Je6gvzRacPmhi/3/wC83+z93/ery8RiKdGOoYXL62Pny0o/9vHnnwH/AGb7nxpN
+                BrniOKS00IfvIrdhtku//iY/9r+L+H+9X2RY2NrptjFa2kCQW0QCJHGu1VX0FXFUKvGKO1fMVq8q8uaR
+                +n4DLqWAp8sPi7jqWiiuY9UKKKKACiiigAooooAKKKKAEowPSlooAgmtoph+8ijcf7SZp8cSRrhUVR7C
+                pKKd2TyrewUlLRSKGhVHRQPwp1FFAthuxf7o/KnUUUBYbsU9VB/ClwPSlooCyEKg9RmgKB0AH4UtFAWW
+                4hAPUZpAqjooH4U6igLISjAPUUtFAyvJawyNuaGNmXoWXNThQvQAfhS0U7slRS2QlFLRSKCiiigAoooo
+                AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKSlooA+HP22/wBm
+                26uL64+Inhq1adWXOsWkS/Mu3/l4VfT+9/31/er4xjr9rWUOu0jINfKfxx/Yd0jxnPcaz4Mli0DV3O+X
+                T5F/0OZvVQv+rb81/wBkV95k3EEKNNYXF7dJGU482x8DR1Yjrq/HXwd8Y/DG5aLxFoV1ZRq21bnb5kMn
+                +7Ivy1ykdfcqrCrHmpy5onkVixHViOq8dWI65qh5lQsR1ajqrHVqOuKoebULEdWI6dpek32s3C29hZz3
+                lw33Y4I2kZv+ArXtXgT9kfx14sKS39tH4dsz/wAtL9v3n/AY1+b/AL6215NfEUqP8SRyLD1asuWnHmPG
+                469h+FP7OHib4kNDdyQto2iN832y6XmRf+ma/wAX/oP+1X038N/2WfB3gLyrm5ibXtTj+b7TfD5A3+zH
+                93/vrdXs6YA4NfMYnNG/dons4bIub3sTL5HC/Db4QeHPhfY+VpNpvumXbLfTfNNJ/wAC7L/srxXedqTH
+                vijHHWvn5SlOXNI+tp0qdGPJTjZD6KKKk2CiiigAooooAKKKKACiiigAooooA+RfhR8e/Gvif9q7X/BW
+                oaok3h21udQjhtfssalVjZvL+YLu/h/vV9dV+YP/AAmniHwH+1Z4wvvCumf2v4huNU1CztLby2k/eSSM
+                u7av3tteiXn7Sfx5+CfiKxuPiNpf2rSbxv8Aj2ubWGNWX+JY5ofut/vbv92qJPvqivkf9pT9oLxp4P8A
+                D/g/xr4H1G3fwhr0C7lms45Gjm+8Nzf7S7l2/wDTNq9y/wCFyaV/wpL/AIWRlf7P/sz7d5W7/lpt/wBT
+                /veZ+7qSj0auf8a+LNN8B+FtS8QarKINO0+Jp5WVcn/dX/aZvl/4FXz7+x58W/iH8aLjXdX8TXlu2gWe
+                23hjhtI4zJO3zfeX+6uP++lr0v8Aad8B6l8SPgj4j0PRg0moyLHPDAv/AC2aORZPL/4FtoA+ZNW/4KD+
+                L9U1G4fw34Nsf7LhOf8ASVmuJNv95mjZVWve/wBmv9pZfj9a38E+hz6PqlgFaVow0tpIG/uyfwt/st/4
+                9Xyn+zf+1R/wz/p954U8Q+GpprJrtppZYF8u6hk+VWVlb733f9mvtj4K+N/AXjjw/dXvgM2sNtJctc3d
+                nDb+RLHNJ95pI/7zf3ulUB6XRX5/L+1x8XtR+JGueFdBgttbvJLq4sdPtks13Rssn+s/2tqq33vl/iam
+                af8Atf8AxX+Dvi690b4k6eupyLEz/ZJYY4ZY2Zd0bLJGu1l3f71SB+glFfn14n/aO/aE+Hc2meJ/EllH
+                ZaFqUm+CxnsoVhZfveX8v7xW2/3m3V9U65+0Fomh/Ae3+JTwyG1urWOS3sd2We4b5fJ3f727Lf3VZqAP
+                XKK+A/Dfx3/aR+KElx4m8LaX5+hwyN/o1vYw/Z22/wAK+Z+8k/4C26um/Z9/aq8efFD492fh3W/s9jpN
+                x9q8zT1tlVoWjhZtu773ysv8VAH2tRXxR8ev2sfGvwp+Peo6DYtb3uhWf2dlsGt13SboVbb5n3vvNV7w
+                x8Qv2kNa8I+JLyTQ54NY86zfTbafS44V8lvM87bu+9/yz+826gD33wb+0F4J8feNL7wnoupTXOuWfned
+                C1rJGq+W21vmZdv3q9Mr8o/hLq3xNsfjBrF14OsftXjOT7UbyDy4227pP33yt8v3q/Sb4P3firUfhxo9
+                x41t/svieRJPtke1V2t5jbflX5fu7aAOQ/ac+N2ofAfwZpmt6dptvqU11frZtFcsyqq+XI275f8Adrlf
+                FP7R3ijSf2dfD3xOsdBsbs3cgW/tHeTbFG0jRqy9/vKvX+9WB/wUV/5JDoX/AGGo/wD0TNXY/AXwnaeO
+                /wBknQfD9+AbXUtMnt3z/Dukkw3+8rYb/gNAHVfs8fGRPjh8O4dfMMVpfxzSW15awvuWORT8v/fSsrfj
+                Uv7Qnxei+CXw3uvEPkRXd750dvZ2kjbVmkY/+yqrN/wGvkj9izxVefCr43a78PNabyf7QaS12t91byFm
+                2/8AfS+Yv/fNS/tyeMrr4j/F/Qfh3ow+0tp7RwtErf6y8uNvy/8AAV8v/vpqAPcPBP7R3ifxN8AfE/xJ
+                v9AsbRbDd/Z9tG8m2427VZm/2dzbf+AtXikf/BRjxXL93wjpb/7sk3/xVfQfxe8HWvw9/ZI1zw3ZH/R9
+                O0dbcN/z0bcu5v8AgTbm/wCBV8p/st/tP+G/gb4R1bSda0bUNSuLy++1RyWaxsqr5art+Zl/u1RJ9I/s
+                w/tRa18dvFGq6XqWh2elRWdn9qWS2aRmZvMVdvzf71fSdee/BX4q6T8ZvB//AAkmk2E2n232iS1Mdyqr
+                JuXb/d/3q9CqSgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo
+                ooAKKKKAIJoI7iNo5UWSNhhlZcg15r4m/Zr+Gvi5mkvfCVjFK3WSyVrZv/IZWvUaZx61cKtSk7wlYlxj
+                Lc+b9S/YP+Hd4xa1udasP9mG6jZf/H42rM/4YB8IBuPEOtY+sP8A8RX1LRXeszxq/wCXjMJYelLeJ82W
+                P7CfgK0bdcajrd5/stPGq/8AjsddpoX7Kvwz0FgyeHVvZB/HezyTZ/4CW2/pXr1FYzx2JqfFUYRwtGP2
+                TM0Xw3pXh238jStNs9Ng/wCedpAsa/korUxS0VxuXN8R0WEpaKKBiUtFFABRRRQAUUUUAFFFFABRRRQA
+                UUUUAFFFFAH5z/D34h6J8Nf20vFup+IJFtrCbVNStftbDK27STNtkb/Z/h/4FXon7cnxq8F+Kvh1p/hv
+                RNYsfEGpzXsd1vsZVmWCNVb5ty/Lubdt25716zqn7GPw517xVrWu6lBqN7datLNNPFLcjy1kkbcWXaoZ
+                dp+783FZfg39hf4b+EfECapKup695L+bDaalLG0Kt/tKqru/4FxVElLwR8F7jxv+xfpfhHUo3TU7iwkv
+                rTzPlaGZpGmg/wB37yr/ALrNXxd/wtfXv+FP/wDCp/s8u3+2PtG3+L/r32/9dPm/3q/VzVtVtfD+k3mo
+                3si21jZxNPNI33UjVdzGvz9/Zk8Kr8c/2mNZ8bXFilto+n3kmrtCq/Ks0kjeTH/vbvm/7Z0AfZ/wJ+Gc
+                Pwn+F+ieHQi/a4YfOvHUD57h/mk/Inb9FWr3xU+KGjfB/wAH3PiLXGmNrGwjjhhXdJNI33Y19zjvXbVm
+                eIPDuneK9HudK1eyh1DTblfLmtp13K61JR8xXHxg+APx+8KtfeM49O0vU/J2zx3kbJewtj/lnMq7pF/u
+                7f8AvmvGf2E/Oi/aB1SPRJLiTQfsNx5zSrt3Q7l8tm/2t23/AMer3XV/+CfPw41LUDcW17rmmQs277LB
+                cRsi/wC6zRs3/j1exfC34MeFvg3oz6f4a077P5zbri5lbzJp2/2m/p0oA+Pv2RYRN+134wZwpaNNSZf9
+                lvtCr/7M1N/bbt45P2nPCKvGrrJY2asv97/SJK+p/h7+zd4T+Gvj7UvGGkyai+ragsyTrcXCtH+8kWRt
+                qhVx8y0vxK/Zr8J/FTxtp3inWZNRXU7GOOKFbe4VY9scjSLuVlbPzNVAcH+3+it8B49y/d1a32/98yV4
+                v4+0G+1j9gLwLdWavJDp181xdKvaNpriPd/31Iv/AH1X2P8AFb4T6N8YvCo8P6690lh563G6zdUk3Lux
+                yyt/eqfwd8NdE8GeAbXwZawve6HDDJB5F/tk8yORmZlb5drfeapA8M/Zd/aC+H1h8EdE03UfEGn6Df6P
+                E0N1aX0yxMzbmbzF/wCem7du+X+LNeLfAnxbp/jn9uW417SY2j02+uL6aHeu1mX7PJ823/a+9/wKvc7/
+                APYD+Gl7rhv431iytWbcdNgul8n/AHdzKzbf+BV2PgX9lHwN8O/iAni7Q47+2vY/M8q2+0K1vGJFZWVV
+                27vut/eoA+Z/ibaxX3/BQbTYZkWRP7R01trL/dhhav0ArybVv2bfCms/FqH4i3MuoHX4ZYZlVZ18jdGq
+                qvy7d38P96vWaAPzm+AvjDSvhv8AtceLbjxLfRaNBJcala+ddttjEjTblDN/D92v0D8P+INN8U6TBqmk
+                XsGpafPuMVzbyeZG+1tp2t/vL+leTfFT9kfwD8Wtek1rUYLzTdUmC+dcabKqGX/aZWVl3f7WK9F+HPgH
+                Tvhn4N07w1pLzyafYKyxNcOrSHczM25lVf4magD57/4KK/8AJIdC/wCw1H/6Jmr1D9kv/k3XwV/16yf+
+                jpK3/i98G9B+Nnh+10fxC92lpb3K3Uf2KRY28wKy5+ZW7M1bPgPwTYfDrwfpvhzSmnfT9PjMcLXDbpMF
+                mb5m4z96gD4m/bi8G3vw3+L+gfEbRR5BvnjmaRf4by32/wDoS7f++WqP9i7wrd/Fj43a98RdbUTiwkku
+                WYr8jXkzNt2/7q+Y3+z8tfZXxW+FWg/GLwv/AGD4gSb7H5y3CPbMqyxuufmVirY+8w/E0nwl+Eeg/Bfw
+                3Jofh5Jvsslw1zJLcsryPIwVcsyqvZVoAxP2o/8Ak33xx/14H/0Ja+cf2FfhT4P8e+ANfu/Efh3T9Zuo
+                tU8mOS7h3Mq+Sjba+w/HHg2x+IHhPVPD2ptKthqEPkzNA2yTb7NXO/B/4J6B8ENFvtL8PSXj2t3cfapP
+                tkqyNv2qv8Kr/doA6bwp4N0XwLpf9m6BpdvpOn+Y0v2e2Xau5vvNW5RRQAUUUUAFFFFABRRRQAUUUUAF
+                FFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABSUtFABRRRQAUUUUAFFFFABRRRQA
+                UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAGR4k8O6f4r0W80jVbVbzTrtPLmgZiquv8Ad4rL
+                8C/DXwz8NrO4tvDOjwaPb3EnmSpDu+dv+BV1dFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUU
+                UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/2Q==
+</property>
+        </structure>
+    </list-property>
+</report>
