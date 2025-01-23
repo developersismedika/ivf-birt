@@ -1222,8 +1222,25 @@ WHERE
             <column id="5440"/>
             <header>
                 <row id="5418">
+                    <property name="backgroundColor">#F2F2F2</property>
                     <property name="fontSize">12px</property>
+                    <property name="verticalAlign">middle</property>
+                    <property name="height">0.375in</property>
                     <cell id="5419">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <label id="5441">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1231,6 +1248,20 @@ WHERE
                         </label>
                     </cell>
                     <cell id="5420">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <label id="5442">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1238,6 +1269,20 @@ WHERE
                         </label>
                     </cell>
                     <cell id="5421">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <label id="5443">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1245,6 +1290,20 @@ WHERE
                         </label>
                     </cell>
                     <cell id="5422">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <label id="5444">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1252,6 +1311,20 @@ WHERE
                         </label>
                     </cell>
                     <cell id="5423">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <label id="5445">
                             <property name="fontWeight">bold</property>
                             <property name="textAlign">left</property>
@@ -1263,41 +1336,102 @@ WHERE
             <detail>
                 <row id="5424">
                     <cell id="5425">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <data id="5462">
                             <property name="resultSetColumn">no_reg</property>
                         </data>
                     </cell>
                     <cell id="5426">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <data id="5464">
                             <property name="resultSetColumn">tgl_visit</property>
                         </data>
                     </cell>
                     <cell id="5427">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <data id="5465">
                             <property name="resultSetColumn">nama_pasien</property>
                         </data>
                     </cell>
                     <cell id="5428">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <data id="5466">
                             <property name="resultSetColumn">jenis_pasien</property>
                         </data>
                     </cell>
                     <cell id="5429">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">gray</property>
+                        <property name="borderBottomStyle">inset</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">gray</property>
+                        <property name="borderLeftStyle">inset</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">gray</property>
+                        <property name="borderRightStyle">inset</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">gray</property>
+                        <property name="borderTopStyle">inset</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
                         <data id="5467">
                             <property name="resultSetColumn">referral</property>
                         </data>
                     </cell>
                 </row>
             </detail>
-            <footer>
-                <row id="5430">
-                    <cell id="5431"/>
-                    <cell id="5432"/>
-                    <cell id="5433"/>
-                    <cell id="5434"/>
-                    <cell id="5435"/>
-                </row>
-            </footer>
         </table>
         <label id="5282"/>
         <label id="5284"/>
@@ -1375,20 +1509,28 @@ WHERE
             </column>
             <header>
                 <row id="5469">
-                    <cell id="5470"/>
-                    <cell id="5471"/>
-                    <cell id="5472"/>
+                    <cell id="5470">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5471">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5472">
+                        <property name="fontSize">12px</property>
+                    </cell>
                 </row>
             </header>
             <detail>
                 <row id="5473">
                     <cell id="5474">
+                        <property name="fontSize">12px</property>
                         <data id="5486">
                             <property name="fontWeight">bold</property>
                             <property name="resultSetColumn">jenis_pasien</property>
                         </data>
                     </cell>
                     <cell id="5475">
+                        <property name="fontSize">12px</property>
                         <label id="5484">
                             <property name="textAlign">center</property>
                             <property name="verticalAlign">middle</property>
@@ -1396,6 +1538,7 @@ WHERE
                         </label>
                     </cell>
                     <cell id="5476">
+                        <property name="fontSize">12px</property>
                         <data id="5488">
                             <property name="resultSetColumn">jumlah_pasien</property>
                         </data>
@@ -1404,9 +1547,15 @@ WHERE
             </detail>
             <footer>
                 <row id="5477">
-                    <cell id="5478"/>
-                    <cell id="5479"/>
-                    <cell id="5480"/>
+                    <cell id="5478">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5479">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5480">
+                        <property name="fontSize">12px</property>
+                    </cell>
                 </row>
             </footer>
         </table>
