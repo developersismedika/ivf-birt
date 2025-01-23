@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="start_date" id="5341">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">2024-01-31 00:00:00</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="end_date" id="5342">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">24-12-31 23:59:00</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="person_id" id="5359">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant"></value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivfdb" id="5226">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb1</property>
+            <property name="odaUser">root</property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="services" id="5275">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">share_doctor</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">share_doctor</text-property>
+                    <text-property name="heading">share_doctor</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">share_rs</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">share_rs</text-property>
+                    <text-property name="heading">share_rs</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">share_other</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">share_other</text-property>
+                    <text-property name="heading">share_other</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">created_dttm</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">created_dttm</text-property>
+                    <text-property name="heading">created_dttm</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total</text-property>
+                    <text-property name="heading">total</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">service_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">service_name</text-property>
+                    <text-property name="heading">service_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">performer_service_order_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">performer_service_order_name</text-property>
+                    <text-property name="heading">performer_service_order_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">param_1</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_2</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">person_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">person_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">share_doctor</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">share_rs</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">share_other</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">created_dttm</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">total</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">service_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">performer_service_order_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivfdb</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">share_doctor</property>
+                    <property name="nativeName">share_doctor</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">share_rs</property>
+                    <property name="nativeName">share_rs</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">share_other</property>
+                    <property name="nativeName">share_other</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">created_dttm</property>
+                    <property name="nativeName">created_dttm</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">total</property>
+                    <property name="nativeName">total</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">service_name</property>
+                    <property name="nativeName">service_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">performer_service_order_name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+  order_service.share_doctor,
+  order_service.share_rs,
+  order_service.share_other,
+  DATE(order_service.created_dttm) AS created_dttm,
+  order_service.total,
+  service.service_name,
+  performer_service_order.name AS performer_service_order_name 
+FROM
+  order_service
+  LEFT JOIN service ON order_service.service_id = service.service_id
+  LEFT JOIN performer_service_order ON order_service.order_header_id = performer_service_order.order_header_id 
+  AND performer_service_order.order_header_id IS NOT NULL 
+WHERE
+  order_service.created_dttm >= ? 
+  AND order_service.created_dttm <= ?
+  AND (
+    ? = '' OR FIND_IN_SET(performer_service_order.person_id, ?)
+  );]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>4</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>share_doctor</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>share_doctor</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>share_doctor</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>share_rs</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>share_rs</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>share_rs</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>share_other</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>share_other</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>share_other</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>created_dttm</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>created_dttm</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>created_dttm</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>service_name</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>service_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>service_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>name</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>performer_service_order_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>performer_service_order_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="5227">
+            <property name="width">7.739583333333333in</property>
+            <property name="dataSet">services</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">created_dttm</property>
+                    <text-property name="displayName">created_dttm</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["created_dttm"]</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">service_name</property>
+                    <text-property name="displayName">service_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["service_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">performer_service_order_name</property>
+                    <text-property name="displayName">performer_service_order_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["performer_service_order_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">total</property>
+                    <text-property name="displayName">total</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["total"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">share_doctor</property>
+                    <text-property name="displayName">share_doctor</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["share_doctor"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">share_rs</property>
+                    <text-property name="displayName">share_rs</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["share_rs"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">share_other</property>
+                    <text-property name="displayName">share_other</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["share_other"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="5260">
+                <property name="width">0.8229166666666666in</property>
+            </column>
+            <column id="5261">
+                <property name="width">1.8854166666666667in</property>
+            </column>
+            <column id="5262">
+                <property name="width">1.2708333333333333in</property>
+            </column>
+            <column id="5263">
+                <property name="width">1.1875in</property>
+            </column>
+            <column id="5264">
+                <property name="width">0.9270833333333334in</property>
+            </column>
+            <column id="5265">
+                <property name="width">0.8958333333333334in</property>
+            </column>
+            <column id="5266">
+                <property name="width">0.75in</property>
+            </column>
+            <header>
+                <row id="5228">
+                    <cell id="5229">
+                        <property name="fontSize">12px</property>
+                        <label id="5267">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Tgl</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5230">
+                        <property name="fontSize">12px</property>
+                        <label id="5268">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Nama Layanan</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5231">
+                        <property name="fontSize">12px</property>
+                        <label id="5269">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Performer</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5232">
+                        <property name="fontSize">12px</property>
+                        <label id="5270">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Harga</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5233">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <property name="fontSize">12px</property>
+                        <label id="5271">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Share</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="5344">
+                    <cell id="5345">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5346">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5347">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5348">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5349">
+                        <property name="fontSize">12px</property>
+                        <label id="5272">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Share Dokter</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5350">
+                        <property name="fontSize">12px</property>
+                        <label id="5273">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Share Klinik</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5351">
+                        <property name="fontSize">12px</property>
+                        <label id="5274">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Lain-Lain</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="5244">
+                    <cell id="5245">
+                        <property name="fontSize">12px</property>
+                        <data id="5352">
+                            <property name="resultSetColumn">created_dttm</property>
+                        </data>
+                    </cell>
+                    <cell id="5246">
+                        <property name="fontSize">12px</property>
+                        <data id="5353">
+                            <property name="resultSetColumn">service_name</property>
+                        </data>
+                    </cell>
+                    <cell id="5247">
+                        <property name="fontSize">12px</property>
+                        <data id="5354">
+                            <property name="resultSetColumn">performer_service_order_name</property>
+                        </data>
+                    </cell>
+                    <cell id="5248">
+                        <property name="fontSize">12px</property>
+                        <data id="5355">
+                            <property name="resultSetColumn">total</property>
+                        </data>
+                    </cell>
+                    <cell id="5249">
+                        <property name="fontSize">12px</property>
+                        <data id="5356">
+                            <property name="resultSetColumn">share_doctor</property>
+                        </data>
+                    </cell>
+                    <cell id="5250">
+                        <property name="fontSize">12px</property>
+                        <data id="5357">
+                            <property name="resultSetColumn">share_rs</property>
+                        </data>
+                    </cell>
+                    <cell id="5251">
+                        <property name="fontSize">12px</property>
+                        <data id="5358">
+                            <property name="resultSetColumn">share_other</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="5252">
+                    <cell id="5253">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5254">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5255">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5256">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5257">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5258">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                    <cell id="5259">
+                        <property name="fontSize">12px</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
