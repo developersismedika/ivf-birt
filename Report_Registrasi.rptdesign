@@ -28,7 +28,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">24-12-31 23:59:00</value>
+                <value type="constant">2024-12-31 23:59:00</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -1174,6 +1174,26 @@ WHERE
         </simple-master-page>
     </page-setup>
     <body>
+        <grid id="5491">
+            <column id="5492"/>
+            <row id="5493">
+                <cell id="5494">
+                    <data id="5495">
+                        <property name="fontWeight">bold</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">start_date</property>
+                                <expression name="expression" type="javascript">"Periode: " +  params["start_date"].split(' ')[0] + " - " + params["end_date"].split(' ')[0]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">start_date</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="5490"/>
         <table id="5417">
             <property name="dataSet">patient</property>
             <list-property name="boundDataColumns">
