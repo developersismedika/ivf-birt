@@ -123,6 +123,12 @@
                     <text-property name="displayName">performer_service_order_name</text-property>
                     <text-property name="heading">performer_service_order_name</text-property>
                 </structure>
+                <structure>
+                    <property name="columnName">nama_pasien</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">nama_pasien</text-property>
+                    <text-property name="heading">nama_pasien</text-property>
+                </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
@@ -203,6 +209,11 @@
                         <property name="name">performer_service_order_name</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">nama_pasien</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">ivfdb</property>
@@ -256,6 +267,13 @@
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">nama_pasien</property>
+                    <property name="nativeName">nama_pasien</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
   order_service.share_doctor,
@@ -264,12 +282,32 @@
   DATE(order_service.created_dttm) AS created_dttm,
   order_service.total,
   service.service_name,
-  performer_service_order.name AS performer_service_order_name 
+  performer_service_order.name AS performer_service_order_name,
+  CASE
+    
+    WHEN oh.order_type = 'single' THEN
+    pn.person_name ELSE (
+    SELECT
+      CONCAT(
+        ( SELECT pn1.person_name FROM person pn1 WHERE pn1.person_id = pc.patient_couple_male_id LIMIT 1 ),
+        '/',
+        ( SELECT pn1.person_name FROM person pn1 WHERE pn1.person_id = pc.patient_couple_female_id LIMIT 1 ) 
+      ) 
+    FROM
+      patient_couple pc 
+    WHERE
+      pc.patient_cn = oh.patient_couple_number 
+      LIMIT 1 
+    ) 
+  END AS nama_pasien 
 FROM
   order_service
   LEFT JOIN service ON order_service.service_id = service.service_id
   LEFT JOIN performer_service_order ON order_service.order_header_id = performer_service_order.order_header_id 
-  AND performer_service_order.order_header_id IS NOT NULL 
+  AND performer_service_order.order_header_id IS NOT NULL
+  LEFT JOIN order_header oh ON oh.order_header_id = order_service.order_header_id
+  LEFT JOIN patient pt ON pt.patient_id = oh.patient_id
+  LEFT JOIN person pn ON pn.person_id = pt.patient_id 
 WHERE
   order_service.created_dttm >= ? 
   AND order_service.created_dttm <= ?
@@ -279,23 +317,6 @@ WHERE
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>4</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -532,8 +553,15 @@ WHERE
                     <expression name="expression" type="javascript">dataSetRow["share_other"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">nama_pasien</property>
+                    <text-property name="displayName">nama_pasien</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nama_pasien"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <column id="5389"/>
+            <column id="5465"/>
             <column id="5390"/>
             <column id="5391"/>
             <column id="5392"/>
@@ -565,6 +593,25 @@ WHERE
                         <property name="paddingLeft">5px</property>
                         <label id="5396">
                             <text-property name="text">Tgl</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5463">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
+                        <label id="5466">
+                            <text-property name="text">Nama Pasien</text-property>
                         </label>
                     </cell>
                     <cell id="5367">
@@ -702,6 +749,25 @@ WHERE
                         <property name="paddingLeft">5px</property>
                         <data id="5403">
                             <property name="resultSetColumn">created_dttm</property>
+                        </data>
+                    </cell>
+                    <cell id="5464">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
+                        <data id="5467">
+                            <property name="resultSetColumn">nama_pasien</property>
                         </data>
                     </cell>
                     <cell id="5375">
