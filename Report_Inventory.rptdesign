@@ -134,6 +134,26 @@
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
+                <structure>
+                    <property name="name">param_3</property>
+                    <property name="paramName">start_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_4</property>
+                    <property name="paramName">end_date</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
             </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
@@ -230,7 +250,9 @@ FROM
   inventory_item ivi
   LEFT JOIN inventory iy ON iy.inventory_id = ivi.inventory_id 
 WHERE
-  (ivi.item_id = ? OR ? IS NULL) 
+  (ivi.item_id = ? OR ? IS NULL)
+  AND ivi.created_dttm >= ? 
+  AND ivi.created_dttm <= ? 
 GROUP BY
   ivi.inventory_id;]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -243,7 +265,7 @@ GROUP BY
         <design:attributes>
           <design:identifier>
             <design:name></design:name>
-            <design:position>1</design:position>
+            <design:position>3</design:position>
           </design:identifier>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
@@ -258,7 +280,7 @@ GROUP BY
         <design:attributes>
           <design:identifier>
             <design:name></design:name>
-            <design:position>2</design:position>
+            <design:position>4</design:position>
           </design:identifier>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
