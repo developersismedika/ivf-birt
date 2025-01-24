@@ -1515,7 +1515,8 @@ WHERE
                     <property name="name">jumlah_pasien</property>
                     <text-property name="displayName">jumlah_pasien</text-property>
                     <expression name="expression" type="javascript">dataSetRow["jumlah_pasien"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
                 </structure>
             </list-property>
             <column id="5481">
