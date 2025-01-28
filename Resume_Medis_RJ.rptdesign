@@ -3123,6 +3123,12 @@ Penunjang Bermakna</text-property>
                                         <property name="width">2.9583333333333335in</property>
                                     </column>
                                     <row id="4733">
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                            </structure>
+                                        </list-property>
                                         <cell id="4734">
                                             <label id="4745">
                                                 <text-property name="text">Tanggal</text-property>
@@ -3150,6 +3156,12 @@ Penunjang Bermakna</text-property>
                                         </cell>
                                     </row>
                                     <row id="4737">
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                            </structure>
+                                        </list-property>
                                         <cell id="4738">
                                             <label id="4746">
                                                 <text-property name="text">Alasan</text-property>
@@ -3176,6 +3188,12 @@ Penunjang Bermakna</text-property>
                                         </cell>
                                     </row>
                                     <row id="4741">
+                                        <list-property name="visibility">
+                                            <structure>
+                                                <property name="format">all</property>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                            </structure>
+                                        </list-property>
                                         <cell id="4742">
                                             <label id="4747">
                                                 <text-property name="text">Rencana Tindak Lanjut</text-property>
