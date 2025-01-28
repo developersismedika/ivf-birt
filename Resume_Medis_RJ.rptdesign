@@ -3126,7 +3126,7 @@ Penunjang Bermakna</text-property>
                                         <list-property name="visibility">
                                             <structure>
                                                 <property name="format">all</property>
-                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != '• Kontrol Ulang'</expression>
                                             </structure>
                                         </list-property>
                                         <cell id="4734">
@@ -3159,7 +3159,7 @@ Penunjang Bermakna</text-property>
                                         <list-property name="visibility">
                                             <structure>
                                                 <property name="format">all</property>
-                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != '• Kontrol Ulang'</expression>
                                             </structure>
                                         </list-property>
                                         <cell id="4738">
@@ -3191,7 +3191,7 @@ Penunjang Bermakna</text-property>
                                         <list-property name="visibility">
                                             <structure>
                                                 <property name="format">all</property>
-                                                <expression name="valueExpr" type="javascript">row["name_plane"] != 'Kontrol Ulang'</expression>
+                                                <expression name="valueExpr" type="javascript">row["name_plane"] != '• Kontrol Ulang'</expression>
                                             </structure>
                                         </list-property>
                                         <cell id="4742">
