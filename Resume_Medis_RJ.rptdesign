@@ -3124,26 +3124,46 @@ Penunjang Bermakna</text-property>
                                     </column>
                                     <row id="4733">
                                         <cell id="4734">
-                                            <label id="4745">
+                                            <text id="5127">
+                                                <property name="dataSet">patient</property>
                                                 <list-property name="visibility">
                                                     <structure>
                                                         <property name="format">all</property>
                                                         <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
                                                     </structure>
                                                 </list-property>
-                                                <text-property name="text">Tanggal</text-property>
-                                            </label>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[Tanggal]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4735">
-                                            <label id="4748">
+                                            <text id="5128">
+                                                <property name="dataSet">patient</property>
                                                 <list-property name="visibility">
                                                     <structure>
                                                         <property name="format">all</property>
                                                         <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
                                                     </structure>
                                                 </list-property>
-                                                <text-property name="text">:</text-property>
-                                            </label>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4736">
                                             <data id="5009">
@@ -3346,12 +3366,6 @@ Penunjang Bermakna</text-property>
                                             </cell>
                                         </row>
                                     </detail>
-                                    <footer>
-                                        <row id="5089">
-                                            <cell id="5090"/>
-                                            <cell id="5091"/>
-                                        </row>
-                                    </footer>
                                 </table>
                             </cell>
                         </row>
