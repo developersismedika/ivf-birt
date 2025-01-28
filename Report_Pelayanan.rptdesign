@@ -356,7 +356,7 @@ WHERE
   )
   AND order_service.isBill = 'Y'
 
-UNION
+UNION ALL
 
 SELECT
   0 AS share_doctor,
