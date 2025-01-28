@@ -342,8 +342,9 @@
 FROM
   order_service
   LEFT JOIN service ON order_service.service_id = service.service_id
+  LEFT JOIN performer_service_order ON order_service.order_service_id = performer_service_order.order_service_id 
+  AND performer_service_order.order_header_id IS NOT NULL
   LEFT JOIN order_header oh ON oh.order_header_id = order_service.order_header_id
-  LEFT JOIN performer_service_order ON oh.order_header_id = performer_service_order.order_header_id 
   AND performer_service_order.order_header_id IS NOT NULL
   LEFT JOIN patient pt ON pt.patient_id = oh.patient_id
   LEFT JOIN person pn ON pn.person_id = pt.patient_id 
@@ -384,9 +385,9 @@ SELECT
 FROM
   order_packet_service
   LEFT JOIN service ON order_packet_service.service_id = service.service_id
-  LEFT JOIN order_header oh ON oh.order_header_id = order_packet_service.order_header_id
-  LEFT JOIN performer_service_order ON oh.order_header_id = performer_service_order.order_header_id 
+  LEFT JOIN performer_service_order ON order_packet_service.patient_packet_service_id = performer_service_order.patient_packet_service_id 
   AND performer_service_order.order_header_id IS NOT NULL
+  LEFT JOIN order_header oh ON oh.order_header_id = order_packet_service.order_header_id
   LEFT JOIN patient pt ON pt.patient_id = oh.patient_id
   LEFT JOIN person pn ON pn.person_id = pt.patient_id 
 WHERE
