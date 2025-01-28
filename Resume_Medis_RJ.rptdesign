@@ -3125,6 +3125,12 @@ Penunjang Bermakna</text-property>
                                     <row id="4733">
                                         <cell id="4734">
                                             <label id="4745">
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">true</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <text-property name="text">Tanggal</text-property>
                                             </label>
                                         </cell>
@@ -3136,6 +3142,12 @@ Penunjang Bermakna</text-property>
                                         <cell id="4736">
                                             <data id="5009">
                                                 <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != "• Kontrol Ulang"</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">control_date</property>
@@ -3143,6 +3155,12 @@ Penunjang Bermakna</text-property>
                                                         <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
                                                         <property name="dataType">string</property>
                                                         <property name="allowExport">true</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
                                                     </structure>
                                                 </list-property>
                                                 <property name="resultSetColumn">control_date</property>
@@ -3170,6 +3188,12 @@ Penunjang Bermakna</text-property>
                                                         <expression name="expression" type="javascript">dataSetRow["control_reason"]</expression>
                                                         <property name="dataType">string</property>
                                                     </structure>
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
                                                 </list-property>
                                                 <property name="resultSetColumn">control_reason</property>
                                             </data>
@@ -3194,6 +3218,12 @@ Penunjang Bermakna</text-property>
                                                         <property name="name">action_plan</property>
                                                         <text-property name="displayName">action_plan</text-property>
                                                         <expression name="expression" type="javascript">dataSetRow["action_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
                                                         <property name="dataType">string</property>
                                                     </structure>
                                                 </list-property>
