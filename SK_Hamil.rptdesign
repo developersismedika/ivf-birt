@@ -687,10 +687,10 @@ from person where person_id = ?;]]></xml-property>
             <property name="height">0.7395833333333334in</property>
             <property name="width">7.729166666666667in</property>
             <column id="5">
-                <property name="width">1.1770833333333333in</property>
+                <property name="width">3.875in</property>
             </column>
             <column id="6">
-                <property name="width">6.552083333333333in</property>
+                <property name="width">3.8541666666666665in</property>
             </column>
             <row id="7">
                 <property name="height">0.7395833333333334in</property>
