@@ -3278,7 +3278,7 @@ Penunjang Bermakna</text-property>
                                                             <expression name="valueExpr" type="javascript">row["healthcare_service"] == null &amp;&amp; dataSetRow["department"] == null</expression>
                                                         </structure>
                                                     </list-property>
-                                                    <text-property name="text">• Rumah Sakit</text-property>
+                                                    <text-property name="text">Rumah Sakit</text-property>
                                                 </label>
                                             </cell>
                                             <cell id="5085">
@@ -3291,7 +3291,7 @@ Penunjang Bermakna</text-property>
                                                             <expression name="valueExpr" type="javascript">row["healthcare_service"] == null &amp;&amp; dataSetRow["department"] == null</expression>
                                                         </structure>
                                                     </list-property>
-                                                    <text-property name="text">• Departemen/Spesialis</text-property>
+                                                    <text-property name="text">Departemen/Spesialis</text-property>
                                                 </label>
                                             </cell>
                                         </row>
