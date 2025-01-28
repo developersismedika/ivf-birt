@@ -3195,18 +3195,41 @@ Penunjang Bermakna</text-property>
                                     </row>
                                     <row id="4737">
                                         <cell id="4738">
-                                            <label id="4746">
-                                                <text-property name="text">Alasan</text-property>
-                                            </label>
+                                            <text id="5129">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[Alasan]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4739">
-                                            <label id="4749">
-                                                <text-property name="text">:</text-property>
-                                            </label>
+                                            <text id="5130">
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4740">
                                             <data id="5010">
                                                 <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">control_reason</property>
@@ -3227,18 +3250,41 @@ Penunjang Bermakna</text-property>
                                     </row>
                                     <row id="4741">
                                         <cell id="4742">
-                                            <label id="4747">
-                                                <text-property name="text">Rencana Tindak Lanjut</text-property>
-                                            </label>
+                                            <text id="5131">
+                                                <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
+                                                <list-property name="boundDataColumns">
+                                                    <structure>
+                                                        <property name="name">name_plan</property>
+                                                        <text-property name="displayName">name_plan</text-property>
+                                                        <expression name="expression" type="javascript">dataSetRow["name_plan"]</expression>
+                                                        <property name="dataType">string</property>
+                                                    </structure>
+                                                </list-property>
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[Rencana Tindak Lanjut]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4743">
-                                            <label id="4750">
-                                                <text-property name="text">:</text-property>
-                                            </label>
+                                            <text id="5132">
+                                                <property name="contentType">auto</property>
+                                                <text-property name="content"><![CDATA[:]]></text-property>
+                                            </text>
                                         </cell>
                                         <cell id="4744">
                                             <data id="5098">
                                                 <property name="dataSet">patient</property>
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
                                                         <property name="name">action_plan</property>
