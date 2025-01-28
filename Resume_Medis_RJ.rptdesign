@@ -51,6 +51,12 @@
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="patient" id="4781">
             <list-property name="columnHints">
                 <structure>
+                    <property name="columnName">tgl_visit</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">tgl_visit</text-property>
+                    <text-property name="heading">tgl_visit</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">questionnaire_resp_id</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">questionnaire_resp_id</text-property>
@@ -241,146 +247,151 @@
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
+                        <property name="name">tgl_visit</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
                         <property name="name">questionnaire_resp_id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">2</property>
+                        <property name="position">3</property>
                         <property name="name">statement_no</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">3</property>
+                        <property name="position">4</property>
                         <property name="name">patient_mrn</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">4</property>
+                        <property name="position">5</property>
                         <property name="name">patient_person_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">5</property>
+                        <property name="position">6</property>
                         <property name="name">patient_salutation</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">7</property>
                         <property name="name">patient_prefix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">8</property>
                         <property name="name">patient_suffix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">9</property>
                         <property name="name">patient_gender</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">9</property>
+                        <property name="position">10</property>
                         <property name="name">patient_birth_place</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">10</property>
+                        <property name="position">11</property>
                         <property name="name">patient_birth_dttm</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">11</property>
+                        <property name="position">12</property>
                         <property name="name">patient_religion_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">12</property>
+                        <property name="position">13</property>
                         <property name="name">practitioner_person_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">13</property>
+                        <property name="position">14</property>
                         <property name="name">practitioner_salutation</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">15</property>
                         <property name="name">practitioner_prefix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">16</property>
                         <property name="name">practitioner_suffix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">16</property>
+                        <property name="position">17</property>
                         <property name="name">education</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">17</property>
+                        <property name="position">18</property>
                         <property name="name">action_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">18</property>
+                        <property name="position">19</property>
                         <property name="name">control_date</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">19</property>
+                        <property name="position">20</property>
                         <property name="name">control_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">20</property>
+                        <property name="position">21</property>
                         <property name="name">name_plan</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">21</property>
+                        <property name="position">22</property>
                         <property name="name">control_reason</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">22</property>
+                        <property name="position">23</property>
                         <property name="name">diagnosis_text</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">23</property>
+                        <property name="position">24</property>
                         <property name="name">main_complaint</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">24</property>
+                        <property name="position">25</property>
                         <property name="name">treatment_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">25</property>
+                        <property name="position">26</property>
                         <property name="name">current_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">26</property>
+                        <property name="position">27</property>
                         <property name="name">previous_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">27</property>
+                        <property name="position">28</property>
                         <property name="name">localist_template</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">29</property>
                         <property name="name">physical_examination_meaningfull</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">30</property>
                         <property name="name">diagnosis_text_1</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -390,209 +401,217 @@
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
+                    <property name="name">tgl_visit</property>
+                    <property name="nativeName">tgl_visit</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
                     <property name="name">questionnaire_resp_id</property>
                     <property name="nativeName">questionnaire_resp_id</property>
                     <property name="dataType">decimal</property>
                     <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                     <property name="name">statement_no</property>
                     <property name="nativeName">statement_no</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">3</property>
+                    <property name="position">4</property>
                     <property name="name">patient_mrn</property>
                     <property name="nativeName">patient_mrn</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">4</property>
+                    <property name="position">5</property>
                     <property name="name">patient_person_name</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">6</property>
                     <property name="name">patient_salutation</property>
                     <property name="nativeName">salutation</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">6</property>
+                    <property name="position">7</property>
                     <property name="name">patient_prefix</property>
                     <property name="nativeName">prefix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">7</property>
+                    <property name="position">8</property>
                     <property name="name">patient_suffix</property>
                     <property name="nativeName">suffix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">8</property>
+                    <property name="position">9</property>
                     <property name="name">patient_gender</property>
                     <property name="nativeName">patient_gender</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">9</property>
+                    <property name="position">10</property>
                     <property name="name">patient_birth_place</property>
                     <property name="nativeName">birth_place</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">10</property>
+                    <property name="position">11</property>
                     <property name="name">patient_birth_dttm</property>
                     <property name="nativeName">patient_birth_dttm</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">11</property>
+                    <property name="position">12</property>
                     <property name="name">patient_religion_code</property>
                     <property name="nativeName">religion_code</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">12</property>
+                    <property name="position">13</property>
                     <property name="name">practitioner_person_name</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">13</property>
+                    <property name="position">14</property>
                     <property name="name">practitioner_salutation</property>
                     <property name="nativeName">salutation</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">14</property>
+                    <property name="position">15</property>
                     <property name="name">practitioner_prefix</property>
                     <property name="nativeName">prefix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">15</property>
+                    <property name="position">16</property>
                     <property name="name">practitioner_suffix</property>
                     <property name="nativeName">suffix</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">16</property>
+                    <property name="position">17</property>
                     <property name="name">education</property>
                     <property name="nativeName">education</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">17</property>
+                    <property name="position">18</property>
                     <property name="name">action_plan</property>
                     <property name="nativeName">action_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">18</property>
+                    <property name="position">19</property>
                     <property name="name">control_date</property>
                     <property name="nativeName">control_date</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">19</property>
+                    <property name="position">20</property>
                     <property name="name">control_plan</property>
                     <property name="nativeName">control_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">20</property>
+                    <property name="position">21</property>
                     <property name="name">name_plan</property>
                     <property name="nativeName">name_plan</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">21</property>
+                    <property name="position">22</property>
                     <property name="name">control_reason</property>
                     <property name="nativeName">control_reason</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">22</property>
+                    <property name="position">23</property>
                     <property name="name">diagnosis_text</property>
                     <property name="nativeName">diagnosis_text</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">23</property>
+                    <property name="position">24</property>
                     <property name="name">main_complaint</property>
                     <property name="nativeName">main_complaint</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">24</property>
+                    <property name="position">25</property>
                     <property name="name">treatment_history</property>
                     <property name="nativeName">treatment_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">25</property>
+                    <property name="position">26</property>
                     <property name="name">current_medical_history</property>
                     <property name="nativeName">current_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">26</property>
+                    <property name="position">27</property>
                     <property name="name">previous_medical_history</property>
                     <property name="nativeName">previous_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">27</property>
+                    <property name="position">28</property>
                     <property name="name">localist_template</property>
                     <property name="nativeName">localist_template</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">29</property>
                     <property name="name">physical_examination_meaningfull</property>
                     <property name="nativeName">physical_examination_meaningfull</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">30</property>
                     <property name="name">diagnosis_text_1</property>
                     <property name="nativeName">diagnosis_text</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT 
+            <xml-property name="queryText"><![CDATA[SELECT
+DATE_FORMAT(qr.created_dttm, '%d %b %Y') AS tgl_visit,
 emr.questionnaire_resp_id,
 st.statement_no,
 p.patient_mrn,
@@ -2044,6 +2063,7 @@ WHERE
             <row id="7">
                 <property name="height">0.7395833333333334in</property>
                 <cell id="8">
+                    <property name="fontSize">12px</property>
                     <image id="5032">
                         <property name="height">62px</property>
                         <property name="width">102px</property>
@@ -2052,6 +2072,7 @@ WHERE
                     </image>
                 </cell>
                 <cell id="9">
+                    <property name="fontSize">12px</property>
                     <property name="verticalAlign">middle</property>
                     <grid id="5019">
                         <column id="5020"/>
@@ -2332,18 +2353,17 @@ WHERE
                 </cell>
                 <cell id="4456">
                     <property name="fontSize">12px</property>
-                    <data id="4798">
+                    <data id="5106">
                         <property name="dataSet">patient</property>
                         <list-property name="boundDataColumns">
                             <structure>
-                                <property name="name">control_date</property>
-                                <text-property name="displayName">control_date</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["control_date"]</expression>
+                                <property name="name">tgl_visit</property>
+                                <text-property name="displayName">tgl_visit</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["tgl_visit"]</expression>
                                 <property name="dataType">string</property>
-                                <property name="allowExport">true</property>
                             </structure>
                         </list-property>
-                        <property name="resultSetColumn">control_date</property>
+                        <property name="resultSetColumn">tgl_visit</property>
                     </data>
                 </cell>
             </row>
@@ -2724,7 +2744,16 @@ Penunjang Bermakna</text-property>
                                 <cell id="4892">
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
-                                    <data id="5076">
+                                    <data id="5105">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">vital_datetime</property>
+                                                <text-property name="displayName">vital_datetime</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["vital_datetime"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">vital_datetime</property>
                                     </data>
                                 </cell>
@@ -2732,6 +2761,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5077">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">temperature</property>
+                                                <text-property name="displayName">temperature</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["temperature"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">temperature</property>
                                     </data>
                                 </cell>
@@ -2739,6 +2777,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5078">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">vital_pulse</property>
+                                                <text-property name="displayName">vital_pulse</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["vital_pulse"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">vital_pulse</property>
                                     </data>
                                 </cell>
@@ -2746,6 +2793,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5079">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">respiration_rate</property>
+                                                <text-property name="displayName">respiration_rate</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["respiration_rate"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">respiration_rate</property>
                                     </data>
                                 </cell>
@@ -2753,6 +2809,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5080">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">oxygen_saturation</property>
+                                                <text-property name="displayName">oxygen_saturation</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["oxygen_saturation"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">oxygen_saturation</property>
                                     </data>
                                 </cell>
@@ -2760,6 +2825,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5081">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">blood_pressure</property>
+                                                <text-property name="displayName">blood_pressure</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["blood_pressure"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">blood_pressure</property>
                                     </data>
                                 </cell>
@@ -2767,6 +2841,15 @@ Penunjang Bermakna</text-property>
                                     <property name="textAlign">left</property>
                                     <property name="verticalAlign">middle</property>
                                     <data id="5104">
+                                        <property name="dataSet">vitalsigns</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">anamnesis</property>
+                                                <text-property name="displayName">anamnesis</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["anamnesis"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
                                         <property name="resultSetColumn">anamnesis</property>
                                     </data>
                                 </cell>
