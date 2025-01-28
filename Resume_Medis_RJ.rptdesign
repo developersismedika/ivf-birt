@@ -3217,6 +3217,12 @@ Penunjang Bermakna</text-property>
                                         </cell>
                                         <cell id="4739">
                                             <text id="5130">
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <property name="contentType">auto</property>
                                                 <text-property name="content"><![CDATA[:]]></text-property>
                                             </text>
@@ -3272,6 +3278,12 @@ Penunjang Bermakna</text-property>
                                         </cell>
                                         <cell id="4743">
                                             <text id="5132">
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <property name="contentType">auto</property>
                                                 <text-property name="content"><![CDATA[:]]></text-property>
                                             </text>
