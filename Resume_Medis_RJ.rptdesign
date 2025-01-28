@@ -3145,7 +3145,7 @@ Penunjang Bermakna</text-property>
                                                 <list-property name="visibility">
                                                     <structure>
                                                         <property name="format">all</property>
-                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != "• Kontrol Ulang"</expression>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
                                                     </structure>
                                                 </list-property>
                                                 <list-property name="boundDataColumns">
