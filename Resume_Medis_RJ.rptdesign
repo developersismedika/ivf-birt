@@ -1492,7 +1492,7 @@ WHERE
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
     qr.questionnaire_resp_id,
-    CONCAT('•', jt.icd_code, ' ', jt.icd_name) as icd_name,
+    CONCAT('-', jt.icd_code, ' ', jt.icd_name) as icd_name,
     REPLACE(REPLACE(REPLACE(jt.location, '[', ''), ']', ''), '"', '') as location
 FROM
     questionnaire_response qr,
