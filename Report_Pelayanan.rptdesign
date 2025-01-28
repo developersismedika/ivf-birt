@@ -82,6 +82,12 @@
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="services" id="5275">
             <list-property name="columnHints">
                 <structure>
+                    <property name="columnName">share_ivf</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">share_ivf</text-property>
+                    <text-property name="heading">share_ivf</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">share_doctor</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">share_doctor</text-property>
@@ -216,41 +222,46 @@
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">share_doctor</property>
+                        <property name="name">share_ivf</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">share_rs</property>
+                        <property name="name">share_doctor</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">share_other</property>
+                        <property name="name">share_rs</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">4</property>
+                        <property name="name">share_other</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
                         <property name="name">created_dttm</property>
                         <property name="dataType">date</property>
                     </structure>
                     <structure>
-                        <property name="position">5</property>
+                        <property name="position">6</property>
                         <property name="name">total</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">7</property>
                         <property name="name">service_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">8</property>
                         <property name="name">performer_service_order_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">9</property>
                         <property name="name">nama_pasien</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -260,55 +271,62 @@
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
+                    <property name="name">share_ivf</property>
+                    <property name="nativeName">share_ivf</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
                     <property name="name">share_doctor</property>
                     <property name="nativeName">share_doctor</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">2</property>
+                    <property name="position">3</property>
                     <property name="name">share_rs</property>
                     <property name="nativeName">share_rs</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">3</property>
+                    <property name="position">4</property>
                     <property name="name">share_other</property>
                     <property name="nativeName">share_other</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">4</property>
+                    <property name="position">5</property>
                     <property name="name">created_dttm</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date</property>
                     <property name="nativeDataType">91</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">6</property>
                     <property name="name">total</property>
                     <property name="nativeName">total</property>
                     <property name="dataType">integer</property>
                     <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
-                    <property name="position">6</property>
+                    <property name="position">7</property>
                     <property name="name">service_name</property>
                     <property name="nativeName">service_name</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">7</property>
+                    <property name="position">8</property>
                     <property name="name">performer_service_order_name</property>
                     <property name="nativeName">performer_service_order_name</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">8</property>
+                    <property name="position">9</property>
                     <property name="name">nama_pasien</property>
                     <property name="nativeName">nama_pasien</property>
                     <property name="dataType">string</property>
@@ -316,6 +334,10 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
+  CASE
+  WHEN order_service.share_type = 'percentage' THEN (order_service.total*order_service.share_ivf/100)
+  ELSE order_service.share_ivf
+  END AS share_ivf,
   CASE
   WHEN order_service.share_type = 'percentage' THEN (order_service.total*order_service.share_doctor/100)
   ELSE order_service.share_doctor
@@ -368,6 +390,7 @@ WHERE
 UNION ALL
 
 SELECT
+  0 AS share_ivf,
   0 AS share_doctor,
   0 AS share_rs,
   0 AS share_other,
@@ -654,12 +677,20 @@ WHERE
                     <expression name="expression" type="javascript">dataSetRow["nama_pasien"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">share_ivf</property>
+                    <text-property name="displayName">share_ivf</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["share_ivf"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
             </list-property>
             <column id="5389"/>
             <column id="5465"/>
             <column id="5390"/>
             <column id="5391"/>
             <column id="5392"/>
+            <column id="5470"/>
             <column id="5393"/>
             <column id="5394"/>
             <column id="5395"/>
@@ -764,6 +795,25 @@ WHERE
                         <property name="paddingLeft">5px</property>
                         <label id="5399">
                             <text-property name="text">Harga</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5468">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
+                        <label id="5471">
+                            <text-property name="text">Share IVF</text-property>
                         </label>
                     </cell>
                     <cell id="5370">
@@ -920,6 +970,25 @@ WHERE
                         <property name="paddingLeft">5px</property>
                         <data id="5407">
                             <property name="resultSetColumn">total</property>
+                        </data>
+                    </cell>
+                    <cell id="5469">
+                        <property name="fontSize">12px</property>
+                        <property name="borderBottomColor">#808080</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#808080</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#808080</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#808080</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="paddingLeft">5px</property>
+                        <data id="5472">
+                            <property name="resultSetColumn">share_ivf</property>
                         </data>
                     </cell>
                     <cell id="5378">
