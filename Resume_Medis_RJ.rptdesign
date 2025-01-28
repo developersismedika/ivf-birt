@@ -1258,7 +1258,7 @@ FROM
         qr.questionnaire_resp_json,
         '$.objective.vitalSigns[*]' 
         COLUMNS (
-        	anamnesis CHAR(10) PATH '$.anamnesis.complaint',
+        	anamnesis VARCHAR(255) PATH '$.anamnesis.complaint',
             vital_pulse CHAR(10) PATH '$.pulse',
             vital_datetime CHAR(19) PATH '$.datetime',
             temperature CHAR(10) PATH '$.temperature',
