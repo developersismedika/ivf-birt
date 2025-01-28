@@ -316,9 +316,18 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
-  order_service.share_doctor,
-  order_service.share_rs,
-  order_service.share_other,
+  CASE
+  WHEN order_service.share_type = 'percentage' THEN (order_service.total*order_service.share_doctor/100)
+  ELSE order_service.share_doctor
+  END AS share_doctor,
+  CASE
+  WHEN order_service.share_type = 'percentage' THEN (order_service.total*order_service.share_rs/100)
+  ELSE order_service.share_rs
+  END AS share_rs,
+  CASE
+  WHEN order_service.share_type = 'percentage' THEN (order_service.total*order_service.share_other/100)
+  ELSE order_service.share_other
+  END AS share_other,
   DATE(order_service.created_dttm) AS created_dttm,
   order_service.total,
   service.service_name,
