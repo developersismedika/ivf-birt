@@ -3128,7 +3128,7 @@ Penunjang Bermakna</text-property>
                                                 <list-property name="visibility">
                                                     <structure>
                                                         <property name="format">all</property>
-                                                        <expression name="valueExpr" type="javascript">true</expression>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
                                                     </structure>
                                                 </list-property>
                                                 <text-property name="text">Tanggal</text-property>
@@ -3136,6 +3136,12 @@ Penunjang Bermakna</text-property>
                                         </cell>
                                         <cell id="4735">
                                             <label id="4748">
+                                                <list-property name="visibility">
+                                                    <structure>
+                                                        <property name="format">all</property>
+                                                        <expression name="valueExpr" type="javascript">row["name_plan"] != '• Kontrol Ulang'</expression>
+                                                    </structure>
+                                                </list-property>
                                                 <text-property name="text">:</text-property>
                                             </label>
                                         </cell>
