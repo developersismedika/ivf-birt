@@ -14,6 +14,42 @@
             <property name="name">rowFetchSize</property>
             <property name="id">321</property>
         </structure>
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">265</property>
+        </structure>
     </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
@@ -55,8 +91,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivf2023</property>
             <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIzNA==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
@@ -710,6 +747,12 @@ WHERE
                     <text-property name="displayName">kwitansi_number</text-property>
                     <text-property name="heading">kwitansi_number</text-property>
                 </structure>
+                <structure>
+                    <property name="columnName">logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">logo</text-property>
+                    <text-property name="heading">logo</text-property>
+                </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
@@ -735,6 +778,11 @@ WHERE
                         <property name="name">kwitansi_number</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">ivf</property>
@@ -753,12 +801,23 @@ WHERE
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">logo</property>
+                    <property name="nativeName">ivf_site_logo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
     DATE_FORMAT(deposit_log.created_dttm, '%e - %b - %Y') AS tanggal,
-    CONCAT('KWT ', deposit_topup.deposit_topup_number) AS kwitansi_number
+    CONCAT('KWT ', deposit_topup.deposit_topup_number) AS kwitansi_number,
+    ivf_site.ivf_site_logo AS logo
 FROM deposit_log
 LEFT JOIN deposit_topup ON deposit_log.reff_id = deposit_topup.deposit_topup_id
+LEFT JOIN deposit_pocket ON deposit_topup.deposit_pocket_id = deposit_pocket.deposit_pocket_id
+LEFT JOIN deposit ON deposit_pocket.deposit_id = deposit.deposit_id
+LEFT JOIN ivf_site ON deposit.organization_id = ivf_site.organization_id
 WHERE
     deposit_log.deposit_log_id = ?;]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
@@ -823,8 +882,17 @@ WHERE
                     <image id="192">
                         <property name="height">74px</property>
                         <property name="width">134px</property>
-                        <property name="source">embed</property>
-                        <property name="imageName">ivf.png</property>
+                        <property name="dataSet">Header Deposit</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">logo</property>
+                                <text-property name="displayName">logo</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["logo"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">url</property>
+                        <expression name="uri" type="javascript">row["logo"]</expression>
                     </image>
                 </cell>
                 <cell id="34">
