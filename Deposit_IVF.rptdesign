@@ -913,18 +913,6 @@ WHERE
                         <property name="source">url</property>
                         <expression name="uri" type="javascript">row["logo_hard"]</expression>
                     </image>
-                    <data id="499">
-                        <property name="dataSet">Header Deposit</property>
-                        <list-property name="boundDataColumns">
-                            <structure>
-                                <property name="name">logo</property>
-                                <text-property name="displayName">logo</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["logo"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                        </list-property>
-                        <property name="resultSetColumn">logo</property>
-                    </data>
                 </cell>
                 <cell id="34">
                     <property name="paddingTop">12px</property>
