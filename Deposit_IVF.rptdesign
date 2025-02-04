@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.26" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
     <list-property name="propertyBindings">
         <structure>
@@ -13,6 +13,42 @@
         <structure>
             <property name="name">rowFetchSize</property>
             <property name="id">321</property>
+        </structure>
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">265</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">265</property>
         </structure>
     </list-property>
     <property name="units">in</property>
@@ -399,7 +435,7 @@ WHERE
                     <structure>
                         <property name="position">4</property>
                         <property name="name">payment_amount</property>
-                        <property name="dataType">decimal</property>
+                        <property name="dataType">string</property>
                     </structure>
                 </list-property>
             </structure>
@@ -430,97 +466,54 @@ WHERE
                     <property name="position">4</property>
                     <property name="name">payment_amount</property>
                     <property name="nativeName">payment_amount</property>
-                    <property name="dataType">decimal</property>
-                    <property name="nativeDataType">3</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
-	"CASH" AS payment_via,
-	"-" AS payment_rek,
-	"-" AS payment_ref,
-	deposit_topup_cash.amount AS payment_amount
+    "CASH" AS payment_via,
+    "-" AS payment_rek,
+    "-" AS payment_ref,
+    deposit_topup_cash.amount AS payment_amount
 FROM deposit_log
 LEFT JOIN deposit_topup ON deposit_log.reff_id = deposit_topup.deposit_topup_id
 LEFT JOIN deposit_topup_cash ON deposit_topup.deposit_topup_id = deposit_topup_cash.deposit_topup_id
 WHERE
-	deposit_log.deposit_log_id = ? AND
-	deposit_log.trx_type = "TOPUP"
+    deposit_log.deposit_log_id = ? AND
+    deposit_log.trx_type = "TOPUP" AND
+    deposit_topup_cash.amount IS NOT NULL
 UNION
 SELECT
-	organization.organization_name AS payment_via,
-	deposit_topup_edc.sender_card_number AS payment_rek,
-	deposit_topup_edc.sender_ref_number AS payment_ref,
-	deposit_topup_edc.amount AS payment_amount
+    organization.organization_name AS payment_via,
+    deposit_topup_edc.sender_card_number AS payment_rek,
+    deposit_topup_edc.sender_ref_number AS payment_ref,
+    deposit_topup_edc.amount AS payment_amount
 FROM deposit_log
 LEFT JOIN deposit_topup ON deposit_log.reff_id = deposit_topup.deposit_topup_id
 LEFT JOIN deposit_topup_edc ON deposit_topup.deposit_topup_id = deposit_topup_edc.deposit_topup_id
 LEFT JOIN organization ON deposit_topup_edc.sender_organization_id = organization.organization_id
 WHERE
-	deposit_log.deposit_log_id = ? AND
-	deposit_log.trx_type = "TOPUP"
+    deposit_log.deposit_log_id = ? AND
+    deposit_log.trx_type = "TOPUP" AND
+    deposit_topup_edc.amount IS NOT NULL
 UNION
 SELECT
-	organization.organization_name AS payment_via,
-	deposit_topup_transfer.sender_rek_number AS payment_rek,
-	deposit_topup_transfer.sender_ref_number AS payment_ref,
-	deposit_topup_transfer.amount AS payment_amount
+    organization.organization_name AS payment_via,
+    deposit_topup_transfer.sender_rek_number AS payment_rek,
+    deposit_topup_transfer.sender_ref_number AS payment_ref,
+    deposit_topup_transfer.amount AS payment_amount
 FROM deposit_log
 LEFT JOIN deposit_topup ON deposit_log.reff_id = deposit_topup.deposit_topup_id
 LEFT JOIN deposit_topup_transfer ON deposit_topup.deposit_topup_id = deposit_topup_transfer.deposit_topup_id
 LEFT JOIN organization ON deposit_topup_transfer.sender_organization_id = organization.organization_id
 WHERE
-	deposit_log.deposit_log_id = ? AND
-	deposit_log.trx_type = "TOPUP"]]></xml-property>
+    deposit_log.deposit_log_id = ? AND
+    deposit_log.trx_type = "TOPUP" AND
+    deposit_topup_transfer.amount IS NOT NULL
+]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>2</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>3</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -1457,7 +1450,6 @@ WHERE
                                     <property name="fontFamily">"Public Sans"</property>
                                     <property name="fontSize">12px</property>
                                     <property name="fontWeight">700</property>
-                                    <property name="color">#212B36</property>
                                     <property name="marginLeft">4px</property>
                                     <property name="paddingTop">4px</property>
                                     <property name="paddingLeft">0pt</property>
@@ -1544,149 +1536,138 @@ this.setDisplayValue(formatCurrency(Number(this.getValue())));]]></method>
                                         </cell>
                                     </row>
                                     <row id="157">
-                                        <cell id="158">
-                                            <text id="163">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="fontWeight">normal</property>
-                                                <property name="color">#637381</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="contentType">plain</property>
-                                                <text-property name="content"><![CDATA[Via]]></text-property>
-                                            </text>
-                                            <data id="385">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="color">#212B36</property>
-                                                <property name="marginTop">4px</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="dataSet">Topup Deposit</property>
-                                                <list-property name="boundDataColumns">
-                                                    <structure>
-                                                        <property name="name">payment_via</property>
-                                                        <text-property name="displayName">payment_via</text-property>
-                                                        <expression name="expression" type="javascript">dataSetRow["payment_via"]</expression>
-                                                        <property name="dataType">string</property>
-                                                    </structure>
-                                                </list-property>
-                                                <property name="resultSetColumn">payment_via</property>
-                                            </data>
-                                        </cell>
-                                        <cell id="159">
-                                            <text id="165">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="fontWeight">normal</property>
-                                                <property name="color">#637381</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="contentType">plain</property>
-                                                <text-property name="content"><![CDATA[No Rek]]></text-property>
-                                            </text>
-                                            <data id="386">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="color">#212B36</property>
-                                                <property name="marginTop">4px</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="dataSet">Topup Deposit</property>
-                                                <list-property name="boundDataColumns">
-                                                    <structure>
-                                                        <property name="name">payment_rek</property>
-                                                        <text-property name="displayName">payment_rek</text-property>
-                                                        <expression name="expression" type="javascript">dataSetRow["payment_rek"]</expression>
-                                                        <property name="dataType">string</property>
-                                                    </structure>
-                                                </list-property>
-                                                <property name="resultSetColumn">payment_rek</property>
-                                            </data>
-                                        </cell>
-                                        <cell id="160">
-                                            <text id="167">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="fontWeight">normal</property>
-                                                <property name="color">#637381</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="contentType">plain</property>
-                                                <text-property name="content"><![CDATA[No Ref]]></text-property>
-                                            </text>
-                                            <data id="387">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="color">#212B36</property>
-                                                <property name="marginTop">4px</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="dataSet">Topup Deposit</property>
-                                                <list-property name="boundDataColumns">
-                                                    <structure>
-                                                        <property name="name">payment_ref</property>
-                                                        <text-property name="displayName">payment_ref</text-property>
-                                                        <expression name="expression" type="javascript">dataSetRow["payment_ref"]</expression>
-                                                        <property name="dataType">string</property>
-                                                    </structure>
-                                                </list-property>
-                                                <property name="resultSetColumn">payment_ref</property>
-                                            </data>
-                                        </cell>
-                                        <cell id="161">
-                                            <text id="169">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="fontWeight">normal</property>
-                                                <property name="color">#637381</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="contentType">plain</property>
-                                                <text-property name="content"><![CDATA[Nominal]]></text-property>
-                                            </text>
-                                            <data id="388">
-                                                <property name="fontFamily">"Public Sans"</property>
-                                                <property name="fontSize">10px</property>
-                                                <property name="color">#212B36</property>
-                                                <property name="marginTop">4px</property>
-                                                <property name="paddingTop">0pt</property>
-                                                <property name="paddingLeft">0pt</property>
-                                                <property name="paddingBottom">0pt</property>
-                                                <property name="paddingRight">0pt</property>
-                                                <property name="dataSet">Topup Deposit</property>
-                                                <list-property name="boundDataColumns">
-                                                    <structure>
-                                                        <property name="name">payment_amount</property>
-                                                        <text-property name="displayName">payment_amount</text-property>
-                                                        <expression name="expression" type="javascript">dataSetRow["payment_amount"]</expression>
-                                                        <property name="dataType">decimal</property>
-                                                    </structure>
-                                                </list-property>
-                                                <method name="onRender"><![CDATA[function formatCurrency(amount) {  
+                                        <cell id="158"/>
+                                        <cell id="159"/>
+                                        <cell id="160"/>
+                                        <cell id="161"/>
+                                    </row>
+                                </grid>
+                                <table id="463">
+                                    <property name="dataSet">Topup Deposit</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">payment_via</property>
+                                            <text-property name="displayName">payment_via</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["payment_via"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">payment_rek</property>
+                                            <text-property name="displayName">payment_rek</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["payment_rek"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">payment_ref</property>
+                                            <text-property name="displayName">payment_ref</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["payment_ref"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">payment_amount</property>
+                                            <text-property name="displayName">payment_amount</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["payment_amount"]</expression>
+                                            <property name="dataType">decimal</property>
+                                        </structure>
+                                    </list-property>
+                                    <column id="487"/>
+                                    <column id="488"/>
+                                    <column id="489"/>
+                                    <column id="490"/>
+                                    <header>
+                                        <row id="464">
+                                            <cell id="465">
+                                                <label id="466">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="color">gray</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Via</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="467">
+                                                <label id="468">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="color">gray</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">No Rek</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="469">
+                                                <label id="470">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="color">gray</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">No Ref</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="471">
+                                                <label id="472">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="color">gray</property>
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Nominal</text-property>
+                                                </label>
+                                            </cell>
+                                        </row>
+                                    </header>
+                                    <detail>
+                                        <row id="473">
+                                            <cell id="474">
+                                                <data id="475">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">payment_via</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="476">
+                                                <data id="477">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">payment_rek</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="478">
+                                                <data id="479">
+                                                    <property name="fontSize">8pt</property>
+                                                    <property name="resultSetColumn">payment_ref</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="480">
+                                                <data id="491">
+                                                    <property name="fontFamily">"Public Sans"</property>
+                                                    <property name="fontSize">10px</property>
+                                                    <property name="color">#212B36</property>
+                                                    <property name="marginTop">4px</property>
+                                                    <property name="paddingTop">0pt</property>
+                                                    <property name="paddingLeft">0pt</property>
+                                                    <property name="paddingBottom">0pt</property>
+                                                    <property name="paddingRight">0pt</property>
+                                                    <property name="dataSet">Topup Deposit</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">payment_amount</property>
+                                                            <text-property name="displayName">payment_amount</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["payment_amount"]</expression>
+                                                            <property name="dataType">decimal</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <method name="onRender"><![CDATA[function formatCurrency(amount) {  
   return "Rp" + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 this.setDisplayValue(formatCurrency(Number(this.getValue())));]]></method>
-                                                <property name="resultSetColumn">payment_amount</property>
-                                            </data>
-                                        </cell>
-                                    </row>
-                                </grid>
+                                                    <property name="resultSetColumn">payment_amount</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </detail>
+                                    <footer>
+                                        <row id="482">
+                                            <cell id="483"/>
+                                            <cell id="484"/>
+                                            <cell id="485"/>
+                                            <cell id="486"/>
+                                        </row>
+                                    </footer>
+                                </table>
                             </cell>
                         </row>
                     </grid>
