@@ -90,9 +90,8 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://devone.aplikasi.web.id:3306/ivfdb</property>
-            <property name="odaUser">rptadi</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">cnB0ITEwMjkzOA==</encrypted-property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb1</property>
+            <property name="odaUser">root</property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
@@ -101,111 +100,136 @@
             <list-property name="columnHints">
                 <structure>
                     <property name="columnName">invoice_header_id</property>
+                    <property name="alias">invoice_header_id</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">invoice_header_id</text-property>
                     <text-property name="heading">invoice_header_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">invoice_name</property>
+                    <property name="alias">invoice_name</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">invoice_name</text-property>
                     <text-property name="heading">invoice_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">invoice_header_number</property>
+                    <property name="alias">invoice_header_number</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">invoice_header_number</text-property>
                     <text-property name="heading">invoice_header_number</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">invoice_header_date</property>
+                    <property name="alias">invoice_header_date</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">invoice_header_date</text-property>
                     <text-property name="heading">invoice_header_date</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">total</property>
+                    <property name="alias">total</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">total</text-property>
                     <text-property name="heading">total</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">order_header_number</property>
+                    <property name="alias">order_header_number</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">order_header_number</text-property>
                     <text-property name="heading">order_header_number</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">order_header_date</property>
+                    <property name="alias">order_header_date</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">order_header_date</text-property>
                     <text-property name="heading">order_header_date</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">pasien</property>
+                    <property name="alias">pasien</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">pasien</text-property>
                     <text-property name="heading">pasien</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">person_telecom_value</property>
+                    <property name="alias">person_telecom_value</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">person_telecom_value</text-property>
                     <text-property name="heading">person_telecom_value</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">payment_header_date</property>
+                    <property name="alias">payment_header_date</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">payment_header_date</text-property>
                     <text-property name="heading">payment_header_date</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">payment_header_number</property>
+                    <property name="alias">payment_header_number</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">payment_header_number</text-property>
                     <text-property name="heading">payment_header_number</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">payment_header_id</property>
+                    <property name="alias">payment_header_id</property>
                     <property name="analysis">measure</property>
                     <text-property name="displayName">payment_header_id</text-property>
                     <text-property name="heading">payment_header_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">payment_name</property>
+                    <property name="alias">payment_name</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">payment_name</text-property>
                     <text-property name="heading">payment_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">noRm</property>
+                    <property name="alias">noRm</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">noRm</text-property>
                     <text-property name="heading">noRm</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">address_text</property>
+                    <property name="alias">address_text</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">address_text</text-property>
                     <text-property name="heading">address_text</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">location_name</property>
+                    <property name="alias">location_name</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">location_name</text-property>
                     <text-property name="heading">location_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">tanggalSekarang</property>
+                    <property name="alias">tanggalSekarang</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">tanggalSekarang</text-property>
                     <text-property name="heading">tanggalSekarang</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">print</property>
+                    <property name="alias">print</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">print</text-property>
                     <text-property name="heading">print</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">logo</property>
+                    <property name="alias">logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">logo</text-property>
+                    <text-property name="heading">logo</text-property>
                 </structure>
             </list-property>
             <list-property name="parameters">
@@ -313,6 +337,11 @@
                         <property name="name">print</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">ivf</property>
@@ -322,126 +351,114 @@
                     <property name="name">invoice_header_id</property>
                     <property name="nativeName">invoice_header_id</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">invoice_name</property>
                     <property name="nativeName">invoice_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">invoice_header_number</property>
                     <property name="nativeName">invoice_header_number</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">invoice_header_date</property>
                     <property name="nativeName">invoice_header_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">total</property>
                     <property name="nativeName">total</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">3</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">order_header_number</property>
                     <property name="nativeName">order_header_number</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">order_header_date</property>
                     <property name="nativeName">order_header_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">pasien</property>
                     <property name="nativeName">pasien</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">person_telecom_value</property>
                     <property name="nativeName">person_telecom_value</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">payment_header_date</property>
                     <property name="nativeName">payment_header_date</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">payment_header_number</property>
                     <property name="nativeName">payment_header_number</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">payment_header_id</property>
                     <property name="nativeName">payment_header_id</property>
                     <property name="dataType">decimal</property>
-                    <property name="nativeDataType">-5</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">payment_name</property>
                     <property name="nativeName">payment_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">noRm</property>
                     <property name="nativeName">noRm</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">address_text</property>
                     <property name="nativeName">address_text</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">location_name</property>
                     <property name="nativeName">location_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">tanggalSekarang</property>
                     <property name="nativeName">tanggalSekarang</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">print</property>
                     <property name="nativeName">print</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">logo</property>
+                    <property name="nativeName">logo</property>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
@@ -469,7 +486,8 @@ CASE
     'Original' 
     WHEN print_count = 2 THEN
     'Print Copy 1' ELSE concat( 'Print Copy ', print_count - 1 ) 
-  END AS print 
+  END AS print,
+  logo 
 FROM
   (
   SELECT
@@ -491,7 +509,8 @@ FROM
     lc.address_text AS address_text,
     lc.location_name AS location_name,
     now() AS tanggalSekarang,
-    print_count 
+    print_count,
+    (SELECT ivs.ivf_site_logo_url FROM ivf_site ivs WHERE ivs.organization_id= oh.organization_id LIMIT 1) AS logo 
   FROM
     invoice_header i
     JOIN order_header oh ON i.order_header_id = oh.order_header_id
@@ -533,7 +552,8 @@ FROM
     lc.address_text AS address_text,
     lc.location_name AS location_name,
     now() AS tanggalSekarang,
-    print_count 
+    print_count,
+    (SELECT ivs.ivf_site_logo_url FROM ivf_site ivs WHERE ivs.organization_id= oh.organization_id LIMIT 1) AS logo 
   FROM
     invoice_header i
     JOIN order_header oh ON i.order_header_id = oh.order_header_id
@@ -2913,8 +2933,17 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                                 <image id="4357">
                                     <property name="height">0.5333333333333333in</property>
                                     <property name="width">0.8333333333333334in</property>
-                                    <property name="source">embed</property>
-                                    <property name="imageName">Smart Fertility Clinic.png</property>
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">logo</property>
+                                            <text-property name="displayName">logo</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["logo"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="source">url</property>
+                                    <expression name="uri" type="javascript">row["logo"]</expression>
                                 </image>
                             </cell>
                             <cell id="6404">
