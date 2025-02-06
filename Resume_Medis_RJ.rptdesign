@@ -2040,6 +2040,7 @@ WHERE
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <property name="type">a4</property>
+            <property name="orientation">portrait</property>
             <property name="headerHeight">0in</property>
             <property name="footerHeight">0in</property>
             <page-footer>
