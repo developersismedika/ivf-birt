@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201806261756</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
     <list-property name="propertyBindings">
         <structure>
             <property name="name">queryText</property>
@@ -104,9 +104,8 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://devone.aplikasi.web.id:3306/ivfdb</property>
-            <property name="odaUser">rptadi</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">cnB0ITEwMjkzOA==</encrypted-property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb1</property>
+            <property name="odaUser">root</property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
@@ -253,6 +252,13 @@
                     <text-property name="displayName">service_code</text-property>
                     <text-property name="heading">service_code</text-property>
                 </structure>
+                <structure>
+                    <property name="columnName">logo</property>
+                    <property name="alias">logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">logo</text-property>
+                    <text-property name="heading">logo</text-property>
+                </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
@@ -369,6 +375,11 @@
                         <property name="name">service_code</property>
                         <property name="dataType">string</property>
                     </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
                 </list-property>
             </structure>
             <property name="dataSource">ivf</property>
@@ -378,140 +389,126 @@
                     <property name="name">created_dttm</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
                     <property name="name">patient_packet_id</property>
                     <property name="nativeName">patient_packet_id</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
                     <property name="name">patient_id</property>
                     <property name="nativeName">patient_id</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
                     <property name="name">type_patient</property>
                     <property name="nativeName">type_patient</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
                     <property name="name">deposit_pocket_id</property>
                     <property name="nativeName">deposit_pocket_id</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
                     <property name="name">price</property>
                     <property name="nativeName">price</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
                     <property name="name">pasien</property>
                     <property name="nativeName">pasien</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">phone</property>
                     <property name="nativeName">phone</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">email</property>
                     <property name="nativeName">email</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
                     <property name="name">DOB1</property>
                     <property name="nativeName">DOB1</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">11</property>
                     <property name="name">DOB2</property>
                     <property name="nativeName">DOB2</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">12</property>
                     <property name="name">service_id</property>
                     <property name="nativeName">service_id</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">13</property>
                     <property name="name">packet_id</property>
                     <property name="nativeName">packet_id</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">14</property>
                     <property name="name">qty</property>
                     <property name="nativeName">qty</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">15</property>
                     <property name="name">used</property>
                     <property name="nativeName">used</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">16</property>
                     <property name="name">total</property>
                     <property name="nativeName">total</property>
                     <property name="dataType">integer</property>
-                    <property name="nativeDataType">4</property>
                 </structure>
                 <structure>
                     <property name="position">17</property>
                     <property name="name">packet_code</property>
                     <property name="nativeName">packet_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">18</property>
                     <property name="name">packet_name</property>
                     <property name="nativeName">packet_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">19</property>
                     <property name="name">service_name</property>
                     <property name="nativeName">service_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">20</property>
                     <property name="name">service_code</property>
                     <property name="nativeName">service_code</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">logo</property>
+                    <property name="nativeName">logo</property>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select *
@@ -544,7 +541,8 @@ pps.total,
 pck.packet_code,
 pck.packet_name,
 srv.service_name,
-srv.service_code
+srv.service_code,
+(SELECT ivs.ivf_site_logo_url FROM ivf_site ivs WHERE ivs.organization_id= pk.organization_id LIMIT 1) AS logo
 
 from patient_packet pk
 join patient_couple pc on pc.patient_cn = pk.patient_cn 
@@ -585,7 +583,8 @@ pps.total,
 pck.packet_code,
 pck.packet_name,
 srv.service_name,
-srv.service_code
+srv.service_code,
+(SELECT ivs.ivf_site_logo_url FROM ivf_site ivs WHERE ivs.organization_id= pk.organization_id LIMIT 1) AS logo
 
 from patient_packet pk
  join person pp on pp.person_id = pk.patient_id
@@ -624,7 +623,8 @@ ppi.total,
 '' as packet_code,
 '' as packet_name,
 item_name as service_name,
-item_category_id as service_code
+item_category_id as service_code,
+(SELECT ivs.ivf_site_logo_url FROM ivf_site ivs WHERE ivs.organization_id= pk.organization_id LIMIT 1) AS logo
 
 from patient_packet pk
  left join person pp on pp.person_id = pk.patient_id
@@ -897,8 +897,17 @@ left join  item  it on ppi.item_id =  it.item_id
                     <image id="4357">
                         <property name="height">0.9722222222222222in</property>
                         <property name="width">1.5in</property>
-                        <property name="source">embed</property>
-                        <property name="imageName">Primaya IVF.png</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">logo</property>
+                                <text-property name="displayName">logo</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["logo"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">url</property>
+                        <expression name="uri" type="javascript">row["logo"]</expression>
                     </image>
                 </cell>
                 <cell id="4451"/>
