@@ -236,10 +236,10 @@ WHERE
                     <text-property name="heading">emr_id</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">ivf_site_logo</property>
+                    <property name="columnName">ivf_site_logo_url</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">ivf_site_logo</text-property>
-                    <text-property name="heading">ivf_site_logo</text-property>
+                    <text-property name="displayName">ivf_site_logo_url</text-property>
+                    <text-property name="heading">ivf_site_logo_url</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">ivf_site_name</property>
@@ -335,7 +335,7 @@ WHERE
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">ivf_site_logo</property>
+                        <property name="name">ivf_site_logo_url</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
@@ -411,8 +411,8 @@ WHERE
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">ivf_site_logo</property>
-                    <property name="nativeName">ivf_site_logo</property>
+                    <property name="name">ivf_site_logo_url</property>
+                    <property name="nativeName">ivf_site_logo_url</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
@@ -503,7 +503,7 @@ WHERE
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
   st.emr_id,
-  ivs.ivf_site_logo,
+  ivs.ivf_site_logo_url,
   ivs.ivf_site_name,
   lc.address_text,
   CONCAT(
@@ -759,7 +759,7 @@ WHERE
     </page-setup>
     <body>
         <grid id="4">
-            <property name="height">0.7395833333333334in</property>
+            <property name="height">1in</property>
             <property name="width">7.729166666666667in</property>
             <column id="5">
                 <property name="width">3.875in</property>
@@ -768,13 +768,22 @@ WHERE
                 <property name="width">3.8541666666666665in</property>
             </column>
             <row id="7">
-                <property name="height">0.7395833333333334in</property>
+                <property name="height">1in</property>
                 <cell id="8">
                     <image id="5032">
-                        <property name="height">0.65625in</property>
-                        <property name="width">1.0625in</property>
-                        <property name="source">embed</property>
-                        <property name="imageName">Smart IVF.jpg</property>
+                        <property name="height">84px</property>
+                        <property name="width">146px</property>
+                        <property name="dataSet">header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ivf_site_logo_url</property>
+                                <text-property name="displayName">ivf_site_logo_url</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ivf_site_logo_url"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">url</property>
+                        <expression name="uri" type="javascript">row["ivf_site_logo_url"]</expression>
                     </image>
                 </cell>
                 <cell id="9">
