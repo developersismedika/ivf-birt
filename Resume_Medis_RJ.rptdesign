@@ -636,7 +636,7 @@ CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.previousMe
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.localistTemplate.obgynAndrologyLocalist.description')) AS CHAR) AS localist_template,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.physicalExaminationMeaningfullSupport')) AS CHAR) AS physical_examination_meaningfull,
 
-CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assesment.diagnosis')) AS CHAR) AS diagnosis_text
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS CHAR) AS diagnosis_text
 
 FROM `emr` 
 LEFT JOIN patient p on p.patient_id = emr.patient_id
