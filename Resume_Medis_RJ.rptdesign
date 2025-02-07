@@ -183,12 +183,6 @@
                     <text-property name="heading">control_reason</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">diagnosis_text</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">diagnosis_text</text-property>
-                    <text-property name="heading">diagnosis_text</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">main_complaint</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">main_complaint</text-property>
@@ -225,7 +219,7 @@
                     <text-property name="heading">physical_examination_meaningfull</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">diagnosis_text_1</property>
+                    <property name="columnName">diagnosis_text</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">diagnosis_text</text-property>
                     <text-property name="heading">diagnosis_text</text-property>
@@ -357,42 +351,37 @@
                     </structure>
                     <structure>
                         <property name="position">23</property>
-                        <property name="name">diagnosis_text</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">24</property>
                         <property name="name">main_complaint</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">25</property>
+                        <property name="position">24</property>
                         <property name="name">treatment_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">26</property>
+                        <property name="position">25</property>
                         <property name="name">current_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">27</property>
+                        <property name="position">26</property>
                         <property name="name">previous_medical_history</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">27</property>
                         <property name="name">localist_template</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">28</property>
                         <property name="name">physical_examination_meaningfull</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">30</property>
-                        <property name="name">diagnosis_text_1</property>
+                        <property name="position">29</property>
+                        <property name="name">diagnosis_text</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -555,56 +544,49 @@
                 </structure>
                 <structure>
                     <property name="position">23</property>
-                    <property name="name">diagnosis_text</property>
-                    <property name="nativeName">diagnosis_text</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">24</property>
                     <property name="name">main_complaint</property>
                     <property name="nativeName">main_complaint</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">25</property>
+                    <property name="position">24</property>
                     <property name="name">treatment_history</property>
                     <property name="nativeName">treatment_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">26</property>
+                    <property name="position">25</property>
                     <property name="name">current_medical_history</property>
                     <property name="nativeName">current_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">27</property>
+                    <property name="position">26</property>
                     <property name="name">previous_medical_history</property>
                     <property name="nativeName">previous_medical_history</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">27</property>
                     <property name="name">localist_template</property>
                     <property name="nativeName">localist_template</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">28</property>
                     <property name="name">physical_examination_meaningfull</property>
                     <property name="nativeName">physical_examination_meaningfull</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
-                    <property name="position">30</property>
-                    <property name="name">diagnosis_text_1</property>
+                    <property name="position">29</property>
+                    <property name="name">diagnosis_text</property>
                     <property name="nativeName">diagnosis_text</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
@@ -646,7 +628,6 @@ CASE
     ELSE '-'
 END AS name_plan,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.plan.managementPlan.controlReason')) AS CHAR) AS control_reason,
-CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS CHAR) AS diagnosis_text,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.mainComplaint')) AS CHAR) AS main_complaint,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.treatmentHistory')) AS CHAR) AS treatment_history,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.currentMedicalHistory')) AS CHAR) AS current_medical_history,
@@ -2938,7 +2919,7 @@ Penunjang Bermakna</text-property>
                 <cell id="4662">
                     <property name="fontSize">12px</property>
                     <label id="4666">
-                        <text-property name="text">Diagnosis</text-property>
+                        <text-property name="text">ICD</text-property>
                     </label>
                 </cell>
                 <cell id="4663">
@@ -2991,6 +2972,47 @@ Penunjang Bermakna</text-property>
                 <cell id="4701">
                     <property name="colSpan">3</property>
                     <property name="rowSpan">1</property>
+                    <grid id="5150">
+                        <property name="width">7.666666666666667in</property>
+                        <column id="5151">
+                            <property name="width">2.5625in</property>
+                        </column>
+                        <column id="5152">
+                            <property name="width">0.22916666666666666in</property>
+                        </column>
+                        <column id="5153">
+                            <property name="width">4.875in</property>
+                        </column>
+                        <row id="5154">
+                            <cell id="5155">
+                                <label id="5167">
+                                    <text-property name="text">Diagnosis</text-property>
+                                </label>
+                            </cell>
+                            <cell id="5156">
+                                <label id="5168">
+                                    <property name="textAlign">center</property>
+                                    <property name="verticalAlign">middle</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="5157">
+                                <data id="5169">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">diagnosis_text</property>
+                                            <text-property name="displayName">diagnosis_text</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["diagnosis_text"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">diagnosis_text</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                    <label id="5166"/>
                     <label id="4716">
                         <property name="fontSize">14px</property>
                         <property name="fontWeight">bold</property>
