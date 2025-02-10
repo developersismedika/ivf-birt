@@ -202,7 +202,7 @@
                 <structure>
                     <property name="position">3</property>
                     <property name="name">ivf_site_name</property>
-                    <property name="nativeName">ivf_site_name</property>
+                    <property name="nativeName">print_label</property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
@@ -252,7 +252,7 @@
             <xml-property name="queryText"><![CDATA[SELECT
   st.emr_id,
   ivs.ivf_site_logo_url,
-  ivs.ivf_site_name,
+  ivs.print_label AS ivf_site_name,
   lc.address_text,
   CONCAT(
     lc.address_city,
