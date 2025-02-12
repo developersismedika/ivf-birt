@@ -642,12 +642,6 @@ ORDER BY
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="name">receive_order</property>
-                    <text-property name="displayName">receive_order</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["receive_order"]</expression>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
                     <property name="name">penambahan_stok_receive_order</property>
                     <text-property name="displayName">penambahan_stok_receive_order</text-property>
                     <expression name="expression" type="javascript">dataSetRow["penambahan_stok_receive_order"]</expression>
