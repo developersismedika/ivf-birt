@@ -375,7 +375,9 @@ FROM
 WHERE
   ist.status_cd = 'normal'
   AND loc.organization_id = ?
-  AND (it.item_id = ? OR ? IS NULL)
+  AND (
+    ? = '' OR FIND_IN_SET(it.item_id, ?)
+  )
   AND ist.created_dttm >= ? 
   AND ist.created_dttm <= ? 
 ORDER BY
@@ -384,23 +386,6 @@ ORDER BY
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>5</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
