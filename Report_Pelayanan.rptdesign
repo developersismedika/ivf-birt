@@ -40,7 +40,7 @@
         </scalar-parameter>
         <scalar-parameter name="person_id" id="5359">
             <property name="valueType">static</property>
-            <property name="isRequired">true</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
