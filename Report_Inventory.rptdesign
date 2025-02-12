@@ -149,6 +149,12 @@
                     <text-property name="heading">penyesuaian_stok_keluar</text-property>
                 </structure>
                 <structure>
+                    <property name="columnName">receive_order</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">receive_order</text-property>
+                    <text-property name="heading">receive_order</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">satuan</property>
                     <property name="analysis">dimension</property>
                     <text-property name="displayName">satuan</text-property>
@@ -256,6 +262,11 @@
                     </structure>
                     <structure>
                         <property name="position">10</property>
+                        <property name="name">receive_order</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
                         <property name="name">satuan</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -328,6 +339,13 @@
                 </structure>
                 <structure>
                     <property name="position">10</property>
+                    <property name="name">receive_order</property>
+                    <property name="nativeName">receive_order</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">3</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
                     <property name="name">satuan</property>
                     <property name="nativeName">satuan</property>
                     <property name="dataType">string</property>
@@ -362,7 +380,17 @@
     ask.adjustment_type_code = 'out' 
     AND askl.inventory_id = i.inventory_id 
   ) AS penyesuaian_stok_keluar,
-  IFNULL(iu.item_unit_name,'') AS satuan
+  (
+  SELECT
+    SUM( rcd.quantity ) 
+  FROM
+    receive rc
+    INNER JOIN receive_detail rcd ON rcd.receive_id = rc.receive_id 
+  WHERE
+    rc.organization_id = loc.organization_id 
+    AND rcd.inventory_id = i.inventory_id 
+  ) AS receive_order,
+  IFNULL( iu.item_unit_name, '' ) AS satuan 
 FROM
   inventory_stock ist
   JOIN location loc ON loc.location_id = ist.location_id
@@ -373,11 +401,9 @@ FROM
   LEFT JOIN item_unit_sell ius ON ius.item_id = it.item_id
   LEFT JOIN item_unit iu ON iu.item_unit_id = ius.item_unit_id 
 WHERE
-  ist.status_cd = 'normal'
-  AND loc.organization_id = ?
-  AND (
-    ? = '' OR FIND_IN_SET(it.item_id, ?)
-  )
+  ist.status_cd = 'normal' 
+  AND loc.organization_id = ? 
+  AND ( ? = '' OR FIND_IN_SET( it.item_id, ?) ) 
   AND ist.created_dttm >= ? 
   AND ist.created_dttm <= ? 
 ORDER BY
@@ -555,12 +581,19 @@ ORDER BY
                     <expression name="expression" type="javascript">dataSetRow["stock"]</expression>
                     <property name="dataType">integer</property>
                 </structure>
+                <structure>
+                    <property name="name">receive_order</property>
+                    <text-property name="displayName">receive_order</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["receive_order"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
             </list-property>
             <column id="5523"/>
             <column id="5524"/>
             <column id="5525"/>
             <column id="5526"/>
             <column id="5527"/>
+            <column id="5545"/>
             <column id="5528"/>
             <header>
                 <row id="5502">
@@ -597,6 +630,13 @@ ORDER BY
                         <label id="5539">
                             <property name="fontWeight">bold</property>
                             <text-property name="text">Penyesuaian Stok Keluar</text-property>
+                        </label>
+                    </cell>
+                    <cell id="5543">
+                        <property name="fontSize">12px</property>
+                        <label id="5546">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">Receive Order</text-property>
                         </label>
                     </cell>
                     <cell id="5508">
@@ -638,6 +678,12 @@ ORDER BY
                         <property name="fontSize">12px</property>
                         <data id="5540">
                             <property name="resultSetColumn">penyesuaian_stok_masuk</property>
+                        </data>
+                    </cell>
+                    <cell id="5544">
+                        <property name="fontSize">12px</property>
+                        <data id="5547">
+                            <property name="resultSetColumn">receive_order</property>
                         </data>
                     </cell>
                     <cell id="5515">
