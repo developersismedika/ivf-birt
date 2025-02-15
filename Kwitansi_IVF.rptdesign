@@ -1633,7 +1633,7 @@ join service ss  on iss.service_id = ss .service_id
  join payment_header ph on ix.invoice_header_id = ph.invoice_header_id
 left join payment_benefit pb on pb.invoice_service_id = iss.order_service_id 
 
- UNION
+ UNION ALL
  
 select 
 ii.total as total,  
