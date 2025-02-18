@@ -722,21 +722,21 @@ WHERE
                     <property name="name">share_doctor</property>
                     <text-property name="displayName">share_doctor</text-property>
                     <expression name="expression" type="javascript">dataSetRow["share_doctor"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">share_rs</property>
                     <text-property name="displayName">share_rs</text-property>
                     <expression name="expression" type="javascript">dataSetRow["share_rs"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
                     <property name="name">share_other</property>
                     <text-property name="displayName">share_other</text-property>
                     <expression name="expression" type="javascript">dataSetRow["share_other"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
@@ -749,7 +749,7 @@ WHERE
                     <property name="name">share_ivf</property>
                     <text-property name="displayName">share_ivf</text-property>
                     <expression name="expression" type="javascript">dataSetRow["share_ivf"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
             </list-property>
