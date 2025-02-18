@@ -715,7 +715,7 @@ WHERE
                     <property name="name">total</property>
                     <text-property name="displayName">total</text-property>
                     <expression name="expression" type="javascript">dataSetRow["total"]</expression>
-                    <property name="dataType">decimal</property>
+                    <property name="dataType">string</property>
                     <property name="allowExport">true</property>
                 </structure>
                 <structure>
