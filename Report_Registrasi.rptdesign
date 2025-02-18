@@ -54,6 +54,19 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="organization_id" id="5496">
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivfdb" id="5226">
@@ -142,7 +155,7 @@
                 </structure>
                 <structure>
                     <property name="name">param_3</property>
-                    <property name="paramName">patient_type</property>
+                    <property name="paramName">organization_id</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
@@ -167,6 +180,16 @@
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
                     <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_6</property>
+                    <property name="paramName">patient_type</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">6</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
@@ -304,6 +327,7 @@ CASE
     WHERE
       oh.order_header_date >= ? 
       AND oh.order_header_date <= ?
+      AND oh.organization_id = ?
       AND (
     ? = 0 -- Parameter `patient_type` = 0, include all patients
     OR ( ? = 1 AND
@@ -376,37 +400,7 @@ CASE
         <design:attributes>
           <design:identifier>
             <design:name></design:name>
-            <design:position>3</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>4</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>5</design:position>
+            <design:position>6</design:position>
           </design:identifier>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
@@ -589,7 +583,7 @@ CASE
                 </structure>
                 <structure>
                     <property name="name">param_3</property>
-                    <property name="paramName">patient_type</property>
+                    <property name="paramName">organization_id</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
@@ -614,6 +608,16 @@ CASE
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
                     <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_6</property>
+                    <property name="paramName">patient_type</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">6</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
@@ -697,6 +701,7 @@ FROM (
   WHERE
     oh.order_header_date >= ? 
     AND oh.order_header_date <= ?
+    AND oh.organization_id = ?
     AND (
     ? = 0 -- Parameter `patient_type` = 0, include all patients
     OR ( ? = 1 AND
@@ -768,37 +773,7 @@ GROUP BY jenis_pasien;]]></xml-property>
         <design:attributes>
           <design:identifier>
             <design:name></design:name>
-            <design:position>3</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>4</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>5</design:position>
+            <design:position>6</design:position>
           </design:identifier>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
@@ -927,7 +902,7 @@ GROUP BY jenis_pasien;]]></xml-property>
                 </structure>
                 <structure>
                     <property name="name">param_6</property>
-                    <property name="paramName">patient_type</property>
+                    <property name="paramName">organization_id</property>
                     <property name="nativeName"></property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
@@ -952,6 +927,16 @@ GROUP BY jenis_pasien;]]></xml-property>
                     <property name="dataType">string</property>
                     <property name="nativeDataType">-1</property>
                     <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">param_9</property>
+                    <property name="paramName">patient_type</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">9</property>
                     <property name="isInput">true</property>
                     <property name="isOutput">false</property>
                 </structure>
@@ -1028,6 +1013,7 @@ FROM (
   WHERE
     oh.order_header_date >= ?
     AND oh.order_header_date <= ?
+    AND oh.organization_id = ?
 ) AS repeated_records
 WHERE
   ? = 0 -- Include all data if patient_type = 0
@@ -1044,82 +1030,7 @@ WHERE
         <design:attributes>
           <design:identifier>
             <design:name></design:name>
-            <design:position>3</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>4</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>5</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>6</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>7</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>8</design:position>
+            <design:position>9</design:position>
           </design:identifier>
           <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
           <design:precision>0</design:precision>
