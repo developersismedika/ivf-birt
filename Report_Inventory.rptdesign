@@ -609,6 +609,7 @@ ORDER BY
         </data>
         <label id="5412"/>
         <table id="5501">
+            <property name="width">7.739583333333333in</property>
             <property name="dataSet">inventory</property>
             <list-property name="boundDataColumns">
                 <structure>
@@ -659,16 +660,40 @@ ORDER BY
                     <expression name="expression" type="javascript">dataSetRow["pengurangan_stok_pelayanan_paket"]</expression>
                     <property name="dataType">float</property>
                 </structure>
+                <structure>
+                    <property name="name">penyesuaian_stok_keluar</property>
+                    <text-property name="displayName">penyesuaian_stok_keluar</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["penyesuaian_stok_keluar"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
             </list-property>
-            <column id="5523"/>
-            <column id="5524"/>
-            <column id="5525"/>
-            <column id="5526"/>
-            <column id="5527"/>
-            <column id="5545"/>
-            <column id="5551"/>
-            <column id="5556"/>
-            <column id="5528"/>
+            <column id="5523">
+                <property name="width">0.8645833333333334in</property>
+            </column>
+            <column id="5524">
+                <property name="width">0.8645833333333334in</property>
+            </column>
+            <column id="5525">
+                <property name="width">0.8645833333333334in</property>
+            </column>
+            <column id="5526">
+                <property name="width">1.75in</property>
+            </column>
+            <column id="5527">
+                <property name="width">0.78125in</property>
+            </column>
+            <column id="5545">
+                <property name="width">0.052083333333333336in</property>
+            </column>
+            <column id="5551">
+                <property name="width">0.8541666666666666in</property>
+            </column>
+            <column id="5556">
+                <property name="width">0.8541666666666666in</property>
+            </column>
+            <column id="5528">
+                <property name="width">0.8541666666666666in</property>
+            </column>
             <header>
                 <row id="5502">
                     <cell id="5503">
@@ -764,8 +789,8 @@ ORDER BY
                     </cell>
                     <cell id="5514">
                         <property name="fontSize">12px</property>
-                        <data id="5540">
-                            <property name="resultSetColumn">penyesuaian_stok_masuk</property>
+                        <data id="5559">
+                            <property name="resultSetColumn">penyesuaian_stok_keluar</property>
                         </data>
                     </cell>
                     <cell id="5544">
