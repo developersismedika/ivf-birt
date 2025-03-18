@@ -12,7 +12,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">130000039</value>
+                <value type="constant">130000021</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -27,7 +27,7 @@
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">120000001</value>
+                <value type="constant">130000068</value>
             </simple-property-list>
             <list-property name="selectionList"/>
             <property name="paramType">simple</property>
@@ -56,8 +56,9 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/ivfdb1</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivf2023</property>
             <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">MTIzNA==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
@@ -1066,75 +1067,9 @@ WHERE
             <column id="5269"/>
             <row id="5270">
                 <cell id="5271">
-                    <text id="5273">
+                    <text-data id="5289">
                         <property name="dataSet">header</property>
                         <list-property name="boundDataColumns">
-                            <structure>
-                                <property name="name">emr_id</property>
-                                <text-property name="displayName">emr_id</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["emr_id"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">ivf_site_logo</property>
-                                <text-property name="displayName">ivf_site_logo</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["ivf_site_logo"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">ivf_site_name</property>
-                                <text-property name="displayName">ivf_site_name</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["ivf_site_name"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">address_text</property>
-                                <text-property name="displayName">address_text</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["address_text"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">address_city</property>
-                                <text-property name="displayName">address_city</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["address_city"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">statement_no</property>
-                                <text-property name="displayName">statement_no</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["statement_no"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">docter_name</property>
-                                <text-property name="displayName">docter_name</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["docter_name"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">gravidaDiagnosis</property>
-                                <text-property name="displayName">gravidaDiagnosis</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["gravidaDiagnosis"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">gestationalAge</property>
-                                <text-property name="displayName">gestationalAge</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["gestationalAge"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">estimatedBirthDate</property>
-                                <text-property name="displayName">estimatedBirthDate</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["estimatedBirthDate"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                            <structure>
-                                <property name="name">purpose</property>
-                                <text-property name="displayName">purpose</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["purpose"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
                             <structure>
                                 <property name="name">date_purpose</property>
                                 <text-property name="displayName">date_purpose</text-property>
@@ -1148,20 +1083,20 @@ WHERE
                                 <property name="dataType">decimal</property>
                             </structure>
                         </list-property>
+                        <expression name="valueExpr">"Perlu diberi istirahat selama: "+row["rest_days"]+" hari. Terhitung tanggal "+row["date_purpose"]+"."</expression>
                         <property name="contentType">html</property>
-                        <text-property name="content"><![CDATA[Perlu diberi istirahat selama: <VALUE-OF>row["rest_days"]</VALUE-OF> hari. Terhitung tanggal <VALUE-OF>row["date_purpose"]</VALUE-OF>.]]></text-property>
-                    </text>
+                    </text-data>
                 </cell>
             </row>
         </grid>
         <label id="5215">
             <property name="fontSize">12px</property>
         </label>
-        <grid id="5278">
-            <column id="5279"/>
-            <row id="5280">
-                <cell id="5281">
-                    <text id="5282">
+        <grid id="5285">
+            <column id="5286"/>
+            <row id="5287">
+                <cell id="5288">
+                    <text-data id="5284">
                         <property name="dataSet">header</property>
                         <list-property name="boundDataColumns">
                             <structure>
@@ -1171,9 +1106,9 @@ WHERE
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
+                        <expression name="valueExpr">"Diagnosa: "+row["diagnosis"]</expression>
                         <property name="contentType">html</property>
-                        <text-property name="content"><![CDATA[Diagnosa: <VALUE-OF>row["diagnosis"]</VALUE-OF>.]]></text-property>
-                    </text>
+                    </text-data>
                 </cell>
             </row>
         </grid>
