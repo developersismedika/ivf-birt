@@ -3932,7 +3932,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         <data id="5843">
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id</property>
                             </structure>
                             <property name="resultSetColumn">harga</property>
@@ -3942,7 +3942,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         <data id="5847">
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id</property>
                             </structure>
                             <property name="resultSetColumn">totall</property>
@@ -3960,7 +3960,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <property name="paddingRight">1pt</property>
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id</property>
                             </structure>
                             <property name="resultSetColumn">total</property>
@@ -4235,7 +4235,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         <data id="6153">
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4247,7 +4247,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         <data id="6157">
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4268,7 +4268,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <property name="paddingRight">1pt</property>
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4375,7 +4375,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <property name="marginRight">5pt</property>
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4475,7 +4475,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <property name="marginRight">5pt</property>
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4669,7 +4669,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                             <property name="marginRight">5pt</property>
                             <structure name="numberFormat">
                                 <property name="category">Currency</property>
-                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                                 <property name="locale">id_ID</property>
                             </structure>
                             <property name="textAlign">right</property>
@@ -4710,7 +4710,7 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                         <property name="marginRight">5pt</property>
                         <structure name="numberFormat">
                             <property name="category">Currency</property>
-                            <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
                             <property name="locale">id_ID</property>
                         </structure>
                         <property name="textAlign">right</property>
