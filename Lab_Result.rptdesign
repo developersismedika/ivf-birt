@@ -8178,13 +8178,5 @@ WHERE oh.order_header_id = ?;]]></xml-property>
             <property name="contentType">auto</property>
             <text-property name="content"><![CDATA[* Sesuai dengan WHO Manual for Human Semen Analysis 6]]></text-property>
         </text>
-        <text id="329">
-            <property name="textAlign">right</property>
-            <property name="contentType">auto</property>
-            <text-property name="content"><![CDATA[Terverifikasi
-
-
-Verawaty]]></text-property>
-        </text>
     </body>
 </report>

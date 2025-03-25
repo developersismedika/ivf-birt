@@ -93,11 +93,11 @@ Can not convert the value of  to Integer type.
             <property name="nullsOrdering">nulls lowest</property>
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">preparation_sperm_id</property>
-                    <property name="alias">preparation_sperm_id</property>
+                    <property name="columnName">result_dfi_id</property>
+                    <property name="alias">result_dfi_id</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">preparation_sperm_id</text-property>
-                    <text-property name="heading">preparation_sperm_id</text-property>
+                    <text-property name="displayName">result_dfi_id</text-property>
+                    <text-property name="heading">result_dfi_id</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">order_header_id</property>
@@ -128,18 +128,18 @@ Can not convert the value of  to Integer type.
                     <text-property name="heading">person_mrn</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">checked_at</property>
-                    <property name="alias">checked_at</property>
+                    <property name="columnName">checking_at</property>
+                    <property name="alias">checking_at</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">checked_at</text-property>
-                    <text-property name="heading">checked_at</text-property>
+                    <text-property name="displayName">checking_at</text-property>
+                    <text-property name="heading">checking_at</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">doctor_name</property>
-                    <property name="alias">doctor_name</property>
+                    <property name="columnName">docter_name</property>
+                    <property name="alias">docter_name</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">doctor_name</text-property>
-                    <text-property name="heading">doctor_name</text-property>
+                    <text-property name="displayName">docter_name</text-property>
+                    <text-property name="heading">docter_name</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">time_out_sample</property>
@@ -170,13 +170,6 @@ Can not convert the value of  to Integer type.
                     <text-property name="heading">complete_sample_type</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">likuifaksi</property>
-                    <property name="alias">likuifaksi</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">likuifaksi</text-property>
-                    <text-property name="heading">likuifaksi</text-property>
-                </structure>
-                <structure>
                     <property name="columnName">volume</property>
                     <property name="alias">volume</property>
                     <property name="analysis">measure</property>
@@ -191,67 +184,18 @@ Can not convert the value of  to Integer type.
                     <text-property name="heading">concentrate</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">motilitas_progresif_cepat</property>
-                    <property name="alias">motilitas_progresif_cepat</property>
+                    <property name="columnName">vitality</property>
+                    <property name="alias">vitality</property>
                     <property name="analysis">measure</property>
-                    <text-property name="displayName">motilitas_progresif_cepat</text-property>
-                    <text-property name="heading">motilitas_progresif_cepat</text-property>
+                    <text-property name="displayName">vitality</text-property>
+                    <text-property name="heading">vitality</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">motilitas_progresif_lambat</property>
-                    <property name="alias">motilitas_progresif_lambat</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">motilitas_progresif_lambat</text-property>
-                    <text-property name="heading">motilitas_progresif_lambat</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">motilitas_non_progresif</property>
-                    <property name="alias">motilitas_non_progresif</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">motilitas_non_progresif</text-property>
-                    <text-property name="heading">motilitas_non_progresif</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">motilitas_imotil</property>
-                    <property name="alias">motilitas_imotil</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">motilitas_imotil</text-property>
-                    <text-property name="heading">motilitas_imotil</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">post_volume</property>
-                    <property name="alias">post_volume</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">post_volume</text-property>
-                    <text-property name="heading">post_volume</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">post_concentrate</property>
-                    <property name="alias">post_concentrate</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">post_concentrate</text-property>
-                    <text-property name="heading">post_concentrate</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">post_total</property>
-                    <property name="alias">post_total</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">post_total</text-property>
-                    <text-property name="heading">post_total</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">post_motilitas_progresif</property>
-                    <property name="alias">post_motilitas_progresif</property>
-                    <property name="analysis">measure</property>
-                    <text-property name="displayName">post_motilitas_progresif</text-property>
-                    <text-property name="heading">post_motilitas_progresif</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">preparation_method</property>
-                    <property name="alias">preparation_method</property>
+                    <property name="columnName">dna_fragmented</property>
+                    <property name="alias">dna_fragmented</property>
                     <property name="analysis">dimension</property>
-                    <text-property name="displayName">preparation_method</text-property>
-                    <text-property name="heading">preparation_method</text-property>
+                    <text-property name="displayName">dna_fragmented</text-property>
+                    <text-property name="heading">dna_fragmented</text-property>
                 </structure>
                 <structure>
                     <property name="columnName">checked_by</property>
@@ -1040,7 +984,7 @@ Can not convert the value of  to Integer type.
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">preparation_sperm_id</property>
+                        <property name="name">result_dfi_id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
@@ -1065,23 +1009,23 @@ Can not convert the value of  to Integer type.
                     </structure>
                     <structure>
                         <property name="position">6</property>
-                        <property name="name">checked_at</property>
+                        <property name="name">checking_at</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">7</property>
-                        <property name="name">doctor_name</property>
+                        <property name="name">docter_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">8</property>
                         <property name="name">time_out_sample</property>
-                        <property name="dataType">string</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">9</property>
                         <property name="name">time_received_sample</property>
-                        <property name="dataType">string</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">10</property>
@@ -1095,892 +1039,852 @@ Can not convert the value of  to Integer type.
                     </structure>
                     <structure>
                         <property name="position">12</property>
-                        <property name="name">likuifaksi</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
                         <property name="name">volume</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">13</property>
                         <property name="name">concentrate</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
+                        <property name="position">14</property>
+                        <property name="name">vitality</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
                         <property name="position">15</property>
-                        <property name="name">motilitas_progresif_cepat</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">16</property>
-                        <property name="name">motilitas_progresif_lambat</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">17</property>
-                        <property name="name">motilitas_non_progresif</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">18</property>
-                        <property name="name">motilitas_imotil</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">19</property>
-                        <property name="name">post_volume</property>
-                        <property name="dataType">float</property>
-                    </structure>
-                    <structure>
-                        <property name="position">20</property>
-                        <property name="name">post_concentrate</property>
-                        <property name="dataType">float</property>
-                    </structure>
-                    <structure>
-                        <property name="position">21</property>
-                        <property name="name">post_total</property>
-                        <property name="dataType">float</property>
-                    </structure>
-                    <structure>
-                        <property name="position">22</property>
-                        <property name="name">post_motilitas_progresif</property>
-                        <property name="dataType">integer</property>
-                    </structure>
-                    <structure>
-                        <property name="position">23</property>
-                        <property name="name">preparation_method</property>
+                        <property name="name">dna_fragmented</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">24</property>
+                        <property name="position">16</property>
                         <property name="name">checked_by</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">25</property>
+                        <property name="position">17</property>
                         <property name="name">checked_by2</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">26</property>
+                        <property name="position">18</property>
                         <property name="name">created_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">27</property>
+                        <property name="position">19</property>
                         <property name="name">created_user_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">28</property>
+                        <property name="position">20</property>
                         <property name="name">updated_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">29</property>
+                        <property name="position">21</property>
                         <property name="name">updated_user_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">30</property>
+                        <property name="position">22</property>
                         <property name="name">nullified_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">31</property>
+                        <property name="position">23</property>
                         <property name="name">nullified_user_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">32</property>
-                        <property name="name">order_header_id</property>
+                        <property name="position">24</property>
+                        <property name="name">order_header_id_24</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">33</property>
+                        <property name="position">25</property>
                         <property name="name">order_header_number</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">34</property>
+                        <property name="position">26</property>
                         <property name="name">order_header_date</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">35</property>
+                        <property name="position">27</property>
                         <property name="name">payplan_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">36</property>
+                        <property name="position">28</property>
                         <property name="name">service_tariff_group_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">37</property>
+                        <property name="position">29</property>
                         <property name="name">deposit_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">38</property>
+                        <property name="position">30</property>
                         <property name="name">tarif_period_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">39</property>
+                        <property name="position">31</property>
                         <property name="name">subtotal</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">40</property>
+                        <property name="position">32</property>
                         <property name="name">dpjp_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">41</property>
+                        <property name="position">33</property>
                         <property name="name">discount_type</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">42</property>
+                        <property name="position">34</property>
                         <property name="name">discount_amount</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">43</property>
+                        <property name="position">35</property>
                         <property name="name">discount_total</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">44</property>
+                        <property name="position">36</property>
                         <property name="name">total</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">45</property>
+                        <property name="position">37</property>
                         <property name="name">total_paid</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">46</property>
+                        <property name="position">38</property>
                         <property name="name">order_type</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">47</property>
+                        <property name="position">39</property>
                         <property name="name">organization_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">48</property>
-                        <property name="name">patient_id</property>
+                        <property name="position">40</property>
+                        <property name="name">patient_id_40</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">49</property>
+                        <property name="position">41</property>
                         <property name="name">patient_couple_number</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">50</property>
+                        <property name="position">42</property>
                         <property name="name">status_lunas</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">51</property>
+                        <property name="position">43</property>
                         <property name="name">close_bill</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">52</property>
+                        <property name="position">44</property>
                         <property name="name">status_cd</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">53</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">45</property>
+                        <property name="name">created_dttm_45</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">54</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">46</property>
+                        <property name="name">created_user_id_46</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">55</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">47</property>
+                        <property name="name">updated_dttm_47</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">56</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">48</property>
+                        <property name="name">updated_user_id_48</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">57</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">49</property>
+                        <property name="name">nullified_dttm_49</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">58</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">50</property>
+                        <property name="name">nullified_user_id_50</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">59</property>
-                        <property name="name">organization_id</property>
+                        <property name="position">51</property>
+                        <property name="name">organization_id_51</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">60</property>
+                        <property name="position">52</property>
                         <property name="name">part_of_organization_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">61</property>
+                        <property name="position">53</property>
                         <property name="name">organization_type_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">62</property>
+                        <property name="position">54</property>
                         <property name="name">organization_type_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">63</property>
+                        <property name="position">55</property>
                         <property name="name">organization_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">64</property>
+                        <property name="position">56</property>
                         <property name="name">organization_alias</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">65</property>
+                        <property name="position">57</property>
                         <property name="name">organization_url</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">66</property>
+                        <property name="position">58</property>
                         <property name="name">description</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">67</property>
+                        <property name="position">59</property>
                         <property name="name">internal_ind</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">68</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">60</property>
+                        <property name="name">status_cd_60</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">69</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">61</property>
+                        <property name="name">created_dttm_61</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">70</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">62</property>
+                        <property name="name">created_user_id_62</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">71</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">63</property>
+                        <property name="name">updated_dttm_63</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">72</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">64</property>
+                        <property name="name">updated_user_id_64</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">73</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">65</property>
+                        <property name="name">nullified_dttm_65</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">74</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">66</property>
+                        <property name="name">nullified_user_id_66</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">75</property>
+                        <property name="position">67</property>
                         <property name="name">location_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">76</property>
-                        <property name="name">organization_id</property>
+                        <property name="position">68</property>
+                        <property name="name">organization_id_68</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">77</property>
+                        <property name="position">69</property>
                         <property name="name">parent_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">78</property>
+                        <property name="position">70</property>
                         <property name="name">location_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">79</property>
+                        <property name="position">71</property>
                         <property name="name">location_status_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">80</property>
+                        <property name="position">72</property>
                         <property name="name">location_status_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">81</property>
+                        <property name="position">73</property>
                         <property name="name">operational_status_type_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">82</property>
+                        <property name="position">74</property>
                         <property name="name">operational_status_type_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">83</property>
+                        <property name="position">75</property>
                         <property name="name">physical_type_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">84</property>
+                        <property name="position">76</property>
                         <property name="name">physical_type_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">85</property>
-                        <property name="name">description</property>
+                        <property name="position">77</property>
+                        <property name="name">description_77</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">86</property>
+                        <property name="position">78</property>
                         <property name="name">count_status</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">87</property>
+                        <property name="position">79</property>
                         <property name="name">location_url</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">88</property>
+                        <property name="position">80</property>
                         <property name="name">address_use</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">89</property>
+                        <property name="position">81</property>
                         <property name="name">address_type</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">90</property>
+                        <property name="position">82</property>
                         <property name="name">address_text</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">91</property>
+                        <property name="position">83</property>
                         <property name="name">address_line1</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">92</property>
+                        <property name="position">84</property>
                         <property name="name">address_line2</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">93</property>
+                        <property name="position">85</property>
                         <property name="name">address_line3</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">94</property>
+                        <property name="position">86</property>
                         <property name="name">address_regional_cd</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">95</property>
+                        <property name="position">87</property>
                         <property name="name">address_rt</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">96</property>
+                        <property name="position">88</property>
                         <property name="name">address_rw</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">97</property>
+                        <property name="position">89</property>
                         <property name="name">address_city</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">98</property>
+                        <property name="position">90</property>
                         <property name="name">address_district</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">99</property>
+                        <property name="position">91</property>
                         <property name="name">address_village</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">100</property>
+                        <property name="position">92</property>
                         <property name="name">address_state</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">101</property>
+                        <property name="position">93</property>
                         <property name="name">address_country</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">102</property>
+                        <property name="position">94</property>
                         <property name="name">address_latitude</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">103</property>
+                        <property name="position">95</property>
                         <property name="name">address_longitude</property>
                         <property name="dataType">float</property>
                     </structure>
                     <structure>
-                        <property name="position">104</property>
+                        <property name="position">96</property>
                         <property name="name">address_altitude</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">105</property>
+                        <property name="position">97</property>
                         <property name="name">address_use_start_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">106</property>
+                        <property name="position">98</property>
                         <property name="name">address_use_stop_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">107</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">99</property>
+                        <property name="name">status_cd_99</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">108</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">100</property>
+                        <property name="name">created_dttm_100</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">109</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">101</property>
+                        <property name="name">created_user_id_101</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">110</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">102</property>
+                        <property name="name">updated_dttm_102</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">111</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">103</property>
+                        <property name="name">updated_user_id_103</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">112</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">104</property>
+                        <property name="name">nullified_dttm_104</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">113</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">105</property>
+                        <property name="name">nullified_user_id_105</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">114</property>
-                        <property name="name">organization_id</property>
+                        <property name="position">106</property>
+                        <property name="name">organization_id_106</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">115</property>
+                        <property name="position">107</property>
                         <property name="name">ivf_site_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">116</property>
+                        <property name="position">108</property>
                         <property name="name">ivf_site_name_pt</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">117</property>
+                        <property name="position">109</property>
                         <property name="name">ivf_site_url</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">118</property>
+                        <property name="position">110</property>
                         <property name="name">npwp</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">119</property>
+                        <property name="position">111</property>
                         <property name="name">ivf_site_is_login</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">120</property>
+                        <property name="position">112</property>
                         <property name="name">ivf_site_logo</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">121</property>
+                        <property name="position">113</property>
                         <property name="name">ivf_site_logo_url</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">122</property>
+                        <property name="position">114</property>
                         <property name="name">print_label</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">123</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">115</property>
+                        <property name="name">status_cd_115</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">124</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">116</property>
+                        <property name="name">created_dttm_116</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">125</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">117</property>
+                        <property name="name">created_user_id_117</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">126</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">118</property>
+                        <property name="name">updated_dttm_118</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">127</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">119</property>
+                        <property name="name">updated_user_id_119</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">128</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">120</property>
+                        <property name="name">nullified_dttm_120</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">129</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">121</property>
+                        <property name="name">nullified_user_id_121</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">130</property>
-                        <property name="name">patient_id</property>
+                        <property name="position">122</property>
+                        <property name="name">patient_id_122</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">131</property>
+                        <property name="position">123</property>
                         <property name="name">managing_organization_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">132</property>
+                        <property name="position">124</property>
                         <property name="name">import_organization_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">133</property>
+                        <property name="position">125</property>
                         <property name="name">patient_mrn_his</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">134</property>
+                        <property name="position">126</property>
                         <property name="name">patient_mrn</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">135</property>
+                        <property name="position">127</property>
                         <property name="name">patient_type_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">136</property>
+                        <property name="position">128</property>
                         <property name="name">patient_type_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">137</property>
+                        <property name="position">129</property>
                         <property name="name">patient_referal_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">138</property>
+                        <property name="position">130</property>
                         <property name="name">patient_referal_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">139</property>
+                        <property name="position">131</property>
                         <property name="name">patient_referal_ref_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">140</property>
+                        <property name="position">132</property>
                         <property name="name">patient_referal_note</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">141</property>
+                        <property name="position">133</property>
                         <property name="name">patient_socialmedia_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">142</property>
+                        <property name="position">134</property>
                         <property name="name">patient_socialmedia_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">143</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">135</property>
+                        <property name="name">status_cd_135</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">144</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">136</property>
+                        <property name="name">created_dttm_136</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">145</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">137</property>
+                        <property name="name">created_user_id_137</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">146</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">138</property>
+                        <property name="name">updated_dttm_138</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">147</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">139</property>
+                        <property name="name">updated_user_id_139</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">148</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">140</property>
+                        <property name="name">nullified_dttm_140</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">149</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">141</property>
+                        <property name="name">nullified_user_id_141</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">150</property>
+                        <property name="position">142</property>
                         <property name="name">person_id</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">151</property>
+                        <property name="position">143</property>
                         <property name="name">person_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">152</property>
+                        <property name="position">144</property>
                         <property name="name">salutation</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">153</property>
+                        <property name="position">145</property>
                         <property name="name">prefix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">154</property>
+                        <property name="position">146</property>
                         <property name="name">suffix</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">155</property>
+                        <property name="position">147</property>
                         <property name="name">gender</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">156</property>
+                        <property name="position">148</property>
                         <property name="name">birth_place</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">157</property>
+                        <property name="position">149</property>
                         <property name="name">birth_dttm</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">158</property>
+                        <property name="position">150</property>
                         <property name="name">religion_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">159</property>
+                        <property name="position">151</property>
                         <property name="name">religion_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">160</property>
+                        <property name="position">152</property>
                         <property name="name">blood_type_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">161</property>
+                        <property name="position">153</property>
                         <property name="name">blood_type_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">162</property>
+                        <property name="position">154</property>
                         <property name="name">blood_rhesus_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">163</property>
+                        <property name="position">155</property>
                         <property name="name">blood_rhesus_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">164</property>
+                        <property name="position">156</property>
                         <property name="name">education_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">165</property>
+                        <property name="position">157</property>
                         <property name="name">education_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">166</property>
+                        <property name="position">158</property>
                         <property name="name">job_class_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">167</property>
+                        <property name="position">159</property>
                         <property name="name">job_class_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">168</property>
+                        <property name="position">160</property>
                         <property name="name">etnicity_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">169</property>
+                        <property name="position">161</property>
                         <property name="name">etnicity_system</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">170</property>
+                        <property name="position">162</property>
                         <property name="name">multiple_birth</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">171</property>
+                        <property name="position">163</property>
                         <property name="name">marital_status</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">172</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">164</property>
+                        <property name="name">status_cd_164</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">173</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">165</property>
+                        <property name="name">created_dttm_165</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">174</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">166</property>
+                        <property name="name">created_user_id_166</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">175</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">167</property>
+                        <property name="name">updated_dttm_167</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">176</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">168</property>
+                        <property name="name">updated_user_id_168</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">177</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">169</property>
+                        <property name="name">nullified_dttm_169</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">178</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">170</property>
+                        <property name="name">nullified_user_id_170</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">179</property>
-                        <property name="name">person_id</property>
+                        <property name="position">171</property>
+                        <property name="name">person_id_171</property>
                         <property name="dataType">decimal</property>
                     </structure>
                     <structure>
-                        <property name="position">180</property>
+                        <property name="position">172</property>
                         <property name="name">name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">181</property>
+                        <property name="position">173</property>
                         <property name="name">phone</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">182</property>
+                        <property name="position">174</property>
                         <property name="name">email</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">183</property>
-                        <property name="name">status_cd</property>
+                        <property name="position">175</property>
+                        <property name="name">status_cd_175</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">184</property>
-                        <property name="name">created_dttm</property>
+                        <property name="position">176</property>
+                        <property name="name">created_dttm_176</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">185</property>
-                        <property name="name">created_user_id</property>
+                        <property name="position">177</property>
+                        <property name="name">created_user_id_177</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">186</property>
-                        <property name="name">updated_dttm</property>
+                        <property name="position">178</property>
+                        <property name="name">updated_dttm_178</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">187</property>
-                        <property name="name">updated_user_id</property>
+                        <property name="position">179</property>
+                        <property name="name">updated_user_id_179</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">188</property>
-                        <property name="name">nullified_dttm</property>
+                        <property name="position">180</property>
+                        <property name="name">nullified_dttm_180</property>
                         <property name="dataType">date-time</property>
                     </structure>
                     <structure>
-                        <property name="position">189</property>
-                        <property name="name">nullified_user_id</property>
+                        <property name="position">181</property>
+                        <property name="name">nullified_user_id_181</property>
                         <property name="dataType">integer</property>
                     </structure>
                 </list-property>
@@ -1989,8 +1893,8 @@ Can not convert the value of  to Integer type.
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">preparation_sperm_id</property>
-                    <property name="nativeName">preparation_sperm_id</property>
+                    <property name="name">result_dfi_id</property>
+                    <property name="nativeName">result_dfi_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
@@ -2019,27 +1923,27 @@ Can not convert the value of  to Integer type.
                 </structure>
                 <structure>
                     <property name="position">6</property>
-                    <property name="name">checked_at</property>
-                    <property name="nativeName">checked_at</property>
+                    <property name="name">checking_at</property>
+                    <property name="nativeName">checking_at</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">doctor_name</property>
-                    <property name="nativeName">doctor_name</property>
+                    <property name="name">docter_name</property>
+                    <property name="nativeName">docter_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
                     <property name="name">time_out_sample</property>
                     <property name="nativeName">time_out_sample</property>
-                    <property name="dataType">string</property>
+                    <property name="dataType">date-time</property>
                 </structure>
                 <structure>
                     <property name="position">9</property>
                     <property name="name">time_received_sample</property>
                     <property name="nativeName">time_received_sample</property>
-                    <property name="dataType">string</property>
+                    <property name="dataType">date-time</property>
                 </structure>
                 <structure>
                     <property name="position">10</property>
@@ -2055,1074 +1959,1026 @@ Can not convert the value of  to Integer type.
                 </structure>
                 <structure>
                     <property name="position">12</property>
-                    <property name="name">likuifaksi</property>
-                    <property name="nativeName">likuifaksi</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
                     <property name="name">volume</property>
                     <property name="nativeName">volume</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">14</property>
+                    <property name="position">13</property>
                     <property name="name">concentrate</property>
                     <property name="nativeName">concentrate</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
+                    <property name="position">14</property>
+                    <property name="name">vitality</property>
+                    <property name="nativeName">vitality</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
                     <property name="position">15</property>
-                    <property name="name">motilitas_progresif_cepat</property>
-                    <property name="nativeName">motilitas_progresif_cepat</property>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="position">16</property>
-                    <property name="name">motilitas_progresif_lambat</property>
-                    <property name="nativeName">motilitas_progresif_lambat</property>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="position">17</property>
-                    <property name="name">motilitas_non_progresif</property>
-                    <property name="nativeName">motilitas_non_progresif</property>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="position">18</property>
-                    <property name="name">motilitas_imotil</property>
-                    <property name="nativeName">motilitas_imotil</property>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="position">19</property>
-                    <property name="name">post_volume</property>
-                    <property name="nativeName">post_volume</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">20</property>
-                    <property name="name">post_concentrate</property>
-                    <property name="nativeName">post_concentrate</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">21</property>
-                    <property name="name">post_total</property>
-                    <property name="nativeName">post_total</property>
-                    <property name="dataType">float</property>
-                </structure>
-                <structure>
-                    <property name="position">22</property>
-                    <property name="name">post_motilitas_progresif</property>
-                    <property name="nativeName">post_motilitas_progresif</property>
-                    <property name="dataType">integer</property>
-                </structure>
-                <structure>
-                    <property name="position">23</property>
-                    <property name="name">preparation_method</property>
-                    <property name="nativeName">preparation_method</property>
+                    <property name="name">dna_fragmented</property>
+                    <property name="nativeName">dna_fragmented</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">24</property>
+                    <property name="position">16</property>
                     <property name="name">checked_by</property>
                     <property name="nativeName">checked_by</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">25</property>
+                    <property name="position">17</property>
                     <property name="name">checked_by2</property>
                     <property name="nativeName">checked_by2</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">26</property>
+                    <property name="position">18</property>
                     <property name="name">created_dttm</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">27</property>
+                    <property name="position">19</property>
                     <property name="name">created_user_id</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">28</property>
+                    <property name="position">20</property>
                     <property name="name">updated_dttm</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">29</property>
+                    <property name="position">21</property>
                     <property name="name">updated_user_id</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">30</property>
+                    <property name="position">22</property>
                     <property name="name">nullified_dttm</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">31</property>
+                    <property name="position">23</property>
                     <property name="name">nullified_user_id</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">32</property>
-                    <property name="name">order_header_id_32</property>
+                    <property name="position">24</property>
+                    <property name="name">order_header_id_24</property>
                     <property name="nativeName">order_header_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">33</property>
+                    <property name="position">25</property>
                     <property name="name">order_header_number</property>
                     <property name="nativeName">order_header_number</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">34</property>
+                    <property name="position">26</property>
                     <property name="name">order_header_date</property>
                     <property name="nativeName">order_header_date</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">35</property>
+                    <property name="position">27</property>
                     <property name="name">payplan_id</property>
                     <property name="nativeName">payplan_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">36</property>
+                    <property name="position">28</property>
                     <property name="name">service_tariff_group_id</property>
                     <property name="nativeName">service_tariff_group_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">37</property>
+                    <property name="position">29</property>
                     <property name="name">deposit_id</property>
                     <property name="nativeName">deposit_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">38</property>
+                    <property name="position">30</property>
                     <property name="name">tarif_period_id</property>
                     <property name="nativeName">tarif_period_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">39</property>
+                    <property name="position">31</property>
                     <property name="name">subtotal</property>
                     <property name="nativeName">subtotal</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">40</property>
+                    <property name="position">32</property>
                     <property name="name">dpjp_id</property>
                     <property name="nativeName">dpjp_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">41</property>
+                    <property name="position">33</property>
                     <property name="name">discount_type</property>
                     <property name="nativeName">discount_type</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">42</property>
+                    <property name="position">34</property>
                     <property name="name">discount_amount</property>
                     <property name="nativeName">discount_amount</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">43</property>
+                    <property name="position">35</property>
                     <property name="name">discount_total</property>
                     <property name="nativeName">discount_total</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">44</property>
+                    <property name="position">36</property>
                     <property name="name">total</property>
                     <property name="nativeName">total</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">45</property>
+                    <property name="position">37</property>
                     <property name="name">total_paid</property>
                     <property name="nativeName">total_paid</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">46</property>
+                    <property name="position">38</property>
                     <property name="name">order_type</property>
                     <property name="nativeName">order_type</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">47</property>
+                    <property name="position">39</property>
                     <property name="name">organization_id</property>
                     <property name="nativeName">organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">48</property>
-                    <property name="name">patient_id_48</property>
+                    <property name="position">40</property>
+                    <property name="name">patient_id_40</property>
                     <property name="nativeName">patient_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">49</property>
+                    <property name="position">41</property>
                     <property name="name">patient_couple_number</property>
                     <property name="nativeName">patient_couple_number</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">50</property>
+                    <property name="position">42</property>
                     <property name="name">status_lunas</property>
                     <property name="nativeName">status_lunas</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">51</property>
+                    <property name="position">43</property>
                     <property name="name">close_bill</property>
                     <property name="nativeName">close_bill</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">52</property>
+                    <property name="position">44</property>
                     <property name="name">status_cd</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">53</property>
-                    <property name="name">created_dttm_53</property>
+                    <property name="position">45</property>
+                    <property name="name">created_dttm_45</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">54</property>
-                    <property name="name">created_user_id_54</property>
+                    <property name="position">46</property>
+                    <property name="name">created_user_id_46</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">55</property>
-                    <property name="name">updated_dttm_55</property>
+                    <property name="position">47</property>
+                    <property name="name">updated_dttm_47</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">56</property>
-                    <property name="name">updated_user_id_56</property>
+                    <property name="position">48</property>
+                    <property name="name">updated_user_id_48</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">57</property>
-                    <property name="name">nullified_dttm_57</property>
+                    <property name="position">49</property>
+                    <property name="name">nullified_dttm_49</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">58</property>
-                    <property name="name">nullified_user_id_58</property>
+                    <property name="position">50</property>
+                    <property name="name">nullified_user_id_50</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">59</property>
-                    <property name="name">organization_id_59</property>
+                    <property name="position">51</property>
+                    <property name="name">organization_id_51</property>
                     <property name="nativeName">organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">60</property>
+                    <property name="position">52</property>
                     <property name="name">part_of_organization_id</property>
                     <property name="nativeName">part_of_organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">61</property>
+                    <property name="position">53</property>
                     <property name="name">organization_type_code</property>
                     <property name="nativeName">organization_type_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">62</property>
+                    <property name="position">54</property>
                     <property name="name">organization_type_system</property>
                     <property name="nativeName">organization_type_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">63</property>
+                    <property name="position">55</property>
                     <property name="name">organization_name</property>
                     <property name="nativeName">organization_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">64</property>
+                    <property name="position">56</property>
                     <property name="name">organization_alias</property>
                     <property name="nativeName">organization_alias</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">65</property>
+                    <property name="position">57</property>
                     <property name="name">organization_url</property>
                     <property name="nativeName">organization_url</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">66</property>
+                    <property name="position">58</property>
                     <property name="name">description</property>
                     <property name="nativeName">description</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">67</property>
+                    <property name="position">59</property>
                     <property name="name">internal_ind</property>
                     <property name="nativeName">internal_ind</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">68</property>
-                    <property name="name">status_cd_68</property>
+                    <property name="position">60</property>
+                    <property name="name">status_cd_60</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">69</property>
-                    <property name="name">created_dttm_69</property>
+                    <property name="position">61</property>
+                    <property name="name">created_dttm_61</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">70</property>
-                    <property name="name">created_user_id_70</property>
+                    <property name="position">62</property>
+                    <property name="name">created_user_id_62</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">71</property>
-                    <property name="name">updated_dttm_71</property>
+                    <property name="position">63</property>
+                    <property name="name">updated_dttm_63</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">72</property>
-                    <property name="name">updated_user_id_72</property>
+                    <property name="position">64</property>
+                    <property name="name">updated_user_id_64</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">73</property>
-                    <property name="name">nullified_dttm_73</property>
+                    <property name="position">65</property>
+                    <property name="name">nullified_dttm_65</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">74</property>
-                    <property name="name">nullified_user_id_74</property>
+                    <property name="position">66</property>
+                    <property name="name">nullified_user_id_66</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">75</property>
+                    <property name="position">67</property>
                     <property name="name">location_id</property>
                     <property name="nativeName">location_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">76</property>
-                    <property name="name">organization_id_76</property>
+                    <property name="position">68</property>
+                    <property name="name">organization_id_68</property>
                     <property name="nativeName">organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">77</property>
+                    <property name="position">69</property>
                     <property name="name">parent_id</property>
                     <property name="nativeName">parent_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">78</property>
+                    <property name="position">70</property>
                     <property name="name">location_name</property>
                     <property name="nativeName">location_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">79</property>
+                    <property name="position">71</property>
                     <property name="name">location_status_code</property>
                     <property name="nativeName">location_status_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">80</property>
+                    <property name="position">72</property>
                     <property name="name">location_status_system</property>
                     <property name="nativeName">location_status_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">81</property>
+                    <property name="position">73</property>
                     <property name="name">operational_status_type_code</property>
                     <property name="nativeName">operational_status_type_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">82</property>
+                    <property name="position">74</property>
                     <property name="name">operational_status_type_system</property>
                     <property name="nativeName">operational_status_type_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">83</property>
+                    <property name="position">75</property>
                     <property name="name">physical_type_code</property>
                     <property name="nativeName">physical_type_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">84</property>
+                    <property name="position">76</property>
                     <property name="name">physical_type_system</property>
                     <property name="nativeName">physical_type_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">85</property>
-                    <property name="name">description_85</property>
+                    <property name="position">77</property>
+                    <property name="name">description_77</property>
                     <property name="nativeName">description</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">86</property>
+                    <property name="position">78</property>
                     <property name="name">count_status</property>
                     <property name="nativeName">count_status</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">87</property>
+                    <property name="position">79</property>
                     <property name="name">location_url</property>
                     <property name="nativeName">location_url</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">88</property>
+                    <property name="position">80</property>
                     <property name="name">address_use</property>
                     <property name="nativeName">address_use</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">89</property>
+                    <property name="position">81</property>
                     <property name="name">address_type</property>
                     <property name="nativeName">address_type</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">90</property>
+                    <property name="position">82</property>
                     <property name="name">address_text</property>
                     <property name="nativeName">address_text</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">91</property>
+                    <property name="position">83</property>
                     <property name="name">address_line1</property>
                     <property name="nativeName">address_line1</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">92</property>
+                    <property name="position">84</property>
                     <property name="name">address_line2</property>
                     <property name="nativeName">address_line2</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">93</property>
+                    <property name="position">85</property>
                     <property name="name">address_line3</property>
                     <property name="nativeName">address_line3</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">94</property>
+                    <property name="position">86</property>
                     <property name="name">address_regional_cd</property>
                     <property name="nativeName">address_regional_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">95</property>
+                    <property name="position">87</property>
                     <property name="name">address_rt</property>
                     <property name="nativeName">address_rt</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">96</property>
+                    <property name="position">88</property>
                     <property name="name">address_rw</property>
                     <property name="nativeName">address_rw</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">97</property>
+                    <property name="position">89</property>
                     <property name="name">address_city</property>
                     <property name="nativeName">address_city</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">98</property>
+                    <property name="position">90</property>
                     <property name="name">address_district</property>
                     <property name="nativeName">address_district</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">99</property>
+                    <property name="position">91</property>
                     <property name="name">address_village</property>
                     <property name="nativeName">address_village</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">100</property>
+                    <property name="position">92</property>
                     <property name="name">address_state</property>
                     <property name="nativeName">address_state</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">101</property>
+                    <property name="position">93</property>
                     <property name="name">address_country</property>
                     <property name="nativeName">address_country</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">102</property>
+                    <property name="position">94</property>
                     <property name="name">address_latitude</property>
                     <property name="nativeName">address_latitude</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">103</property>
+                    <property name="position">95</property>
                     <property name="name">address_longitude</property>
                     <property name="nativeName">address_longitude</property>
                     <property name="dataType">float</property>
                 </structure>
                 <structure>
-                    <property name="position">104</property>
+                    <property name="position">96</property>
                     <property name="name">address_altitude</property>
                     <property name="nativeName">address_altitude</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">105</property>
+                    <property name="position">97</property>
                     <property name="name">address_use_start_dttm</property>
                     <property name="nativeName">address_use_start_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">106</property>
+                    <property name="position">98</property>
                     <property name="name">address_use_stop_dttm</property>
                     <property name="nativeName">address_use_stop_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">107</property>
-                    <property name="name">status_cd_107</property>
+                    <property name="position">99</property>
+                    <property name="name">status_cd_99</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">108</property>
-                    <property name="name">created_dttm_108</property>
+                    <property name="position">100</property>
+                    <property name="name">created_dttm_100</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">109</property>
-                    <property name="name">created_user_id_109</property>
+                    <property name="position">101</property>
+                    <property name="name">created_user_id_101</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">110</property>
-                    <property name="name">updated_dttm_110</property>
+                    <property name="position">102</property>
+                    <property name="name">updated_dttm_102</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">111</property>
-                    <property name="name">updated_user_id_111</property>
+                    <property name="position">103</property>
+                    <property name="name">updated_user_id_103</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">112</property>
-                    <property name="name">nullified_dttm_112</property>
+                    <property name="position">104</property>
+                    <property name="name">nullified_dttm_104</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">113</property>
-                    <property name="name">nullified_user_id_113</property>
+                    <property name="position">105</property>
+                    <property name="name">nullified_user_id_105</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">114</property>
-                    <property name="name">organization_id_114</property>
+                    <property name="position">106</property>
+                    <property name="name">organization_id_106</property>
                     <property name="nativeName">organization_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">115</property>
+                    <property name="position">107</property>
                     <property name="name">ivf_site_name</property>
                     <property name="nativeName">ivf_site_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">116</property>
+                    <property name="position">108</property>
                     <property name="name">ivf_site_name_pt</property>
                     <property name="nativeName">ivf_site_name_pt</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">117</property>
+                    <property name="position">109</property>
                     <property name="name">ivf_site_url</property>
                     <property name="nativeName">ivf_site_url</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">118</property>
+                    <property name="position">110</property>
                     <property name="name">npwp</property>
                     <property name="nativeName">npwp</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">119</property>
+                    <property name="position">111</property>
                     <property name="name">ivf_site_is_login</property>
                     <property name="nativeName">ivf_site_is_login</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">120</property>
+                    <property name="position">112</property>
                     <property name="name">ivf_site_logo</property>
                     <property name="nativeName">ivf_site_logo</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">121</property>
+                    <property name="position">113</property>
                     <property name="name">ivf_site_logo_url</property>
                     <property name="nativeName">ivf_site_logo_url</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">122</property>
+                    <property name="position">114</property>
                     <property name="name">print_label</property>
                     <property name="nativeName">print_label</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">123</property>
-                    <property name="name">status_cd_123</property>
+                    <property name="position">115</property>
+                    <property name="name">status_cd_115</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">124</property>
-                    <property name="name">created_dttm_124</property>
+                    <property name="position">116</property>
+                    <property name="name">created_dttm_116</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">125</property>
-                    <property name="name">created_user_id_125</property>
+                    <property name="position">117</property>
+                    <property name="name">created_user_id_117</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">126</property>
-                    <property name="name">updated_dttm_126</property>
+                    <property name="position">118</property>
+                    <property name="name">updated_dttm_118</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">127</property>
-                    <property name="name">updated_user_id_127</property>
+                    <property name="position">119</property>
+                    <property name="name">updated_user_id_119</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">128</property>
-                    <property name="name">nullified_dttm_128</property>
+                    <property name="position">120</property>
+                    <property name="name">nullified_dttm_120</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">129</property>
-                    <property name="name">nullified_user_id_129</property>
+                    <property name="position">121</property>
+                    <property name="name">nullified_user_id_121</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">130</property>
-                    <property name="name">patient_id_130</property>
+                    <property name="position">122</property>
+                    <property name="name">patient_id_122</property>
                     <property name="nativeName">patient_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">131</property>
+                    <property name="position">123</property>
                     <property name="name">managing_organization_id</property>
                     <property name="nativeName">managing_organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">132</property>
+                    <property name="position">124</property>
                     <property name="name">import_organization_id</property>
                     <property name="nativeName">import_organization_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">133</property>
+                    <property name="position">125</property>
                     <property name="name">patient_mrn_his</property>
                     <property name="nativeName">patient_mrn_his</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">134</property>
+                    <property name="position">126</property>
                     <property name="name">patient_mrn</property>
                     <property name="nativeName">patient_mrn</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">135</property>
+                    <property name="position">127</property>
                     <property name="name">patient_type_code</property>
                     <property name="nativeName">patient_type_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">136</property>
+                    <property name="position">128</property>
                     <property name="name">patient_type_system</property>
                     <property name="nativeName">patient_type_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">137</property>
+                    <property name="position">129</property>
                     <property name="name">patient_referal_code</property>
                     <property name="nativeName">patient_referal_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">138</property>
+                    <property name="position">130</property>
                     <property name="name">patient_referal_system</property>
                     <property name="nativeName">patient_referal_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">139</property>
+                    <property name="position">131</property>
                     <property name="name">patient_referal_ref_id</property>
                     <property name="nativeName">patient_referal_ref_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">140</property>
+                    <property name="position">132</property>
                     <property name="name">patient_referal_note</property>
                     <property name="nativeName">patient_referal_note</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">141</property>
+                    <property name="position">133</property>
                     <property name="name">patient_socialmedia_code</property>
                     <property name="nativeName">patient_socialmedia_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">142</property>
+                    <property name="position">134</property>
                     <property name="name">patient_socialmedia_system</property>
                     <property name="nativeName">patient_socialmedia_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">143</property>
-                    <property name="name">status_cd_143</property>
+                    <property name="position">135</property>
+                    <property name="name">status_cd_135</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">144</property>
-                    <property name="name">created_dttm_144</property>
+                    <property name="position">136</property>
+                    <property name="name">created_dttm_136</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">145</property>
-                    <property name="name">created_user_id_145</property>
+                    <property name="position">137</property>
+                    <property name="name">created_user_id_137</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">146</property>
-                    <property name="name">updated_dttm_146</property>
+                    <property name="position">138</property>
+                    <property name="name">updated_dttm_138</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">147</property>
-                    <property name="name">updated_user_id_147</property>
+                    <property name="position">139</property>
+                    <property name="name">updated_user_id_139</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">148</property>
-                    <property name="name">nullified_dttm_148</property>
+                    <property name="position">140</property>
+                    <property name="name">nullified_dttm_140</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">149</property>
-                    <property name="name">nullified_user_id_149</property>
+                    <property name="position">141</property>
+                    <property name="name">nullified_user_id_141</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">150</property>
+                    <property name="position">142</property>
                     <property name="name">person_id</property>
                     <property name="nativeName">person_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">151</property>
+                    <property name="position">143</property>
                     <property name="name">person_name</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">152</property>
+                    <property name="position">144</property>
                     <property name="name">salutation</property>
                     <property name="nativeName">salutation</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">153</property>
+                    <property name="position">145</property>
                     <property name="name">prefix</property>
                     <property name="nativeName">prefix</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">154</property>
+                    <property name="position">146</property>
                     <property name="name">suffix</property>
                     <property name="nativeName">suffix</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">155</property>
+                    <property name="position">147</property>
                     <property name="name">gender</property>
                     <property name="nativeName">gender</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">156</property>
+                    <property name="position">148</property>
                     <property name="name">birth_place</property>
                     <property name="nativeName">birth_place</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">157</property>
+                    <property name="position">149</property>
                     <property name="name">birth_dttm</property>
                     <property name="nativeName">birth_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">158</property>
+                    <property name="position">150</property>
                     <property name="name">religion_code</property>
                     <property name="nativeName">religion_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">159</property>
+                    <property name="position">151</property>
                     <property name="name">religion_system</property>
                     <property name="nativeName">religion_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">160</property>
+                    <property name="position">152</property>
                     <property name="name">blood_type_code</property>
                     <property name="nativeName">blood_type_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">161</property>
+                    <property name="position">153</property>
                     <property name="name">blood_type_system</property>
                     <property name="nativeName">blood_type_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">162</property>
+                    <property name="position">154</property>
                     <property name="name">blood_rhesus_code</property>
                     <property name="nativeName">blood_rhesus_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">163</property>
+                    <property name="position">155</property>
                     <property name="name">blood_rhesus_system</property>
                     <property name="nativeName">blood_rhesus_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">164</property>
+                    <property name="position">156</property>
                     <property name="name">education_code</property>
                     <property name="nativeName">education_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">165</property>
+                    <property name="position">157</property>
                     <property name="name">education_system</property>
                     <property name="nativeName">education_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">166</property>
+                    <property name="position">158</property>
                     <property name="name">job_class_code</property>
                     <property name="nativeName">job_class_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">167</property>
+                    <property name="position">159</property>
                     <property name="name">job_class_system</property>
                     <property name="nativeName">job_class_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">168</property>
+                    <property name="position">160</property>
                     <property name="name">etnicity_code</property>
                     <property name="nativeName">etnicity_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">169</property>
+                    <property name="position">161</property>
                     <property name="name">etnicity_system</property>
                     <property name="nativeName">etnicity_system</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">170</property>
+                    <property name="position">162</property>
                     <property name="name">multiple_birth</property>
                     <property name="nativeName">multiple_birth</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">171</property>
+                    <property name="position">163</property>
                     <property name="name">marital_status</property>
                     <property name="nativeName">marital_status</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">172</property>
-                    <property name="name">status_cd_172</property>
+                    <property name="position">164</property>
+                    <property name="name">status_cd_164</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">173</property>
-                    <property name="name">created_dttm_173</property>
+                    <property name="position">165</property>
+                    <property name="name">created_dttm_165</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">174</property>
-                    <property name="name">created_user_id_174</property>
+                    <property name="position">166</property>
+                    <property name="name">created_user_id_166</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">175</property>
-                    <property name="name">updated_dttm_175</property>
+                    <property name="position">167</property>
+                    <property name="name">updated_dttm_167</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">176</property>
-                    <property name="name">updated_user_id_176</property>
+                    <property name="position">168</property>
+                    <property name="name">updated_user_id_168</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">177</property>
-                    <property name="name">nullified_dttm_177</property>
+                    <property name="position">169</property>
+                    <property name="name">nullified_dttm_169</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">178</property>
-                    <property name="name">nullified_user_id_178</property>
+                    <property name="position">170</property>
+                    <property name="name">nullified_user_id_170</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">179</property>
-                    <property name="name">person_id_179</property>
+                    <property name="position">171</property>
+                    <property name="name">person_id_171</property>
                     <property name="nativeName">person_id</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
-                    <property name="position">180</property>
+                    <property name="position">172</property>
                     <property name="name">name</property>
                     <property name="nativeName">name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">181</property>
+                    <property name="position">173</property>
                     <property name="name">phone</property>
                     <property name="nativeName">phone</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">182</property>
+                    <property name="position">174</property>
                     <property name="name">email</property>
                     <property name="nativeName">email</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">183</property>
-                    <property name="name">status_cd_183</property>
+                    <property name="position">175</property>
+                    <property name="name">status_cd_175</property>
                     <property name="nativeName">status_cd</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">184</property>
-                    <property name="name">created_dttm_184</property>
+                    <property name="position">176</property>
+                    <property name="name">created_dttm_176</property>
                     <property name="nativeName">created_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">185</property>
-                    <property name="name">created_user_id_185</property>
+                    <property name="position">177</property>
+                    <property name="name">created_user_id_177</property>
                     <property name="nativeName">created_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">186</property>
-                    <property name="name">updated_dttm_186</property>
+                    <property name="position">178</property>
+                    <property name="name">updated_dttm_178</property>
                     <property name="nativeName">updated_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">187</property>
-                    <property name="name">updated_user_id_187</property>
+                    <property name="position">179</property>
+                    <property name="name">updated_user_id_179</property>
                     <property name="nativeName">updated_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">188</property>
-                    <property name="name">nullified_dttm_188</property>
+                    <property name="position">180</property>
+                    <property name="name">nullified_dttm_180</property>
                     <property name="nativeName">nullified_dttm</property>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="position">189</property>
-                    <property name="name">nullified_user_id_189</property>
+                    <property name="position">181</property>
+                    <property name="name">nullified_user_id_181</property>
                     <property name="nativeName">nullified_user_id</property>
                     <property name="dataType">integer</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT * FROM preparation_sperm sa 
+            <xml-property name="queryText"><![CDATA[SELECT * FROM result_dfi sa 
 LEFT JOIN order_header oh ON sa.order_header_id = oh.order_header_id
 LEFT JOIN organization o ON oh.organization_id = o.organization_id 
 LEFT JOIN location l ON o.organization_id = l.organization_id 
@@ -4508,20 +4364,6 @@ WHERE oh.order_header_id = ?;]]></xml-property>
 </model:DesignValues>]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Practitioner" id="909">
-            <list-property name="columnHints">
-                <structure>
-                    <property name="columnName">person1</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">person1</text-property>
-                    <text-property name="heading">person1</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">person2</property>
-                    <property name="analysis">dimension</property>
-                    <text-property name="displayName">person2</text-property>
-                    <text-property name="heading">person2</text-property>
-                </structure>
-            </list-property>
             <list-property name="parameters">
                 <structure>
                     <property name="name">order_header_id</property>
@@ -4538,12 +4380,12 @@ WHERE oh.order_header_id = ?;]]></xml-property>
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">person1</property>
+                        <property name="name">person_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">person2</property>
+                        <property name="name">person_name_2</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -4552,23 +4394,21 @@ WHERE oh.order_header_id = ?;]]></xml-property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">person1</property>
+                    <property name="name">person_name</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">person2</property>
+                    <property name="name">person_name_2</property>
                     <property name="nativeName">person_name</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[select 
 	pe.person_name as person1, 
 	pe2.person_name as person2 
-from preparation_sperm ps
+from result_dfi ps
 LEFT JOIN practitioner p ON ps.checked_by = p.user_id
 LEFT JOIN person pe ON p.practitioner_id = pe.person_id 
 LEFT JOIN practitioner p2 ON ps.checked_by2 = p2.user_id
@@ -4577,23 +4417,6 @@ WHERE ps.order_header_id = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
   <Version>2.0</Version>
-  <DataSetParameters>
-    <parameter>
-      <design:ParameterDefinition>
-        <design:inOutMode>In</design:inOutMode>
-        <design:attributes>
-          <design:identifier>
-            <design:name></design:name>
-            <design:position>1</design:position>
-          </design:identifier>
-          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
-          <design:precision>0</design:precision>
-          <design:scale>0</design:scale>
-          <design:nullability>Unknown</design:nullability>
-        </design:attributes>
-      </design:ParameterDefinition>
-    </parameter>
-  </DataSetParameters>
   <design:ResultSets derivedMetaData="true">
     <design:resultSetDefinitions>
       <design:resultSetColumns>
@@ -4741,7 +4564,7 @@ WHERE ps.order_header_id = ?]]></xml-property>
                     <label id="337">
                         <property name="fontSize">16px</property>
                         <property name="fontWeight">bold</property>
-                        <text-property name="text">Surat Hasil Preparasi Sperma Untuk IUI</text-property>
+                        <text-property name="text">HASIL PEMERIKSAAN DFI</text-property>
                     </label>
                 </cell>
                 <cell id="18">
@@ -5254,19 +5077,10 @@ WHERE ps.order_header_id = ?]]></xml-property>
         <grid id="119">
             <property name="marginBottom">3px</property>
             <property name="width">7.930555555555555in</property>
-            <column id="120">
-                <property name="width">4.541666666666667in</property>
-            </column>
             <column id="121">
                 <property name="width">3.388888888888889in</property>
             </column>
             <row id="122">
-                <cell id="123">
-                    <label id="338">
-                        <property name="fontWeight">bold</property>
-                        <text-property name="text">HASIL ANALISA SPERMA PRA PREPARASI</text-property>
-                    </label>
-                </cell>
                 <cell id="124">
                     <grid id="348">
                         <property name="width">3.875in</property>
@@ -5362,17 +5176,6 @@ WHERE ps.order_header_id = ?]]></xml-property>
                     </label>
                 </cell>
             </row>
-            <row id="137">
-                <cell id="138">
-                    <label id="343">
-                        <property name="fontWeight">bold</property>
-                        <text-property name="text">SEMEN</text-property>
-                    </label>
-                </cell>
-                <cell id="139"/>
-                <cell id="140"/>
-                <cell id="141"/>
-            </row>
             <row id="142">
                 <cell id="143">
                     <text id="262">
@@ -5420,56 +5223,6 @@ WHERE ps.order_header_id = ?]]></xml-property>
                 </cell>
                 <cell id="146"/>
             </row>
-            <row id="152">
-                <cell id="153">
-                    <text id="266">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Likuifaksi]]></text-property>
-                    </text>
-                </cell>
-                <cell id="154">
-                    <grid id="379">
-                        <property name="width">1.9027777777777777in</property>
-                        <column id="380">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="381">
-                            <property name="width">1.6527777777777777in</property>
-                        </column>
-                        <row id="382">
-                            <cell id="383">
-                                <label id="530">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="384">
-                                <data id="727">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">likuifaksi</property>
-                                            <text-property name="displayName">likuifaksi</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["likuifaksi"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">likuifaksi</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="155">
-                    <label id="676">
-                        <text-property name="text">&lt; 60</text-property>
-                    </label>
-                </cell>
-                <cell id="156">
-                    <label id="679">
-                        <text-property name="text">Menit</text-property>
-                    </label>
-                </cell>
-            </row>
             <row id="167">
                 <cell id="168">
                     <text id="269">
@@ -5509,23 +5262,16 @@ WHERE ps.order_header_id = ?]]></xml-property>
                         </row>
                     </grid>
                 </cell>
-                <cell id="170"/>
+                <cell id="170">
+                    <label id="914">
+                        <text-property name="text">1.4</text-property>
+                    </label>
+                </cell>
                 <cell id="171">
                     <label id="681">
                         <text-property name="text">ml</text-property>
                     </label>
                 </cell>
-            </row>
-            <row id="172">
-                <cell id="173">
-                    <label id="359">
-                        <property name="fontWeight">bold</property>
-                        <text-property name="text">Spermatozoa</text-property>
-                    </label>
-                </cell>
-                <cell id="174"/>
-                <cell id="175"/>
-                <cell id="176"/>
             </row>
             <row id="177">
                 <cell id="178">
@@ -5567,7 +5313,9 @@ WHERE ps.order_header_id = ?]]></xml-property>
                     </grid>
                 </cell>
                 <cell id="180">
-                    <text id="683"/>
+                    <label id="915">
+                        <text-property name="text">16</text-property>
+                    </label>
                 </cell>
                 <cell id="181"/>
             </row>
@@ -5575,7 +5323,7 @@ WHERE ps.order_header_id = ?]]></xml-property>
                 <cell id="183">
                     <text id="272">
                         <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Jumlah Total]]></text-property>
+                        <text-property name="content"><![CDATA[Vitalitas]]></text-property>
                     </text>
                 </cell>
                 <cell id="184">
@@ -5594,34 +5342,38 @@ WHERE ps.order_header_id = ?]]></xml-property>
                                 </label>
                             </cell>
                             <cell id="420">
-                                <label id="734">
-                                    <text-property name="text">14</text-property>
-                                </label>
+                                <data id="912">
+                                    <property name="dataSet">Data Set</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">vitality</property>
+                                            <text-property name="displayName">vitality</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["vitality"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">vitality</property>
+                                </data>
                             </cell>
                         </row>
                     </grid>
                 </cell>
                 <cell id="185">
-                    <text id="684"/>
+                    <label id="916">
+                        <text-property name="text">54</text-property>
+                    </label>
                 </cell>
-                <cell id="186"/>
-            </row>
-            <row id="187">
-                <cell id="188">
-                    <text id="273">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Motilitas]]></text-property>
-                    </text>
+                <cell id="186">
+                    <label id="918">
+                        <text-property name="text">%</text-property>
+                    </label>
                 </cell>
-                <cell id="189"/>
-                <cell id="190"/>
-                <cell id="191"/>
             </row>
             <row id="192">
                 <cell id="193">
                     <text id="274">
                         <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[a. Progresif cepat]]></text-property>
+                        <text-property name="content"><![CDATA[DNA Terfragmentasi]]></text-property>
                     </text>
                 </cell>
                 <cell id="194">
@@ -5640,17 +5392,17 @@ WHERE ps.order_header_id = ?]]></xml-property>
                                 </label>
                             </cell>
                             <cell id="432">
-                                <data id="730">
+                                <data id="913">
                                     <property name="dataSet">Data Set</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
-                                            <property name="name">motilitas_progresif_cepat</property>
-                                            <text-property name="displayName">motilitas_progresif_cepat</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["motilitas_progresif_cepat"]</expression>
-                                            <property name="dataType">integer</property>
+                                            <property name="name">dna_fragmented</property>
+                                            <text-property name="displayName">dna_fragmented</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["dna_fragmented"]</expression>
+                                            <property name="dataType">string</property>
                                         </structure>
                                     </list-property>
-                                    <property name="resultSetColumn">motilitas_progresif_cepat</property>
+                                    <property name="resultSetColumn">dna_fragmented</property>
                                 </data>
                             </cell>
                         </row>
@@ -5658,7 +5410,7 @@ WHERE ps.order_header_id = ?]]></xml-property>
                 </cell>
                 <cell id="195">
                     <label id="693">
-                        <text-property name="text">30</text-property>
+                        <text-property name="text">&lt;15 : Low</text-property>
                     </label>
                 </cell>
                 <cell id="196">
@@ -5668,12 +5420,7 @@ WHERE ps.order_header_id = ?]]></xml-property>
                 </cell>
             </row>
             <row id="197">
-                <cell id="198">
-                    <text id="275">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[b. Progresif lambat]]></text-property>
-                    </text>
-                </cell>
+                <cell id="198"/>
                 <cell id="199">
                     <grid id="433">
                         <property name="width">1.9027777777777777in</property>
@@ -5684,42 +5431,20 @@ WHERE ps.order_header_id = ?]]></xml-property>
                             <property name="width">1.6527777777777777in</property>
                         </column>
                         <row id="436">
-                            <cell id="437">
-                                <label id="542">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="438">
-                                <data id="731">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">motilitas_progresif_lambat</property>
-                                            <text-property name="displayName">motilitas_progresif_lambat</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["motilitas_progresif_lambat"]</expression>
-                                            <property name="dataType">integer</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">motilitas_progresif_lambat</property>
-                                </data>
-                            </cell>
+                            <cell id="437"/>
+                            <cell id="438"/>
                         </row>
                     </grid>
                 </cell>
-                <cell id="200"/>
-                <cell id="201">
-                    <label id="686">
-                        <text-property name="text">%</text-property>
+                <cell id="200">
+                    <label id="917">
+                        <text-property name="text">15 - 30 : Moderate</text-property>
                     </label>
                 </cell>
+                <cell id="201"/>
             </row>
             <row id="202">
-                <cell id="203">
-                    <text id="276">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[c. Non progresif]]></text-property>
-                    </text>
-                </cell>
+                <cell id="203"/>
                 <cell id="204">
                     <grid id="440">
                         <property name="width">1.9027777777777777in</property>
@@ -5730,47 +5455,22 @@ WHERE ps.order_header_id = ?]]></xml-property>
                             <property name="width">1.6527777777777777in</property>
                         </column>
                         <row id="443">
-                            <cell id="444">
-                                <label id="543">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="445">
-                                <data id="732">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">motilitas_non_progresif</property>
-                                            <text-property name="displayName">motilitas_non_progresif</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["motilitas_non_progresif"]</expression>
-                                            <property name="dataType">integer</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">motilitas_non_progresif</property>
-                                </data>
-                            </cell>
+                            <cell id="444"/>
+                            <cell id="445"/>
                         </row>
                     </grid>
                 </cell>
                 <cell id="205">
                     <label id="694">
-                        <text-property name="text">1</text-property>
+                        <text-property name="text">>30 : High</text-property>
                     </label>
                 </cell>
-                <cell id="206">
-                    <label id="687">
-                        <text-property name="text">%</text-property>
-                    </label>
-                </cell>
+                <cell id="206"/>
             </row>
             <row id="207">
                 <cell id="208">
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">medium</property>
-                    <text id="277">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[d. Imotil]]></text-property>
-                    </text>
                 </cell>
                 <cell id="209">
                     <property name="borderBottomStyle">solid</property>
@@ -5784,306 +5484,19 @@ WHERE ps.order_header_id = ?]]></xml-property>
                             <property name="width">1.6527777777777777in</property>
                         </column>
                         <row id="449">
-                            <cell id="450">
-                                <label id="544">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="451">
-                                <data id="733">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">motilitas_imotil</property>
-                                            <text-property name="displayName">motilitas_imotil</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["motilitas_imotil"]</expression>
-                                            <property name="dataType">integer</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">motilitas_imotil</property>
-                                </data>
-                            </cell>
+                            <cell id="450"/>
+                            <cell id="451"/>
                         </row>
                     </grid>
                 </cell>
                 <cell id="210">
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">medium</property>
-                    <label id="695">
-                        <text-property name="text">20</text-property>
-                    </label>
                 </cell>
                 <cell id="211">
                     <property name="borderBottomStyle">solid</property>
                     <property name="borderBottomWidth">medium</property>
-                    <label id="688">
-                        <text-property name="text">%</text-property>
-                    </label>
                 </cell>
-            </row>
-        </grid>
-        <label id="720">
-            <property name="fontWeight">bold</property>
-            <text-property name="text">HASIL ANALISA SPERMA POST PREPARASI</text-property>
-        </label>
-        <grid id="287">
-            <property name="width">7.930555555555555in</property>
-            <column id="288">
-                <property name="width">1.9861111111111112in</property>
-            </column>
-            <column id="289">
-                <property name="width">3.3055555555555554in</property>
-            </column>
-            <column id="290">
-                <property name="width">2.638888888888889in</property>
-            </column>
-            <row id="291">
-                <cell id="292">
-                    <property name="borderBottomStyle">solid</property>
-                    <property name="borderBottomWidth">medium</property>
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">medium</property>
-                    <label id="361">
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">center</property>
-                        <text-property name="text">Pemeriksaan</text-property>
-                    </label>
-                </cell>
-                <cell id="293">
-                    <property name="borderBottomStyle">solid</property>
-                    <property name="borderBottomWidth">medium</property>
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">medium</property>
-                    <label id="718">
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">center</property>
-                        <text-property name="text">Hasil</text-property>
-                    </label>
-                </cell>
-                <cell id="294">
-                    <property name="borderBottomStyle">solid</property>
-                    <property name="borderBottomWidth">medium</property>
-                    <property name="borderTopStyle">solid</property>
-                    <property name="borderTopWidth">medium</property>
-                    <label id="719">
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">center</property>
-                        <text-property name="text">Satuan</text-property>
-                    </label>
-                </cell>
-            </row>
-            <row id="295">
-                <cell id="296">
-                    <text id="316">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Volume]]></text-property>
-                    </text>
-                </cell>
-                <cell id="297">
-                    <grid id="500">
-                        <property name="width">3.2222222222222223in</property>
-                        <column id="501">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="502">
-                            <property name="width">2.9722222222222223in</property>
-                        </column>
-                        <row id="503">
-                            <cell id="504">
-                                <label id="565">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="505">
-                                <data id="735">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">post_volume</property>
-                                            <text-property name="displayName">post_volume</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["post_volume"]</expression>
-                                            <property name="dataType">float</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">post_volume</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="298"/>
-            </row>
-            <row id="299">
-                <cell id="300">
-                    <text id="317">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Konsentrasi]]></text-property>
-                    </text>
-                </cell>
-                <cell id="301">
-                    <grid id="506">
-                        <property name="width">3.2222222222222223in</property>
-                        <column id="507">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="508">
-                            <property name="width">2.9722222222222223in</property>
-                        </column>
-                        <row id="509">
-                            <cell id="510">
-                                <label id="566">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="511">
-                                <data id="736">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">post_concentrate</property>
-                                            <text-property name="displayName">post_concentrate</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["post_concentrate"]</expression>
-                                            <property name="dataType">float</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">post_concentrate</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="302">
-                    <label id="701">
-                        <text-property name="text">%</text-property>
-                    </label>
-                </cell>
-            </row>
-            <row id="303">
-                <cell id="304">
-                    <text id="318">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Jumlah Total]]></text-property>
-                    </text>
-                </cell>
-                <cell id="305">
-                    <grid id="512">
-                        <property name="width">3.2222222222222223in</property>
-                        <column id="513">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="514">
-                            <property name="width">2.9722222222222223in</property>
-                        </column>
-                        <row id="515">
-                            <cell id="516">
-                                <label id="567">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="517">
-                                <data id="737">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">post_total</property>
-                                            <text-property name="displayName">post_total</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["post_total"]</expression>
-                                            <property name="dataType">float</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">post_total</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="306"/>
-            </row>
-            <row id="307">
-                <cell id="308">
-                    <text id="319">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Motilitas Progresif]]></text-property>
-                    </text>
-                </cell>
-                <cell id="309">
-                    <grid id="518">
-                        <property name="width">3.2222222222222223in</property>
-                        <column id="519">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="520">
-                            <property name="width">2.9722222222222223in</property>
-                        </column>
-                        <row id="521">
-                            <cell id="522">
-                                <label id="568">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="523">
-                                <data id="738">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">post_motilitas_progresif</property>
-                                            <text-property name="displayName">post_motilitas_progresif</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["post_motilitas_progresif"]</expression>
-                                            <property name="dataType">integer</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">post_motilitas_progresif</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="310">
-                    <label id="702">
-                        <text-property name="text">%</text-property>
-                    </label>
-                </cell>
-            </row>
-            <row id="311">
-                <cell id="312">
-                    <text id="320">
-                        <property name="contentType">auto</property>
-                        <text-property name="content"><![CDATA[Metode Preparasi]]></text-property>
-                    </text>
-                </cell>
-                <cell id="313">
-                    <grid id="524">
-                        <property name="width">3.2222222222222223in</property>
-                        <column id="525">
-                            <property name="width">0.25in</property>
-                        </column>
-                        <column id="526">
-                            <property name="width">2.9722222222222223in</property>
-                        </column>
-                        <row id="527">
-                            <cell id="528">
-                                <label id="569">
-                                    <text-property name="text">:</text-property>
-                                </label>
-                            </cell>
-                            <cell id="529">
-                                <data id="739">
-                                    <property name="dataSet">Data Set</property>
-                                    <list-property name="boundDataColumns">
-                                        <structure>
-                                            <property name="name">preparation_method</property>
-                                            <text-property name="displayName">preparation_method</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["preparation_method"]</expression>
-                                            <property name="dataType">string</property>
-                                        </structure>
-                                    </list-property>
-                                    <property name="resultSetColumn">preparation_method</property>
-                                </data>
-                            </cell>
-                        </row>
-                    </grid>
-                </cell>
-                <cell id="314"/>
             </row>
         </grid>
         <grid id="893">
