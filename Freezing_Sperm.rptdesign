@@ -83,6 +83,7 @@
             <property name="odaURL">jdbc:mysql://152.42.189.235:3306/sismedikaIVF_his</property>
             <property name="odaUser">sismayaDBU</property>
             <encrypted-property name="odaPassword" encryptionID="base64">REJzaXNNQVlBMTMy</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
