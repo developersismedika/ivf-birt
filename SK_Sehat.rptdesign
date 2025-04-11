@@ -813,7 +813,7 @@ from person where person_id = ?;]]></xml-property>
                         <property name="fontSize">18px</property>
                         <property name="fontWeight">bold</property>
                         <property name="textAlign">left</property>
-                        <text-property name="text">Surat Keterangan Sehat</text-property>
+                        <text-property name="text">Surat Keterangan</text-property>
                     </label>
                 </cell>
                 <cell id="4398">
