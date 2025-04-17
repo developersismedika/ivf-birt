@@ -1672,15 +1672,6 @@ this.setDisplayValue(formatCurrency(Number(this.getValue())));]]></method>
                                                     <property name="paddingLeft">0pt</property>
                                                     <property name="paddingBottom">0pt</property>
                                                     <property name="paddingRight">0pt</property>
-                                                    <property name="dataSet">Topup Deposit</property>
-                                                    <list-property name="boundDataColumns">
-                                                        <structure>
-                                                            <property name="name">payment_amount</property>
-                                                            <text-property name="displayName">payment_amount</text-property>
-                                                            <expression name="expression" type="javascript">dataSetRow["payment_amount"]</expression>
-                                                            <property name="dataType">decimal</property>
-                                                        </structure>
-                                                    </list-property>
                                                     <method name="onRender"><![CDATA[function formatCurrency(amount) {  
   return "Rp" + amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
