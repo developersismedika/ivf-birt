@@ -4759,17 +4759,17 @@ WHERE ps.order_header_id = ?]]></xml-property>
                                 </label>
                             </cell>
                             <cell id="625">
-                                <data id="725">
+                                <data id="920">
                                     <property name="dataSet">Data Set</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
-                                            <property name="name">doctor_name</property>
-                                            <text-property name="displayName">doctor_name</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["doctor_name"]</expression>
+                                            <property name="name">docter_name</property>
+                                            <text-property name="displayName">docter_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["docter_name"]</expression>
                                             <property name="dataType">string</property>
                                         </structure>
                                     </list-property>
-                                    <property name="resultSetColumn">doctor_name</property>
+                                    <property name="resultSetColumn">docter_name</property>
                                 </data>
                             </cell>
                         </row>
@@ -4856,17 +4856,17 @@ WHERE ps.order_header_id = ?]]></xml-property>
                                 </label>
                             </cell>
                             <cell id="633">
-                                <data id="722">
+                                <data id="919">
                                     <property name="dataSet">Data Set</property>
                                     <list-property name="boundDataColumns">
                                         <structure>
-                                            <property name="name">checked_at</property>
-                                            <text-property name="displayName">checked_at</text-property>
-                                            <expression name="expression" type="javascript">dataSetRow["checked_at"]</expression>
+                                            <property name="name">checking_at</property>
+                                            <text-property name="displayName">checking_at</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["checking_at"]</expression>
                                             <property name="dataType">date-time</property>
                                         </structure>
                                     </list-property>
-                                    <property name="resultSetColumn">checked_at</property>
+                                    <property name="resultSetColumn">checking_at</property>
                                 </data>
                             </cell>
                         </row>
