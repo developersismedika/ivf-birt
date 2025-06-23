@@ -1970,6 +1970,12 @@ ORDER BY is_first_transaction DESC, eo.order_header_date;
                     <expression name="expression" type="javascript">dataSetRow["type"]</expression>
                     <property name="dataType">string</property>
                 </structure>
+                <structure>
+                    <property name="name">is_first_transaction</property>
+                    <text-property name="displayName">is_first_transaction</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["is_first_transaction"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
             </list-property>
             <column id="5535"/>
             <column id="5536"/>
@@ -1982,6 +1988,7 @@ ORDER BY is_first_transaction DESC, eo.order_header_date;
             <column id="5543"/>
             <column id="5544"/>
             <column id="5545"/>
+            <column id="5573"/>
             <header>
                 <row id="5499">
                     <property name="fontSize">12pt</property>
@@ -2141,6 +2148,20 @@ ORDER BY is_first_transaction DESC, eo.order_header_date;
                             <text-property name="text">type</text-property>
                         </label>
                     </cell>
+                    <cell id="5571">
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <label id="5574">
+                            <text-property name="text">is_first_transaction</text-property>
+                        </label>
+                    </cell>
                 </row>
             </header>
             <detail>
@@ -2298,6 +2319,20 @@ ORDER BY is_first_transaction DESC, eo.order_header_date;
                         <property name="borderTopWidth">1px</property>
                         <data id="5570">
                             <property name="resultSetColumn">type</property>
+                        </data>
+                    </cell>
+                    <cell id="5572">
+                        <property name="fontSize">12pt</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <data id="5575">
+                            <property name="resultSetColumn">is_first_transaction</property>
                         </data>
                     </cell>
                 </row>
