@@ -193,33 +193,35 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
-	person.person_name,
-	DATE_FORMAT(person.birth_dttm, '%e - %b - %Y') AS birth_dttm,
-	CASE 
-    	WHEN person_citizenship.citizenship_code = 'ID' THEN 
-        	CONCAT(
-            	'+62', 
-            	CASE 
-                	WHEN LEFT(person_telecom_phone.person_telecom_value, 1) = '0' THEN 
-                    	SUBSTRING(person_telecom_phone.person_telecom_value, 2)
-                	ELSE 
-                    	person_telecom_phone.person_telecom_value
-            	END
-        	)
-    	ELSE
-        	person_telecom_phone.person_telecom_value
-	END AS phone,
-	person_telecom_email.person_telecom_value AS email
+    person.person_name,
+    DATE_FORMAT(person.birth_dttm, '%e - %b - %Y') AS birth_dttm,
+    CASE 
+        WHEN person_citizenship.citizenship_code = 'ID' THEN 
+            CONCAT(
+                '+62', 
+                CASE 
+                    WHEN LEFT(phone_agg, 1) = '0' THEN SUBSTRING(phone_agg, 2)
+                    ELSE phone_agg
+                END
+            )
+        ELSE
+            phone_agg
+    END AS phone,
+    email_agg AS email
 FROM deposit_log
 LEFT JOIN deposit_pocket ON deposit_log.deposit_pocket_id = deposit_pocket.deposit_pocket_id
 LEFT JOIN deposit_person ON deposit_pocket.deposit_id = deposit_person.deposit_id
 LEFT JOIN person ON deposit_person.person_id = person.person_id
 LEFT JOIN person_citizenship ON person.person_id = person_citizenship.person_id
-LEFT JOIN person_telecom AS person_telecom_email ON person_telecom_email.person_id = person.person_id AND person_telecom_email.person_telecom_system = 'email'
-LEFT JOIN person_telecom AS person_telecom_phone ON person_telecom_phone.person_id = person.person_id AND person_telecom_phone.person_telecom_system = 'phone'
-WHERE
-	deposit_log.deposit_log_id = ?
-ORDER BY person.gender DESC]]></xml-property>
+LEFT JOIN (
+    SELECT person_id, 
+        SUBSTRING_INDEX(GROUP_CONCAT(CASE WHEN person_telecom_system = 'email' THEN person_telecom_value END ORDER BY person_telecom_id ASC), ',', 1) AS email_agg,
+        SUBSTRING_INDEX(GROUP_CONCAT(CASE WHEN person_telecom_system = 'phone' THEN person_telecom_value END ORDER BY person_telecom_id ASC), ',', 1) AS phone_agg
+    FROM person_telecom
+    GROUP BY person_id
+) AS telecom ON telecom.person_id = person.person_id
+WHERE deposit_log.deposit_log_id = ?
+ORDER BY person.gender DESC;]]></xml-property>
         </oda-data-set>
         <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Kantong Deposit" id="379">
             <list-property name="columnHints">
