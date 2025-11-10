@@ -90,7 +90,7 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
-            <property name="odaURL">jdbc:mysql://localhost/ivf2023</property>
+            <property name="odaURL">jdbc:mysql://localhost/ivfdb</property>
             <property name="odaUser">root</property>
             <encrypted-property name="odaPassword" encryptionID="base64">MTIzNA==</encrypted-property>
             <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
@@ -2210,6 +2210,7 @@ join invoice_item ii on ii.invoice_header_id = i.invoice_header_id
 join inventory iv on ii.inventory_id = iv.inventory_id
 join payment_header ph on i.invoice_header_id = ph.invoice_header_id
 join order_item oi on oi.order_item_id = ii.order_item_id
+where ii.status_cd = 'normal'
  ) as xxx where idx	  =  ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
