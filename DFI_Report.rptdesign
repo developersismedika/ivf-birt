@@ -1,0 +1,3330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">954</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">954</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">954</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">1639</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">1639</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">1639</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">1664</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">1664</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">1664</property>
+        </structure>
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">763</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">763</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">763</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="order_header_id" id="955">
+            <property name="valueType">static</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="user_name" id="1621">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">-</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="ivf_db" id="330">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.cj.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/dump_ivf_db</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">U2h5ZkAxMTE=</encrypted-property>
+            <property name="odaJndiName">java:comp/env/jdbc/ivf</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Logo Company" id="954">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">order_header_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">order_header_id</text-property>
+                    <text-property name="heading">order_header_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">organization_logo</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">organization_logo</text-property>
+                    <text-property name="heading">organization_logo</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">organization_logo_img</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">organization_logo_img</text-property>
+                    <text-property name="heading">organization_logo_img</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">organization_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">organization_name</text-property>
+                    <text-property name="heading">organization_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address_line1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">address_line1</text-property>
+                    <text-property name="heading">address_line1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">address_line2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">address_line2</text-property>
+                    <text-property name="heading">address_line2</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">order_header_id</property>
+                    <property name="paramName">order_header_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">order_header_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">organization_logo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">organization_logo_img</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">organization_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">address_line1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">address_line2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf_db</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">order_header_id</property>
+                    <property name="nativeName">order_header_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">organization_logo</property>
+                    <property name="nativeName">ivf_site_logo</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">organization_logo_img</property>
+                    <property name="nativeName">organization_logo_img</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">organization_name</property>
+                    <property name="nativeName">organization_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">address_line1</property>
+                    <property name="nativeName">address_line1</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">address_line2</property>
+                    <property name="nativeName">address_line2</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	oh.order_header_id as order_header_id,
+	isi.ivf_site_logo as organization_logo,
+	CONCAT(
+        '<img src="',
+        isi.ivf_site_logo_url,
+        '" alt="Organization Logo" style="display:inline-block;width:146px;height:84px;margin:2px;" />'
+    ) AS organization_logo_img,
+    o.organization_name as organization_name,
+    l.address_line1 as address_line1,
+    l.address_line2 as address_line2
+FROM order_header oh 
+LEFT JOIN organization o ON o.organization_id = oh.organization_id 
+LEFT JOIN location l ON l.organization_id = o.organization_id 
+LEFT JOIN ivf_site isi ON o.organization_id = isi.organization_id
+WHERE oh.order_header_id = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>order_header_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>order_header_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>order_header_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ivf_site_logo</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>organization_logo</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>organization_logo</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>organization_logo_img</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>5592405</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>organization_logo_img</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>organization_logo_img</design:label>
+            <design:formattingHints>
+              <design:displaySize>5592405</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Patient Data" id="763">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">order_header_id</property>
+                    <property name="alias">order_header_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">order_header_id</text-property>
+                    <text-property name="heading">order_header_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">order_type</property>
+                    <property name="alias">order_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">order_type</text-property>
+                    <text-property name="heading">order_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_id</property>
+                    <property name="alias">single_patient_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">single_patient_id</text-property>
+                    <text-property name="heading">single_patient_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_mrn</property>
+                    <property name="alias">single_patient_mrn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">single_patient_mrn</text-property>
+                    <text-property name="heading">single_patient_mrn</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_name</property>
+                    <property name="alias">single_patient_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">single_patient_name</text-property>
+                    <text-property name="heading">single_patient_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_dob</property>
+                    <property name="alias">single_patient_dob</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">single_patient_dob</text-property>
+                    <text-property name="heading">single_patient_dob</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_identifier</property>
+                    <property name="alias">single_patient_identifier</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">single_patient_identifier</text-property>
+                    <text-property name="heading">single_patient_identifier</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_phone</property>
+                    <property name="alias">single_patient_phone</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">single_patient_phone</text-property>
+                    <text-property name="heading">single_patient_phone</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">single_patient_age</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">single_patient_age</text-property>
+                    <text-property name="heading">single_patient_age</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">male_patient_id</property>
+                    <property name="alias">male_patient_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">male_patient_id</text-property>
+                    <text-property name="heading">male_patient_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">male_patient_dob</property>
+                    <property name="alias">male_patient_dob</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">male_patient_dob</text-property>
+                    <text-property name="heading">male_patient_dob</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">male_patient_age</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">male_patient_age</text-property>
+                    <text-property name="heading">male_patient_age</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">female_patient_id</property>
+                    <property name="alias">female_patient_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">female_patient_id</text-property>
+                    <text-property name="heading">female_patient_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">female_patient_dob</property>
+                    <property name="alias">female_patient_dob</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">female_patient_dob</text-property>
+                    <text-property name="heading">female_patient_dob</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">female_patient_age</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">female_patient_age</text-property>
+                    <text-property name="heading">female_patient_age</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">order_header_id</property>
+                    <property name="paramName">order_header_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">order_header_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">order_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">single_patient_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">single_patient_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">single_patient_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">single_patient_dob</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">single_patient_identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">single_patient_phone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">single_patient_age</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">male_patient_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">male_patient_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">male_patient_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">male_patient_dob</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">male_patient_identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">male_patient_phone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">male_patient_age</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">female_patient_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">female_patient_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">female_patient_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">female_patient_dob</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">female_patient_identifier</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">female_patient_phone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">female_patient_age</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf_db</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">order_header_id</property>
+                    <property name="nativeName">order_header_id</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">order_type</property>
+                    <property name="nativeName">order_type</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">single_patient_id</property>
+                    <property name="nativeName">single_patient_id</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">single_patient_mrn</property>
+                    <property name="nativeName">single_patient_mrn</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">single_patient_name</property>
+                    <property name="nativeName">single_patient_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">single_patient_dob</property>
+                    <property name="nativeName">single_patient_dob</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">single_patient_identifier</property>
+                    <property name="nativeName">single_patient_identifier</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">single_patient_phone</property>
+                    <property name="nativeName">single_patient_phone</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">single_patient_age</property>
+                    <property name="nativeName">single_patient_age</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">male_patient_id</property>
+                    <property name="nativeName">male_patient_id</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">patient_mrn</property>
+                    <property name="nativeName">patient_mrn</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">person_name</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">male_patient_dob</property>
+                    <property name="nativeName">male_patient_dob</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">person_identifier_value</property>
+                    <property name="nativeName">person_identifier_value</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">phone</property>
+                    <property name="nativeName">phone</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">male_patient_age</property>
+                    <property name="nativeName">male_patient_age</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">female_patient_id</property>
+                    <property name="nativeName">female_patient_id</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">patient_mrn_18</property>
+                    <property name="nativeName">patient_mrn</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">person_name_19</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">female_patient_dob</property>
+                    <property name="nativeName">female_patient_dob</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">person_identifier_value_21</property>
+                    <property name="nativeName">person_identifier_value</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">phone_22</property>
+                    <property name="nativeName">phone</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">female_patient_age</property>
+                    <property name="nativeName">female_patient_age</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+  oh.order_header_id,
+  oh.order_type,
+  -- Untuk single
+  CASE 
+    WHEN oh.order_type = 'single' THEN p.patient_id
+    ELSE NULL
+  END AS single_patient_id,
+  CASE 
+    WHEN oh.order_type = 'single' THEN p.patient_mrn
+    ELSE NULL
+  END AS single_patient_mrn,
+  CASE 
+    WHEN oh.order_type = 'single' THEN pr.person_name
+    ELSE NULL
+  END AS single_patient_name,
+  CASE 
+    WHEN oh.order_type = 'single' THEN DATE_FORMAT(pr.birth_dttm, '%d-%b-%Y')
+    ELSE NULL
+  END AS single_patient_dob,
+  CASE 
+    WHEN oh.order_type = 'single' THEN pi2.person_identifier_value 
+    ELSE NULL
+  END AS single_patient_identifier,
+  CASE
+    WHEN oh.order_type = 'single' THEN pc2.phone 
+    ELSE NULL
+  END AS single_patient_phone,
+  CASE 
+	  WHEN oh.order_type = 'single' 
+	  THEN TIMESTAMPDIFF(YEAR, pr.birth_dttm, CURDATE())
+	  ELSE NULL
+  END AS single_patient_age,
+  -- Untuk couple - Male
+  CASE 
+    WHEN oh.order_type = 'couple' THEN pc.patient_couple_male_id
+    ELSE NULL
+  END AS male_patient_id,
+  mp.patient_mrn AS male_patient_mrn,
+  mpr.person_name AS male_patient_name,
+  DATE_FORMAT(mpr.birth_dttm, '%d-%b-%Y') AS male_patient_dob,
+  male_pi2.person_identifier_value AS male_patient_identifier,
+  male_pc2.phone AS male_patient_phone,
+  CASE 
+	  WHEN oh.order_type = 'couple' 
+	  THEN TIMESTAMPDIFF(YEAR, mpr.birth_dttm, CURDATE())
+	  ELSE NULL
+	END AS male_patient_age,
+  -- Untuk couple - Female
+  CASE 
+    WHEN oh.order_type = 'couple' THEN pc.patient_couple_female_id
+    ELSE NULL
+  END AS female_patient_id,
+  fp.patient_mrn AS female_patient_mrn,
+  fpr.person_name AS female_patient_name,
+  DATE_FORMAT(fpr.birth_dttm, '%d-%b-%Y') AS female_patient_dob,
+  female_pi2.person_identifier_value AS female_patient_identifier,
+  female_pc2.phone AS female_patient_phone,
+  CASE 
+  	WHEN oh.order_type = 'couple' 
+  	THEN TIMESTAMPDIFF(YEAR, fpr.birth_dttm, CURDATE())
+  	ELSE NULL
+  END AS female_patient_age
+FROM order_header oh
+-- Join untuk pasien single
+LEFT JOIN patient p ON oh.patient_id = p.patient_id AND oh.order_type = 'single'
+LEFT JOIN person pr ON p.patient_id = pr.person_id AND oh.order_type = 'single'
+LEFT JOIN person_identifier pi2 ON pr.person_id = pi2.person_id
+LEFT JOIN person_contact pc2 ON pr.person_id = pc2.person_id
+-- Join untuk couple
+LEFT JOIN patient_couple pc 
+  ON oh.patient_couple_number = pc.patient_cn AND oh.order_type = 'couple'
+-- male join
+LEFT JOIN patient mp ON pc.patient_couple_male_id = mp.patient_id AND oh.order_type = 'couple'
+LEFT JOIN person mpr ON mp.patient_id = mpr.person_id AND oh.order_type = 'couple'
+LEFT JOIN person_identifier male_pi2 ON mpr.person_id = male_pi2.person_id
+LEFT JOIN person_contact male_pc2 ON mpr.person_id = male_pc2.person_id
+-- female join
+LEFT JOIN patient fp ON pc.patient_couple_female_id = fp.patient_id AND oh.order_type = 'couple'
+LEFT JOIN person fpr ON fp.patient_id = fpr.person_id AND oh.order_type = 'couple'
+LEFT JOIN person_identifier female_pi2 ON fpr.person_id = female_pi2.person_id
+LEFT JOIN person_contact female_pc2 ON fpr.person_id = female_pc2.person_id
+WHERE oh.status_cd = 'normal' AND oh.order_header_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>order_header_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>order_header_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>order_header_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>order_type</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>6</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>order_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>order_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_id</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_mrn</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_mrn</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_mrn</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_name</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_dob</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_dob</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_dob</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_identifier</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_identifier</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_identifier</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>single_patient_phone</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>single_patient_phone</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>single_patient_phone</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>male_patient_id</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patient_mrn</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_mrn</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_mrn</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>birth_dttm</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_dob</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_dob</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_identifier_value</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_identifier</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_identifier</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>phone</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>male_patient_phone</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>male_patient_phone</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>female_patient_id</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>patient_mrn</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_mrn</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_mrn</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>17</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>birth_dttm</design:name>
+              <design:position>18</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_dob</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_dob</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_identifier_value</design:name>
+              <design:position>19</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_identifier</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_identifier</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>phone</design:name>
+              <design:position>20</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>female_patient_phone</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>female_patient_phone</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data DFI" id="1639">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">result_dfi_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">result_dfi_id</text-property>
+                    <text-property name="heading">result_dfi_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">person_mrn</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person_mrn</text-property>
+                    <text-property name="heading">person_mrn</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">checking_at</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">checking_at</text-property>
+                    <text-property name="heading">checking_at</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">docter_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">docter_name</text-property>
+                    <text-property name="heading">docter_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">time_out_sample</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">time_out_sample</text-property>
+                    <text-property name="heading">time_out_sample</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">time_received_sample</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">time_received_sample</text-property>
+                    <text-property name="heading">time_received_sample</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">abtinens</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">abtinens</text-property>
+                    <text-property name="heading">abtinens</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">complete_sample_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">complete_sample_type</text-property>
+                    <text-property name="heading">complete_sample_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">volume</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">volume</text-property>
+                    <text-property name="heading">volume</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">concentrate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">concentrate</text-property>
+                    <text-property name="heading">concentrate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">vitality</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">vitality</text-property>
+                    <text-property name="heading">vitality</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dna_fragmented</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dna_fragmented</text-property>
+                    <text-property name="heading">dna_fragmented</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">checked_by</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">checked_by</text-property>
+                    <text-property name="heading">checked_by</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">checked_by2</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">checked_by2</text-property>
+                    <text-property name="heading">checked_by2</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">report_code</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">report_code</text-property>
+                    <text-property name="heading">report_code</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">order_header_id</property>
+                    <property name="paramName">order_header_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">result_dfi_id</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">person_mrn</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">checking_at</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">docter_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">time_out_sample</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">time_received_sample</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">abtinens</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">complete_sample_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">volume</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">concentrate</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">vitality</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">dna_fragmented</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">checked_by</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">checked_by2</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">report_code</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf_db</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">result_dfi_id</property>
+                    <property name="nativeName">result_dfi_id</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">-5</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">person_mrn</property>
+                    <property name="nativeName">person_mrn</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">checking_at</property>
+                    <property name="nativeName">checking_at</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">docter_name</property>
+                    <property name="nativeName">docter_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">time_out_sample</property>
+                    <property name="nativeName">time_out_sample</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">time_received_sample</property>
+                    <property name="nativeName">time_received_sample</property>
+                    <property name="dataType">date-time</property>
+                    <property name="nativeDataType">93</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">abtinens</property>
+                    <property name="nativeName">abtinens</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">complete_sample_type</property>
+                    <property name="nativeName">complete_sample_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">volume</property>
+                    <property name="nativeName">volume</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">7</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">concentrate</property>
+                    <property name="nativeName">concentrate</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">7</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">vitality</property>
+                    <property name="nativeName">vitality</property>
+                    <property name="dataType">float</property>
+                    <property name="nativeDataType">7</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">dna_fragmented</property>
+                    <property name="nativeName">dna_fragmented</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">checked_by</property>
+                    <property name="nativeName">checked_by</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">checked_by2</property>
+                    <property name="nativeName">checked_by2</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">4</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">report_code</property>
+                    <property name="nativeName">report_code</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	result_dfi_id,
+	person_mrn,
+	checking_at,
+	docter_name,
+	time_out_sample,
+	time_received_sample,
+	abtinens,
+	complete_sample_type,
+	volume,
+	concentrate,
+	vitality,
+	dna_fragmented,
+	checked_by,
+	checked_by2,
+	report_code
+FROM result_dfi sa 
+WHERE sa.order_header_id = ?;]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>result_dfi_id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>result_dfi_id</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>result_dfi_id</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_mrn</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>50</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>person_mrn</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>person_mrn</design:label>
+            <design:formattingHints>
+              <design:displaySize>50</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>checking_at</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>checking_at</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>checking_at</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>docter_name</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>250</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>docter_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>docter_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>250</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>time_out_sample</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>time_out_sample</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>time_out_sample</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>time_received_sample</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>time_received_sample</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>time_received_sample</design:label>
+            <design:formattingHints>
+              <design:displaySize>19</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>abtinens</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>abtinens</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>abtinens</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>complete_sample_type</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>complete_sample_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>complete_sample_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>volume</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>7</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>volume</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>volume</design:label>
+            <design:formattingHints>
+              <design:displaySize>12</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>concentrate</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>7</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>concentrate</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>concentrate</design:label>
+            <design:formattingHints>
+              <design:displaySize>12</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>vitality</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>7</design:nativeDataTypeCode>
+            <design:precision>12</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>vitality</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>vitality</design:label>
+            <design:formattingHints>
+              <design:displaySize>12</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>dna_fragmented</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>100</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>dna_fragmented</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>dna_fragmented</design:label>
+            <design:formattingHints>
+              <design:displaySize>100</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>checked_by</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>checked_by</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>checked_by</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>checked_by2</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>4</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>checked_by2</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>checked_by2</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>report_code</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>200</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>report_code</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>report_code</design:label>
+            <design:formattingHints>
+              <design:displaySize>200</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="User Checker" id="1664">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">person1</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person1</text-property>
+                    <text-property name="heading">person1</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">person2</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">person2</text-property>
+                    <text-property name="heading">person2</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">order_header_id</property>
+                    <property name="paramName">order_header_id</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">person1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">person2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">ivf_db</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">person1</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">person2</property>
+                    <property name="nativeName">person_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+	pe1.person_name AS person1, 
+	pe2.person_name AS person2 
+FROM result_dfi rd
+LEFT JOIN `user` u1 ON rd.checked_by = u1.user_id
+LEFT JOIN user_practitioner up ON u1.user_id = up.user_id
+LEFT JOIN practitioner p ON up.practitioner_id = p.practitioner_id
+LEFT JOIN person pe1 ON p.practitioner_id = pe1.person_id 
+LEFT JOIN `user` u2 ON rd.checked_by2 = u2.user_id
+LEFT JOIN user_practitioner up2 ON u2.user_id = up2.user_id
+LEFT JOIN practitioner p2 ON p2.practitioner_id = up2.practitioner_id
+LEFT JOIN person pe2 ON p2.practitioner_id = pe2.person_id
+WHERE rd.order_header_id = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>person1</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>person1</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>person_name</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>person2</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>person2</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.25in</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0.2in</property>
+            <page-footer>
+                <text id="1620">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[Printed <value-of>(new Packages.java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss")).format(new Date())</value-of>, by : <value-of>params["user_name"]</value-of>
+]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="4">
+            <column id="5"/>
+            <column id="6"/>
+            <row id="7">
+                <cell id="8">
+                    <text-data id="956">
+                        <property name="dataSet">Logo Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">organization_logo_img</property>
+                                <text-property name="displayName">organization_logo_img</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["organization_logo_img"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["organization_logo_img"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="9">
+                    <data id="957">
+                        <property name="fontSize">16px</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">Logo Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">organization_name</property>
+                                <text-property name="displayName">organization_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["organization_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">organization_name</property>
+                    </data>
+                    <data id="958">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">Logo Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">address_line1</property>
+                                <text-property name="displayName">address_line1</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["address_line1"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">address_line1</property>
+                    </data>
+                    <data id="959">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">Logo Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">address_line2</property>
+                                <text-property name="displayName">address_line2</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["address_line2"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">address_line2</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <label id="961">
+            <property name="fontSize">20px</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Hasil Pemeriksaan DFI</text-property>
+        </label>
+        <text-data id="1549">
+            <property name="marginBottom">8px</property>
+            <property name="textAlign">center</property>
+            <property name="dataSet">Data DFI</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">report_code</property>
+                    <text-property name="displayName">report_code</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["report_code"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <expression name="valueExpr">"No: " + (row["report_code"] || "-")</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <grid id="965">
+            <column id="966"/>
+            <column id="967"/>
+            <column id="968"/>
+            <column id="969"/>
+            <row id="970">
+                <cell id="971">
+                    <property name="borderLeftColor">#C4CDD5</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="borderTopColor">#C4CDD5</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="995">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingTop">12px</property>
+                        <property name="paddingLeft">12px</property>
+                        <property name="paddingBottom">4px</property>
+                        <text-property name="text">Nama Pasien</text-property>
+                    </label>
+                </cell>
+                <cell id="972">
+                    <property name="borderTopColor">#C4CDD5</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1005">
+                        <property name="width">1.875in</property>
+                        <column id="1006">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1007">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1008">
+                            <cell id="1009">
+                                <property name="paddingTop">8px</property>
+                                <label id="1042">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1010">
+                                <property name="paddingTop">12px</property>
+                                <text-data id="803">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">order_type</property>
+                                            <text-property name="displayName">order_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["order_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">single_patient_name</property>
+                                            <text-property name="displayName">single_patient_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["single_patient_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">male_patient_name</property>
+                                            <text-property name="displayName">male_patient_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["male_patient_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <expression name="valueExpr">row["order_type"] === "couple" ? row["male_patient_name"] : row["single_patient_name"]</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="973">
+                    <property name="borderTopColor">#C4CDD5</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="1000">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingTop">12px</property>
+                        <property name="paddingBottom">4px</property>
+                        <text-property name="text">No. MedRec</text-property>
+                    </label>
+                </cell>
+                <cell id="974">
+                    <property name="borderRightColor">#C4CDD5</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="borderTopColor">#C4CDD5</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1044">
+                        <property name="width">1.8645833333333333in</property>
+                        <column id="1045">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1046">
+                            <property name="width">1.78125in</property>
+                        </column>
+                        <row id="1047">
+                            <cell id="1048">
+                                <property name="paddingTop">8px</property>
+                                <label id="1074">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1049">
+                                <property name="paddingTop">8px</property>
+                                <text-data id="804">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">order_type</property>
+                                            <text-property name="displayName">order_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["order_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">single_patient_mrn</property>
+                                            <text-property name="displayName">single_patient_mrn</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["single_patient_mrn"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">male_patient_mrn</property>
+                                            <text-property name="displayName">male_patient_mrn</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["male_patient_mrn"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <expression name="valueExpr">row["order_type"] === "couple" ? row["male_patient_mrn"] : row["single_patient_mrn"]</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="975">
+                <cell id="976">
+                    <property name="borderLeftColor">#C4CDD5</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="996">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingLeft">12px</property>
+                        <text-property name="text">Tgl. Lahir</text-property>
+                    </label>
+                </cell>
+                <cell id="977">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1013">
+                        <property name="width">1.875in</property>
+                        <column id="1014">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1015">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1016">
+                            <cell id="1017">
+                                <label id="1038">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1018">
+                                <text-data id="1607">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">order_type</property>
+                                            <text-property name="displayName">order_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["order_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">single_patient_dob</property>
+                                            <text-property name="displayName">single_patient_dob</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["single_patient_dob"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">male_patient_dob</property>
+                                            <text-property name="displayName">male_patient_dob</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["male_patient_dob"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">single_patient_age</property>
+                                            <text-property name="displayName">single_patient_age</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["single_patient_age"]</expression>
+                                            <property name="dataType">decimal</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">male_patient_age</property>
+                                            <text-property name="displayName">male_patient_age</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["male_patient_age"]</expression>
+                                            <property name="dataType">decimal</property>
+                                        </structure>
+                                    </list-property>
+                                    <expression name="valueExpr">row["order_type"] === "couple" ? row["male_patient_dob"] + " (" + row["male_patient_age"] + " thn)" : row["single_patient_dob"] + " (" + row["single_patient_age"] + " thn)"</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="978">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="1001">
+                        <property name="fontSize">12px</property>
+                        <text-property name="text">Dokter Pengirim Rujukan</text-property>
+                    </label>
+                </cell>
+                <cell id="979">
+                    <property name="borderRightColor">#C4CDD5</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1050">
+                        <property name="width">1.8645833333333333in</property>
+                        <column id="1051">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1052">
+                            <property name="width">1.78125in</property>
+                        </column>
+                        <row id="1053">
+                            <cell id="1054">
+                                <label id="1075">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1055">
+                                <data id="1640">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">docter_name</property>
+                                            <text-property name="displayName">docter_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["docter_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">docter_name</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="980">
+                <cell id="981">
+                    <property name="borderLeftColor">#C4CDD5</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="997">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingLeft">12px</property>
+                        <text-property name="text">No. Telp</text-property>
+                    </label>
+                </cell>
+                <cell id="982">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1019">
+                        <property name="width">1.875in</property>
+                        <column id="1020">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1021">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1022">
+                            <cell id="1023">
+                                <label id="1039">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1024">
+                                <text-data id="806">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">order_type</property>
+                                            <text-property name="displayName">order_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["order_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">single_patient_phone</property>
+                                            <text-property name="displayName">single_patient_phone</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["single_patient_phone"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">male_patient_phone</property>
+                                            <text-property name="displayName">male_patient_phone</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["male_patient_phone"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <expression name="valueExpr">row["order_type"] === "couple" ? row["male_patient_phone"] : row["single_patient_phone"]</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="983">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="1002">
+                        <property name="fontSize">12px</property>
+                        <text-property name="text">Tanggal Pengecekan</text-property>
+                    </label>
+                </cell>
+                <cell id="984">
+                    <property name="borderRightColor">#C4CDD5</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1056">
+                        <property name="width">1.8645833333333333in</property>
+                        <column id="1057">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1058">
+                            <property name="width">1.78125in</property>
+                        </column>
+                        <row id="1059">
+                            <cell id="1060">
+                                <label id="1076">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1061">
+                                <data id="1641">
+                                    <structure name="dateTimeFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">d-MMM-y</property>
+                                    </structure>
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">checking_at</property>
+                                            <text-property name="displayName">checking_at</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["checking_at"]</expression>
+                                            <property name="dataType">date-time</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">checking_at</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="985">
+                <cell id="986">
+                    <property name="borderLeftColor">#C4CDD5</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="998">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingLeft">12px</property>
+                        <text-property name="text">Nama Pasangan</text-property>
+                    </label>
+                </cell>
+                <cell id="987">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1025">
+                        <property name="width">1.875in</property>
+                        <column id="1026">
+                            <property name="width">8px</property>
+                        </column>
+                        <column id="1027">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1028">
+                            <cell id="1029">
+                                <label id="1040">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1030">
+                                <data id="1550">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">female_patient_name</property>
+                                            <text-property name="displayName">female_patient_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["female_patient_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">female_patient_name</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="988">
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="1003">
+                        <property name="fontSize">12px</property>
+                        <text-property name="text">Jam Pengeluaran Sampel</text-property>
+                    </label>
+                </cell>
+                <cell id="989">
+                    <property name="borderRightColor">#C4CDD5</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1062">
+                        <property name="width">1.8645833333333333in</property>
+                        <column id="1063">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1064">
+                            <property name="width">1.78125in</property>
+                        </column>
+                        <row id="1065">
+                            <cell id="1066">
+                                <label id="1077">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1067">
+                                <data id="1642">
+                                    <structure name="dateTimeFormat">
+                                        <property name="category">Short Time</property>
+                                        <property name="pattern">Short Time</property>
+                                    </structure>
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">time_out_sample</property>
+                                            <text-property name="displayName">time_out_sample</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["time_out_sample"]</expression>
+                                            <property name="dataType">date-time</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">time_out_sample</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="990">
+                <cell id="991">
+                    <property name="borderBottomColor">#C4CDD5</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderLeftColor">#C4CDD5</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="999">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingLeft">12px</property>
+                        <property name="paddingBottom">12px</property>
+                        <text-property name="text">Tgl. Lahir</text-property>
+                    </label>
+                </cell>
+                <cell id="992">
+                    <property name="borderBottomColor">#C4CDD5</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1031">
+                        <property name="width">1.875in</property>
+                        <column id="1032">
+                            <property name="width">8px</property>
+                        </column>
+                        <column id="1033">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1034">
+                            <cell id="1035">
+                                <property name="paddingBottom">8px</property>
+                                <label id="1041">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1036">
+                                <text-data id="1776">
+                                    <property name="dataSet">Patient Data</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">order_type</property>
+                                            <text-property name="displayName">order_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["order_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">female_patient_dob</property>
+                                            <text-property name="displayName">female_patient_dob</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["female_patient_dob"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                        <structure>
+                                            <property name="name">female_patient_age</property>
+                                            <text-property name="displayName">female_patient_age</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["female_patient_age"]</expression>
+                                            <property name="dataType">decimal</property>
+                                        </structure>
+                                    </list-property>
+                                    <expression name="valueExpr">row["order_type"] === "couple" ? row["female_patient_dob"] + " (" + row["female_patient_age"] + " thn)" : ""</expression>
+                                    <property name="contentType">html</property>
+                                </text-data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="993">
+                    <property name="borderBottomColor">#C4CDD5</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <label id="1004">
+                        <property name="fontSize">12px</property>
+                        <property name="paddingBottom">12px</property>
+                        <text-property name="text">Jam Penerimaan Sampel</text-property>
+                    </label>
+                </cell>
+                <cell id="994">
+                    <property name="borderBottomColor">#C4CDD5</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderRightColor">#C4CDD5</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">1px</property>
+                    <property name="paddingTop">0px</property>
+                    <property name="paddingLeft">0px</property>
+                    <property name="paddingBottom">0px</property>
+                    <property name="paddingRight">0px</property>
+                    <grid id="1068">
+                        <property name="width">1.8645833333333333in</property>
+                        <column id="1069">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1070">
+                            <property name="width">1.78125in</property>
+                        </column>
+                        <row id="1071">
+                            <cell id="1072">
+                                <property name="paddingBottom">8px</property>
+                                <label id="1078">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1073">
+                                <data id="1643">
+                                    <structure name="dateTimeFormat">
+                                        <property name="category">Short Time</property>
+                                        <property name="pattern">Short Time</property>
+                                    </structure>
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">time_received_sample</property>
+                                            <text-property name="displayName">time_received_sample</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["time_received_sample"]</expression>
+                                            <property name="dataType">date-time</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">time_received_sample</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+        </grid>
+        <label id="1342"/>
+        <grid id="1079">
+            <property name="width">7.739583333333333in</property>
+            <column id="1080">
+                <property name="width">0.625in</property>
+            </column>
+            <column id="1081">
+                <property name="width">3.25in</property>
+            </column>
+            <column id="1082">
+                <property name="width">3.375in</property>
+            </column>
+            <column id="1083">
+                <property name="width">0.4895833333333333in</property>
+            </column>
+            <row id="1084">
+                <cell id="1085"/>
+                <cell id="1086"/>
+                <cell id="1087">
+                    <label id="1089">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingBottom">8px</property>
+                        <property name="textAlign">right</property>
+                        <text-property name="text">Abstinens</text-property>
+                    </label>
+                </cell>
+                <cell id="1088">
+                    <text-data id="1586">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingBottom">8px</property>
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">abtinens</property>
+                                <text-property name="displayName">abtinens</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["abtinens"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["abtinens"] ? ": " + row["abtinens"] + " hari" : "-"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="1098">
+            <column id="1099"/>
+            <column id="1100"/>
+            <column id="1101"/>
+            <column id="1102"/>
+            <row id="1103">
+                <cell id="1104">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <label id="1108">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Pemeriksaan</text-property>
+                    </label>
+                </cell>
+                <cell id="1105">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <label id="1109">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Hasil</text-property>
+                    </label>
+                </cell>
+                <cell id="1106">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <label id="1110">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Nilai Rujukan*</text-property>
+                    </label>
+                </cell>
+                <cell id="1107">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">1px</property>
+                    <label id="1111">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">Satuan</text-property>
+                    </label>
+                </cell>
+            </row>
+        </grid>
+        <grid id="1112">
+            <column id="1113"/>
+            <column id="1114"/>
+            <column id="1115"/>
+            <column id="1116"/>
+            <row id="1122">
+                <cell id="1123">
+                    <text-data id="1667">
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">complete_sample_type</property>
+                                <text-property name="displayName">complete_sample_type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["complete_sample_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["complete_sample_type"] === "Tidak Lengkap" ? "&lt;div style='color:red'>Sampel Lengkap&lt;/div>" : "Sampel Lengkap"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1124">
+                    <grid id="1350">
+                        <property name="width">1.875in</property>
+                        <column id="1351">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1352">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1353">
+                            <cell id="1354">
+                                <label id="1356">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1355">
+                                <data id="1644">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">complete_sample_type</property>
+                                            <text-property name="displayName">complete_sample_type</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["complete_sample_type"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">complete_sample_type</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1125">
+                    <text id="263">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[Lengkap]]></text-property>
+                    </text>
+                </cell>
+                <cell id="1126"/>
+            </row>
+            <row id="1147">
+                <cell id="1148">
+                    <text-data id="1668">
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">volume</property>
+                                <text-property name="displayName">volume</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["volume"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["volume"] != 1.4 ? "&lt;div style='color:red'>Volume&lt;/div>" : "Volume"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1149">
+                    <grid id="1382">
+                        <property name="width">1.875in</property>
+                        <column id="1383">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1384">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1385">
+                            <cell id="1386">
+                                <label id="1523">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1387">
+                                <data id="1645">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">volume</property>
+                                            <text-property name="displayName">volume</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["volume"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">volume</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1150">
+                    <label id="1587">
+                        <text-property name="text">1.4</text-property>
+                    </label>
+                </cell>
+                <cell id="1151">
+                    <label id="1592">
+                        <text-property name="text">ml</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="1157">
+                <cell id="1158">
+                    <text-data id="1669">
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">concentrate</property>
+                                <text-property name="displayName">concentrate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["concentrate"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["concentrate"] != 16 ? "&lt;div style='color:red'>Konsentrasi&lt;/div>" : "Konsentrasi"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1159">
+                    <grid id="1388">
+                        <property name="width">1.875in</property>
+                        <column id="1389">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1390">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1391">
+                            <cell id="1392">
+                                <label id="1525">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1393">
+                                <data id="1646">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">concentrate</property>
+                                            <text-property name="displayName">concentrate</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["concentrate"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">concentrate</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1160">
+                    <label id="1588">
+                        <text-property name="text">16</text-property>
+                    </label>
+                </cell>
+                <cell id="1161">
+                    <text id="1612">
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[10<sup>6</sup> / ml]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="1192">
+                <cell id="1193">
+                    <text-data id="1670">
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">vitality</property>
+                                <text-property name="displayName">vitality</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["vitality"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["vitality"] != 54 ? "&lt;div style='color:red'>Vitalitas&lt;/div>" : "Vitalitas"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1194">
+                    <grid id="1430">
+                        <property name="width">1.875in</property>
+                        <column id="1431">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1432">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1433">
+                            <cell id="1434">
+                                <label id="1532">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1435">
+                                <data id="1647">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">vitality</property>
+                                            <text-property name="displayName">vitality</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["vitality"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">vitality</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1195">
+                    <label id="696">
+                        <text-property name="text">54</text-property>
+                    </label>
+                </cell>
+                <cell id="1196">
+                    <label id="1599">
+                        <text-property name="text">%</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="1197">
+                <cell id="1198">
+                    <text-data id="1671">
+                        <property name="dataSet">Data DFI</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">dna_fragmented</property>
+                                <text-property name="displayName">dna_fragmented</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["dna_fragmented"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">parseFloat(row["dna_fragmented"]) > 30 ? "&lt;div style='color:red'>DNA Terfragmentasi&lt;/div>" : "DNA Terfragmentasi"</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1199">
+                    <grid id="1436">
+                        <property name="width">1.875in</property>
+                        <column id="1437">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1438">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1439">
+                            <cell id="1440">
+                                <label id="1533">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1441">
+                                <data id="1648">
+                                    <property name="dataSet">Data DFI</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">dna_fragmented</property>
+                                            <text-property name="displayName">dna_fragmented</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["dna_fragmented"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">dna_fragmented</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1200">
+                    <label id="1638">
+                        <text-property name="text">&lt;15 : Low</text-property>
+                    </label>
+                </cell>
+                <cell id="1201">
+                    <label id="1600">
+                        <text-property name="text">%</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="1628">
+                <cell id="1629"/>
+                <cell id="1630"/>
+                <cell id="1631">
+                    <label id="917">
+                        <text-property name="text">15 - 30 : Moderate</text-property>
+                    </label>
+                </cell>
+                <cell id="1632"/>
+            </row>
+            <row id="1633">
+                <cell id="1634"/>
+                <cell id="1635"/>
+                <cell id="1636">
+                    <label id="694">
+                        <text-property name="text">>30 : High</text-property>
+                    </label>
+                </cell>
+                <cell id="1637"/>
+            </row>
+        </grid>
+        <grid id="1272">
+            <column id="1273"/>
+            <column id="1274"/>
+            <column id="1275"/>
+            <column id="1276"/>
+            <row id="1297">
+                <cell id="1298">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="1299">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                    <grid id="1502">
+                        <property name="width">1.875in</property>
+                        <column id="1503">
+                            <property name="width">0.2916666666666667in</property>
+                        </column>
+                        <column id="1504">
+                            <property name="width">1.5833333333333333in</property>
+                        </column>
+                        <row id="1505">
+                            <cell id="1506"/>
+                            <cell id="1507"/>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1300">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+                <cell id="1301">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">1px</property>
+                </cell>
+            </row>
+        </grid>
+        <grid id="1322">
+            <property name="width">7.739583333333333in</property>
+            <column id="1323">
+                <property name="width">0.9583333333333334in</property>
+            </column>
+            <column id="1324">
+                <property name="width">2.9166666666666665in</property>
+            </column>
+            <column id="1325">
+                <property name="width">1.9375in</property>
+            </column>
+            <column id="1326">
+                <property name="width">1.9270833333333333in</property>
+            </column>
+            <row id="1327">
+                <cell id="1328">
+                    <property name="paddingTop">12px</property>
+                    <label id="1337">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Diperiksa Oleh</text-property>
+                    </label>
+                </cell>
+                <cell id="1329">
+                    <property name="paddingTop">12px</property>
+                    <grid id="1508">
+                        <property name="width">1.875in</property>
+                        <column id="1509">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1510">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1511">
+                            <cell id="1512">
+                                <label id="1545">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1513">
+                                <data id="1665">
+                                    <property name="dataSet">User Checker</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">person1</property>
+                                            <text-property name="displayName">person1</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["person1"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">person1</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1330"/>
+                <cell id="1331"/>
+            </row>
+            <row id="1649">
+                <cell id="1650">
+                    <label id="1654">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Checker</text-property>
+                    </label>
+                </cell>
+                <cell id="1651">
+                    <grid id="1657">
+                        <property name="width">1.875in</property>
+                        <column id="1658">
+                            <property name="width">0.08333333333333333in</property>
+                        </column>
+                        <column id="1659">
+                            <property name="width">1.7916666666666667in</property>
+                        </column>
+                        <row id="1660">
+                            <cell id="1661">
+                                <label id="1663">
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1662">
+                                <data id="1666">
+                                    <property name="dataSet">User Checker</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">person2</property>
+                                            <text-property name="displayName">person2</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["person2"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">person2</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1652"/>
+                <cell id="1653"/>
+            </row>
+        </grid>
+    </body>
+</report>
