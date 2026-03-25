@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 4.18.0.v202411161754</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.19.0.v202502081713</property>
     <property name="units">in</property>
     <method name="initialize"><![CDATA[    function terbilang(angka){
 
@@ -866,7 +866,10 @@ SELECT "EDC" as tipeBayar,payment_header_id
 from  payment_edc 
 union 
 SELECT "Transfer" as tipeBayar,payment_header_id
-from  payment_transfer 
+from  payment_transfer
+union
+SELECT CONCAT('Ecommerce - ', ecommerce_name) as tipeBayar,payment_header_id
+from payment_ecommerce
   ) as x 
  join payment_header ph on ph.payment_header_id = x.payment_header_id
   where invoice_header_id  = ?;]]></xml-property>
