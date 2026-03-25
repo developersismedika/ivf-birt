@@ -7673,7 +7673,7 @@ SELECT
 
   -- THAW DETAILS
   CONCAT('<span style="color:#454F5B;">Date:</span> ', IFNULL(DATE_FORMAT(bs.thawing_dttm, '%d/%b/%Y'), '-')) AS thaw_date,
-  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(DATE_FORMAT(STR_TO_DATE(bs.thawing_time, '%Y-%m-%dT%H:%i:%s'), '%H:%i'), '-')) AS thaw_time,
+  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(DATE_FORMAT(DATE_ADD(STR_TO_DATE(bs.thawing_time, '%Y-%m-%dT%H:%i:%s'), INTERVAL 7 HOUR), '%H:%i'), '-')) AS thaw_time,
   CONCAT('<span style="color:#454F5B;">Straw No:</span> ', IFNULL(bs.straw_no, '-')) AS thaw_straw_no,
   CONCAT('<span style="color:#454F5B;">Survival:</span> ', IFNULL(CONCAT(bs.survival, '%'), '-')) AS thaw_survival,
   CONCAT('<span style="color:#454F5B;">Ceser:</span> ', IFNULL(thawing_ceser.person_name, '-')) AS thaw_ceser,
@@ -7682,7 +7682,7 @@ SELECT
 
   -- CULTURE OBSERVATION
   CONCAT('<span style="color:#454F5B;">Date:</span> ', IFNULL(DATE_FORMAT(bs.culture_observation_dttm, '%d/%b/%Y'), '-')) AS culture_date,
-  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(bs.culture_observation_time, '-')) AS culture_time,
+  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(DATE_FORMAT(DATE_ADD(STR_TO_DATE(bs.culture_observation_time, '%Y-%m-%dT%H:%i:%s'), INTERVAL 7 HOUR), '%H:%i'), '-')) AS culture_time,
   CONCAT('<span style="color:#454F5B;">Embryo Quality:</span> ', IFNULL(bs.culture_observation_embryo_quality, '-')) AS culture_embryo_quality,
   CONCAT('<span style="color:#454F5B;">Ceser:</span> ', IFNULL(culture_ceser.person_name, '-')) AS culture_ceser,
   CONCAT('<span style="color:#454F5B;">Checker:</span> ', IFNULL(culture_checker.person_name, '-')) AS culture_checker,
@@ -7690,7 +7690,7 @@ SELECT
 
   -- EMBRYO TRANSFER
   CONCAT('<span style="color:#454F5B;">Date:</span> ', IFNULL(DATE_FORMAT(bs.fet_dttm, '%d/%b/%Y'), '-')) AS fet_date,
-  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(bs.fet_time, '-')) AS fet_time,
+  CONCAT('<span style="color:#454F5B;">Time:</span> ', IFNULL(DATE_FORMAT(DATE_ADD(STR_TO_DATE(bs.fet_time, '%Y-%m-%dT%H:%i:%s'), INTERVAL 7 HOUR), '%H:%i'), '-')) AS fet_time,
   CONCAT('<span style="color:#454F5B;">Embryo Quality:</span> ', IFNULL(bs.fet_embryo_quality, '-')) AS fet_embryo_quality,
   CONCAT('<span style="color:#454F5B;">Transfer Quality:</span> ', IFNULL(bs.fet_transfer_quality, '-')) AS fet_transfer_quality,
 
