@@ -134,6 +134,20 @@
                     <text-property name="heading">patient_id</text-property>
                 </structure>
                 <structure>
+                    <property name="columnName">dpjp_id</property>
+                    <property name="alias">dpjp_id</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">dpjp_id</text-property>
+                    <text-property name="heading">dpjp_id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">dpjp_name</property>
+                    <property name="alias">dpjp_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dpjp_name</text-property>
+                    <text-property name="heading">dpjp_name</text-property>
+                </structure>
+                <structure>
                     <property name="columnName">type_patient</property>
                     <property name="alias">type_patient</property>
                     <property name="analysis">dimension</property>
@@ -292,91 +306,101 @@
                     </structure>
                     <structure>
                         <property name="position">4</property>
+                        <property name="name">dpjp_id</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">dpjp_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
                         <property name="name">type_patient</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">5</property>
+                        <property name="position">7</property>
                         <property name="name">deposit_pocket_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">6</property>
+                        <property name="position">8</property>
                         <property name="name">price</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">7</property>
+                        <property name="position">9</property>
                         <property name="name">pasien</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">8</property>
+                        <property name="position">10</property>
                         <property name="name">phone</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">9</property>
+                        <property name="position">11</property>
                         <property name="name">email</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">10</property>
+                        <property name="position">12</property>
                         <property name="name">DOB1</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">11</property>
+                        <property name="position">13</property>
                         <property name="name">DOB2</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">12</property>
+                        <property name="position">14</property>
                         <property name="name">service_id</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">13</property>
+                        <property name="position">15</property>
                         <property name="name">packet_id</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">14</property>
+                        <property name="position">16</property>
                         <property name="name">qty</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">15</property>
+                        <property name="position">17</property>
                         <property name="name">used</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">16</property>
+                        <property name="position">18</property>
                         <property name="name">total</property>
                         <property name="dataType">integer</property>
                     </structure>
                     <structure>
-                        <property name="position">17</property>
+                        <property name="position">19</property>
                         <property name="name">packet_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">18</property>
+                        <property name="position">20</property>
                         <property name="name">packet_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">19</property>
+                        <property name="position">21</property>
                         <property name="name">service_name</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">20</property>
+                        <property name="position">22</property>
                         <property name="name">service_code</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
-                        <property name="position">21</property>
+                        <property name="position">23</property>
                         <property name="name">logo</property>
                         <property name="dataType">string</property>
                     </structure>
@@ -404,108 +428,120 @@
                 </structure>
                 <structure>
                     <property name="position">4</property>
+                    <property name="name">dpjp_id</property>
+                    <property name="nativeName">dpjp_id</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">dpjp_name</property>
+                    <property name="nativeName">dpjp_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
                     <property name="name">type_patient</property>
                     <property name="nativeName">type_patient</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">5</property>
+                    <property name="position">7</property>
                     <property name="name">deposit_pocket_id</property>
                     <property name="nativeName">deposit_pocket_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">6</property>
+                    <property name="position">8</property>
                     <property name="name">price</property>
                     <property name="nativeName">price</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">7</property>
+                    <property name="position">9</property>
                     <property name="name">pasien</property>
                     <property name="nativeName">pasien</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">8</property>
+                    <property name="position">10</property>
                     <property name="name">phone</property>
                     <property name="nativeName">phone</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">9</property>
+                    <property name="position">11</property>
                     <property name="name">email</property>
                     <property name="nativeName">email</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">10</property>
+                    <property name="position">12</property>
                     <property name="name">DOB1</property>
                     <property name="nativeName">DOB1</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">11</property>
+                    <property name="position">13</property>
                     <property name="name">DOB2</property>
                     <property name="nativeName">DOB2</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">12</property>
+                    <property name="position">14</property>
                     <property name="name">service_id</property>
                     <property name="nativeName">service_id</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">13</property>
+                    <property name="position">15</property>
                     <property name="name">packet_id</property>
                     <property name="nativeName">packet_id</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">14</property>
+                    <property name="position">16</property>
                     <property name="name">qty</property>
                     <property name="nativeName">qty</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">15</property>
+                    <property name="position">17</property>
                     <property name="name">used</property>
                     <property name="nativeName">used</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">16</property>
+                    <property name="position">18</property>
                     <property name="name">total</property>
                     <property name="nativeName">total</property>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
-                    <property name="position">17</property>
+                    <property name="position">19</property>
                     <property name="name">packet_code</property>
                     <property name="nativeName">packet_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">18</property>
+                    <property name="position">20</property>
                     <property name="name">packet_name</property>
                     <property name="nativeName">packet_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">19</property>
+                    <property name="position">21</property>
                     <property name="name">service_name</property>
                     <property name="nativeName">service_name</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">20</property>
+                    <property name="position">22</property>
                     <property name="name">service_code</property>
                     <property name="nativeName">service_code</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
-                    <property name="position">21</property>
+                    <property name="position">23</property>
                     <property name="name">logo</property>
                     <property name="nativeName">logo</property>
                     <property name="dataType">string</property>
@@ -518,7 +554,9 @@ from
 select
 pk.created_dttm,
 pk.patient_packet_id,
-dpjp_id	patient_id, 
+pk.patient_id AS patient_id,
+pk.dpjp_id AS dpjp_id,
+TRIM(CONCAT(COALESCE(dpjp.salutation, ''), ' ', COALESCE(dpjp.person_name, ''))) AS dpjp_name, 
 type_patient,	
 deposit_pocket_id,
 pk.price ,
@@ -551,6 +589,7 @@ join person ppp on ppp.person_id = pc.patient_couple_female_id
  join patient_packet_service pps on pps.patient_packet_id = pk.patient_packet_id
 join packet pck on pps.packet_id = pck.packet_id
 join service srv on srv.service_id = pps.service_id
+left join person dpjp on dpjp.person_id = pk.dpjp_id
  
  
 union
@@ -558,14 +597,16 @@ union
 select
 pk.created_dttm,
 pk.patient_packet_id,
-dpjp_id	patient_id,
+pk.patient_id AS patient_id,
+pk.dpjp_id AS dpjp_id,
+TRIM(CONCAT(COALESCE(dpjp.salutation, ''), ' ', COALESCE(dpjp.person_name, ''))) AS dpjp_name,
 type_patient,	
 deposit_pocket_id,
 pk.price ,
 concat(pp.salutation , " " , pp.person_name, " " ,pp.suffix ) as pasien,
 ( select ptt.person_telecom_value 
 from  person_telecom AS ptt  
-  where  pk.patient_id  = pk.patient_id 
+  where  pk.patient_id  = ptt.person_id 
 and ptt.person_telecom_system = 'phone' limit 1) as phone , 
 
 ( select ptt.person_telecom_value 
@@ -591,6 +632,7 @@ from patient_packet pk
   join patient_packet_service pps on pps.patient_packet_id = pk.patient_packet_id
 join packet pck on pps.packet_id = pck.packet_id
 join service srv on srv.service_id = pps.service_id
+left join person dpjp on dpjp.person_id = pk.dpjp_id
 
 
 UNION
@@ -598,14 +640,16 @@ UNION
 select
 pk.created_dttm,
 pk.patient_packet_id,
-dpjp_id	patient_id,
+pk.patient_id AS patient_id,
+pk.dpjp_id AS dpjp_id,
+TRIM(CONCAT(COALESCE(dpjp.salutation, ''), ' ', COALESCE(dpjp.person_name, ''))) AS dpjp_name,
 type_patient,	
 deposit_pocket_id,
 pk.price ,
 concat(pp.salutation , " " , pp.person_name, " " ,pp.suffix ) as pasien,
 ( select ptt.person_telecom_value 
 from  person_telecom AS ptt  
-  where  pk.patient_id  = pk.patient_id 
+  where  pk.patient_id  = ptt.person_id 
 and ptt.person_telecom_system = 'phone' limit 1) as phone , 
 
 ( select ptt.person_telecom_value 
@@ -630,207 +674,8 @@ from patient_packet pk
  left join person pp on pp.person_id = pk.patient_id
  left join patient_packet_item  ppi on ppi.patient_packet_id  = pk.patient_packet_id
 left join  item  it on ppi.item_id =  it.item_id
+left join person dpjp on dpjp.person_id = pk.dpjp_id
  ) as xxx where patient_packet_id = ?]]></xml-property>
-            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
-  <Version>2.0</Version>
-  <design:ResultSets derivedMetaData="true">
-    <design:resultSetDefinitions>
-      <design:resultSetColumns>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>patient_id</design:name>
-              <design:position>1</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-            <design:precision>20</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>patient_id</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>patient_id</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>patient_mrn</design:name>
-              <design:position>2</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>20</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>patient_mrn</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>patient_mrn</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>person_name</design:name>
-              <design:position>3</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>255</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>person_name</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>person_name</design:label>
-            <design:formattingHints>
-              <design:displaySize>255</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>item_referrence_type</design:name>
-              <design:position>4</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>20</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>item_referrence_type</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>item_referrence_type</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>item_referrence_id</design:name>
-              <design:position>5</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-            <design:precision>20</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>item_referrence_id</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>item_referrence_id</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>service_id</design:name>
-              <design:position>6</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>-5</design:nativeDataTypeCode>
-            <design:precision>20</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>service_id</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>service_id</design:label>
-            <design:formattingHints>
-              <design:displaySize>20</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>service_name</design:name>
-              <design:position>7</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>150</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>service_name</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>service_name</design:label>
-            <design:formattingHints>
-              <design:displaySize>150</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>tariff_subtotal</design:name>
-              <design:position>8</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>30</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>tariff_subtotal</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>tariff_subtotal</design:label>
-            <design:formattingHints>
-              <design:displaySize>30</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:identifier>
-              <design:name>payplan_name</design:name>
-              <design:position>9</design:position>
-            </design:identifier>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>100</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>NotNullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>payplan_name</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>payplan_name</design:label>
-            <design:formattingHints>
-              <design:displaySize>100</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-      </design:resultSetColumns>
-      <design:criteria/>
-    </design:resultSetDefinitions>
-  </design:ResultSets>
-</model:DesignValues>]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -1034,6 +879,9 @@ left join  item  it on ppi.item_id =  it.item_id
                         <column id="6307">
                             <property name="width">4cm</property>
                         </column>
+                        <column id="7000">
+                            <property name="width">4cm</property>
+                        </column>
                         <row id="6308">
                             <cell id="6309">
                                 <label id="6313">
@@ -1059,6 +907,12 @@ left join  item  it on ppi.item_id =  it.item_id
                                     <text-property name="text">Email</text-property>
                                 </label>
                             </cell>
+                            <cell id="7001">
+                                <label id="7002">
+                                    <property name="color">#808080</property>
+                                    <text-property name="text">DPJP</text-property>
+                                </label>
+                            </cell>
                         </row>
                     </grid>
                 </cell>
@@ -1076,6 +930,9 @@ left join  item  it on ppi.item_id =  it.item_id
                             <property name="width">4cm</property>
                         </column>
                         <column id="6321">
+                            <property name="width">4cm</property>
+                        </column>
+                        <column id="7003">
                             <property name="width">4cm</property>
                         </column>
                         <row id="6322">
@@ -1135,6 +992,20 @@ left join  item  it on ppi.item_id =  it.item_id
                                     <property name="resultSetColumn">email</property>
                                 </data>
                             </cell>
+                            <cell id="7004">
+                                <data id="7005">
+                                    <property name="dataSet">header</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">dpjp_name</property>
+                                            <text-property name="displayName">dpjp_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["dpjp_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">dpjp_name</property>
+                                </data>
+                            </cell>
                         </row>
                         <row id="6334">
                             <cell id="6335"/>
@@ -1154,6 +1025,7 @@ left join  item  it on ppi.item_id =  it.item_id
                             </cell>
                             <cell id="6337"/>
                             <cell id="6338"/>
+                            <cell id="7006"/>
                         </row>
                     </grid>
                 </cell>
