@@ -224,6 +224,12 @@
                     <text-property name="displayName">diagnosis_text</text-property>
                     <text-property name="heading">diagnosis_text</text-property>
                 </structure>
+                <structure>
+                    <property name="columnName">dpjp_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">dpjp_name</text-property>
+                    <text-property name="heading">dpjp_name</text-property>
+                </structure>
             </list-property>
             <list-property name="parameters">
                 <structure>
@@ -382,6 +388,11 @@
                     <structure>
                         <property name="position">29</property>
                         <property name="name">diagnosis_text</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">dpjp_name</property>
                         <property name="dataType">string</property>
                     </structure>
                 </list-property>
@@ -591,6 +602,13 @@
                     <property name="dataType">string</property>
                     <property name="nativeDataType">12</property>
                 </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">dpjp_name</property>
+                    <property name="nativeName">dpjp_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT
 DATE_FORMAT(qr.created_dttm, '%d %b %Y') AS tgl_visit,
@@ -636,12 +654,17 @@ CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.subjective.previousMe
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.localistTemplate.obgynAndrologyLocalist.description')) AS CHAR) AS localist_template,
 CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.objective.physicalExaminationMeaningfullSupport')) AS CHAR) AS physical_examination_meaningfull,
 
-CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS CHAR) AS diagnosis_text
+CAST(JSON_UNQUOTE(JSON_EXTRACT(questionnaire_resp_json, '$.assessment.diagnosis')) AS CHAR) AS diagnosis_text,
+
+COALESCE(dpjp.person_name, '-') AS dpjp_name
 
 FROM `emr` 
 LEFT JOIN patient p on p.patient_id = emr.patient_id
 LEFT JOIN person ptn on ptn.person_id = emr.patient_id
 LEFT JOIN person prct on prct.person_id = emr.practitioner_id
+LEFT JOIN encounter e on e.encounter_id = emr.encounter_id
+LEFT JOIN order_header oh on oh.order_header_id = e.order_header_id
+LEFT JOIN person dpjp on dpjp.person_id = oh.dpjp_id
 LEFT JOIN questionnaire_response qr on qr.questionnaire_resp_id = emr.questionnaire_resp_id
 LEFT JOIN statement st on qr.questionnaire_resp_id = st.questionnaire_resp_id
 
@@ -2254,6 +2277,37 @@ WHERE
                                         </structure>
                                     </list-property>
                                     <property name="resultSetColumn">patient_gender</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="5170">
+                            <cell id="5171">
+                                <property name="fontSize">12px</property>
+                                <label id="5172">
+                                    <text-property name="text">DPJP</text-property>
+                                </label>
+                            </cell>
+                            <cell id="5173">
+                                <property name="fontSize">12px</property>
+                                <label id="5174">
+                                    <property name="textAlign">center</property>
+                                    <text-property name="text">:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="5175">
+                                <property name="fontSize">12px</property>
+                                <property name="colSpan">4</property>
+                                <data id="5176">
+                                    <property name="dataSet">patient</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">dpjp_name</property>
+                                            <text-property name="displayName">dpjp_name</text-property>
+                                            <expression name="expression" type="javascript">dataSetRow["dpjp_name"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">dpjp_name</property>
                                 </data>
                             </cell>
                         </row>
