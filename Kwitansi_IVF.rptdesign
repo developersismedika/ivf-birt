@@ -4353,6 +4353,13 @@ join payment_header ph on i.invoice_header_id = ph.invoice_header_id
                     <cell id="6100"/>
                     <cell id="6068">
                         <data id="6069">
+                            <property name="marginRight">5pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0{RoundingMode=HALF_UP}</property>
+                                <property name="locale">id_ID</property>
+                            </structure>
+                            <property name="textAlign">right</property>
                             <property name="resultSetColumn">total</property>
                         </data>
                     </cell>
