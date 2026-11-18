@@ -846,12 +846,18 @@ pi2.total,
 pi2.price,
 pi2.discount_amount,
 pi2.price_discounted,
-pi2.total * ic.value_conversion as total_item,
+pi2.total * (
+    SELECT ic.value_conversion
+    FROM inventory_conversions ic
+    WHERE ic.inventory_id = pi2.inventory_id
+      AND ic.unit_from_id = pi2.unit_inventory_id
+    ORDER BY ic.inventory_conversion_id
+    LIMIT 1
+) as total_item,
 pi2.discount_type as discount_type
 FROM purchase_inventories pi2 
 LEFT JOIN inventory i ON i.inventory_id = pi2.inventory_id 
 LEFT JOIN item_unit iu ON iu.item_unit_id = pi2.unit_inventory_id 
-LEFT JOIN inventory_conversions ic ON ic.inventory_id = pi2.inventory_id AND ic.unit_from_id = pi2.unit_inventory_id 
 WHERE pi2.purchase_id = ?]]></xml-property>
             <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
